@@ -1,7 +1,4 @@
 # 🐍 Slither Clone SIO ✨ - A Full-Stack & Supercharged Slither.io Clone!
-[![Node.js]()](https://nodejs.org/)
-[![License: MIT]()](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://github.com/mathe00/slither-clone-sio) <!-- Update repo link -->
 
 ![Gameplay Screenshot](placeholder-screenshot.png) <!-- TODO: Add a real screenshot! -->
 
