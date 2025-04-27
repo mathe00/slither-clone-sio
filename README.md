@@ -2,7 +2,7 @@
 
 ![Gameplay Screenshot](placeholder-screenshot.png) <!-- TODO: Add a real screenshot! -->
 
-Welcome to **Slither Clone SIO**, a modern and feature-rich reinterpretation of the classic Slither.io game. Developed entirely in JavaScript with Node.js, Express, Socket.IO, and **WebGL** for ultra-performant client-side rendering, this project goes beyond a simple clone. It integrates a robust architecture, advanced customization features, a comprehensive admin system, and optimizations for a smooth and engaging gaming experience. 🚀
+Welcome to **Slither Clone SIO**, a modern and feature-rich reinterpretation of the classic Slither.io game. Developed entirely in JavaScript with Node.js, Express, Socket.IO, and **WebGL** for ultra-performant client-side rendering, this project goes beyond a simple clone. It integrates a robust architecture, advanced customization features, a comprehensive admin system, internationalization support, and optimizations for a smooth and engaging gaming experience. 🚀
 
 ---
 ## 🌟 Key Features (Features Packed!)
@@ -25,6 +25,23 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **Browser Zoom Prevention:** For an uninterrupted gaming experience.
 *   **Accessibility:** Keyboard navigation in menus.
 *   **Robust Offline Mode:** `offline.html` page with Snake minigame (ZQSD/WASD/Arrow controls) and automatic reconnection attempts (managed by Service Worker). PWA Ready! 📶
+*   **🌍 Internationalization (i18n):** User interface fully translated using `i18next`. Language is automatically detected from the browser, with fallbacks.
+    *   **Supported Languages:**
+        *   🇬🇧/🇺🇸 English (en)
+        *   🇫🇷 French (fr)
+        *   🇪🇸 Spanish (es)
+        *   🇩🇪 German (de)
+        *   🇨🇳 Chinese (zh)
+        *   🇸🇦 Arabic (ar)
+        *   🇧🇷/🇵🇹 Portuguese (pt)
+        *   🇷🇺 Russian (ru)
+        *   🇯🇵 Japanese (ja)
+        *   🇮🇳 Hindi (hi)
+        *   🇰🇷 Korean (ko)
+        *   🇮🇹 Italian (it)
+        *   🇹🇷 Turkish (tr)
+        *   🇮🇩 Indonesian (id)
+        *   🇵🇱 Polish (pl)
 
 **🎨 Advanced Customization:**
 *   **Snake Colors:** Choose the head and body color.
@@ -37,7 +54,7 @@ This project isn't just a snake eating dots. Discover everything it has under th
 **🔒 Security & Administration:**
 *   **User Accounts:** Secure account creation (`bcrypt` hashing), persistent sessions (`httpOnly` cookies).
 *   **Full Admin System:**
-    *   Dedicated web interface (`admin.html`) with tabs (some to be restored).
+    *   Dedicated web interface (`admin.html`, localized via i18next) with tabs.
     *   User management (CRUD, admin status, suspension).
     *   Pruning of inactive accounts (with preview). 🧹
     *   Server/game configuration editable live (some require restart).
@@ -49,9 +66,9 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **In-Game Moderation (Admin Ghost):** Kick, Ban (suspend + disconnect), Freeze/Unfreeze, Kill, Clear (removes without leaving food). 🚫
 
 **🔧 Architecture & Tech Stack:**
-*   **Modular Node.js Backend:** Organized code (`apiRoutes.js`, `gameLogic.js`, `socketHandlers.js`, `serverLifecycle.js`).
-*   **Modular JavaScript Client:** Separated logic (`game-main.js`, `game-renderer.js`, `webgl-utils.js`, `ui-logic.js`, `sound-manager.js`, `trail-effects.js`).
-*   **Clean Express API:** Dedicated routes for authentication, customization, administration.
+*   **Modular Node.js Backend:** Organized code (`apiRoutes.js`, `gameLogic.js`, `socketHandlers.js`, `serverLifecycle.js`). **Sends i18next keys** to the client for localized messages.
+*   **Modular JavaScript Client:** Separated logic (`game-main.js`, `game-renderer.js`, `webgl-utils.js`, `ui-logic.js`, `sound-manager.js`, `trail-effects.js`, `admin-logic.js`). **`ui-logic.js` and `admin-logic.js` handle i18next initialization and UI text rendering.**
+*   **Clean Express API:** Dedicated routes for authentication, customization, administration. **API responses use i18next keys for feedback.**
 *   **Performance Optimizations:**
     *   `worker_threads` for intensive collision calculations.
     *   Spatial Grid (`SpatialGrid`) to optimize nearby entity searches.
@@ -60,6 +77,8 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **Server Lifecycle Management:** Clean startup/shutdown, `server.lock` management.
 *   **Flexible Configuration:** Server and game settings managed via `config.json`.
 *   **Data Persistence:** Accounts (`accounts.json`) and sessions (`sessions.json`) saved.
+*   **Internationalization:** `i18next` library with JSON files in `/public/locales/`.
+*   **Progressive Web App (PWA):** Service Worker (`service-worker.js`) caches core assets, **including locale files and i18next libraries**, for offline functionality (localized offline page).
 
 ---
 ## ⚙️ Technical Deep Dive
@@ -74,7 +93,7 @@ Some key mechanisms explained:
 *   **Real-time Communication (Socket.IO & Alternatives):**
     Socket.IO is currently used for bidirectional communication. It handles sending client inputs, broadcasting the game state (via AoI), notifications, etc.
     *   **Client -> Server:** `mouse_move`, `boost`, `joinGame`, `clientCollisionDetected` (`low` mode), admin actions...
-    *   **Server -> Client(s):** `state`, `leaderboard`, `gameOver`, `mapSizeUpdate`, `adminMessage`, various notifications...
+    *   **Server -> Client(s):** `state`, `leaderboard`, `gameOver` (with i18next keys), `mapSizeUpdate`, `adminMessage`, various notifications (with i18next keys)...
     *   **Scalability:** For a very large number of concurrent players, Socket.IO (based on TCP) could become a bottleneck. Alternatives like **WebRTC** (for P2P or via SFU) or **WebTransport** (based on HTTP/3 and QUIC, allowing unreliable and ordered/unordered UDP streams) could offer superior performance but would significantly complicate the network architecture.
 
 *   **Collision Detection & Security Modes (`high` vs `low`):**
@@ -127,10 +146,6 @@ This project is a solid foundation, but here are some potential improvements and
 *   [ ] **Advanced Gameplay:**
     *   [ ] Add optional power-ups (temporary invincibility, food magnet, etc.) configurable via the admin panel.
     *   [ ] Create a Battle Royale mode with a progressively shrinking zone.
-*   [ ] **Internationalization (i18n):**
-    *   [ ] Implement a translation system for all user-visible text (labels, messages, UI elements, etc.).
-    *   *Target Languages:* English, French, Spanish, German, and potentially more. 🌍
-    *   *Ideas:* Use an i18n library (like `i18next`) with JSON translation files per language. Detect browser language or allow user selection.
 *   [ ] **Code Refactoring & Cleanup:**
     *   [ ] Full code review to improve comments (in English), remove obsolete development comments ("FIN modification", "ajout ici", etc.).
     *   [ ] Ensure consistent JSDoc documentation for important functions.
@@ -140,7 +155,7 @@ This project is a solid foundation, but here are some potential improvements and
 ## 🤔 Creator's Note & Contributions
 This project is a personal adventure into web game development, largely achieved with the help of AI (Google's Gemini 2.5 Pro and its impressive ability to handle large code contexts!). I'm not a professional developer, just an enthusiast tinkering and learning by doing. 😅
 
-The code isn't perfect by the strictest professional standards, but it works and integrates an impressive number of features. The main goal was to explore possibilities and have fun.
+The code isn't perfect by the strictest professional standards, but it works and integrates an impressive number of features, including full internationalization. The main goal was to explore possibilities and have fun.
 
 **Contributions are welcome!** If you're an experienced developer (or even a motivated beginner!) and see areas for improvement, bugs to fix, or want to implement one of the roadmap ideas (like the Phaser migration!), feel free to open an *Issue* or a *Pull Request* on the GitHub repository. Your help would be greatly appreciated! 🙏
 
@@ -168,7 +183,7 @@ The code isn't perfect by the strictest professional standards, but it works and
     npm start
     # Or: node backend/server.js
     ```
-6.  **Play!** Open your browser and navigate to `http://localhost:3000` (or the configured port).
+6.  **Play!** Open your browser and navigate to `http://localhost:3000` (or the configured port). Your browser's language should be automatically detected for the UI text.
 
 ---
 ## 📜 License
