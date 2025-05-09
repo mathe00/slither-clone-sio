@@ -32,12 +32,12 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **Accessibility:** Keyboard navigation in menus.
 *   **Robust Offline Mode:** `offline.html` page with Snake minigame (ZQSD/WASD/Arrow controls) and automatic reconnection attempts (managed by Service Worker). PWA Ready! 📶
 *   **🌍 Internationalization (i18n):** User interface fully translated using `i18next`. Language is automatically detected from the browser, with fallbacks.
-    *   **Supported Languages:**
+    *   **Supported Languages (+30):**
         *   🇬🇧/🇺🇸 English (en)
         *   🇫🇷 French (fr)
         *   🇪🇸 Spanish (es)
         *   🇩🇪 German (de)
-        *   🇨🇳 Chinese (zh)
+        *   🇨🇳 Chinese - Simplified (zh)
         *   🇸🇦 Arabic (ar)
         *   🇧🇷/🇵🇹 Portuguese (pt)
         *   🇷🇺 Russian (ru)
@@ -48,6 +48,26 @@ This project isn't just a snake eating dots. Discover everything it has under th
         *   🇹🇷 Turkish (tr)
         *   🇮🇩 Indonesian (id)
         *   🇵🇱 Polish (pl)
+        *   🇮🇳 Bengali (bn)
+        *   🇵🇰/🇮🇳 Urdu (ur)
+        *   🇻🇳 Vietnamese (vi)
+        *   🇹🇭 Thai (th)
+        *   🇵🇭 Filipino (fil)
+        *   🇮🇷/🇦🇫/🇹🇯 Persian (Farsi) (fa)
+        *   🇲🇾/🇧🇳/🇸🇬 Malay (ms)
+        *   🇳🇱/🇧🇪 Dutch (nl)
+        *   🇺🇦 Ukrainian (uk)
+        *   🇬🇷 Greek (el)
+        *   🇸🇪 Swedish (sv) *(representing Scandinavian)*
+        *   🇫🇮 Finnish (fi)
+        *   🇭🇺 Hungarian (hu)
+        *   🇷🇴 Romanian (ro)
+        *   🇨🇿 Czech (cs)
+        *   🌍 Swahili (sw)
+        *   🌍 Hausa (ha)
+        *   🇳🇬 Yoruba (yo)
+        *   🇳🇬 Igbo (ig)
+        *   🇹🇼/🇭🇰 Chinese - Traditional (zht)
 
 **🎨 Advanced Customization:**
 *   **Snake Colors:** Choose the head and body color.
@@ -142,7 +162,9 @@ This project is a solid foundation, but here are some potential improvements and
     *   [ ] **Simplify Main Menu:** Reorganize/group buttons for a less cluttered and more intuitive interface. ([Issue #4](https://github.com/mathe00/slither-clone-sio/issues/4))
 *   **Gameplay:**
     *   [ ] **Improve Collision Detection Accuracy & Bot Collisions:** Address inaccuracies with player tail collisions and significantly bugged bot collisions. ([Issue #1](https://github.com/mathe00/slither-clone-sio/issues/1))
-    *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type. (This is still a valid point, you can create a new issue for it or link it if it relates to a broader particle system enhancement).
+    *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type.
+*   **Internationalization (i18n):**
+    *   [ ] **Expand Language Support:** Add translations for over 15 new languages to reach a broader global audience. ([Issue #9](https://github.com/mathe00/slither-clone-sio/issues/9))
 
 ### ⏳ Future Improvements (Lower Priority)
 *   [ ] **Rendering Engine Migration:**
