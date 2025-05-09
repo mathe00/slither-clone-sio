@@ -128,35 +128,34 @@ Some key mechanisms explained:
     ```
     This data is sent to the client during `joinGame` (for logged-in players) or directly by the client (for temporary players). The server includes it in `state` messages. The client (`game-renderer.js`) uses `skinData` to choose how to draw the body (single color or alternating `patternColors`), and `game-main.js` uses it to trigger the correct particle effect via `trail-effects.js`. The head color (`headColor`) is stored separately in `accounts.json` but managed alongside `skinData` in forms and the `/updateSkin` API.
 
----
 ## 🗺️ Roadmap & Future Ideas
 This project is a solid foundation, but here are some potential improvements and planned fixes:
 
 ### ✅ To-Do (Priority)
 *   **Optimization & Scalability:**
-    *   [ ] **Socket Performance:** Evaluate and potentially enhance the Socket.IO server's capacity to handle a large number of concurrent players.
+    *   [ ] **Socket Performance:** Evaluate and potentially enhance the Socket.IO server's capacity to handle a large number of concurrent players. ([Issue #2](https://github.com/mathe00/slither-clone-sio/issues/2))
         *   *Ideas:* Node.js profiling, message optimization (frequency, size, binary format?), clustering Node.js, consider WebTransport/WebRTC for >1000 player scenarios?
-    *   [ ] **AoI (Area of Interest) Precision:** Currently, AoI only considers the *head* position of other players. A player whose tail is the only part within the AoI won't be visible, potentially causing unfair deaths.
+    *   [ ] **AoI (Area of Interest) Precision:** Currently, AoI only considers the *head* position of other players. A player whose tail is the only part within the AoI won't be visible, potentially causing unfair deaths. ([Issue #3](https://github.com/mathe00/slither-clone-sio/issues/3))
         *   *Approach 1:* Send the full data of a player as soon as *any* part of their body (trail) enters the client's AoI. Simple but potentially higher bandwidth usage.
         *   *Approach 2:* Send only the *part* of the trail that is visible within the AoI. More complex to manage server and client-side (truncating/reconstructing trails) but more bandwidth-efficient.
 *   **UI (User Interface):**
-    *   [ ] **Simplify Main Menu:** Reorganize/group buttons for a less cluttered and more intuitive interface.
+    *   [ ] **Simplify Main Menu:** Reorganize/group buttons for a less cluttered and more intuitive interface. ([Issue #4](https://github.com/mathe00/slither-clone-sio/issues/4))
 *   **Gameplay:**
-    *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type.
+    *   [ ] **Improve Collision Detection Accuracy & Bot Collisions:** Address inaccuracies with player tail collisions and significantly bugged bot collisions. ([Issue #1](https://github.com/mathe00/slither-clone-sio/issues/1))
+    *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type. (This is still a valid point, you can create a new issue for it or link it if it relates to a broader particle system enhancement).
 
 ### ⏳ Future Improvements (Lower Priority)
 *   [ ] **Rendering Engine Migration:**
-    *   [ ] Explore migrating the client-side rendering from the current custom WebGL implementation to a dedicated game framework like **Phaser**.
+    *   [ ] Explore migrating the client-side rendering from the current custom WebGL implementation to a dedicated game framework like **Phaser**. ([Issue #5](https://github.com/mathe00/slither-clone-sio/issues/5))
     *   *Rationale:* Phaser could simplify development (scene management, sprites, physics helpers), potentially offer comparable or better performance depending on usage, and benefit from a larger community and ecosystem. This would involve a significant refactor of `game-renderer.js`, `webgl-utils.js`, and parts of `game-main.js`.
 *   [ ] **Advanced Gameplay:**
-    *   [ ] Add optional power-ups (temporary invincibility, food magnet, etc.) configurable via the admin panel.
-    *   [ ] Create a Battle Royale mode with a progressively shrinking zone.
+    *   [ ] Add optional power-ups (temporary invincibility, food magnet, etc.) configurable via the admin panel. ([Issue #6](https://github.com/mathe00/slither-clone-sio/issues/6))
+    *   [ ] Create a Battle Royale mode with a progressively shrinking zone. ([Issue #7](https://github.com/mathe00/slither-clone-sio/issues/7))
 *   [ ] **Code Refactoring & Cleanup:**
-    *   [ ] Full code review to improve comments (in English), remove obsolete development comments.
+    *   [ ] Full code review to improve comments (in English), remove obsolete development comments. ([Issue #8](https://github.com/mathe00/slither-clone-sio/issues/8))
     *   [ ] Ensure consistent JSDoc documentation for important functions.
     *   [ ] Standardize code style further if necessary.
 
----
 ## 🤔 Creator's Note & Contributions
 This project is a personal adventure into web game development, largely achieved with the help of AI (Google's Gemini 2.5 Pro and its impressive ability to handle large code contexts!). I'm not a professional developer, just an enthusiast tinkering and learning by doing. 😅
 
