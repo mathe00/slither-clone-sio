@@ -206,7 +206,7 @@ If you have any questions about donations or encounter any issues, please feel f
 
 ---
 ## 📜 License
-This project is distributed under the **MIT License**. See the `LICENSE` file (to be added if needed) or [choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/) for more details.
+This project is distributed under the **MIT License**. See the `LICENSE` file or [choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/) for more details.
 
 ---
 Have fun growing your snake! 🐍🎉
