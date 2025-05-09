@@ -37,6 +37,7 @@ This project isn't just a snake eating dots. Discover everything it has under th
         *   🇪🇸 Spanish (es)
         *   🇩🇪 German (de)
         *   🇨🇳 Chinese - Simplified (zh)
+        *   (Note: Full Right-to-Left layout for languages like Arabic, Persian, Urdu is planned but not yet implemented - see [Issue #10](https://github.com/mathe00/slither-clone-sio/issues/10))
         *   🇸🇦 Arabic (ar)
         *   🇧🇷/🇵🇹 Portuguese (pt)
         *   🇷🇺 Russian (ru)
