@@ -1,3 +1,4 @@
+// --- README.md ---
 # 🐍 Slither Clone SIO ✨ - A Full-Stack & Supercharged Slither.io Clone!
 
 <p align="center">
@@ -140,7 +141,6 @@ This project is a solid foundation, but here are some potential improvements and
         *   *Approach 2:* Send only the *part* of the trail that is visible within the AoI. More complex to manage server and client-side (truncating/reconstructing trails) but more bandwidth-efficient.
 *   **UI (User Interface):**
     *   [ ] **Simplify Main Menu:** Reorganize/group buttons for a less cluttered and more intuitive interface.
-    *   [ ] **Restore Admin Panel Tabs:** Reintegrate missing tabs (likely related to specific features removed or planned).
 *   **Gameplay:**
     *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type.
 
