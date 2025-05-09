@@ -273,8 +273,16 @@ function handlePlayerDeath(playerId, reason, isKill, killerId = null, deathConte
 
   const { reasonKey = "game.deathReason.unknown", reasonOptions = {} } = deathContext;
 
+  let effectivePlayerSecurityOnDeath = config.SECURITY_MODE;
+  // Note: p.isGhost is already checked at the start of the function, so p here is not a ghost.
+  if (config.SECURITY_MODE === 'medium' && p.isAdmin) {
+    effectivePlayerSecurityOnDeath = 'low (admin)';
+  }
   console.log(
-    `Entity ${p.name} (${playerId}, type: ${p.type}) died. Reason Key: ${reasonKey}. Kill: ${isKill}`
+    `Entity ${p.name} (${playerId}, type: ${p.type}) died. ` +
+    `Admin: ${p.isAdmin}, Temp: ${p.isTemporary}. ` +
+    `GlobalMode: ${config.SECURITY_MODE}, PlayerEffectiveModeAtDeath: ${effectivePlayerSecurityOnDeath}. ` +
+    `Reason Key: ${reasonKey}, Kill: ${isKill}${killerId ? `, Killer: ${players[killerId]?.name || killerId}` : ''}`
   );
 
   // Emit gameOver only to human players, sending the key and options
@@ -477,9 +485,19 @@ function updateBot(p, now, deltaTime) {
     }
   }
 
-  // Bot Collision (Player/Bot) - Handled by Worker
+  // Bot Collision (Player/Bot) - Handled by Worker (if applicable)
+  let shouldDispatchBotToWorker = false;
   if (config.SECURITY_MODE === 'high' && !p.hasCollided && !p.godmode) {
-    const nearbyEntities = spatialGrid
+    shouldDispatchBotToWorker = true;
+  }
+  // Bots are always checked server-side if SECURITY_MODE is 'high' or 'medium'.
+  // In 'medium' mode, we still check bots server-side because they don't send clientCollisionDetected.
+  // They are not "admins" to be trusted.
+  else if (config.SECURITY_MODE === 'medium' && !p.hasCollided && !p.godmode) {
+    shouldDispatchBotToWorker = true;
+  }
+
+  if (shouldDispatchBotToWorker) {    const nearbyEntities = spatialGrid
       .queryNearbyRadius(p.x, p.y, config.COLLISION_RADIUS * 2)
       .filter(
         (item) =>
@@ -679,7 +697,12 @@ function gameLoop() {
       const distMoved = Math.sqrt(dx * dx + dy * dy);
       const maxPossibleSpeedPerMs = (config.SPEED * 2) / (1000 / config.FPS);
       const maxDistance = maxPossibleSpeedPerMs * deltaTPTime;
-      const toleranceFactor =
+      let toleranceFactor = config.TELEPORT_TOLERANCE_FACTOR;
+      if (config.SECURITY_MODE === "low") {
+        toleranceFactor *= 1.2;
+      } else if (config.SECURITY_MODE === "medium" && p.isAdmin) {
+        toleranceFactor *= 1.2;
+      }
         config.SECURITY_MODE === "low"
           ? config.TELEPORT_TOLERANCE_FACTOR * 1.2
           : config.TELEPORT_TOLERANCE_FACTOR;
@@ -835,8 +858,17 @@ function gameLoop() {
       }
     }
 
-    // Player vs Player/Bot Collision (Worker)
+    // Player vs Player/Bot Collision (Worker dispatch logic)
+    let shouldDispatchToWorker = false;
     if (config.SECURITY_MODE === 'high' && !p.hasCollided && !p.godmode) {
+        shouldDispatchToWorker = true;
+    } else if (config.SECURITY_MODE === 'medium' && !p.isAdmin && !p.hasCollided && !p.godmode) {
+        shouldDispatchToWorker = true;
+    }
+    // In 'medium' mode, admins are not checked by worker, they rely on clientCollisionDetected.
+    // In 'low' mode, no one is checked by worker.
+
+    if (shouldDispatchToWorker) {
       const opponentCheckRadius = 500;
       const nearbyEntities = spatialGrid
         .queryNearbyRadius(p.x, p.y, opponentCheckRadius)

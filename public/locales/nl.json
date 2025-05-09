@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Beveiligingsmodus *:",
       "high": "Hoog (Aanbevolen)",
-      "low": "Laag (Client + Licht)"
+      "low": "Laag (Client + Licht)",
+      "medium": "Gemiddeld (Beheerders Client-Side)"
     },
     "teleportViolationThreshold": {
       "label": "Teleport Overtredingsdrempel:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Kaarthoogte (px)",
       "MAP_SHAPE": "Kaartvorm",
       "AOI_RADIUS": "Radius Interessegebied (AoI) (px)",
-      "SECURITY_MODE": "Beveiligingsmodus",
+      "SECURITY_MODE": "Beveiligingsmodus (Hoog: Volledige server / Gemiddeld: Beheerders Client-Side / Laag: Volledige client)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Slangengrootte Limiet (Standaard)",
       "INITIAL_SIZE": "Initiële Slangengrootte",
       "MIN_BOOST_SIZE": "Min. Grootte voor Boost",

@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Biztonsági Mód *:",
       "high": "Magas (Ajánlott)",
-      "low": "Alacsony (Kliens + Könnyű)"
+      "low": "Alacsony (Kliens + Könnyű)",
+      "medium": "Közepes (Adminok Kliensoldalon)"
     },
     "teleportViolationThreshold": {
       "label": "Teleportálási Szabálysértési Küszöb:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Térkép Magassága (px)",
       "MAP_SHAPE": "Térkép Alakja",
       "AOI_RADIUS": "Érdeklődési Terület Sugara (AoI) (px)",
-      "SECURITY_MODE": "Biztonsági Mód",
+      "SECURITY_MODE": "Biztonsági mód (Magas: Teljes szerver / Közepes: Adminok Kliensoldalon / Alacsony: Teljes kliens)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Kígyó Méretkorlátja (Alapértelmezett)",
       "INITIAL_SIZE": "Kígyó Kezdeti Mérete",
       "MIN_BOOST_SIZE": "Min. Méret a Boosthoz",

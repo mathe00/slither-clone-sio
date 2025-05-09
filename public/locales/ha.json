@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Yanayin Tsaro *:",
       "high": "Babba (An Shawarta)",
-      "low": "Ƙasa (Abokin Ciniki + Haske)"
+      "low": "Ƙasa (Abokin Ciniki + Haske)",
+      "medium": "Matsakaici (Masu Gudanarwa Bangaren Abokin Ciniki)"
     },
     "teleportViolationThreshold": {
       "label": "Matsayin Keta Dokar Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Tsayin Taswira (px)",
       "MAP_SHAPE": "Siffar Taswira",
       "AOI_RADIUS": "Radius na Yankin Sha'awa (AoI) (px)",
-      "SECURITY_MODE": "Yanayin Tsaro",
+      "SECURITY_MODE": "Yanayin Tsaro (Babba: Cikakken Sabar / Matsakaici: Masu Gudanarwa Abokin Ciniki / Kasa: Cikakken Abokin Ciniki)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Iyakar Girman Maciji (Na asali)",
       "INITIAL_SIZE": "Girman Maciji na Farko",
       "MIN_BOOST_SIZE": "Mafi Karancin Girma don Boost",

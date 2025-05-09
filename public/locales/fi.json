@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Turvallisuustila *:",
       "high": "Korkea (Suositeltu)",
-      "low": "Matala (Asiakas + Kevyt)"
+      "low": "Matala (Asiakas + Kevyt)",
+      "medium": "Keskitaso (Järjestelmänvalvojat asiakaspuolella)"
     },
     "teleportViolationThreshold": {
       "label": "Teleporttirikkomuksen Kynnysarvo:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Kartan Korkeus (px)",
       "MAP_SHAPE": "Kartan Muoto",
       "AOI_RADIUS": "Kiinnostusalueen Säde (AoI) (px)",
-      "SECURITY_MODE": "Turvallisuustila",
+      "SECURITY_MODE": "Turvatila (Korkea: Koko palvelin / Keskitaso: Järjestelmänvalvojat asiakaspuolella / Matala: Koko asiakas)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Madon Koon Raja (Oletus)",
       "INITIAL_SIZE": "Madon Alkukoko",
       "MIN_BOOST_SIZE": "Min. Koko Boostille",

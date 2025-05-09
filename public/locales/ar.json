@@ -1,527 +1,527 @@
 {
-    "pageTitle": "المسؤول - Slither Clone",
-    "backButtonTitle": "العودة إلى الصفحة الرئيسية",
-    "tabs": {
-      "settings": "الإعدادات العامة",
-      "users": "إدارة المستخدمين",
-      "currentConfig": "التكوين الحالي"
+  "pageTitle": "المسؤول - Slither Clone",
+  "backButtonTitle": "العودة إلى الصفحة الرئيسية",
+  "tabs": {
+    "settings": "الإعدادات العامة",
+    "users": "إدارة المستخدمين",
+    "currentConfig": "التكوين الحالي"
+  },
+  "settingsForm": {
+    "title": "الإعدادات العامة",
+    "passwordNote": "<strong>ملاحظة:</strong> لتعيين أو إعادة تعيين كلمة مرور المسؤول، أوقف الخادم وقم بتشغيله باستخدام الأمر:<br/><code>node backend/server.js --set-new-password YOUR_NEW_PASSWORD</code><br/>يتطلب الوصول إلى هذه الصفحة جلسة مسؤول نشطة (عبر ملف تعريف الارتباط).<br/>تتطلب بعض الإعدادات (المميزة بـ *) إعادة تشغيل الخادم لتطبيقها.",
+    "mapWidth": {
+      "label": "عرض الخريطة (بكسل) *:",
+      "placeholder": "مثال: 4000"
     },
-    "settingsForm": {
-      "title": "الإعدادات العامة",
-      "passwordNote": "<strong>ملاحظة:</strong> لتعيين أو إعادة تعيين كلمة مرور المسؤول، أوقف الخادم وقم بتشغيله باستخدام الأمر:<br/><code>node backend/server.js --set-new-password YOUR_NEW_PASSWORD</code><br/>يتطلب الوصول إلى هذه الصفحة جلسة مسؤول نشطة (عبر ملف تعريف الارتباط).<br/>تتطلب بعض الإعدادات (المميزة بـ *) إعادة تشغيل الخادم لتطبيقها.",
-      "mapWidth": {
-        "label": "عرض الخريطة (بكسل) *:",
-        "placeholder": "مثال: 4000"
-      },
-      "mapHeight": {
-        "label": "ارتفاع الخريطة (بكسل) *:",
-        "placeholder": "مثال: 4000"
-      },
-      "mapShape": {
-        "label": "شكل الخريطة *:",
-        "rectangle": "مستطيل",
-        "circle": "دائرة"
-      },
-      "aoiRadius": {
-        "label": "نصف قطر منطقة الاهتمام (AoI) (بكسل) *:",
-        "placeholder": "مثال: 2000"
-      },
-      "maxTrailLengthDefault": {
-        "label": "حد حجم الثعبان (الافتراضي):",
-        "placeholder": "مثال: 1000"
-      },
-      "initialSize": {
-        "label": "حجم الثعبان الأولي:",
-        "placeholder": "مثال: 50"
-      },
-      "speed": {
-        "label": "السرعة الأساسية:",
-        "placeholder": "مثال: 1"
-      },
-      "maxRotationRate": {
-        "label": "أقصى معدل دوران (راديان/تكة):",
-        "placeholder": "مثال: 0.08"
-      },
-      "minBoostSize": {
-        "label": "أدنى حجم للتعزيز:",
-        "placeholder": "مثال: 50"
-      },
-      "boostConsumptionRate": {
-        "label": "معدل استهلاك التعزيز:",
-        "placeholder": "مثال: 1"
-      },
-      "foodSpawnInterval": {
-        "label": "فاصل ظهور الطعام (مللي ثانية):",
-        "placeholder": "مثال: 5000"
-      },
-      "fps": {
-        "label": "معدل إطارات الخادم (حلقة/ثانية):",
-        "placeholder": "مثال: 45"
-      },
-      "foodAttractionStrength": {
-        "label": "قوة جذب الطعام:",
-        "placeholder": "مثال: 0.1"
-      },
-      "foodSnapDistance": {
-        "label": "مسافة التقاط الطعام:",
-        "placeholder": "مثال: 5"
-      },
-      "defaultZoomLevel": {
-        "label": "مستوى التكبير الافتراضي:",
-        "placeholder": "مثال: 1.0"
-      },
-      "securityMode": {
-        "label": "وضع الأمان *:",
-        "high": "مرتفع (موصى به)",
-        "low": "منخفض (عميل + خفيف)"
-      },
-      "teleportViolationThreshold": {
-        "label": "عتبة انتهاك الانتقال الآني:",
-        "placeholder": "مثال: 5"
-      },
-      "teleportToleranceFactor": {
-        "label": "عامل تحمل الانتقال الآني:",
-        "placeholder": "مثال: 1.5"
-      },
-      "botsEnabled": {
-        "label": "تمكين الروبوتات:",
-        "yes": "نعم",
-        "no": "لا"
-      },
-      "botMaxCount": {
-        "label": "أقصى عدد للروبوتات:",
-        "placeholder": "مثال: 10"
-      },
-      "botSpawnIntervalMs": {
-        "label": "فاصل ظهور الروبوتات (مللي ثانية):",
-        "placeholder": "مثال: 5000"
-      },
-      "botExpirationTimeMs": {
-        "label": "عمر الروبوت (مللي ثانية):",
-        "placeholder": "مثال: 120000"
-      },
-      "botDifficulty": {
-        "label": "صعوبة الروبوت:",
-        "easy": "سهل",
-        "medium": "متوسط",
-        "hard": "صعب"
-      },
-      "adminMessageText": {
-        "label": "رسالة المسؤول (اتركها فارغة للمسح):",
-        "placeholder": "رسالة لعرضها لجميع اللاعبين"
-      },
-      "adminMessageDuration": {
-        "label": "مدة الرسالة (ثواني):",
-        "placeholder": "مثال: 10"
-      },
-      "updateButton": "تحديث الإعدادات"
+    "mapHeight": {
+      "label": "ارتفاع الخريطة (بكسل) *:",
+      "placeholder": "مثال: 4000"
     },
-    "userManagement": {
-      "title": "إدارة المستخدمين",
-      "loading": "جار التحميل...",
-      "noUsers": "لم يتم العثور على مستخدمين.",
-      "table": {
-        "headerUser": "المستخدم",
-        "headerStatus": "الحالة",
-        "headerLastLogin": "آخر تسجيل دخول",
-        "headerCreated": "تاريخ الإنشاء",
-        "headerActions": "الإجراءات"
-      },
-      "status": {
-        "admin": "مسؤول",
-        "suspended": "معلق",
-        "normal": "عادي",
-        "never": "أبدًا",
-        "unknown": "غير معروف"
-      },
-      "actions": {
-        "removeAdmin": "إزالة المسؤول",
-        "makeAdmin": "جعله مسؤولاً",
-        "unban": "إلغاء التعليق",
-        "suspend": "تعليق",
-        "delete": "حذف"
-      },
-      "pruneButton": "تنظيف الحسابات غير النشطة",
-      "confirmDelete": "هل أنت متأكد من رغبتك في حذف المستخدم \"{{username}}\" بشكل دائم؟ هذا الإجراء لا يمكن التراجع عنه.",
-      "confirmPrune_one": "هل أنت متأكد من رغبتك في حذف {{count}} حساب غير نشط (غير نشط لأكثر من 15 يومًا وإحصائيات منخفضة جدًا)؟ هذا الإجراء لا يمكن التراجع عنه.",
-      "confirmPrune_other": "هل أنت متأكد من رغبتك في حذف {{count}} حسابات غير نشطة (غير نشطة لأكثر من 15 يومًا وإحصائيات منخفضة جدًا)؟ هذا الإجراء لا يمكن التراجع عنه.",
-      "confirmPruneZero": "لم يتم العثور على حسابات غير نشطة بناءً على المعايير الحالية. هل ما زلت ترغب في تشغيل العملية (للاحتياط)؟",
-      "confirmPruneZeroConfirm": "تأكيد عملية التنظيف حتى لو تم اكتشاف 0 حساب؟",
-      "pruneCancelled": "تم إلغاء عملية التنظيف."
+    "mapShape": {
+      "label": "شكل الخريطة *:",
+      "rectangle": "مستطيل",
+      "circle": "دائرة"
     },
-    "currentConfig": {
-      "title": "التكوين الحالي للخادم",
-      "loading": "جار تحميل التكوين...",
-      "loadError": "تعذر تحميل التكوين.",
-      "loadSuccess": "تم تحميل التكوين الحالي.",
-      "keys": {
-        "MAP_WIDTH": "عرض الخريطة (بكسل)",
-        "MAP_HEIGHT": "ارتفاع الخريطة (بكسل)",
-        "MAP_SHAPE": "شكل الخريطة",
-        "AOI_RADIUS": "نصف قطر منطقة الاهتمام (AoI) (بكسل)",
-        "SECURITY_MODE": "وضع الأمان",
-        "MAX_TRAIL_LENGTH_DEFAULT": "حد حجم الثعبان (الافتراضي)",
-        "INITIAL_SIZE": "حجم الثعبان الأولي",
-        "MIN_BOOST_SIZE": "أدنى حجم للتعزيز",
-        "SPEED": "السرعة الأساسية",
-        "MAX_ROTATION_RATE": "أقصى معدل دوران",
-        "BOOST_CONSUMPTION_RATE": "استهلاك التعزيز (الحجم/تكة)",
-        "FPS": "معدل إطارات الخادم",
-        "FOOD_SPAWN_INTERVAL": "فاصل ظهور الطعام (مللي ثانية)",
-        "FOOD_ATTRACTION_STRENGTH": "قوة جذب الطعام",
-        "FOOD_SNAP_DISTANCE": "مسافة التقاط الطعام",
-        "DEFAULT_ZOOM_LEVEL": "مستوى التكبير الافتراضي",
-        "TELEPORT_VIOLATION_THRESHOLD": "عتبة انتهاك الانتقال الآني",
-        "TELEPORT_TOLERANCE_FACTOR": "عامل تحمل الانتقال الآني",
-        "BOTS_ENABLED": "تمكين الروبوتات",
-        "BOT_MAX_COUNT": "أقصى عدد للروبوتات",
-        "BOT_SPAWN_INTERVAL_MS": "فاصل ظهور الروبوتات (مللي ثانية)",
-        "BOT_EXPIRATION_TIME_MS": "عمر الروبوت (مللي ثانية)",
-        "BOT_DIFFICULTY": "صعوبة الروبوت"
-      },
-      "boolean": {
-        "yes": "نعم",
-        "no": "لا"
-      }
+    "aoiRadius": {
+      "label": "نصف قطر منطقة الاهتمام (AoI) (بكسل) *:",
+      "placeholder": "مثال: 2000"
     },
-    "feedback": {
-      "accessDenied": "تم رفض الوصول. جارٍ إعادة التوجيه...",
-      "settingsUpdated": "تم تحديث الإعدادات بنجاح.",
-      "settingsUpdatedWithRestart": "تم تحديث الإعدادات. يتطلب إعادة تشغيل الخادم لتغييرات الخريطة/الأمان.",
-      "settingsUpdatedFpsRestart": "تم تحديث الإعدادات. تم إعادة تشغيل حلقة اللعبة لمعدل الإطارات.",
-      "settingsUpdateError": "خطأ في تحديث الإعدادات.",
-      "loadSettingsError": "خطأ في تحميل الإعدادات: {{error}}",
-      "loadUsersError": "خطأ في تحميل المستخدمين.",
-      "networkError": "خطأ في الشبكة أو الخادم غير متاح.",
-      "invalidResponse": "استجابة غير صالحة من الخادم (ليست JSON)",
-      "changes": "التغييرات:",
-      "restartRequired": "يلزم إعادة تشغيل الخادم لتطبيق التغييرات (حجم/شكل الخريطة، وضع الأمان، نصف قطر AoI).",
-      "fpsRestart": "تم إعادة تشغيل حلقة اللعبة لتطبيق معدل الإطارات الجديد.",
-      "noChanges": "لم يتم تعديل أي إعدادات.",
-      "userActionSuccess": "{{message}}",
-      "userActionError": "{{message}}",
-      "prunePreviewError": "خطأ أثناء المعاينة.",
-      "pruneError": "خطأ أثناء عملية التنظيف.",
-      "pruneSuccess": "{{message}}"
+    "maxTrailLengthDefault": {
+      "label": "حد حجم الثعبان (الافتراضي):",
+      "placeholder": "مثال: 1000"
     },
-    "soundManager": {
-      "alerts": {
-        "selectMp3": "الرجاء تحديد ملف MP3.",
-        "loginRequired": "يجب عليك تسجيل الدخول لحفظ الأصوات المخصصة.",
-        "saveError": "خطأ في حفظ الصوت. قد يكون التخزين المحلي ممتلئًا.",
-        "readError": "خطأ في قراءة ملف الصوت.",
-        "clearLoginRequired": "يجب عليك تسجيل الدخول لمسح الأصوات.",
-        "clearError": "حدث خطأ أثناء حذف الأصوات."
-      },
-      "confirms": {
-        "clearAll": "هل أنت متأكد من رغبتك في حذف جميع الأصوات المخصصة لهذا الحساب؟"
-      },
-      "statusTitles": {
-        "saveError": "خطأ في الحفظ",
-        "readError": "خطأ في القراءة",
-        "saved": "تم حفظ الصوت",
-        "savedWithName": "تم الحفظ: {{filename}}"
-      }
+    "initialSize": {
+      "label": "حجم الثعبان الأولي:",
+      "placeholder": "مثال: 50"
     },
-    "offlinePage": {
-      "title": "الخادم غير متاح - Slither Clone SIO",
-      "logoAlt": "شعار الخادم غير متاح",
-      "mainHeader": "الخادم غير متاح",
-      "explanation": "يبدو أن خادم <span class=\"game-name\">Slither Clone SIO</span> غير متصل مؤقتًا أو لا يمكن الوصول إليه. نحن نحاول إعادة الاتصال لك.",
-      "snakeTitle": "في هذه الأثناء، العب لعبة الثعبان!",
-      "snakeScoreLabel": "النتيجة: 0",
-      "snakeControls": "الأسهم / ZQSD / WASD: تحريك | Enter: بدء/إعادة تشغيل",
-      "status": {
-        "label": "الحالة:",
-        "searching": "جار البحث...",
-        "checking": "جار التحقق...",
-        "connected": "متصل!",
-        "nextAttemptLabel": "المحاولة التالية في",
-        "secondsSuffix": "ثانية",
-        "attemptsLabel": "المحاولات:"
-      },
-      "refreshButton": "التحقق الآن",
-      "redirectInfo": "سيتم إعادة توجيهك تلقائيًا بمجرد عودة الخادم للاتصال."
+    "speed": {
+      "label": "السرعة الأساسية:",
+      "placeholder": "مثال: 1"
     },
-    "offlineSnake": {
-      "hud": {
-        "scoreLabel": "النتيجة: {{score}}"
-      },
-      "gameOver": {
-        "win": "فوز!",
-        "lose": "خسارة!",
-        "scoreLabel": "النتيجة: {{score}}",
-        "promptLine1": "اضغط على Enter",
-        "promptLine2": "للعب مرة أخرى"
-      },
-      "countdown": "البدء في {{count}}",
-      "startScreen": {
-        "title": "الثعبان",
-        "promptLine1": "اضغط على Enter",
-        "promptLine2": "للعب"
-      }
+    "maxRotationRate": {
+      "label": "أقصى معدل دوران (راديان/تكة):",
+      "placeholder": "مثال: 0.08"
     },
-    "api": {
-      "errors": {
-        "internalServerError": "خطأ داخلي في الخادم.",
-        "invalidAdminStatus": "حالة 'isAdmin' غير صالحة.",
-        "userNotFound": "المستخدم غير موجود.",
-        "invalidSuspendStatus": "حالة 'isSuspended' غير صالحة.",
-        "cannotDeleteSelf": "لا يمكنك حذف حساب المسؤول الخاص بك هنا.",
-        "prunePreviewError": "خطأ أثناء معاينة التنظيف.",
-        "pruneError": "خطأ أثناء عملية التنظيف.",
-        "rateLimit": "محاولات إنشاء حساب كثيرة جدًا. يرجى المحاولة مرة أخرى في حوالي {{minutes}} دقيقة (دقائق).",
-        "missingCredentials": "اسم المستخدم وكلمة المرور مطلوبان.",
-        "usernameTooLong": "لا يمكن أن يتجاوز اسم المستخدم {{maxLength}} حرفًا.",
-        "usernameTooShort": "يجب أن يتكون اسم المستخدم من {{minLength}} أحرف على الأقل.",
-        "passwordTooShort": "يجب أن تتكون كلمة المرور من {{minLength}} أحرف على الأقل.",
-        "usernameTaken": "اسم المستخدم هذا مأخوذ بالفعل.",
-        "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صالحة.",
-        "accountSuspended": "هذا الحساب معلق حاليًا.",
-        "notAuthenticated": "غير مصادق عليه.",
-        "invalidHeadColor": "لون الرأس غير صالح.",
-        "missingSkinData": "بيانات المظهر مفقودة أو غير صالحة.",
-        "invalidBodyType": "نوع الجسم غير صالح.",
-        "invalidBodyColor": "لون الجسم غير صالح في بيانات المظهر.",
-        "invalidPatternColorsType": "يجب أن تكون ألوان النمط مصفوفة.",
-        "tooManyPatternColors": "ألوان نمط كثيرة جدًا (الحد الأقصى {{max}}).",
-        "invalidPatternColorValue": "تم العثور على لون غير صالح في النمط.",
-        "invalidTrailEffect": "تأثير الذيل غير صالح.",
-        "adminCannotDeleteSelf": "لا يمكن للمسؤولين حذف حساباتهم الخاصة عبر هذه الواجهة.",
-        "deleteAccountError": "خطأ داخلي أثناء حذف الحساب."
-      },
-      "success": {
-        "accountCreated": "تم إنشاء الحساب وتسجيل الدخول بنجاح.",
-        "login": "تم تسجيل الدخول بنجاح.",
-        "logout": "تم تسجيل الخروج بنجاح.",
-        "skinUpdated": "تم تحديث المظهر بنجاح.",
-        "accountDeleted": "تم حذف حسابك بنجاح."
-      },
-      "admin": {
-        "adminStatusUpdated": "تم تحديث حالة المسؤول لـ {{username}}.",
-        "suspendStatusUpdated": "تم تحديث حالة التعليق لـ {{username}}.",
-        "userDeleted": "تم حذف حساب {{username}} بنجاح.",
-        "pruneNoUsers": "لم يتم العثور على حسابات غير نشطة لتنظيفها.",
-        "pruneSuccess": "تم تنظيف {{count}} حساب (حسابات) غير نشط."
-      }
+    "minBoostSize": {
+      "label": "أدنى حجم للتعزيز:",
+      "placeholder": "مثال: 50"
     },
-    "socket": {
-      "loginFailed": {
-        "suspended": "حسابك معلق.",
-        "accountError": "خطأ في الحساب. يرجى تسجيل الدخول مرة أخرى.",
-        "alreadyConnected": "هذا الحساب متصل بالفعل باللعبة.",
-        "deletedByAdmin": "تم حذف حسابك بواسطة مسؤول.",
-        "accountDeleted": "تم حذف حسابك."
-      },
-      "kickReason": "تم طردك بواسطة {{admin}}",
-      "banReason": "تم حظرك بواسطة {{admin}}",
-      "clearReason": "تم تنظيفك بواسطة {{admin}}",
-      "adminFeedback": {
-        "unauthorized": "الإجراء غير مصرح به.",
-        "targetNotFound": "لم يتم العثور على اللاعب المستهدف.",
-        "kickSuccess": "تم طرد {{username}}.",
-        "kickOfflineSuccess": "تمت إزالة {{username}} (غير متصل بالفعل) من اللعبة.",
-        "kickError": "تعذر العثور على المقبس أو الحالة لـ {{username}}.",
-        "banSuccess": "تم حظر {{username}} (تم تعليق الحساب وطرد اللاعب).",
-        "banAccountOnlySuccess": "تم تعليق حساب {{username}} (اللاعب غير متصل بالفعل أو تمت إزالته).",
-        "banError": "لا يمكن حظر {{username}} (حساب مؤقت أو غير موجود).",
-        "freezeSuccess": "تم تجميد {{username}}.",
-        "unfreezeSuccess": "تم إلغاء تجميد {{username}}.",
-        "killSuccess": "تم قتل {{username}}.",
-        "clearSuccess": "تم تنظيف {{username}} (تمت إزالته دون إسقاط الطعام).",
-        "clearError": "تعذر تنظيف {{username}} (تمت إزالته بالفعل؟).",
-        "unknownAction": "إجراء غير معروف."
-      },
-      "userConnected": "انضم {{username}} إلى اللعبة.",
-      "userDisconnected": "غادر {{username}} اللعبة.",
-      "disconnectReason": "غير متصل: {{reason}}"
+    "boostConsumptionRate": {
+      "label": "معدل استهلاك التعزيز:",
+      "placeholder": "مثال: 1"
     },
-    "game": {
-      "deathReason": {
-        "unknown": "تصادم غير معروف",
-        "boundary": "اصطدمت بحدود الخريطة.",
-        "teleport": "غير متصل: حركة مشبوهة.",
-        "selfCollision": "مكافحة الغش: تصادم ذاتي.",
-        "inactivity": "عدم النشاط.",
-        "killedByAdmin": "قتلت بواسطة {{admin}}",
-        "botExpired": "انتهت صلاحية الروبوت.",
-        "clientCollision": "تصادم الجسم (عميل)"
-      }
+    "foodSpawnInterval": {
+      "label": "فاصل ظهور الطعام (مللي ثانية):",
+      "placeholder": "مثال: 5000"
     },
+    "fps": {
+      "label": "معدل إطارات الخادم (حلقة/ثانية):",
+      "placeholder": "مثال: 45"
+    },
+    "foodAttractionStrength": {
+      "label": "قوة جذب الطعام:",
+      "placeholder": "مثال: 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "مسافة التقاط الطعام:",
+      "placeholder": "مثال: 5"
+    },
+    "defaultZoomLevel": {
+      "label": "مستوى التكبير الافتراضي:",
+      "placeholder": "مثال: 1.0"
+    },
+    "securityMode": {
+      "label": "وضع الأمان *:",
+      "high": "مرتفع (موصى به)",
+      "low": "منخفض (عميل + خفيف)",
+      "medium": "متوسط (المسؤولون من جانب العميل)"
+    },
+    "teleportViolationThreshold": {
+      "label": "عتبة انتهاك الانتقال الآني:",
+      "placeholder": "مثال: 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "عامل تحمل الانتقال الآني:",
+      "placeholder": "مثال: 1.5"
+    },
+    "botsEnabled": {
+      "label": "تمكين الروبوتات:",
+      "yes": "نعم",
+      "no": "لا"
+    },
+    "botMaxCount": {
+      "label": "أقصى عدد للروبوتات:",
+      "placeholder": "مثال: 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "فاصل ظهور الروبوتات (مللي ثانية):",
+      "placeholder": "مثال: 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "عمر الروبوت (مللي ثانية):",
+      "placeholder": "مثال: 120000"
+    },
+    "botDifficulty": {
+      "label": "صعوبة الروبوت:",
+      "easy": "سهل",
+      "medium": "متوسط",
+      "hard": "صعب"
+    },
+    "adminMessageText": {
+      "label": "رسالة المسؤول (اتركها فارغة للمسح):",
+      "placeholder": "رسالة لعرضها لجميع اللاعبين"
+    },
+    "adminMessageDuration": {
+      "label": "مدة الرسالة (ثواني):",
+      "placeholder": "مثال: 10"
+    },
+    "updateButton": "تحديث الإعدادات"
+  },
+  "userManagement": {
+    "title": "إدارة المستخدمين",
+    "loading": "جار التحميل...",
+    "noUsers": "لم يتم العثور على مستخدمين.",
+    "table": {
+      "headerUser": "المستخدم",
+      "headerStatus": "الحالة",
+      "headerLastLogin": "آخر تسجيل دخول",
+      "headerCreated": "تاريخ الإنشاء",
+      "headerActions": "الإجراءات"
+    },
+    "status": {
+      "admin": "مسؤول",
+      "suspended": "معلق",
+      "normal": "عادي",
+      "never": "أبدًا",
+      "unknown": "غير معروف"
+    },
+    "actions": {
+      "removeAdmin": "إزالة المسؤول",
+      "makeAdmin": "جعله مسؤولاً",
+      "unban": "إلغاء التعليق",
+      "suspend": "تعليق",
+      "delete": "حذف"
+    },
+    "pruneButton": "تنظيف الحسابات غير النشطة",
+    "confirmDelete": "هل أنت متأكد من رغبتك في حذف المستخدم \"{{username}}\" بشكل دائم؟ هذا الإجراء لا يمكن التراجع عنه.",
+    "confirmPrune_one": "هل أنت متأكد من رغبتك في حذف {{count}} حساب غير نشط (غير نشط لأكثر من 15 يومًا وإحصائيات منخفضة جدًا)؟ هذا الإجراء لا يمكن التراجع عنه.",
+    "confirmPrune_other": "هل أنت متأكد من رغبتك في حذف {{count}} حسابات غير نشطة (غير نشطة لأكثر من 15 يومًا وإحصائيات منخفضة جدًا)؟ هذا الإجراء لا يمكن التراجع عنه.",
+    "confirmPruneZero": "لم يتم العثور على حسابات غير نشطة بناءً على المعايير الحالية. هل ما زلت ترغب في تشغيل العملية (للاحتياط)؟",
+    "confirmPruneZeroConfirm": "تأكيد عملية التنظيف حتى لو تم اكتشاف 0 حساب؟",
+    "pruneCancelled": "تم إلغاء عملية التنظيف."
+  },
+  "currentConfig": {
+    "title": "التكوين الحالي للخادم",
+    "loading": "جار تحميل التكوين...",
+    "loadError": "تعذر تحميل التكوين.",
+    "loadSuccess": "تم تحميل التكوين الحالي.",
+    "keys": {
+      "MAP_WIDTH": "عرض الخريطة (بكسل)",
+      "MAP_HEIGHT": "ارتفاع الخريطة (بكسل)",
+      "MAP_SHAPE": "شكل الخريطة",
+      "AOI_RADIUS": "نصف قطر منطقة الاهتمام (AoI) (بكسل)",
+      "SECURITY_MODE": "وضع الأمان (عالي: خادم كامل / متوسط: المسؤولون من جانب العميل / منخفض: عميل كامل)",
+      "MAX_TRAIL_LENGTH_DEFAULT": "حد حجم الثعبان (الافتراضي)",
+      "INITIAL_SIZE": "حجم الثعبان الأولي",
+      "MIN_BOOST_SIZE": "أدنى حجم للتعزيز",
+      "SPEED": "السرعة الأساسية",
+      "MAX_ROTATION_RATE": "أقصى معدل دوران",
+      "BOOST_CONSUMPTION_RATE": "استهلاك التعزيز (الحجم/تكة)",
+      "FPS": "معدل إطارات الخادم",
+      "FOOD_SPAWN_INTERVAL": "فاصل ظهور الطعام (مللي ثانية)",
+      "FOOD_ATTRACTION_STRENGTH": "قوة جذب الطعام",
+      "FOOD_SNAP_DISTANCE": "مسافة التقاط الطعام",
+      "DEFAULT_ZOOM_LEVEL": "مستوى التكبير الافتراضي",
+      "TELEPORT_VIOLATION_THRESHOLD": "عتبة انتهاك الانتقال الآني",
+      "TELEPORT_TOLERANCE_FACTOR": "عامل تحمل الانتقال الآني",
+      "BOTS_ENABLED": "تمكين الروبوتات",
+      "BOT_MAX_COUNT": "أقصى عدد للروبوتات",
+      "BOT_SPAWN_INTERVAL_MS": "فاصل ظهور الروبوتات (مللي ثانية)",
+      "BOT_EXPIRATION_TIME_MS": "عمر الروبوت (مللي ثانية)",
+      "BOT_DIFFICULTY": "صعوبة الروبوت"
+    },
+    "boolean": {
+      "yes": "نعم",
+      "no": "لا"
+    }
+  },
+  "feedback": {
+    "accessDenied": "تم رفض الوصول. جارٍ إعادة التوجيه...",
+    "settingsUpdated": "تم تحديث الإعدادات بنجاح.",
+    "settingsUpdatedWithRestart": "تم تحديث الإعدادات. يتطلب إعادة تشغيل الخادم لتغييرات الخريطة/الأمان.",
+    "settingsUpdatedFpsRestart": "تم تحديث الإعدادات. تم إعادة تشغيل حلقة اللعبة لمعدل الإطارات.",
+    "settingsUpdateError": "خطأ في تحديث الإعدادات.",
+    "loadSettingsError": "خطأ في تحميل الإعدادات: {{error}}",
+    "loadUsersError": "خطأ في تحميل المستخدمين.",
+    "networkError": "خطأ في الشبكة أو الخادم غير متاح.",
+    "invalidResponse": "استجابة غير صالحة من الخادم (ليست JSON)",
+    "changes": "التغييرات:",
+    "restartRequired": "يلزم إعادة تشغيل الخادم لتطبيق التغييرات (حجم/شكل الخريطة، وضع الأمان، نصف قطر AoI).",
+    "fpsRestart": "تم إعادة تشغيل حلقة اللعبة لتطبيق معدل الإطارات الجديد.",
+    "noChanges": "لم يتم تعديل أي إعدادات.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "خطأ أثناء المعاينة.",
+    "pruneError": "خطأ أثناء عملية التنظيف.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "الرجاء تحديد ملف MP3.",
+      "loginRequired": "يجب عليك تسجيل الدخول لحفظ الأصوات المخصصة.",
+      "saveError": "خطأ في حفظ الصوت. قد يكون التخزين المحلي ممتلئًا.",
+      "readError": "خطأ في قراءة ملف الصوت.",
+      "clearLoginRequired": "يجب عليك تسجيل الدخول لمسح الأصوات.",
+      "clearError": "حدث خطأ أثناء حذف الأصوات."
+    },
+    "confirms": {
+      "clearAll": "هل أنت متأكد من رغبتك في حذف جميع الأصوات المخصصة لهذا الحساب؟"
+    },
+    "statusTitles": {
+      "saveError": "خطأ في الحفظ",
+      "readError": "خطأ في القراءة",
+      "saved": "تم حفظ الصوت",
+      "savedWithName": "تم الحفظ: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "الخادم غير متاح - Slither Clone SIO",
+    "logoAlt": "شعار الخادم غير متاح",
+    "mainHeader": "الخادم غير متاح",
+    "explanation": "يبدو أن خادم <span class=\"game-name\">Slither Clone SIO</span> غير متصل مؤقتًا أو لا يمكن الوصول إليه. نحن نحاول إعادة الاتصال لك.",
+    "snakeTitle": "في هذه الأثناء، العب لعبة الثعبان!",
+    "snakeScoreLabel": "النتيجة: 0",
+    "snakeControls": "الأسهم / ZQSD / WASD: تحريك | Enter: بدء/إعادة تشغيل",
+    "status": {
+      "label": "الحالة:",
+      "searching": "جار البحث...",
+      "checking": "جار التحقق...",
+      "connected": "متصل!",
+      "nextAttemptLabel": "المحاولة التالية في",
+      "secondsSuffix": "ثانية",
+      "attemptsLabel": "المحاولات:"
+    },
+    "refreshButton": "التحقق الآن",
+    "redirectInfo": "سيتم إعادة توجيهك تلقائيًا بمجرد عودة الخادم للاتصال."
+  },
+  "offlineSnake": {
     "hud": {
-      "sizeLabel": "الحجم: {{size}}",
-      "positionLabel": "الموضع: {{x}}x{{y}}",
-      "ghostMode": "وضع الشبح",
-      "spectator": "مشاهد"
-    },
-    "ghostMode": {
-      "selected": "المحدد: <span class=\"selected-player-name\">{{name}}</span>",
-      "unknownPlayer": "غير معروف",
-      "controlsSelected": "<kbd>K</kbd>: قتل | <kbd>C</kbd>: تنظيف | <kbd>F</kbd>: تجميد/إلغاء تجميد | <kbd>Esc</kbd>: إلغاء التحديد",
-      "controlsGeneral": "النقر الأيسر: تحديد كيان / سحب للتحريك<br>العجلة: تكبير/تصغير | <kbd>Esc</kbd>: إلغاء التحديد"
-    },
-    "mainPage": {
-      "title": "Slither Clone SIO"
-    },
-    "mainMenu": {
-      "title": "مرحبًا بك في <span class=\"blink\">Slither Clone SIO</span>",
-      "helpButtonTitle": "المساعدة والاعتمادات",
-      "adminLink": "المسؤول",
-      "exitGhostButton": "الخروج من وضع الشبح"
-    },
-    "ui": {
-      "buttons": {
-        "playGuest": "اللعب كضيف",
-        "playAsUser": "العب باسم {{username}}",
-        "login": "تسجيل الدخول",
-        "createAccount": "إنشاء حساب",
-        "customizeSkin": "تخصيص المظهر",
-        "customSounds": "الأصوات المخصصة",
-        "showLeaderboard": "إظهار لوحة المتصدرين",
-        "ghostMode": "وضع الشبح",
-        "deleteAccount": "حذف حسابي",
-        "logout": "تسجيل الخروج"
-      },
-      "alerts": {
-        "colorTooDark": "اللون المختار داكن جدًا وقد يكون من الصعب رؤيته. يوصى بلون أفتح.",
-        "missingCredentials": "الرجاء إدخال اسم مستخدم وكلمة مرور.",
-        "usernameLength": "يجب أن يتراوح طول اسم المستخدم بين {{min}} و {{max}} حرفًا.",
-        "passwordLength": "يجب أن تتكون كلمة المرور من {{min}} أحرف على الأقل.",
-        "maxPatternColors": "تم الوصول إلى الحد الأقصى لعدد ألوان النمط وهو {{max}}.",
-        "canvasError": "خطأ فادح: تعذر العثور على عنصر لوحة الرسم لتراكب النص!",
-        "gameModuleError": "خطأ فادح: تعذر تهيئة وحدة اللعبة!",
-        "fetchAccountError": "خطأ في جلب بيانات الحساب.",
-        "loginError": "خطأ في تسجيل الدخول: {{error}}",
-        "creationError": "خطأ في الإنشاء: {{error}}",
-        "skinUpdateError": "خطأ في الشبكة أو الخادم أثناء تحديث المظهر: {{error}}",
-        "skinUpdatedTemp": "تم تحديث المظهر للجلسة المؤقتة.",
-        "deleteAccountError": "خطأ في الشبكة أثناء حذف الحساب."
-      },
-      "confirms": {
-        "enterGhostMode": "الدخول إلى وضع الشبح (مشاهد)؟",
-        "deleteAccount": "هل أنت متأكد من رغبتك في حذف حسابك \"{{username}}\" بشكل دائم؟ هذا الإجراء لا يمكن التراجع عنه."
-      },
-      "welcomeMessage": "مرحبًا {{username}}!",
-      "welcomeMessage_admin": "مرحبًا {{username}} (مسؤول)!"
-    },
-    "forms": {
-      "common": {
-        "usernameLabel": "اسم المستخدم:",
-        "passwordLabel": "كلمة المرور:",
-        "backButton": "رجوع"
-      },
-      "guest": {
-        "title": "اللعب كضيف",
-        "note": "سيتم تعيين الألوان والمظهر عبر \"تخصيص المظهر\".",
-        "submitButton": "بدء اللعبة"
-      },
-      "login": {
-        "title": "تسجيل الدخول",
-        "submitButton": "تسجيل الدخول"
-      },
-      "create": {
-        "title": "إنشاء حساب",
-        "initialHeadColorLabel": "لون الرأس الأولي:",
-        "initialBodyColorLabel": "لون الجسم الأولي:",
-        "submitButton": "إنشاء"
-      },
-      "skin": {
-        "title": "تخصيص المظهر",
-        "headColorLabel": "لون الرأس:",
-        "bodyTypeLabel": "نوع الجسم",
-        "bodyTypeSingle": "لون واحد",
-        "bodyTypePattern": "نمط متكرر",
-        "bodyColorLabel": "لون الجسم:",
-        "patternColorsLabel": "ألوان النمط (الحد الأقصى 8)",
-        "trailEffectLabel": "تأثير الذيل",
-        "trailEffect": {
-          "none": "لا شيء",
-          "sparkle": "تألق",
-          "smoke": "دخان أخضر",
-          "fire": "نار",
-          "ice": "شظايا جليد",
-          "electric": "شرارات كهربائية",
-          "rainbow": "قوس قزح",
-          "bubbles": "فقاعات",
-          "glitch": "خلل",
-          "void": "فراغ / ظل",
-          "confetti": "قصاصات ورق ملون"
-        },
-        "submitButton": "حفظ المظهر"
-      },
-      "sound": {
-        "title": "الأصوات المخصصة",
-        "info": "قم بتحميل ملفات MP3 (مخزنة محليًا) للأحداث.",
-        "deathLabel": "صوت الموت:",
-        "killLabel": "صوت القتل:",
-        "boostLabel": "صوت التعزيز:",
-        "clearButton": "مسح الأصوات"
-      }
+      "scoreLabel": "النتيجة: {{score}}"
     },
     "gameOver": {
-      "replayButton": "إعادة اللعب",
-      "backToMenuButton": "العودة إلى القائمة",
-      "finalSizeLabel": "كان حجمك: {{size}}"
+      "win": "فوز!",
+      "lose": "خسارة!",
+      "scoreLabel": "النتيجة: {{score}}",
+      "promptLine1": "اضغط على Enter",
+      "promptLine2": "للعب مرة أخرى"
     },
-    "leaderboard": {
-      "title": "لوحة المتصدرين",
-      "header": {
-        "name": "الاسم",
-        "status": "الحالة",
-        "size": "الحجم",
-        "kills": "القتلى",
-        "deaths": "الوفيات",
-        "kd": "K/D"
-      },
-      "noPlayers": "لا يوجد لاعبون مصنفون بعد.",
-      "status": {
-        "ingame": "في اللعبة",
-        "online": "متصل",
-        "offline": "غير متصل",
-        "never": "أبدًا",
-        "na": "N/A",
-        "ingameTitle": "حاليا في اللعبة"
-      },
-      "time": {
-        "secondsAgo_one": "منذ {{count}} ثانية",
-        "secondsAgo_other": "منذ {{count}} ثوان",
-        "minutesAgo_one": "منذ {{count}} دقيقة",
-        "minutesAgo_other": "منذ {{count}} دقائق",
-        "hoursAgo_one": "منذ {{count}} ساعة",
-        "hoursAgo_other": "منذ {{count}} ساعات",
-        "daysAgo_one": "منذ {{count}} يوم",
-        "daysAgo_other": "منذ {{count}} أيام",
-        "yesterday": "أمس"
-      },
-      "lastLoginTitle": "آخر تسجيل دخول: {{date}}"
-    },
-    "helpPanel": {
-      "menuKeysTitle": "اختصارات لوحة المفاتيح (القائمة)",
-      "menuKeys": {
-        "navigate": "↑ / ↓ / Tab: التنقل بين الأزرار",
-        "activate": "Enter: تفعيل الزر المحدد",
-        "close": "Esc: إغلاق هذه اللوحة / رجوع"
-      },
-      "gameKeysTitle": "اختصارات لوحة المفاتيح (اللعبة)",
-      "gameKeys": {
-        "mouse": "الماوس: توجيه الثعبان",
-        "boost": "النقر الأيسر / المسافة: تعزيز",
-        "adminCheat": "P: غش المسؤول (إذا كان مسؤولاً)"
-      },
-      "ghostKeysTitle": "اختصارات لوحة المفاتيح (الشبح)",
-      "ghostKeys": {
-        "select": "النقر الأيسر (على اللاعب): تحديد اللاعب",
-        "pan": "النقر الأيسر + السحب (مساحة فارغة): تحريك الكاميرا",
-        "zoom": "عجلة الماوس: تكبير/تصغير",
-        "kill": "K (إذا تم تحديد اللاعب): قتل اللاعب",
-        "clear": "C (إذا تم تحديد اللاعب): تنظيف اللاعب (بدون طعام)",
-        "freeze": "F (إذا تم تحديد اللاعب): تجميد/إلغاء تجميد اللاعب",
-        "deselect": "Esc: إلغاء تحديد اللاعب"
-      },
-      "creditsTitle": "الاعتمادات",
-      "creditsAuthor": "المؤلف: مؤلف مجهول",
-      "creditsLicense": "الترخيص: MIT",
-      "creditsGithub": "المشروع على GitHub"
+    "countdown": "البدء في {{count}}",
+    "startScreen": {
+      "title": "الثعبان",
+      "promptLine1": "اضغط على Enter",
+      "promptLine2": "للعب"
     }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "خطأ داخلي في الخادم.",
+      "invalidAdminStatus": "حالة 'isAdmin' غير صالحة.",
+      "userNotFound": "المستخدم غير موجود.",
+      "invalidSuspendStatus": "حالة 'isSuspended' غير صالحة.",
+      "cannotDeleteSelf": "لا يمكنك حذف حساب المسؤول الخاص بك هنا.",
+      "prunePreviewError": "خطأ أثناء معاينة التنظيف.",
+      "pruneError": "خطأ أثناء عملية التنظيف.",
+      "rateLimit": "محاولات إنشاء حساب كثيرة جدًا. يرجى المحاولة مرة أخرى في حوالي {{minutes}} دقيقة (دقائق).",
+      "missingCredentials": "اسم المستخدم وكلمة المرور مطلوبان.",
+      "usernameTooLong": "لا يمكن أن يتجاوز اسم المستخدم {{maxLength}} حرفًا.",
+      "usernameTooShort": "يجب أن يتكون اسم المستخدم من {{minLength}} أحرف على الأقل.",
+      "passwordTooShort": "يجب أن تتكون كلمة المرور من {{minLength}} أحرف على الأقل.",
+      "usernameTaken": "اسم المستخدم هذا مأخوذ بالفعل.",
+      "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صالحة.",
+      "accountSuspended": "هذا الحساب معلق حاليًا.",
+      "notAuthenticated": "غير مصادق عليه.",
+      "invalidHeadColor": "لون الرأس غير صالح.",
+      "missingSkinData": "بيانات المظهر مفقودة أو غير صالحة.",
+      "invalidBodyType": "نوع الجسم غير صالح.",
+      "invalidBodyColor": "لون الجسم غير صالح في بيانات المظهر.",
+      "invalidPatternColorsType": "يجب أن تكون ألوان النمط مصفوفة.",
+      "tooManyPatternColors": "ألوان نمط كثيرة جدًا (الحد الأقصى {{max}}).",
+      "invalidPatternColorValue": "تم العثور على لون غير صالح في النمط.",
+      "invalidTrailEffect": "تأثير الذيل غير صالح.",
+      "adminCannotDeleteSelf": "لا يمكن للمسؤولين حذف حساباتهم الخاصة عبر هذه الواجهة.",
+      "deleteAccountError": "خطأ داخلي أثناء حذف الحساب."
+    },
+    "success": {
+      "accountCreated": "تم إنشاء الحساب وتسجيل الدخول بنجاح.",
+      "login": "تم تسجيل الدخول بنجاح.",
+      "logout": "تم تسجيل الخروج بنجاح.",
+      "skinUpdated": "تم تحديث المظهر بنجاح.",
+      "accountDeleted": "تم حذف حسابك بنجاح."
+    },
+    "admin": {
+      "adminStatusUpdated": "تم تحديث حالة المسؤول لـ {{username}}.",
+      "suspendStatusUpdated": "تم تحديث حالة التعليق لـ {{username}}.",
+      "userDeleted": "تم حذف حساب {{username}} بنجاح.",
+      "pruneNoUsers": "لم يتم العثور على حسابات غير نشطة لتنظيفها.",
+      "pruneSuccess": "تم تنظيف {{count}} حساب (حسابات) غير نشط."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "حسابك معلق.",
+      "accountError": "خطأ في الحساب. يرجى تسجيل الدخول مرة أخرى.",
+      "alreadyConnected": "هذا الحساب متصل بالفعل باللعبة.",
+      "deletedByAdmin": "تم حذف حسابك بواسطة مسؤول.",
+      "accountDeleted": "تم حذف حسابك."
+    },
+    "kickReason": "تم طردك بواسطة {{admin}}",
+    "banReason": "تم حظرك بواسطة {{admin}}",
+    "clearReason": "تم تنظيفك بواسطة {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "الإجراء غير مصرح به.",
+      "targetNotFound": "لم يتم العثور على اللاعب المستهدف.",
+      "kickSuccess": "تم طرد {{username}}.",
+      "kickOfflineSuccess": "تمت إزالة {{username}} (غير متصل بالفعل) من اللعبة.",
+      "kickError": "تعذر العثور على المقبس أو الحالة لـ {{username}}.",
+      "banSuccess": "تم حظر {{username}} (تم تعليق الحساب وطرد اللاعب).",
+      "banAccountOnlySuccess": "تم تعليق حساب {{username}} (اللاعب غير متصل بالفعل أو تمت إزالته).",
+      "banError": "لا يمكن حظر {{username}} (حساب مؤقت أو غير موجود).",
+      "freezeSuccess": "تم تجميد {{username}}.",
+      "unfreezeSuccess": "تم إلغاء تجميد {{username}}.",
+      "killSuccess": "تم قتل {{username}}.",
+      "clearSuccess": "تم تنظيف {{username}} (تمت إزالته دون إسقاط الطعام).",
+      "clearError": "تعذر تنظيف {{username}} (تمت إزالته بالفعل؟).",
+      "unknownAction": "إجراء غير معروف."
+    },
+    "userConnected": "انضم {{username}} إلى اللعبة.",
+    "userDisconnected": "غادر {{username}} اللعبة.",
+    "disconnectReason": "غير متصل: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "تصادم غير معروف",
+      "boundary": "اصطدمت بحدود الخريطة.",
+      "teleport": "غير متصل: حركة مشبوهة.",
+      "selfCollision": "مكافحة الغش: تصادم ذاتي.",
+      "inactivity": "عدم النشاط.",
+      "killedByAdmin": "قتلت بواسطة {{admin}}",
+      "botExpired": "انتهت صلاحية الروبوت.",
+      "clientCollision": "تصادم الجسم (عميل)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "الحجم: {{size}}",
+    "positionLabel": "الموضع: {{x}}x{{y}}",
+    "ghostMode": "وضع الشبح",
+    "spectator": "مشاهد"
+  },
+  "ghostMode": {
+    "selected": "المحدد: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "غير معروف",
+    "controlsSelected": "<kbd>K</kbd>: قتل | <kbd>C</kbd>: تنظيف | <kbd>F</kbd>: تجميد/إلغاء تجميد | <kbd>Esc</kbd>: إلغاء التحديد",
+    "controlsGeneral": "النقر الأيسر: تحديد كيان / سحب للتحريك<br>العجلة: تكبير/تصغير | <kbd>Esc</kbd>: إلغاء التحديد"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "مرحبًا بك في <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "المساعدة والاعتمادات",
+    "adminLink": "المسؤول",
+    "exitGhostButton": "الخروج من وضع الشبح"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "اللعب كضيف",
+      "playAsUser": "العب باسم {{username}}",
+      "login": "تسجيل الدخول",
+      "createAccount": "إنشاء حساب",
+      "customizeSkin": "تخصيص المظهر",
+      "customSounds": "الأصوات المخصصة",
+      "showLeaderboard": "إظهار لوحة المتصدرين",
+      "ghostMode": "وضع الشبح",
+      "deleteAccount": "حذف حسابي",
+      "logout": "تسجيل الخروج"
+    },
+    "alerts": {
+      "colorTooDark": "اللون المختار داكن جدًا وقد يكون من الصعب رؤيته. يوصى بلون أفتح.",
+      "missingCredentials": "الرجاء إدخال اسم مستخدم وكلمة مرور.",
+      "usernameLength": "يجب أن يتراوح طول اسم المستخدم بين {{min}} و {{max}} حرفًا.",
+      "passwordLength": "يجب أن تتكون كلمة المرور من {{min}} أحرف على الأقل.",
+      "maxPatternColors": "تم الوصول إلى الحد الأقصى لعدد ألوان النمط وهو {{max}}.",
+      "canvasError": "خطأ فادح: تعذر العثور على عنصر لوحة الرسم لتراكب النص!",
+      "gameModuleError": "خطأ فادح: تعذر تهيئة وحدة اللعبة!",
+      "fetchAccountError": "خطأ في جلب بيانات الحساب.",
+      "loginError": "خطأ في تسجيل الدخول: {{error}}",
+      "creationError": "خطأ في الإنشاء: {{error}}",
+      "skinUpdateError": "خطأ في الشبكة أو الخادم أثناء تحديث المظهر: {{error}}",
+      "skinUpdatedTemp": "تم تحديث المظهر للجلسة المؤقتة.",
+      "deleteAccountError": "خطأ في الشبكة أثناء حذف الحساب."
+    },
+    "confirms": {
+      "enterGhostMode": "الدخول إلى وضع الشبح (مشاهد)؟",
+      "deleteAccount": "هل أنت متأكد من رغبتك في حذف حسابك \"{{username}}\" بشكل دائم؟ هذا الإجراء لا يمكن التراجع عنه."
+    },
+    "welcomeMessage": "مرحبًا {{username}}!",
+    "welcomeMessage_admin": "مرحبًا {{username}} (مسؤول)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "اسم المستخدم:",
+      "passwordLabel": "كلمة المرور:",
+      "backButton": "رجوع"
+    },
+    "guest": {
+      "title": "اللعب كضيف",
+      "note": "سيتم تعيين الألوان والمظهر عبر \"تخصيص المظهر\".",
+      "submitButton": "بدء اللعبة"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "submitButton": "تسجيل الدخول"
+    },
+    "create": {
+      "title": "إنشاء حساب",
+      "initialHeadColorLabel": "لون الرأس الأولي:",
+      "initialBodyColorLabel": "لون الجسم الأولي:",
+      "submitButton": "إنشاء"
+    },
+    "skin": {
+      "title": "تخصيص المظهر",
+      "headColorLabel": "لون الرأس:",
+      "bodyTypeLabel": "نوع الجسم",
+      "bodyTypeSingle": "لون واحد",
+      "bodyTypePattern": "نمط متكرر",
+      "bodyColorLabel": "لون الجسم:",
+      "patternColorsLabel": "ألوان النمط (الحد الأقصى 8)",
+      "trailEffectLabel": "تأثير الذيل",
+      "trailEffect": {
+        "none": "لا شيء",
+        "sparkle": "تألق",
+        "smoke": "دخان أخضر",
+        "fire": "نار",
+        "ice": "شظايا جليد",
+        "electric": "شرارات كهربائية",
+        "rainbow": "قوس قزح",
+        "bubbles": "فقاعات",
+        "glitch": "خلل",
+        "void": "فراغ / ظل",
+        "confetti": "قصاصات ورق ملون"
+      },
+      "submitButton": "حفظ المظهر"
+    },
+    "sound": {
+      "title": "الأصوات المخصصة",
+      "info": "قم بتحميل ملفات MP3 (مخزنة محليًا) للأحداث.",
+      "deathLabel": "صوت الموت:",
+      "killLabel": "صوت القتل:",
+      "boostLabel": "صوت التعزيز:",
+      "clearButton": "مسح الأصوات"
+    }
+  },
+  "gameOver": {
+    "replayButton": "إعادة اللعب",
+    "backToMenuButton": "العودة إلى القائمة",
+    "finalSizeLabel": "كان حجمك: {{size}}"
+  },
+  "leaderboard": {
+    "title": "لوحة المتصدرين",
+    "header": {
+      "name": "الاسم",
+      "status": "الحالة",
+      "size": "الحجم",
+      "kills": "القتلى",
+      "deaths": "الوفيات",
+      "kd": "K/D"
+    },
+    "noPlayers": "لا يوجد لاعبون مصنفون بعد.",
+    "status": {
+      "ingame": "في اللعبة",
+      "online": "متصل",
+      "offline": "غير متصل",
+      "never": "أبدًا",
+      "na": "N/A",
+      "ingameTitle": "حاليا في اللعبة"
+    },
+    "time": {
+      "secondsAgo_one": "منذ {{count}} ثانية",
+      "secondsAgo_other": "منذ {{count}} ثوان",
+      "minutesAgo_one": "منذ {{count}} دقيقة",
+      "minutesAgo_other": "منذ {{count}} دقائق",
+      "hoursAgo_one": "منذ {{count}} ساعة",
+      "hoursAgo_other": "منذ {{count}} ساعات",
+      "daysAgo_one": "منذ {{count}} يوم",
+      "daysAgo_other": "منذ {{count}} أيام",
+      "yesterday": "أمس"
+    },
+    "lastLoginTitle": "آخر تسجيل دخول: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "اختصارات لوحة المفاتيح (القائمة)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: التنقل بين الأزرار",
+      "activate": "Enter: تفعيل الزر المحدد",
+      "close": "Esc: إغلاق هذه اللوحة / رجوع"
+    },
+    "gameKeysTitle": "اختصارات لوحة المفاتيح (اللعبة)",
+    "gameKeys": {
+      "mouse": "الماوس: توجيه الثعبان",
+      "boost": "النقر الأيسر / المسافة: تعزيز",
+      "adminCheat": "P: غش المسؤول (إذا كان مسؤولاً)"
+    },
+    "ghostKeysTitle": "اختصارات لوحة المفاتيح (الشبح)",
+    "ghostKeys": {
+      "select": "النقر الأيسر (على اللاعب): تحديد اللاعب",
+      "pan": "النقر الأيسر + السحب (مساحة فارغة): تحريك الكاميرا",
+      "zoom": "عجلة الماوس: تكبير/تصغير",
+      "kill": "K (إذا تم تحديد اللاعب): قتل اللاعب",
+      "clear": "C (إذا تم تحديد اللاعب): تنظيف اللاعب (بدون طعام)",
+      "freeze": "F (إذا تم تحديد اللاعب): تجميد/إلغاء تجميد اللاعب",
+      "deselect": "Esc: إلغاء تحديد اللاعب"
+    },
+    "creditsTitle": "الاعتمادات",
+    "creditsAuthor": "المؤلف: مؤلف مجهول",
+    "creditsLicense": "الترخيص: MIT",
+    "creditsGithub": "المشروع على GitHub"
   }
-  
+}

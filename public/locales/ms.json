@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Mod Keselamatan *:",
       "high": "Tinggi (Disyorkan)",
-      "low": "Rendah (Pelanggan + Ringan)"
+      "low": "Rendah (Pelanggan + Ringan)",
+      "medium": "Sederhana (Admin Sebelah Pelanggan)"
     },
     "teleportViolationThreshold": {
       "label": "Ambang Pelanggaran Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Tinggi Peta (px)",
       "MAP_SHAPE": "Bentuk Peta",
       "AOI_RADIUS": "Radius Kawasan Minat (AoI) (px)",
-      "SECURITY_MODE": "Mod Keselamatan",
+      "SECURITY_MODE": "Mod Keselamatan (Tinggi: Pelayan Penuh / Sederhana: Admin Sebelah Pelanggan / Rendah: Pelanggan Penuh)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Had Saiz Ular (Lalai)",
       "INITIAL_SIZE": "Saiz Ular Permulaan",
       "MIN_BOOST_SIZE": "Saiz Min. untuk Boost",

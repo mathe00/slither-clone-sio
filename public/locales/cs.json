@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Bezpečnostní Režim *:",
       "high": "Vysoký (Doporučeno)",
-      "low": "Nízký (Klient + Lehký)"
+      "low": "Nízký (Klient + Lehký)",
+      "medium": "Střední (Administrátoři na straně klienta)"
     },
     "teleportViolationThreshold": {
       "label": "Prah Porušení Teleportace:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Výška Mapy (px)",
       "MAP_SHAPE": "Tvar Mapy",
       "AOI_RADIUS": "Poloměr Oblasti Zájmu (AoI) (px)",
-      "SECURITY_MODE": "Bezpečnostní Režim",
+      "SECURITY_MODE": "Režim zabezpečení (Vysoký: Plný server / Střední: Administrátoři na straně klienta / Nízký: Plný klient)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Limit Velikosti Hada (Výchozí)",
       "INITIAL_SIZE": "Počáteční Velikost Hada",
       "MIN_BOOST_SIZE": "Min. Velikost pro Boost",

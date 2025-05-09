@@ -106,7 +106,7 @@ function loadConfig() {
         GRID_CELL_SIZE: 100, TELEPORT_VIOLATION_THRESHOLD: 5, TELEPORT_TOLERANCE_FACTOR: 1.5,
         DEFAULT_ZOOM_LEVEL: 1.0, BOTS_ENABLED: true, BOT_SPAWN_INTERVAL_MS: 5000,
         BOT_MAX_COUNT: 10, BOT_EXPIRATION_TIME_MS: 120000, BOT_DIFFICULTY: "easy",
-        SECURITY_MODE: "high", AOI_RADIUS: 2000, GODMODE_ON_SPAWN_ENABLED: true,
+        SECURITY_MODE: "medium", AOI_RADIUS: 2000, GODMODE_ON_SPAWN_ENABLED: true,
       };
       saveConfig(); // Save the default config
     }
@@ -121,7 +121,14 @@ function loadConfig() {
     config.GRID_CELL_SIZE = parseInt(config.GRID_CELL_SIZE) || 100;
     config.INITIAL_SIZE = parseInt(config.INITIAL_SIZE) || DEFAULT_INITIAL_SIZE;
     config.MIN_BOOST_SIZE = parseInt(config.MIN_BOOST_SIZE) || DEFAULT_MIN_BOOST_SIZE;
-    config.SECURITY_MODE = config.SECURITY_MODE === "low" ? "low" : "high";
+    if (!["high", "medium", "low"].includes(config.SECURITY_MODE)) {
+        console.warn(`Invalid SECURITY_MODE "${config.SECURITY_MODE}" in config, defaulting to "medium".`);
+        config.SECURITY_MODE = "medium";
+    }
+    if (!["high", "medium", "low"].includes(config.SECURITY_MODE)) {
+        console.warn(`Invalid SECURITY_MODE "${config.SECURITY_MODE}" in config, defaulting to "medium".`);
+        config.SECURITY_MODE = "medium"; // Default to medium if invalid value found
+    }
     config.AOI_RADIUS = parseInt(config.AOI_RADIUS) || 2000;
 
     if (config.adminPasswordHash === undefined) {

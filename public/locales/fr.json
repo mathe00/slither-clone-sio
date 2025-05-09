@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Mode de Sécurité * :",
       "high": "Élevée (Recommandé)",
-      "low": "Faible (Client + Léger)"
+      "low": "Faible (Client + Léger)",
+      "medium": "Moyen (Admins Côté Client)"
     },
     "teleportViolationThreshold": {
       "label": "Seuil Violations Téléport. :",
@@ -83,11 +84,11 @@
       "label": "Facteur Tolérance Téléport. :",
       "placeholder": "ex. 1.5"
     },
-   "godmodeOnSpawnEnabled": {
-     "label": "Activer God Mode au Spawn :",
-     "yes": "Oui",
-     "no": "Non"
-   },
+    "godmodeOnSpawnEnabled": {
+      "label": "Activer God Mode au Spawn :",
+      "yes": "Oui",
+      "no": "Non"
+    },
     "botsEnabled": {
       "label": "Activer les Bots :",
       "yes": "Oui",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Hauteur Carte (px)",
       "MAP_SHAPE": "Forme Carte",
       "AOI_RADIUS": "Rayon Zone d'Intérêt (AoI) (px)",
-      "SECURITY_MODE": "Mode de Sécurité",
+      "SECURITY_MODE": "Mode Sécurité (Élevé : Serveur Complet / Moyen : Admins Client / Faible : Client Complet)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Limite Taille Serpent (Défaut)",
       "INITIAL_SIZE": "Taille Initiale Serpent",
       "MIN_BOOST_SIZE": "Taille Min. pour Boost",

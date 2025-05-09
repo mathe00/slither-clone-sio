@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Säkerhetsläge *:",
       "high": "Hög (Rekommenderas)",
-      "low": "Låg (Klient + Lätt)"
+      "low": "Låg (Klient + Lätt)",
+      "medium": "Medium (Administratörer klientsidan)"
     },
     "teleportViolationThreshold": {
       "label": "Tröskel för teleporteringsöverträdelse:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Karthöjd (px)",
       "MAP_SHAPE": "Kartform",
       "AOI_RADIUS": "Intresseområdesradie (AoI) (px)",
-      "SECURITY_MODE": "Säkerhetsläge",
+      "SECURITY_MODE": "Säkerhetsläge (Hög: Fullständig server / Medium: Administratörer klientsidan / Låg: Fullständig klient)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Ormstorleksgräns (Standard)",
       "INITIAL_SIZE": "Initial ormstorlek",
       "MIN_BOOST_SIZE": "Min. storlek för boost",

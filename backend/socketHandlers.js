@@ -172,7 +172,19 @@ function setupSocketListeners() {
         panStartCameraX: startX, panStartCameraY: startY, cameraX: startX, cameraY: startY, // Initial camera for ghost
         particles: [], // Initialize particle array
       };
-      console.log(`Player ${players[socket.id].name} (${socket.id}) initialized (Ghost: ${joinAsGhost}) @ (${startX.toFixed(1)}, ${startY.toFixed(1)}).`);
+      const playerInfo = players[socket.id];
+      let effectivePlayerSecurity = config.SECURITY_MODE;
+      if (config.SECURITY_MODE === 'medium' && playerInfo.isAdmin && !playerInfo.isGhost) {
+        effectivePlayerSecurity = 'low (admin)'; // Admins effectively operate as 'low' in 'medium' mode for collisions
+      } else if (playerInfo.isGhost) {
+        effectivePlayerSecurity = 'N/A (ghost)';
+      }
+      console.log(
+        `Player ${playerInfo.name} (${socket.id}) initialized. ` +
+        `Admin: ${playerInfo.isAdmin}, Ghost: ${playerInfo.isGhost}, Temp: ${playerInfo.isTemporary}. ` +
+        `GlobalMode: ${config.SECURITY_MODE}, PlayerEffectiveMode: ${effectivePlayerSecurity}. ` +
+        `Pos: (${startX.toFixed(1)}, ${startY.toFixed(1)})`
+      );
 
       // --- Send Initial Data to Client ---
       const mapRadius = config.MAP_SHAPE === "circle" ? Math.min(initialMapWidth, initialMapHeight) / 2 : 0;
@@ -304,14 +316,29 @@ function setupSocketListeners() {
       socket.emit("adminActionFeedback", { success: success, messageKey: feedbackKey, messageOptions: feedbackOptions });
     });
 
-    // --- Client-Side Collision Handler (Low Security Mode Only) ---
+    // --- Client-Side Collision Handler ---
     socket.on('clientCollisionDetected', (data) => {
-        if (config.SECURITY_MODE !== 'low') { console.warn(`Received clientCollisionDetected from ${socket.id} while in high security mode. Ignoring.`); return; }
         const p = players[socket.id];
-        if (p && !p.isGhost && !p.hasCollided) {
-            console.log(`Client ${p.name} (${socket.id}) reported collision (trusted in low mode). Killer ID: ${data?.killerId}`);
-            if (typeof GameLogic.handlePlayerDeath === 'function') GameLogic.handlePlayerDeath(socket.id, null, true, data?.killerId, { reasonKey: "game.deathReason.clientCollision", reasonOptions: {} });
-            else console.error("GameLogic.handlePlayerDeath not accessible from socketHandlers for client collision.");
+        if (!p || p.isGhost || p.hasCollided) return;
+
+        let collisionTrusted = false;
+        if (config.SECURITY_MODE === 'low') {
+            collisionTrusted = true;
+        } else if (config.SECURITY_MODE === 'medium' && p.isAdmin) {
+            // In medium mode, only trust admins for client-side collision
+            collisionTrusted = true;
+        } else {
+            console.warn(`Received clientCollisionDetected from ${socket.id} (Player: ${p.name}, Admin: ${p.isAdmin}) in mode '${config.SECURITY_MODE}'. Ignoring.`);
+            return;
+        }
+
+        if (collisionTrusted) {
+            console.log(`Client ${p.name} (${socket.id}) reported collision (trusted in mode '${config.SECURITY_MODE}'${p.isAdmin && config.SECURITY_MODE === 'medium' ? ' as admin' : ''}). Killer ID: ${data?.killerId}`);
+            if (typeof GameLogic.handlePlayerDeath === 'function') {
+                GameLogic.handlePlayerDeath(socket.id, null, true, data?.killerId, { reasonKey: "game.deathReason.clientCollision", reasonOptions: {} });
+            } else {
+                console.error("GameLogic.handlePlayerDeath not accessible from socketHandlers for client collision.");
+            }
         }
     });
 

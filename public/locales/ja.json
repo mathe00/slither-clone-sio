@@ -1,527 +1,527 @@
 {
-    "pageTitle": "管理者 - Slither Clone",
-    "backButtonTitle": "メインページに戻る",
-    "tabs": {
-      "settings": "一般設定",
-      "users": "ユーザー管理",
-      "currentConfig": "現在の設定"
+  "pageTitle": "管理者 - Slither Clone",
+  "backButtonTitle": "メインページに戻る",
+  "tabs": {
+    "settings": "一般設定",
+    "users": "ユーザー管理",
+    "currentConfig": "現在の設定"
+  },
+  "settingsForm": {
+    "title": "一般設定",
+    "passwordNote": "<strong>注意：</strong>管理者パスワードを設定またはリセットするには、サーバーを停止し、次のコマンドで実行してください：<br/><code>node backend/server.js --set-new-password YOUR_NEW_PASSWORD</code><br/>このページへのアクセスには、アクティブな管理者セッション（Cookie経由）が必要です。<br/>一部の設定（*印付き）は、適用するためにサーバーの再起動が必要です。",
+    "mapWidth": {
+      "label": "マップ幅 (px) *:",
+      "placeholder": "例：4000"
     },
-    "settingsForm": {
-      "title": "一般設定",
-      "passwordNote": "<strong>注意：</strong>管理者パスワードを設定またはリセットするには、サーバーを停止し、次のコマンドで実行してください：<br/><code>node backend/server.js --set-new-password YOUR_NEW_PASSWORD</code><br/>このページへのアクセスには、アクティブな管理者セッション（Cookie経由）が必要です。<br/>一部の設定（*印付き）は、適用するためにサーバーの再起動が必要です。",
-      "mapWidth": {
-        "label": "マップ幅 (px) *:",
-        "placeholder": "例：4000"
-      },
-      "mapHeight": {
-        "label": "マップ高さ (px) *:",
-        "placeholder": "例：4000"
-      },
-      "mapShape": {
-        "label": "マップ形状 *:",
-        "rectangle": "長方形",
-        "circle": "円形"
-      },
-      "aoiRadius": {
-        "label": "関心領域 (AoI) 半径 (px) *:",
-        "placeholder": "例：2000"
-      },
-      "maxTrailLengthDefault": {
-        "label": "ヘビのサイズ制限（デフォルト）:",
-        "placeholder": "例：1000"
-      },
-      "initialSize": {
-        "label": "初期ヘビサイズ:",
-        "placeholder": "例：50"
-      },
-      "speed": {
-        "label": "基本速度:",
-        "placeholder": "例：1"
-      },
-      "maxRotationRate": {
-        "label": "最大回転率 (rad/tick):",
-        "placeholder": "例：0.08"
-      },
-      "minBoostSize": {
-        "label": "ブースト最小サイズ:",
-        "placeholder": "例：50"
-      },
-      "boostConsumptionRate": {
-        "label": "ブースト消費率:",
-        "placeholder": "例：1"
-      },
-      "foodSpawnInterval": {
-        "label": "食料スポーン間隔 (ms):",
-        "placeholder": "例：5000"
-      },
-      "fps": {
-        "label": "サーバーFPS (ループ/秒):",
-        "placeholder": "例：45"
-      },
-      "foodAttractionStrength": {
-        "label": "食料引力強度:",
-        "placeholder": "例：0.1"
-      },
-      "foodSnapDistance": {
-        "label": "食料スナップ距離:",
-        "placeholder": "例：5"
-      },
-      "defaultZoomLevel": {
-        "label": "デフォルトズームレベル:",
-        "placeholder": "例：1.0"
-      },
-      "securityMode": {
-        "label": "セキュリティモード *:",
-        "high": "高（推奨）",
-        "low": "低（クライアント + 軽量）"
-      },
-      "teleportViolationThreshold": {
-        "label": "テレポート違反しきい値:",
-        "placeholder": "例：5"
-      },
-      "teleportToleranceFactor": {
-        "label": "テレポート許容係数:",
-        "placeholder": "例：1.5"
-      },
-      "botsEnabled": {
-        "label": "ボットを有効にする:",
-        "yes": "はい",
-        "no": "いいえ"
-      },
-      "botMaxCount": {
-        "label": "最大ボット数:",
-        "placeholder": "例：10"
-      },
-      "botSpawnIntervalMs": {
-        "label": "ボットスポーン間隔 (ms):",
-        "placeholder": "例：5000"
-      },
-      "botExpirationTimeMs": {
-        "label": "ボット寿命 (ms):",
-        "placeholder": "例：120000"
-      },
-      "botDifficulty": {
-        "label": "ボット難易度:",
-        "easy": "簡単",
-        "medium": "普通",
-        "hard": "難しい"
-      },
-      "adminMessageText": {
-        "label": "管理者メッセージ（クリアするには空にする）:",
-        "placeholder": "全プレイヤーに表示するメッセージ"
-      },
-      "adminMessageDuration": {
-        "label": "メッセージ表示時間（秒）:",
-        "placeholder": "例：10"
-      },
-      "updateButton": "設定を更新"
+    "mapHeight": {
+      "label": "マップ高さ (px) *:",
+      "placeholder": "例：4000"
     },
-    "userManagement": {
-      "title": "ユーザー管理",
-      "loading": "読み込み中...",
-      "noUsers": "ユーザーが見つかりません。",
-      "table": {
-        "headerUser": "ユーザー",
-        "headerStatus": "ステータス",
-        "headerLastLogin": "最終ログイン",
-        "headerCreated": "作成日時",
-        "headerActions": "操作"
-      },
-      "status": {
-        "admin": "管理者",
-        "suspended": "停止中",
-        "normal": "通常",
-        "never": "なし",
-        "unknown": "不明"
-      },
-      "actions": {
-        "removeAdmin": "管理者解除",
-        "makeAdmin": "管理者に設定",
-        "unban": "停止解除",
-        "suspend": "停止",
-        "delete": "削除"
-      },
-      "pruneButton": "非アクティブアカウントを整理",
-      "confirmDelete": "ユーザー「{{username}}」を完全に削除してもよろしいですか？この操作は元に戻せません。",
-      "confirmPrune_one": "{{count}} 件の非アクティブアカウント（15日以上非アクティブかつ統計が非常に低い）を削除してもよろしいですか？この操作は元に戻せません。",
-      "confirmPrune_other": "{{count}} 件の非アクティブアカウント（15日以上非アクティブかつ統計が非常に低い）を削除してもよろしいですか？この操作は元に戻せません。",
-      "confirmPruneZero": "現在の基準では非アクティブなアカウントが見つかりませんでした。それでも操作を実行しますか（念のため）？",
-      "confirmPruneZeroConfirm": "0件のアカウントが検出された場合でも整理操作を確認しますか？",
-      "pruneCancelled": "整理操作がキャンセルされました。"
+    "mapShape": {
+      "label": "マップ形状 *:",
+      "rectangle": "長方形",
+      "circle": "円形"
     },
-    "currentConfig": {
-      "title": "現在のサーバー設定",
-      "loading": "設定を読み込み中...",
-      "loadError": "設定を読み込めませんでした。",
-      "loadSuccess": "現在の設定が読み込まれました。",
-      "keys": {
-        "MAP_WIDTH": "マップ幅 (px)",
-        "MAP_HEIGHT": "マップ高さ (px)",
-        "MAP_SHAPE": "マップ形状",
-        "AOI_RADIUS": "関心領域 (AoI) 半径 (px)",
-        "SECURITY_MODE": "セキュリティモード",
-        "MAX_TRAIL_LENGTH_DEFAULT": "ヘビのサイズ制限（デフォルト）",
-        "INITIAL_SIZE": "初期ヘビサイズ",
-        "MIN_BOOST_SIZE": "ブースト最小サイズ",
-        "SPEED": "基本速度",
-        "MAX_ROTATION_RATE": "最大回転率",
-        "BOOST_CONSUMPTION_RATE": "ブースト消費（サイズ/tick）",
-        "FPS": "サーバーFPS",
-        "FOOD_SPAWN_INTERVAL": "食料スポーン間隔 (ms)",
-        "FOOD_ATTRACTION_STRENGTH": "食料引力強度",
-        "FOOD_SNAP_DISTANCE": "食料スナップ距離",
-        "DEFAULT_ZOOM_LEVEL": "デフォルトズームレベル",
-        "TELEPORT_VIOLATION_THRESHOLD": "テレポート違反しきい値",
-        "TELEPORT_TOLERANCE_FACTOR": "テレポート許容係数",
-        "BOTS_ENABLED": "ボット有効",
-        "BOT_MAX_COUNT": "最大ボット数",
-        "BOT_SPAWN_INTERVAL_MS": "ボットスポーン間隔 (ms)",
-        "BOT_EXPIRATION_TIME_MS": "ボット寿命 (ms)",
-        "BOT_DIFFICULTY": "ボット難易度"
-      },
-      "boolean": {
-        "yes": "はい",
-        "no": "いいえ"
-      }
+    "aoiRadius": {
+      "label": "関心領域 (AoI) 半径 (px) *:",
+      "placeholder": "例：2000"
     },
-    "feedback": {
-      "accessDenied": "アクセスが拒否されました。リダイレクト中...",
-      "settingsUpdated": "設定が正常に更新されました。",
-      "settingsUpdatedWithRestart": "設定が更新されました。マップ/セキュリティの変更にはサーバーの再起動が必要です。",
-      "settingsUpdatedFpsRestart": "設定が更新されました。FPSのためにゲームループが再起動されました。",
-      "settingsUpdateError": "設定の更新中にエラーが発生しました。",
-      "loadSettingsError": "設定の読み込み中にエラーが発生しました: {{error}}",
-      "loadUsersError": "ユーザーの読み込み中にエラーが発生しました。",
-      "networkError": "ネットワークエラーまたはサーバーが利用できません。",
-      "invalidResponse": "サーバーからの無効な応答（JSONではありません）",
-      "changes": "変更点:",
-      "restartRequired": "変更を適用するにはサーバーの再起動が必要です（マップサイズ/形状、セキュリティモード、AoI半径）。",
-      "fpsRestart": "新しいFPSを適用するためにゲームループが再起動されました。",
-      "noChanges": "設定は変更されませんでした。",
-      "userActionSuccess": "{{message}}",
-      "userActionError": "{{message}}",
-      "prunePreviewError": "プレビュー中にエラーが発生しました。",
-      "pruneError": "整理操作中にエラーが発生しました。",
-      "pruneSuccess": "{{message}}"
+    "maxTrailLengthDefault": {
+      "label": "ヘビのサイズ制限（デフォルト）:",
+      "placeholder": "例：1000"
     },
-    "soundManager": {
-      "alerts": {
-        "selectMp3": "MP3ファイルを選択してください。",
-        "loginRequired": "カスタムサウンドを保存するにはログインする必要があります。",
-        "saveError": "サウンドの保存中にエラーが発生しました。ローカルストレージがいっぱいになっている可能性があります。",
-        "readError": "サウンドファイルの読み取り中にエラーが発生しました。",
-        "clearLoginRequired": "サウンドをクリアするにはログインする必要があります。",
-        "clearError": "サウンドの削除中にエラーが発生しました。"
-      },
-      "confirms": {
-        "clearAll": "このアカウントのすべてのカスタムサウンドを削除してもよろしいですか？"
-      },
-      "statusTitles": {
-        "saveError": "保存エラー",
-        "readError": "読み取りエラー",
-        "saved": "サウンドが保存されました",
-        "savedWithName": "保存済み: {{filename}}"
-      }
+    "initialSize": {
+      "label": "初期ヘビサイズ:",
+      "placeholder": "例：50"
     },
-    "offlinePage": {
-      "title": "サーバー利用不可 - Slither Clone SIO",
-      "logoAlt": "サーバー利用不可ロゴ",
-      "mainHeader": "サーバー利用不可",
-      "explanation": "<span class=\"game-name\">Slither Clone SIO</span> サーバーは一時的にオフラインか、到達できないようです。接続を再確立しようとしています。",
-      "snakeTitle": "それまでの間、スネークゲームをプレイ！",
-      "snakeScoreLabel": "スコア: 0",
-      "snakeControls": "矢印 / ZQSD / WASD: 移動 | Enter: 開始/再開",
-      "status": {
-        "label": "ステータス:",
-        "searching": "検索中...",
-        "checking": "確認中...",
-        "connected": "接続しました！",
-        "nextAttemptLabel": "次の試行まで",
-        "secondsSuffix": "秒",
-        "attemptsLabel": "試行回数:"
-      },
-      "refreshButton": "今すぐ確認",
-      "redirectInfo": "サーバーがオンラインに戻り次第、自動的にリダイレクトされます。"
+    "speed": {
+      "label": "基本速度:",
+      "placeholder": "例：1"
     },
-    "offlineSnake": {
-      "hud": {
-        "scoreLabel": "スコア: {{score}}"
-      },
-      "gameOver": {
-        "win": "勝利！",
-        "lose": "敗北！",
-        "scoreLabel": "スコア: {{score}}",
-        "promptLine1": "Enterを押して",
-        "promptLine2": "もう一度プレイ"
-      },
-      "countdown": "{{count}} 秒後に開始",
-      "startScreen": {
-        "title": "スネーク",
-        "promptLine1": "Enterを押して",
-        "promptLine2": "プレイ"
-      }
+    "maxRotationRate": {
+      "label": "最大回転率 (rad/tick):",
+      "placeholder": "例：0.08"
     },
-    "api": {
-      "errors": {
-        "internalServerError": "内部サーバーエラー。",
-        "invalidAdminStatus": "無効な 'isAdmin' ステータス。",
-        "userNotFound": "ユーザーが見つかりません。",
-        "invalidSuspendStatus": "無効な 'isSuspended' ステータス。",
-        "cannotDeleteSelf": "ここで自分の管理者アカウントを削除することはできません。",
-        "prunePreviewError": "整理プレビュー中にエラーが発生しました。",
-        "pruneError": "整理操作中にエラーが発生しました。",
-        "rateLimit": "アカウント作成試行回数が多すぎます。約 {{minutes}} 分後にもう一度お試しください。",
-        "missingCredentials": "ユーザー名とパスワードが必要です。",
-        "usernameTooLong": "ユーザー名は {{maxLength}} 文字を超えることはできません。",
-        "usernameTooShort": "ユーザー名は少なくとも {{minLength}} 文字必要です。",
-        "passwordTooShort": "パスワードは少なくとも {{minLength}} 文字必要です。",
-        "usernameTaken": "このユーザー名は既に使用されています。",
-        "invalidCredentials": "ユーザー名またはパスワードが無効です。",
-        "accountSuspended": "このアカウントは現在停止されています。",
-        "notAuthenticated": "認証されていません。",
-        "invalidHeadColor": "無効な頭の色。",
-        "missingSkinData": "スキンデータが見つからないか無効です。",
-        "invalidBodyType": "無効なボディタイプ。",
-        "invalidBodyColor": "スキンデータ内のボディカラーが無効です。",
-        "invalidPatternColorsType": "パターンカラーは配列である必要があります。",
-        "tooManyPatternColors": "パターンカラーが多すぎます（最大 {{max}}）。",
-        "invalidPatternColorValue": "パターンに無効な色が見つかりました。",
-        "invalidTrailEffect": "無効なトレイルエフェクト。",
-        "adminCannotDeleteSelf": "管理者はこのインターフェースを介して自分のアカウントを削除することはできません。",
-        "deleteAccountError": "アカウント削除中に内部エラーが発生しました。"
-      },
-      "success": {
-        "accountCreated": "アカウントが作成され、正常にログインしました。",
-        "login": "ログイン成功。",
-        "logout": "ログアウト成功。",
-        "skinUpdated": "外観が正常に更新されました。",
-        "accountDeleted": "アカウントが正常に削除されました。"
-      },
-      "admin": {
-        "adminStatusUpdated": "{{username}} の管理者ステータスが更新されました。",
-        "suspendStatusUpdated": "{{username}} の停止ステータスが更新されました。",
-        "userDeleted": "アカウント {{username}} が正常に削除されました。",
-        "pruneNoUsers": "整理する非アクティブなアカウントが見つかりません。",
-        "pruneSuccess": "{{count}} 件の非アクティブなアカウントが整理されました。"
-      }
+    "minBoostSize": {
+      "label": "ブースト最小サイズ:",
+      "placeholder": "例：50"
     },
-    "socket": {
-      "loginFailed": {
-        "suspended": "あなたのアカウントは停止されています。",
-        "accountError": "アカウントエラー。もう一度ログインしてください。",
-        "alreadyConnected": "このアカウントは既にゲームに接続されています。",
-        "deletedByAdmin": "あなたのアカウントは管理者によって削除されました。",
-        "accountDeleted": "あなたのアカウントは削除されました。"
-      },
-      "kickReason": "{{admin}} によってキックされました",
-      "banReason": "{{admin}} によって禁止されました",
-      "clearReason": "{{admin}} によってクリアされました",
-      "adminFeedback": {
-        "unauthorized": "アクションは許可されていません。",
-        "targetNotFound": "ターゲットプレイヤーが見つかりません。",
-        "kickSuccess": "{{username}} はキックされました。",
-        "kickOfflineSuccess": "{{username}}（既に切断済み）はゲームから削除されました。",
-        "kickError": "{{username}} のソケットまたは状態が見つかりませんでした。",
-        "banSuccess": "{{username}} は禁止されました（アカウント停止、プレイヤーキック）。",
-        "banAccountOnlySuccess": "アカウント {{username}} は停止されました（プレイヤーは既に切断または削除済み）。",
-        "banError": "{{username}} を禁止できません（一時的または存在しないアカウント）。",
-        "freezeSuccess": "{{username}} は凍結されました。",
-        "unfreezeSuccess": "{{username}} は解凍されました。",
-        "killSuccess": "{{username}} はキルされました。",
-        "clearSuccess": "{{username}} はクリアされました（食料をドロップせずに削除）。",
-        "clearError": "{{username}} をクリアできませんでした（既に削除済み？）。",
-        "unknownAction": "不明なアクション。"
-      },
-      "userConnected": "{{username}} がゲームに参加しました。",
-      "userDisconnected": "{{username}} がゲームから退出しました。",
-      "disconnectReason": "切断されました: {{reason}}"
+    "boostConsumptionRate": {
+      "label": "ブースト消費率:",
+      "placeholder": "例：1"
     },
-    "game": {
-      "deathReason": {
-        "unknown": "不明な衝突",
-        "boundary": "マップの境界に衝突しました。",
-        "teleport": "切断されました: 不審な動き。",
-        "selfCollision": "アンチチート: 自己衝突。",
-        "inactivity": "非アクティブ。",
-        "killedByAdmin": "{{admin}} によってキルされました",
-        "botExpired": "ボットの有効期限が切れました。",
-        "clientCollision": "ボディ衝突（クライアント）"
-      }
+    "foodSpawnInterval": {
+      "label": "食料スポーン間隔 (ms):",
+      "placeholder": "例：5000"
     },
+    "fps": {
+      "label": "サーバーFPS (ループ/秒):",
+      "placeholder": "例：45"
+    },
+    "foodAttractionStrength": {
+      "label": "食料引力強度:",
+      "placeholder": "例：0.1"
+    },
+    "foodSnapDistance": {
+      "label": "食料スナップ距離:",
+      "placeholder": "例：5"
+    },
+    "defaultZoomLevel": {
+      "label": "デフォルトズームレベル:",
+      "placeholder": "例：1.0"
+    },
+    "securityMode": {
+      "label": "セキュリティモード *:",
+      "high": "高（推奨）",
+      "low": "低（クライアント + 軽量）",
+      "medium": "中 (管理者クライアントサイド)"
+    },
+    "teleportViolationThreshold": {
+      "label": "テレポート違反しきい値:",
+      "placeholder": "例：5"
+    },
+    "teleportToleranceFactor": {
+      "label": "テレポート許容係数:",
+      "placeholder": "例：1.5"
+    },
+    "botsEnabled": {
+      "label": "ボットを有効にする:",
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "botMaxCount": {
+      "label": "最大ボット数:",
+      "placeholder": "例：10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "ボットスポーン間隔 (ms):",
+      "placeholder": "例：5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "ボット寿命 (ms):",
+      "placeholder": "例：120000"
+    },
+    "botDifficulty": {
+      "label": "ボット難易度:",
+      "easy": "簡単",
+      "medium": "普通",
+      "hard": "難しい"
+    },
+    "adminMessageText": {
+      "label": "管理者メッセージ（クリアするには空にする）:",
+      "placeholder": "全プレイヤーに表示するメッセージ"
+    },
+    "adminMessageDuration": {
+      "label": "メッセージ表示時間（秒）:",
+      "placeholder": "例：10"
+    },
+    "updateButton": "設定を更新"
+  },
+  "userManagement": {
+    "title": "ユーザー管理",
+    "loading": "読み込み中...",
+    "noUsers": "ユーザーが見つかりません。",
+    "table": {
+      "headerUser": "ユーザー",
+      "headerStatus": "ステータス",
+      "headerLastLogin": "最終ログイン",
+      "headerCreated": "作成日時",
+      "headerActions": "操作"
+    },
+    "status": {
+      "admin": "管理者",
+      "suspended": "停止中",
+      "normal": "通常",
+      "never": "なし",
+      "unknown": "不明"
+    },
+    "actions": {
+      "removeAdmin": "管理者解除",
+      "makeAdmin": "管理者に設定",
+      "unban": "停止解除",
+      "suspend": "停止",
+      "delete": "削除"
+    },
+    "pruneButton": "非アクティブアカウントを整理",
+    "confirmDelete": "ユーザー「{{username}}」を完全に削除してもよろしいですか？この操作は元に戻せません。",
+    "confirmPrune_one": "{{count}} 件の非アクティブアカウント（15日以上非アクティブかつ統計が非常に低い）を削除してもよろしいですか？この操作は元に戻せません。",
+    "confirmPrune_other": "{{count}} 件の非アクティブアカウント（15日以上非アクティブかつ統計が非常に低い）を削除してもよろしいですか？この操作は元に戻せません。",
+    "confirmPruneZero": "現在の基準では非アクティブなアカウントが見つかりませんでした。それでも操作を実行しますか（念のため）？",
+    "confirmPruneZeroConfirm": "0件のアカウントが検出された場合でも整理操作を確認しますか？",
+    "pruneCancelled": "整理操作がキャンセルされました。"
+  },
+  "currentConfig": {
+    "title": "現在のサーバー設定",
+    "loading": "設定を読み込み中...",
+    "loadError": "設定を読み込めませんでした。",
+    "loadSuccess": "現在の設定が読み込まれました。",
+    "keys": {
+      "MAP_WIDTH": "マップ幅 (px)",
+      "MAP_HEIGHT": "マップ高さ (px)",
+      "MAP_SHAPE": "マップ形状",
+      "AOI_RADIUS": "関心領域 (AoI) 半径 (px)",
+      "SECURITY_MODE": "セキュリティモード (高: フルサーバー / 中: 管理者クライアントサイド / 低: フルクライアント)",
+      "MAX_TRAIL_LENGTH_DEFAULT": "ヘビのサイズ制限（デフォルト）",
+      "INITIAL_SIZE": "初期ヘビサイズ",
+      "MIN_BOOST_SIZE": "ブースト最小サイズ",
+      "SPEED": "基本速度",
+      "MAX_ROTATION_RATE": "最大回転率",
+      "BOOST_CONSUMPTION_RATE": "ブースト消費（サイズ/tick）",
+      "FPS": "サーバーFPS",
+      "FOOD_SPAWN_INTERVAL": "食料スポーン間隔 (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "食料引力強度",
+      "FOOD_SNAP_DISTANCE": "食料スナップ距離",
+      "DEFAULT_ZOOM_LEVEL": "デフォルトズームレベル",
+      "TELEPORT_VIOLATION_THRESHOLD": "テレポート違反しきい値",
+      "TELEPORT_TOLERANCE_FACTOR": "テレポート許容係数",
+      "BOTS_ENABLED": "ボット有効",
+      "BOT_MAX_COUNT": "最大ボット数",
+      "BOT_SPAWN_INTERVAL_MS": "ボットスポーン間隔 (ms)",
+      "BOT_EXPIRATION_TIME_MS": "ボット寿命 (ms)",
+      "BOT_DIFFICULTY": "ボット難易度"
+    },
+    "boolean": {
+      "yes": "はい",
+      "no": "いいえ"
+    }
+  },
+  "feedback": {
+    "accessDenied": "アクセスが拒否されました。リダイレクト中...",
+    "settingsUpdated": "設定が正常に更新されました。",
+    "settingsUpdatedWithRestart": "設定が更新されました。マップ/セキュリティの変更にはサーバーの再起動が必要です。",
+    "settingsUpdatedFpsRestart": "設定が更新されました。FPSのためにゲームループが再起動されました。",
+    "settingsUpdateError": "設定の更新中にエラーが発生しました。",
+    "loadSettingsError": "設定の読み込み中にエラーが発生しました: {{error}}",
+    "loadUsersError": "ユーザーの読み込み中にエラーが発生しました。",
+    "networkError": "ネットワークエラーまたはサーバーが利用できません。",
+    "invalidResponse": "サーバーからの無効な応答（JSONではありません）",
+    "changes": "変更点:",
+    "restartRequired": "変更を適用するにはサーバーの再起動が必要です（マップサイズ/形状、セキュリティモード、AoI半径）。",
+    "fpsRestart": "新しいFPSを適用するためにゲームループが再起動されました。",
+    "noChanges": "設定は変更されませんでした。",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "プレビュー中にエラーが発生しました。",
+    "pruneError": "整理操作中にエラーが発生しました。",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "MP3ファイルを選択してください。",
+      "loginRequired": "カスタムサウンドを保存するにはログインする必要があります。",
+      "saveError": "サウンドの保存中にエラーが発生しました。ローカルストレージがいっぱいになっている可能性があります。",
+      "readError": "サウンドファイルの読み取り中にエラーが発生しました。",
+      "clearLoginRequired": "サウンドをクリアするにはログインする必要があります。",
+      "clearError": "サウンドの削除中にエラーが発生しました。"
+    },
+    "confirms": {
+      "clearAll": "このアカウントのすべてのカスタムサウンドを削除してもよろしいですか？"
+    },
+    "statusTitles": {
+      "saveError": "保存エラー",
+      "readError": "読み取りエラー",
+      "saved": "サウンドが保存されました",
+      "savedWithName": "保存済み: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "サーバー利用不可 - Slither Clone SIO",
+    "logoAlt": "サーバー利用不可ロゴ",
+    "mainHeader": "サーバー利用不可",
+    "explanation": "<span class=\"game-name\">Slither Clone SIO</span> サーバーは一時的にオフラインか、到達できないようです。接続を再確立しようとしています。",
+    "snakeTitle": "それまでの間、スネークゲームをプレイ！",
+    "snakeScoreLabel": "スコア: 0",
+    "snakeControls": "矢印 / ZQSD / WASD: 移動 | Enter: 開始/再開",
+    "status": {
+      "label": "ステータス:",
+      "searching": "検索中...",
+      "checking": "確認中...",
+      "connected": "接続しました！",
+      "nextAttemptLabel": "次の試行まで",
+      "secondsSuffix": "秒",
+      "attemptsLabel": "試行回数:"
+    },
+    "refreshButton": "今すぐ確認",
+    "redirectInfo": "サーバーがオンラインに戻り次第、自動的にリダイレクトされます。"
+  },
+  "offlineSnake": {
     "hud": {
-      "sizeLabel": "サイズ: {{size}}",
-      "positionLabel": "位置: {{x}}x{{y}}",
-      "ghostMode": "ゴーストモード",
-      "spectator": "観戦者"
-    },
-    "ghostMode": {
-      "selected": "選択中: <span class=\"selected-player-name\">{{name}}</span>",
-      "unknownPlayer": "不明",
-      "controlsSelected": "<kbd>K</kbd>: キル | <kbd>C</kbd>: クリア | <kbd>F</kbd>: 凍結/解除 | <kbd>Esc</kbd>: 選択解除",
-      "controlsGeneral": "左クリック: エンティティ選択 / ドラッグでパン<br>ホイール: ズーム | <kbd>Esc</kbd>: 選択解除"
-    },
-    "mainPage": {
-      "title": "Slither Clone SIO"
-    },
-    "mainMenu": {
-      "title": "<span class=\"blink\">Slither Clone SIO</span> へようこそ",
-      "helpButtonTitle": "ヘルプ＆クレジット",
-      "adminLink": "管理者",
-      "exitGhostButton": "ゴーストモードを終了"
-    },
-    "ui": {
-      "buttons": {
-        "playGuest": "ゲストとしてプレイ",
-        "playAsUser": "{{username}} としてプレイ",
-        "login": "ログイン",
-        "createAccount": "アカウント作成",
-        "customizeSkin": "外観をカスタマイズ",
-        "customSounds": "カスタムサウンド",
-        "showLeaderboard": "リーダーボードを表示",
-        "ghostMode": "ゴーストモード",
-        "deleteAccount": "アカウントを削除",
-        "logout": "ログアウト"
-      },
-      "alerts": {
-        "colorTooDark": "選択した色は非常に暗く、見えにくい可能性があります。明るい色をお勧めします。",
-        "missingCredentials": "ユーザー名とパスワードを入力してください。",
-        "usernameLength": "ユーザー名は {{min}} 文字から {{max}} 文字の間である必要があります。",
-        "passwordLength": "パスワードは少なくとも {{min}} 文字必要です。",
-        "maxPatternColors": "最大 {{max}} 色のパターンカラーに達しました。",
-        "canvasError": "致命的なエラー：テキストオーバーレイ用のキャンバス要素が見つかりませんでした！",
-        "gameModuleError": "致命的なエラー：ゲームモジュールを初期化できませんでした！",
-        "fetchAccountError": "アカウントデータの取得中にエラーが発生しました。",
-        "loginError": "ログインエラー: {{error}}",
-        "creationError": "作成エラー: {{error}}",
-        "skinUpdateError": "外観の更新中にネットワークまたはサーバーエラーが発生しました: {{error}}",
-        "skinUpdatedTemp": "一時セッションの外観が更新されました。",
-        "deleteAccountError": "アカウント削除中にネットワークエラーが発生しました。"
-      },
-      "confirms": {
-        "enterGhostMode": "ゴーストモード（観戦者）に入りますか？",
-        "deleteAccount": "アカウント「{{username}}」を完全に削除してもよろしいですか？この操作は元に戻せません。"
-      },
-      "welcomeMessage": "こんにちは、{{username}}さん！",
-      "welcomeMessage_admin": "こんにちは、{{username}}さん（管理者）！"
-    },
-    "forms": {
-      "common": {
-        "usernameLabel": "ユーザー名:",
-        "passwordLabel": "パスワード:",
-        "backButton": "戻る"
-      },
-      "guest": {
-        "title": "ゲストとしてプレイ",
-        "note": "色とスキンは「外観をカスタマイズ」で設定されます。",
-        "submitButton": "ゲーム開始"
-      },
-      "login": {
-        "title": "ログイン",
-        "submitButton": "ログイン"
-      },
-      "create": {
-        "title": "アカウント作成",
-        "initialHeadColorLabel": "初期頭部カラー:",
-        "initialBodyColorLabel": "初期ボディカラー:",
-        "submitButton": "作成"
-      },
-      "skin": {
-        "title": "外観をカスタマイズ",
-        "headColorLabel": "頭部カラー:",
-        "bodyTypeLabel": "ボディタイプ",
-        "bodyTypeSingle": "単色",
-        "bodyTypePattern": "繰り返しパターン",
-        "bodyColorLabel": "ボディカラー:",
-        "patternColorsLabel": "パターンカラー（最大8色）",
-        "trailEffectLabel": "トレイルエフェクト",
-        "trailEffect": {
-          "none": "なし",
-          "sparkle": "スパークル",
-          "smoke": "緑の煙",
-          "fire": "炎",
-          "ice": "氷の破片",
-          "electric": "電気スパーク",
-          "rainbow": "虹",
-          "bubbles": "泡",
-          "glitch": "グリッチ",
-          "void": "虚空/影",
-          "confetti": "紙吹雪"
-        },
-        "submitButton": "外観を保存"
-      },
-      "sound": {
-        "title": "カスタムサウンド",
-        "info": "イベント用にMP3ファイル（ローカル保存）をアップロードします。",
-        "deathLabel": "死亡サウンド:",
-        "killLabel": "キルサウンド:",
-        "boostLabel": "ブーストサウンド:",
-        "clearButton": "サウンドをクリア"
-      }
+      "scoreLabel": "スコア: {{score}}"
     },
     "gameOver": {
-      "replayButton": "リプレイ",
-      "backToMenuButton": "メニューに戻る",
-      "finalSizeLabel": "あなたのサイズは: {{size}} でした"
+      "win": "勝利！",
+      "lose": "敗北！",
+      "scoreLabel": "スコア: {{score}}",
+      "promptLine1": "Enterを押して",
+      "promptLine2": "もう一度プレイ"
     },
-    "leaderboard": {
-      "title": "リーダーボード",
-      "header": {
-        "name": "名前",
-        "status": "ステータス",
-        "size": "サイズ",
-        "kills": "キル",
-        "deaths": "デス",
-        "kd": "K/D"
-      },
-      "noPlayers": "まだランク付けされたプレイヤーはいません。",
-      "status": {
-        "ingame": "ゲーム中",
-        "online": "オンライン",
-        "offline": "オフライン",
-        "never": "なし",
-        "na": "N/A",
-        "ingameTitle": "現在ゲーム中"
-      },
-      "time": {
-        "secondsAgo_one": "{{count}} 秒前",
-        "secondsAgo_other": "{{count}} 秒前",
-        "minutesAgo_one": "{{count}} 分前",
-        "minutesAgo_other": "{{count}} 分前",
-        "hoursAgo_one": "{{count}} 時間前",
-        "hoursAgo_other": "{{count}} 時間前",
-        "daysAgo_one": "{{count}} 日前",
-        "daysAgo_other": "{{count}} 日前",
-        "yesterday": "昨日"
-      },
-      "lastLoginTitle": "最終ログイン: {{date}}"
-    },
-    "helpPanel": {
-      "menuKeysTitle": "キーボードショートカット（メニュー）",
-      "menuKeys": {
-        "navigate": "↑ / ↓ / Tab: ボタンをナビゲート",
-        "activate": "Enter: 選択したボタンをアクティブ化",
-        "close": "Esc: このパネルを閉じる / 戻る"
-      },
-      "gameKeysTitle": "キーボードショートカット（ゲーム）",
-      "gameKeys": {
-        "mouse": "マウス: ヘビを操作",
-        "boost": "左クリック / スペース: ブースト",
-        "adminCheat": "P: 管理者チート（管理者の場合）"
-      },
-      "ghostKeysTitle": "キーボードショートカット（ゴースト）",
-      "ghostKeys": {
-        "select": "左クリック（プレイヤー上）: プレイヤーを選択",
-        "pan": "左クリック + ドラッグ（空白スペース）: カメラをパン",
-        "zoom": "マウスホイール: ズームイン/アウト",
-        "kill": "K（プレイヤー選択時）: プレイヤーをキル",
-        "clear": "C（プレイヤー選択時）: プレイヤーをクリア（食料なし）",
-        "freeze": "F（プレイヤー選択時）: プレイヤーを凍結/解除",
-        "deselect": "Esc: プレイヤーの選択を解除"
-      },
-      "creditsTitle": "クレジット",
-      "creditsAuthor": "作者: 匿名作者",
-      "creditsLicense": "ライセンス: MIT",
-      "creditsGithub": "GitHub上のプロジェクト"
+    "countdown": "{{count}} 秒後に開始",
+    "startScreen": {
+      "title": "スネーク",
+      "promptLine1": "Enterを押して",
+      "promptLine2": "プレイ"
     }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "内部サーバーエラー。",
+      "invalidAdminStatus": "無効な 'isAdmin' ステータス。",
+      "userNotFound": "ユーザーが見つかりません。",
+      "invalidSuspendStatus": "無効な 'isSuspended' ステータス。",
+      "cannotDeleteSelf": "ここで自分の管理者アカウントを削除することはできません。",
+      "prunePreviewError": "整理プレビュー中にエラーが発生しました。",
+      "pruneError": "整理操作中にエラーが発生しました。",
+      "rateLimit": "アカウント作成試行回数が多すぎます。約 {{minutes}} 分後にもう一度お試しください。",
+      "missingCredentials": "ユーザー名とパスワードが必要です。",
+      "usernameTooLong": "ユーザー名は {{maxLength}} 文字を超えることはできません。",
+      "usernameTooShort": "ユーザー名は少なくとも {{minLength}} 文字必要です。",
+      "passwordTooShort": "パスワードは少なくとも {{minLength}} 文字必要です。",
+      "usernameTaken": "このユーザー名は既に使用されています。",
+      "invalidCredentials": "ユーザー名またはパスワードが無効です。",
+      "accountSuspended": "このアカウントは現在停止されています。",
+      "notAuthenticated": "認証されていません。",
+      "invalidHeadColor": "無効な頭の色。",
+      "missingSkinData": "スキンデータが見つからないか無効です。",
+      "invalidBodyType": "無効なボディタイプ。",
+      "invalidBodyColor": "スキンデータ内のボディカラーが無効です。",
+      "invalidPatternColorsType": "パターンカラーは配列である必要があります。",
+      "tooManyPatternColors": "パターンカラーが多すぎます（最大 {{max}}）。",
+      "invalidPatternColorValue": "パターンに無効な色が見つかりました。",
+      "invalidTrailEffect": "無効なトレイルエフェクト。",
+      "adminCannotDeleteSelf": "管理者はこのインターフェースを介して自分のアカウントを削除することはできません。",
+      "deleteAccountError": "アカウント削除中に内部エラーが発生しました。"
+    },
+    "success": {
+      "accountCreated": "アカウントが作成され、正常にログインしました。",
+      "login": "ログイン成功。",
+      "logout": "ログアウト成功。",
+      "skinUpdated": "外観が正常に更新されました。",
+      "accountDeleted": "アカウントが正常に削除されました。"
+    },
+    "admin": {
+      "adminStatusUpdated": "{{username}} の管理者ステータスが更新されました。",
+      "suspendStatusUpdated": "{{username}} の停止ステータスが更新されました。",
+      "userDeleted": "アカウント {{username}} が正常に削除されました。",
+      "pruneNoUsers": "整理する非アクティブなアカウントが見つかりません。",
+      "pruneSuccess": "{{count}} 件の非アクティブなアカウントが整理されました。"
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "あなたのアカウントは停止されています。",
+      "accountError": "アカウントエラー。もう一度ログインしてください。",
+      "alreadyConnected": "このアカウントは既にゲームに接続されています。",
+      "deletedByAdmin": "あなたのアカウントは管理者によって削除されました。",
+      "accountDeleted": "あなたのアカウントは削除されました。"
+    },
+    "kickReason": "{{admin}} によってキックされました",
+    "banReason": "{{admin}} によって禁止されました",
+    "clearReason": "{{admin}} によってクリアされました",
+    "adminFeedback": {
+      "unauthorized": "アクションは許可されていません。",
+      "targetNotFound": "ターゲットプレイヤーが見つかりません。",
+      "kickSuccess": "{{username}} はキックされました。",
+      "kickOfflineSuccess": "{{username}}（既に切断済み）はゲームから削除されました。",
+      "kickError": "{{username}} のソケットまたは状態が見つかりませんでした。",
+      "banSuccess": "{{username}} は禁止されました（アカウント停止、プレイヤーキック）。",
+      "banAccountOnlySuccess": "アカウント {{username}} は停止されました（プレイヤーは既に切断または削除済み）。",
+      "banError": "{{username}} を禁止できません（一時的または存在しないアカウント）。",
+      "freezeSuccess": "{{username}} は凍結されました。",
+      "unfreezeSuccess": "{{username}} は解凍されました。",
+      "killSuccess": "{{username}} はキルされました。",
+      "clearSuccess": "{{username}} はクリアされました（食料をドロップせずに削除）。",
+      "clearError": "{{username}} をクリアできませんでした（既に削除済み？）。",
+      "unknownAction": "不明なアクション。"
+    },
+    "userConnected": "{{username}} がゲームに参加しました。",
+    "userDisconnected": "{{username}} がゲームから退出しました。",
+    "disconnectReason": "切断されました: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "不明な衝突",
+      "boundary": "マップの境界に衝突しました。",
+      "teleport": "切断されました: 不審な動き。",
+      "selfCollision": "アンチチート: 自己衝突。",
+      "inactivity": "非アクティブ。",
+      "killedByAdmin": "{{admin}} によってキルされました",
+      "botExpired": "ボットの有効期限が切れました。",
+      "clientCollision": "ボディ衝突（クライアント）"
+    }
+  },
+  "hud": {
+    "sizeLabel": "サイズ: {{size}}",
+    "positionLabel": "位置: {{x}}x{{y}}",
+    "ghostMode": "ゴーストモード",
+    "spectator": "観戦者"
+  },
+  "ghostMode": {
+    "selected": "選択中: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "不明",
+    "controlsSelected": "<kbd>K</kbd>: キル | <kbd>C</kbd>: クリア | <kbd>F</kbd>: 凍結/解除 | <kbd>Esc</kbd>: 選択解除",
+    "controlsGeneral": "左クリック: エンティティ選択 / ドラッグでパン<br>ホイール: ズーム | <kbd>Esc</kbd>: 選択解除"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "<span class=\"blink\">Slither Clone SIO</span> へようこそ",
+    "helpButtonTitle": "ヘルプ＆クレジット",
+    "adminLink": "管理者",
+    "exitGhostButton": "ゴーストモードを終了"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "ゲストとしてプレイ",
+      "playAsUser": "{{username}} としてプレイ",
+      "login": "ログイン",
+      "createAccount": "アカウント作成",
+      "customizeSkin": "外観をカスタマイズ",
+      "customSounds": "カスタムサウンド",
+      "showLeaderboard": "リーダーボードを表示",
+      "ghostMode": "ゴーストモード",
+      "deleteAccount": "アカウントを削除",
+      "logout": "ログアウト"
+    },
+    "alerts": {
+      "colorTooDark": "選択した色は非常に暗く、見えにくい可能性があります。明るい色をお勧めします。",
+      "missingCredentials": "ユーザー名とパスワードを入力してください。",
+      "usernameLength": "ユーザー名は {{min}} 文字から {{max}} 文字の間である必要があります。",
+      "passwordLength": "パスワードは少なくとも {{min}} 文字必要です。",
+      "maxPatternColors": "最大 {{max}} 色のパターンカラーに達しました。",
+      "canvasError": "致命的なエラー：テキストオーバーレイ用のキャンバス要素が見つかりませんでした！",
+      "gameModuleError": "致命的なエラー：ゲームモジュールを初期化できませんでした！",
+      "fetchAccountError": "アカウントデータの取得中にエラーが発生しました。",
+      "loginError": "ログインエラー: {{error}}",
+      "creationError": "作成エラー: {{error}}",
+      "skinUpdateError": "外観の更新中にネットワークまたはサーバーエラーが発生しました: {{error}}",
+      "skinUpdatedTemp": "一時セッションの外観が更新されました。",
+      "deleteAccountError": "アカウント削除中にネットワークエラーが発生しました。"
+    },
+    "confirms": {
+      "enterGhostMode": "ゴーストモード（観戦者）に入りますか？",
+      "deleteAccount": "アカウント「{{username}}」を完全に削除してもよろしいですか？この操作は元に戻せません。"
+    },
+    "welcomeMessage": "こんにちは、{{username}}さん！",
+    "welcomeMessage_admin": "こんにちは、{{username}}さん（管理者）！"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "ユーザー名:",
+      "passwordLabel": "パスワード:",
+      "backButton": "戻る"
+    },
+    "guest": {
+      "title": "ゲストとしてプレイ",
+      "note": "色とスキンは「外観をカスタマイズ」で設定されます。",
+      "submitButton": "ゲーム開始"
+    },
+    "login": {
+      "title": "ログイン",
+      "submitButton": "ログイン"
+    },
+    "create": {
+      "title": "アカウント作成",
+      "initialHeadColorLabel": "初期頭部カラー:",
+      "initialBodyColorLabel": "初期ボディカラー:",
+      "submitButton": "作成"
+    },
+    "skin": {
+      "title": "外観をカスタマイズ",
+      "headColorLabel": "頭部カラー:",
+      "bodyTypeLabel": "ボディタイプ",
+      "bodyTypeSingle": "単色",
+      "bodyTypePattern": "繰り返しパターン",
+      "bodyColorLabel": "ボディカラー:",
+      "patternColorsLabel": "パターンカラー（最大8色）",
+      "trailEffectLabel": "トレイルエフェクト",
+      "trailEffect": {
+        "none": "なし",
+        "sparkle": "スパークル",
+        "smoke": "緑の煙",
+        "fire": "炎",
+        "ice": "氷の破片",
+        "electric": "電気スパーク",
+        "rainbow": "虹",
+        "bubbles": "泡",
+        "glitch": "グリッチ",
+        "void": "虚空/影",
+        "confetti": "紙吹雪"
+      },
+      "submitButton": "外観を保存"
+    },
+    "sound": {
+      "title": "カスタムサウンド",
+      "info": "イベント用にMP3ファイル（ローカル保存）をアップロードします。",
+      "deathLabel": "死亡サウンド:",
+      "killLabel": "キルサウンド:",
+      "boostLabel": "ブーストサウンド:",
+      "clearButton": "サウンドをクリア"
+    }
+  },
+  "gameOver": {
+    "replayButton": "リプレイ",
+    "backToMenuButton": "メニューに戻る",
+    "finalSizeLabel": "あなたのサイズは: {{size}} でした"
+  },
+  "leaderboard": {
+    "title": "リーダーボード",
+    "header": {
+      "name": "名前",
+      "status": "ステータス",
+      "size": "サイズ",
+      "kills": "キル",
+      "deaths": "デス",
+      "kd": "K/D"
+    },
+    "noPlayers": "まだランク付けされたプレイヤーはいません。",
+    "status": {
+      "ingame": "ゲーム中",
+      "online": "オンライン",
+      "offline": "オフライン",
+      "never": "なし",
+      "na": "N/A",
+      "ingameTitle": "現在ゲーム中"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} 秒前",
+      "secondsAgo_other": "{{count}} 秒前",
+      "minutesAgo_one": "{{count}} 分前",
+      "minutesAgo_other": "{{count}} 分前",
+      "hoursAgo_one": "{{count}} 時間前",
+      "hoursAgo_other": "{{count}} 時間前",
+      "daysAgo_one": "{{count}} 日前",
+      "daysAgo_other": "{{count}} 日前",
+      "yesterday": "昨日"
+    },
+    "lastLoginTitle": "最終ログイン: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "キーボードショートカット（メニュー）",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: ボタンをナビゲート",
+      "activate": "Enter: 選択したボタンをアクティブ化",
+      "close": "Esc: このパネルを閉じる / 戻る"
+    },
+    "gameKeysTitle": "キーボードショートカット（ゲーム）",
+    "gameKeys": {
+      "mouse": "マウス: ヘビを操作",
+      "boost": "左クリック / スペース: ブースト",
+      "adminCheat": "P: 管理者チート（管理者の場合）"
+    },
+    "ghostKeysTitle": "キーボードショートカット（ゴースト）",
+    "ghostKeys": {
+      "select": "左クリック（プレイヤー上）: プレイヤーを選択",
+      "pan": "左クリック + ドラッグ（空白スペース）: カメラをパン",
+      "zoom": "マウスホイール: ズームイン/アウト",
+      "kill": "K（プレイヤー選択時）: プレイヤーをキル",
+      "clear": "C（プレイヤー選択時）: プレイヤーをクリア（食料なし）",
+      "freeze": "F（プレイヤー選択時）: プレイヤーを凍結/解除",
+      "deselect": "Esc: プレイヤーの選択を解除"
+    },
+    "creditsTitle": "クレジット",
+    "creditsAuthor": "作者: 匿名作者",
+    "creditsLicense": "ライセンス: MIT",
+    "creditsGithub": "GitHub上のプロジェクト"
   }
-  
+}

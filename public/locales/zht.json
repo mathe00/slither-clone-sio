@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "安全模式 *：",
       "high": "高 (建議)",
-      "low": "低 (客戶端 + 輕量)"
+      "low": "低 (客戶端 + 輕量)",
+      "medium": "中 (管理員用戶端)"
     },
     "teleportViolationThreshold": {
       "label": "瞬移違規閾值：",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "地圖高度 (px)",
       "MAP_SHAPE": "地圖形狀",
       "AOI_RADIUS": "關注區域半徑 (AoI) (px)",
-      "SECURITY_MODE": "安全模式",
+      "SECURITY_MODE": "安全模式 (高: 完整伺服器 / 中: 管理員用戶端 / 低: 完整用戶端)",
       "MAX_TRAIL_LENGTH_DEFAULT": "蛇身大小限制 (預設)",
       "INITIAL_SIZE": "蛇身初始大小",
       "MIN_BOOST_SIZE": "加速所需最小尺寸",

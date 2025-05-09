@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Mode ng Seguridad *:",
       "high": "Mataas (Inirerekomenda)",
-      "low": "Mababa (Client + Magaan)"
+      "low": "Mababa (Client + Magaan)",
+      "medium": "Katamtaman (Mga Admin Client-Side)"
     },
     "teleportViolationThreshold": {
       "label": "Threshold ng Paglabag sa Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Taas ng Mapa (px)",
       "MAP_SHAPE": "Hugis ng Mapa",
       "AOI_RADIUS": "Radius ng Area of Interest (AoI) (px)",
-      "SECURITY_MODE": "Mode ng Seguridad",
+      "SECURITY_MODE": "Security Mode (Mataas: Buong Server / Katamtaman: Mga Admin Client-Side / Mababa: Buong Client)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Limitasyon sa Laki ng Ahas (Default)",
       "INITIAL_SIZE": "Paunang Laki ng Ahas",
       "MIN_BOOST_SIZE": "Min. Laki para sa Boost",

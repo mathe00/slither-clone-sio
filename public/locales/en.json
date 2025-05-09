@@ -72,8 +72,9 @@
     },
     "securityMode": {
       "label": "Security Mode *:",
-      "high": "High (Recommended)",
-      "low": "Low (Client + Light)"
+      "high": "High (Full Server)",
+      "medium": "Medium (Admins Client-Side)",
+      "low": "Low (Full Client)"
     },
     "teleportViolationThreshold": {
       "label": "Teleport Violation Threshold:",
@@ -83,11 +84,11 @@
       "label": "Teleport Tolerance Factor:",
       "placeholder": "e.g. 1.5"
     },
-   "godmodeOnSpawnEnabled": {
-     "label": "Enable God Mode on Spawn:",
-     "yes": "Yes",
-     "no": "No"
-   },
+    "godmodeOnSpawnEnabled": {
+      "label": "Enable God Mode on Spawn:",
+      "yes": "Yes",
+      "no": "No"
+    },
     "botsEnabled": {
       "label": "Enable Bots:",
       "yes": "Yes",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Map Height (px)",
       "MAP_SHAPE": "Map Shape",
       "AOI_RADIUS": "Area of Interest (AoI) Radius (px)",
-      "SECURITY_MODE": "Security Mode",
+      "SECURITY_MODE": "Security Mode (High: Full Server / Medium: Admins Client / Low: Full Client)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Snake Size Limit (Default)",
       "INITIAL_SIZE": "Initial Snake Size",
       "MIN_BOOST_SIZE": "Min. Size for Boost",

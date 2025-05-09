@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Ipo Ààbò *:",
       "high": "Gíga (A dámọ̀ràn)",
-      "low": "Kekere (Oníbàárà + Fúyẹ́)"
+      "low": "Kekere (Oníbàárà + Fúyẹ́)",
+      "medium": "Alabọde (Àwọn Alámójútó Apá Oníbàárà)"
     },
     "teleportViolationThreshold": {
       "label": "Ààlà Ìrúfin Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Gíga Mápù (px)",
       "MAP_SHAPE": "Hình dạng Bản đồ",
       "AOI_RADIUS": "Radius Agbègbè Ifarabalẹ̀ (AoI) (px)",
-      "SECURITY_MODE": "Ipo Ààbò",
+      "SECURITY_MODE": "Ìpo Ààbò (Gíga: Máyà-Alùfàà Pátápátá / Alabọde: Àwọn Alámójútó Apá Oníbàárà / Ìsàlẹ̀: Oníbàárà Pátápátá)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Ìwọ̀n Gígùn Ejò (Àtìbẹ̀rẹ̀)",
       "INITIAL_SIZE": "Ìwọ̀n Ejò Àkọ́kọ́",
       "MIN_BOOST_SIZE": "Ìwọ̀n Kéréjùlọ fún Boost",

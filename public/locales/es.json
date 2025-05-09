@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Modo de Seguridad *:",
       "high": "Alta (Recomendado)",
-      "low": "Baja (Cliente + Ligero)"
+      "low": "Baja (Cliente + Ligero)",
+      "medium": "Medio (Administradores lado cliente)"
     },
     "teleportViolationThreshold": {
       "label": "Umbral Violaciones Teletransporte:",
@@ -159,7 +160,7 @@
       "MAP_HEIGHT": "Alto del Mapa (px)",
       "MAP_SHAPE": "Forma del Mapa",
       "AOI_RADIUS": "Radio del Área de Interés (AoI) (px)",
-      "SECURITY_MODE": "Modo de Seguridad",
+      "SECURITY_MODE": "Modo de Seguridad (Alto: Servidor Completo / Medio: Administradores lado cliente / Bajo: Cliente Completo)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Límite Tamaño Serpiente (Predet.)",
       "INITIAL_SIZE": "Tamaño Inicial Serpiente",
       "MIN_BOOST_SIZE": "Tamaño Mín. para Boost",

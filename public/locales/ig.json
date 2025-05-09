@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Ụdị Nchedo *:",
       "high": "Elu (Akwadoro)",
-      "low": "Dị ala (Onye ahịa + Dị Mfe)"
+      "low": "Dị ala (Onye ahịa + Dị Mfe)",
+      "medium": "Etiti (Ndị nchịkwa akụkụ Client)"
     },
     "teleportViolationThreshold": {
       "label": "Ọnụ ụzọ Mmebi Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Ogologo Maapụ (px)",
       "MAP_SHAPE": "Ụdị Maapụ",
       "AOI_RADIUS": "Radius Mpaghara Mmasị (AoI) (px)",
-      "SECURITY_MODE": "Ụdị Nchedo",
+      "SECURITY_MODE": "Ụkpụrụ Nchebe (Elu: Sava zuru oke / Etiti: Ndị nchịkwa akụkụ Client / Dị ala: Client zuru oke)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Oke Nha Agwọ (Nke izizi)",
       "INITIAL_SIZE": "Nha Agwọ Mbụ",
       "MIN_BOOST_SIZE": "Nha Kacha nta maka Boost",

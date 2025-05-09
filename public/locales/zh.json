@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "安全模式 *:",
       "high": "高（推荐）",
-      "low": "低（客户端 + 轻量）"
+      "low": "低（客户端 + 轻量）",
+      "medium": "中 (管理员客户端)"
     },
     "teleportViolationThreshold": {
       "label": "瞬移违规阈值:",
@@ -159,7 +160,7 @@
       "MAP_HEIGHT": "地图高度 (px)",
       "MAP_SHAPE": "地图形状",
       "AOI_RADIUS": "感兴趣区域 (AoI) 半径 (px)",
-      "SECURITY_MODE": "安全模式",
+      "SECURITY_MODE": "安全模式 (高: 完整服务器 / 中: 管理员客户端 / 低: 完整客户端)",
       "MAX_TRAIL_LENGTH_DEFAULT": "蛇大小限制（默认）",
       "INITIAL_SIZE": "初始蛇大小",
       "MIN_BOOST_SIZE": "加速最小尺寸",

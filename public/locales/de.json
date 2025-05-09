@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Sicherheitsmodus *:",
       "high": "Hoch (Empfohlen)",
-      "low": "Niedrig (Client + Leicht)"
+      "low": "Niedrig (Client + Leicht)",
+      "medium": "Mittel (Admins Client-seitig)"
     },
     "teleportViolationThreshold": {
       "label": "Teleport-Verstoß-Schwelle:",
@@ -159,7 +160,7 @@
       "MAP_HEIGHT": "Kartenhöhe (px)",
       "MAP_SHAPE": "Kartenform",
       "AOI_RADIUS": "Radius des Interessenbereichs (AoI) (px)",
-      "SECURITY_MODE": "Sicherheitsmodus",
+      "SECURITY_MODE": "Sicherheitsmodus (Hoch: Vollserver / Mittel: Admins Client-seitig / Niedrig: Vollclient)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Schlangengrößenlimit (Standard)",
       "INITIAL_SIZE": "Anfangsgröße Schlange",
       "MIN_BOOST_SIZE": "Min. Größe für Boost",

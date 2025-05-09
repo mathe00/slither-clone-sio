@@ -1,527 +1,527 @@
 {
-    "pageTitle": "Админ - Slither Clone",
-    "backButtonTitle": "Вернуться на главную страницу",
-    "tabs": {
-      "settings": "Общие настройки",
-      "users": "Управление пользователями",
-      "currentConfig": "Текущая конфигурация"
+  "pageTitle": "Админ - Slither Clone",
+  "backButtonTitle": "Вернуться на главную страницу",
+  "tabs": {
+    "settings": "Общие настройки",
+    "users": "Управление пользователями",
+    "currentConfig": "Текущая конфигурация"
+  },
+  "settingsForm": {
+    "title": "Общие настройки",
+    "passwordNote": "<strong>Примечание:</strong> Чтобы установить или сбросить пароль администратора, остановите сервер и запустите его с помощью команды:<br/><code>node backend/server.js --set-new-password ВАШ_НОВЫЙ_ПАРОЛЬ</code><br/>Доступ к этой странице требует активной сессии администратора (через cookie).<br/>Некоторые настройки (отмеченные *) требуют перезапуска сервера для применения.",
+    "mapWidth": {
+      "label": "Ширина карты (пикс.) *:",
+      "placeholder": "например, 4000"
     },
-    "settingsForm": {
-      "title": "Общие настройки",
-      "passwordNote": "<strong>Примечание:</strong> Чтобы установить или сбросить пароль администратора, остановите сервер и запустите его с помощью команды:<br/><code>node backend/server.js --set-new-password ВАШ_НОВЫЙ_ПАРОЛЬ</code><br/>Доступ к этой странице требует активной сессии администратора (через cookie).<br/>Некоторые настройки (отмеченные *) требуют перезапуска сервера для применения.",
-      "mapWidth": {
-        "label": "Ширина карты (пикс.) *:",
-        "placeholder": "например, 4000"
-      },
-      "mapHeight": {
-        "label": "Высота карты (пикс.) *:",
-        "placeholder": "например, 4000"
-      },
-      "mapShape": {
-        "label": "Форма карты *:",
-        "rectangle": "Прямоугольник",
-        "circle": "Круг"
-      },
-      "aoiRadius": {
-        "label": "Радиус зоны интереса (AoI) (пикс.) *:",
-        "placeholder": "например, 2000"
-      },
-      "maxTrailLengthDefault": {
-        "label": "Лимит размера змейки (по умолч.):",
-        "placeholder": "например, 1000"
-      },
-      "initialSize": {
-        "label": "Начальный размер змейки:",
-        "placeholder": "например, 50"
-      },
-      "speed": {
-        "label": "Базовая скорость:",
-        "placeholder": "например, 1"
-      },
-      "maxRotationRate": {
-        "label": "Макс. скорость поворота (рад/тик):",
-        "placeholder": "например, 0.08"
-      },
-      "minBoostSize": {
-        "label": "Мин. размер для ускорения:",
-        "placeholder": "например, 50"
-      },
-      "boostConsumptionRate": {
-        "label": "Скорость потребления ускорения:",
-        "placeholder": "например, 1"
-      },
-      "foodSpawnInterval": {
-        "label": "Интервал появления еды (мс):",
-        "placeholder": "например, 5000"
-      },
-      "fps": {
-        "label": "FPS сервера (циклов/сек):",
-        "placeholder": "например, 45"
-      },
-      "foodAttractionStrength": {
-        "label": "Сила притяжения еды:",
-        "placeholder": "например, 0.1"
-      },
-      "foodSnapDistance": {
-        "label": "Расстояние прилипания еды:",
-        "placeholder": "например, 5"
-      },
-      "defaultZoomLevel": {
-        "label": "Уровень масштабирования по умолч.:",
-        "placeholder": "например, 1.0"
-      },
-      "securityMode": {
-        "label": "Режим безопасности *:",
-        "high": "Высокий (Рекомендуется)",
-        "low": "Низкий (Клиент + Легкий)"
-      },
-      "teleportViolationThreshold": {
-        "label": "Порог нарушений телепортации:",
-        "placeholder": "например, 5"
-      },
-      "teleportToleranceFactor": {
-        "label": "Фактор допуска телепортации:",
-        "placeholder": "например, 1.5"
-      },
-      "botsEnabled": {
-        "label": "Включить ботов:",
-        "yes": "Да",
-        "no": "Нет"
-      },
-      "botMaxCount": {
-        "label": "Макс. количество ботов:",
-        "placeholder": "например, 10"
-      },
-      "botSpawnIntervalMs": {
-        "label": "Интервал появления ботов (мс):",
-        "placeholder": "например, 5000"
-      },
-      "botExpirationTimeMs": {
-        "label": "Время жизни ботов (мс):",
-        "placeholder": "например, 120000"
-      },
-      "botDifficulty": {
-        "label": "Сложность ботов:",
-        "easy": "Легко",
-        "medium": "Средне",
-        "hard": "Сложно"
-      },
-      "adminMessageText": {
-        "label": "Сообщение администратора (оставьте пустым для очистки):",
-        "placeholder": "Сообщение для отображения всем игрокам"
-      },
-      "adminMessageDuration": {
-        "label": "Длительность сообщения (секунды):",
-        "placeholder": "например, 10"
-      },
-      "updateButton": "Обновить настройки"
+    "mapHeight": {
+      "label": "Высота карты (пикс.) *:",
+      "placeholder": "например, 4000"
     },
-    "userManagement": {
-      "title": "Управление пользователями",
-      "loading": "Загрузка...",
-      "noUsers": "Пользователи не найдены.",
-      "table": {
-        "headerUser": "Пользователь",
-        "headerStatus": "Статус",
-        "headerLastLogin": "Последний вход",
-        "headerCreated": "Создан",
-        "headerActions": "Действия"
-      },
-      "status": {
-        "admin": "Админ",
-        "suspended": "Заблокирован",
-        "normal": "Обычный",
-        "never": "Никогда",
-        "unknown": "Неизвестно"
-      },
-      "actions": {
-        "removeAdmin": "Убрать админа",
-        "makeAdmin": "Сделать админом",
-        "unban": "Разблокировать",
-        "suspend": "Заблокировать",
-        "delete": "Удалить"
-      },
-      "pruneButton": "Очистить неактивные аккаунты",
-      "confirmDelete": "Вы уверены, что хотите навсегда удалить пользователя \"{{username}}\"? Это действие необратимо.",
-      "confirmPrune_one": "Вы уверены, что хотите удалить {{count}} неактивный аккаунт (неактивен >15 дней И очень низкая статистика)? Это действие необратимо.",
-      "confirmPrune_other": "Вы уверены, что хотите удалить {{count}} неактивных аккаунтов (неактивны >15 дней И очень низкая статистика)? Это действие необратимо.",
-      "confirmPruneZero": "Неактивные аккаунты по текущим критериям не найдены. Все равно выполнить операцию (на всякий случай)?",
-      "confirmPruneZeroConfirm": "Подтвердить операцию очистки, даже если обнаружено 0 аккаунтов?",
-      "pruneCancelled": "Операция очистки отменена."
+    "mapShape": {
+      "label": "Форма карты *:",
+      "rectangle": "Прямоугольник",
+      "circle": "Круг"
     },
-    "currentConfig": {
-      "title": "Текущая конфигурация сервера",
-      "loading": "Загрузка конфигурации...",
-      "loadError": "Не удалось загрузить конфигурацию.",
-      "loadSuccess": "Текущая конфигурация загружена.",
-      "keys": {
-        "MAP_WIDTH": "Ширина карты (пикс.)",
-        "MAP_HEIGHT": "Высота карты (пикс.)",
-        "MAP_SHAPE": "Форма карты",
-        "AOI_RADIUS": "Радиус зоны интереса (AoI) (пикс.)",
-        "SECURITY_MODE": "Режим безопасности",
-        "MAX_TRAIL_LENGTH_DEFAULT": "Лимит размера змейки (по умолч.)",
-        "INITIAL_SIZE": "Начальный размер змейки",
-        "MIN_BOOST_SIZE": "Мин. размер для ускорения",
-        "SPEED": "Базовая скорость",
-        "MAX_ROTATION_RATE": "Макс. скорость поворота",
-        "BOOST_CONSUMPTION_RATE": "Потребление ускорения (размер/тик)",
-        "FPS": "FPS сервера",
-        "FOOD_SPAWN_INTERVAL": "Интервал появления еды (мс)",
-        "FOOD_ATTRACTION_STRENGTH": "Сила притяжения еды",
-        "FOOD_SNAP_DISTANCE": "Расстояние прилипания еды",
-        "DEFAULT_ZOOM_LEVEL": "Уровень масштабирования по умолч.",
-        "TELEPORT_VIOLATION_THRESHOLD": "Порог нарушений телепортации",
-        "TELEPORT_TOLERANCE_FACTOR": "Фактор допуска телепортации",
-        "BOTS_ENABLED": "Боты включены",
-        "BOT_MAX_COUNT": "Макс. количество ботов",
-        "BOT_SPAWN_INTERVAL_MS": "Интервал появления ботов (мс)",
-        "BOT_EXPIRATION_TIME_MS": "Время жизни ботов (мс)",
-        "BOT_DIFFICULTY": "Сложность ботов"
-      },
-      "boolean": {
-        "yes": "Да",
-        "no": "Нет"
-      }
+    "aoiRadius": {
+      "label": "Радиус зоны интереса (AoI) (пикс.) *:",
+      "placeholder": "например, 2000"
     },
-    "feedback": {
-      "accessDenied": "Доступ запрещен. Перенаправление...",
-      "settingsUpdated": "Настройки успешно обновлены.",
-      "settingsUpdatedWithRestart": "Настройки обновлены. Требуется перезапуск сервера для изменений карты/безопасности.",
-      "settingsUpdatedFpsRestart": "Настройки обновлены. Игровой цикл перезапущен для FPS.",
-      "settingsUpdateError": "Ошибка при обновлении настроек.",
-      "loadSettingsError": "Ошибка загрузки настроек: {{error}}",
-      "loadUsersError": "Ошибка загрузки пользователей.",
-      "networkError": "Сетевая ошибка или сервер недоступен.",
-      "invalidResponse": "Неверный ответ от сервера (не JSON)",
-      "changes": "Изменения:",
-      "restartRequired": "Требуется перезапуск сервера для применения изменений (Размер/Форма карты, Режим безопасности, Радиус AoI).",
-      "fpsRestart": "Игровой цикл был перезапущен для применения нового FPS.",
-      "noChanges": "Настройки не были изменены.",
-      "userActionSuccess": "{{message}}",
-      "userActionError": "{{message}}",
-      "prunePreviewError": "Ошибка во время предварительного просмотра.",
-      "pruneError": "Ошибка во время операции очистки.",
-      "pruneSuccess": "{{message}}"
+    "maxTrailLengthDefault": {
+      "label": "Лимит размера змейки (по умолч.):",
+      "placeholder": "например, 1000"
     },
-    "soundManager": {
-      "alerts": {
-        "selectMp3": "Пожалуйста, выберите файл MP3.",
-        "loginRequired": "Вы должны войти в систему, чтобы сохранять пользовательские звуки.",
-        "saveError": "Ошибка сохранения звука. Локальное хранилище может быть заполнено.",
-        "readError": "Ошибка чтения звукового файла.",
-        "clearLoginRequired": "Вы должны войти в систему, чтобы очистить звуки.",
-        "clearError": "Произошла ошибка при удалении звуков."
-      },
-      "confirms": {
-        "clearAll": "Вы уверены, что хотите удалить все пользовательские звуки для этой учетной записи?"
-      },
-      "statusTitles": {
-        "saveError": "Ошибка сохранения",
-        "readError": "Ошибка чтения",
-        "saved": "Звук сохранен",
-        "savedWithName": "Сохранено: {{filename}}"
-      }
+    "initialSize": {
+      "label": "Начальный размер змейки:",
+      "placeholder": "например, 50"
     },
-    "offlinePage": {
-      "title": "Сервер недоступен - Slither Clone SIO",
-      "logoAlt": "Логотип Сервер недоступен",
-      "mainHeader": "Сервер недоступен",
-      "explanation": "Сервер <span class=\"game-name\">Slither Clone SIO</span> временно недоступен или недостижим. Мы пытаемся восстановить соединение для вас.",
-      "snakeTitle": "А пока поиграйте в Змейку!",
-      "snakeScoreLabel": "Счет: 0",
-      "snakeControls": "Стрелки / ZQSD / WASD: Движение | Enter: Старт/Рестарт",
-      "status": {
-        "label": "Статус:",
-        "searching": "Поиск...",
-        "checking": "Проверка...",
-        "connected": "Подключено!",
-        "nextAttemptLabel": "Следующая попытка через",
-        "secondsSuffix": "сек",
-        "attemptsLabel": "Попытки:"
-      },
-      "refreshButton": "Проверить сейчас",
-      "redirectInfo": "Вы будете автоматически перенаправлены, как только сервер снова будет в сети."
+    "speed": {
+      "label": "Базовая скорость:",
+      "placeholder": "например, 1"
     },
-    "offlineSnake": {
-      "hud": {
-        "scoreLabel": "Счет: {{score}}"
-      },
-      "gameOver": {
-        "win": "ПОБЕДА!",
-        "lose": "ПОРАЖЕНИЕ!",
-        "scoreLabel": "Счет: {{score}}",
-        "promptLine1": "Нажмите Enter",
-        "promptLine2": "чтобы сыграть снова"
-      },
-      "countdown": "НАЧАЛО ЧЕРЕЗ {{count}}",
-      "startScreen": {
-        "title": "ЗМЕЙКА",
-        "promptLine1": "Нажмите Enter",
-        "promptLine2": "чтобы играть"
-      }
+    "maxRotationRate": {
+      "label": "Макс. скорость поворота (рад/тик):",
+      "placeholder": "например, 0.08"
     },
-    "api": {
-      "errors": {
-        "internalServerError": "Внутренняя ошибка сервера.",
-        "invalidAdminStatus": "Неверный статус 'isAdmin'.",
-        "userNotFound": "Пользователь не найден.",
-        "invalidSuspendStatus": "Неверный статус 'isSuspended'.",
-        "cannotDeleteSelf": "Вы не можете удалить свою учетную запись администратора здесь.",
-        "prunePreviewError": "Ошибка во время предварительного просмотра очистки.",
-        "pruneError": "Ошибка во время операции очистки.",
-        "rateLimit": "Слишком много попыток создания учетной записи. Пожалуйста, повторите попытку примерно через {{minutes}} мин.",
-        "missingCredentials": "Требуется имя пользователя и пароль.",
-        "usernameTooLong": "Имя пользователя не может превышать {{maxLength}} символов.",
-        "usernameTooShort": "Имя пользователя должно содержать не менее {{minLength}} символов.",
-        "passwordTooShort": "Пароль должен содержать не менее {{minLength}} символов.",
-        "usernameTaken": "Это имя пользователя уже занято.",
-        "invalidCredentials": "Неверное имя пользователя или пароль.",
-        "accountSuspended": "Эта учетная запись в настоящее время заблокирована.",
-        "notAuthenticated": "Не аутентифицирован.",
-        "invalidHeadColor": "Неверный цвет головы.",
-        "missingSkinData": "Данные скина отсутствуют или неверны.",
-        "invalidBodyType": "Неверный тип тела.",
-        "invalidBodyColor": "Неверный цвет тела в данных скина.",
-        "invalidPatternColorsType": "Цвета узора должны быть массивом.",
-        "tooManyPatternColors": "Слишком много цветов узора (макс. {{max}}).",
-        "invalidPatternColorValue": "В узоре найден неверный цвет.",
-        "invalidTrailEffect": "Неверный эффект следа.",
-        "adminCannotDeleteSelf": "Администраторы не могут удалить свою учетную запись через этот интерфейс.",
-        "deleteAccountError": "Внутренняя ошибка при удалении учетной записи."
-      },
-      "success": {
-        "accountCreated": "Учетная запись успешно создана и выполнен вход.",
-        "login": "Вход выполнен успешно.",
-        "logout": "Выход выполнен успешно.",
-        "skinUpdated": "Внешний вид успешно обновлен.",
-        "accountDeleted": "Ваша учетная запись успешно удалена."
-      },
-      "admin": {
-        "adminStatusUpdated": "Статус администратора для {{username}} обновлен.",
-        "suspendStatusUpdated": "Статус блокировки для {{username}} обновлен.",
-        "userDeleted": "Учетная запись {{username}} успешно удалена.",
-        "pruneNoUsers": "Неактивные аккаунты для очистки не найдены.",
-        "pruneSuccess": "Очищено {{count}} неактивных аккаунтов."
-      }
+    "minBoostSize": {
+      "label": "Мин. размер для ускорения:",
+      "placeholder": "например, 50"
     },
-    "socket": {
-      "loginFailed": {
-        "suspended": "Ваша учетная запись заблокирована.",
-        "accountError": "Ошибка учетной записи. Пожалуйста, войдите снова.",
-        "alreadyConnected": "Эта учетная запись уже подключена к игре.",
-        "deletedByAdmin": "Ваша учетная запись была удалена администратором.",
-        "accountDeleted": "Ваша учетная запись была удалена."
-      },
-      "kickReason": "Выгнаны {{admin}}",
-      "banReason": "Забанены {{admin}}",
-      "clearReason": "Очищены {{admin}}",
-      "adminFeedback": {
-        "unauthorized": "Действие не авторизовано.",
-        "targetNotFound": "Целевой игрок не найден.",
-        "kickSuccess": "{{username}} был выгнан.",
-        "kickOfflineSuccess": "{{username}} (уже отключен) удален из игры.",
-        "kickError": "Не удалось найти сокет или состояние для {{username}}.",
-        "banSuccess": "{{username}} был забанен (учетная запись заблокирована, игрок выгнан).",
-        "banAccountOnlySuccess": "Учетная запись {{username}} заблокирована (игрок уже отключен или удален).",
-        "banError": "Невозможно забанить {{username}} (временная или несуществующая учетная запись).",
-        "freezeSuccess": "{{username}} был заморожен.",
-        "unfreezeSuccess": "{{username}} был разморожен.",
-        "killSuccess": "{{username}} был убит.",
-        "clearSuccess": "{{username}} был очищен (удален без выпадения еды).",
-        "clearError": "Не удалось очистить {{username}} (уже удален?).",
-        "unknownAction": "Неизвестное действие."
-      },
-      "userConnected": "{{username}} присоединился к игре.",
-      "userDisconnected": "{{username}} покинул игру.",
-      "disconnectReason": "Отключено: {{reason}}"
+    "boostConsumptionRate": {
+      "label": "Скорость потребления ускорения:",
+      "placeholder": "например, 1"
     },
-    "game": {
-      "deathReason": {
-        "unknown": "Неизвестное столкновение",
-        "boundary": "Столкнулся с границей карты.",
-        "teleport": "Отключено: Подозрительное движение.",
-        "selfCollision": "Анти-чит: Самостолкновение.",
-        "inactivity": "Бездействие.",
-        "killedByAdmin": "Убит {{admin}}",
-        "botExpired": "Бот истек.",
-        "clientCollision": "Столкновение с телом (клиент)"
-      }
+    "foodSpawnInterval": {
+      "label": "Интервал появления еды (мс):",
+      "placeholder": "например, 5000"
     },
+    "fps": {
+      "label": "FPS сервера (циклов/сек):",
+      "placeholder": "например, 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Сила притяжения еды:",
+      "placeholder": "например, 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Расстояние прилипания еды:",
+      "placeholder": "например, 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Уровень масштабирования по умолч.:",
+      "placeholder": "например, 1.0"
+    },
+    "securityMode": {
+      "label": "Режим безопасности *:",
+      "high": "Высокий (Рекомендуется)",
+      "low": "Низкий (Клиент + Легкий)",
+      "medium": "Средний (Администраторы на стороне клиента)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Порог нарушений телепортации:",
+      "placeholder": "например, 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Фактор допуска телепортации:",
+      "placeholder": "например, 1.5"
+    },
+    "botsEnabled": {
+      "label": "Включить ботов:",
+      "yes": "Да",
+      "no": "Нет"
+    },
+    "botMaxCount": {
+      "label": "Макс. количество ботов:",
+      "placeholder": "например, 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Интервал появления ботов (мс):",
+      "placeholder": "например, 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Время жизни ботов (мс):",
+      "placeholder": "например, 120000"
+    },
+    "botDifficulty": {
+      "label": "Сложность ботов:",
+      "easy": "Легко",
+      "medium": "Средне",
+      "hard": "Сложно"
+    },
+    "adminMessageText": {
+      "label": "Сообщение администратора (оставьте пустым для очистки):",
+      "placeholder": "Сообщение для отображения всем игрокам"
+    },
+    "adminMessageDuration": {
+      "label": "Длительность сообщения (секунды):",
+      "placeholder": "например, 10"
+    },
+    "updateButton": "Обновить настройки"
+  },
+  "userManagement": {
+    "title": "Управление пользователями",
+    "loading": "Загрузка...",
+    "noUsers": "Пользователи не найдены.",
+    "table": {
+      "headerUser": "Пользователь",
+      "headerStatus": "Статус",
+      "headerLastLogin": "Последний вход",
+      "headerCreated": "Создан",
+      "headerActions": "Действия"
+    },
+    "status": {
+      "admin": "Админ",
+      "suspended": "Заблокирован",
+      "normal": "Обычный",
+      "never": "Никогда",
+      "unknown": "Неизвестно"
+    },
+    "actions": {
+      "removeAdmin": "Убрать админа",
+      "makeAdmin": "Сделать админом",
+      "unban": "Разблокировать",
+      "suspend": "Заблокировать",
+      "delete": "Удалить"
+    },
+    "pruneButton": "Очистить неактивные аккаунты",
+    "confirmDelete": "Вы уверены, что хотите навсегда удалить пользователя \"{{username}}\"? Это действие необратимо.",
+    "confirmPrune_one": "Вы уверены, что хотите удалить {{count}} неактивный аккаунт (неактивен >15 дней И очень низкая статистика)? Это действие необратимо.",
+    "confirmPrune_other": "Вы уверены, что хотите удалить {{count}} неактивных аккаунтов (неактивны >15 дней И очень низкая статистика)? Это действие необратимо.",
+    "confirmPruneZero": "Неактивные аккаунты по текущим критериям не найдены. Все равно выполнить операцию (на всякий случай)?",
+    "confirmPruneZeroConfirm": "Подтвердить операцию очистки, даже если обнаружено 0 аккаунтов?",
+    "pruneCancelled": "Операция очистки отменена."
+  },
+  "currentConfig": {
+    "title": "Текущая конфигурация сервера",
+    "loading": "Загрузка конфигурации...",
+    "loadError": "Не удалось загрузить конфигурацию.",
+    "loadSuccess": "Текущая конфигурация загружена.",
+    "keys": {
+      "MAP_WIDTH": "Ширина карты (пикс.)",
+      "MAP_HEIGHT": "Высота карты (пикс.)",
+      "MAP_SHAPE": "Форма карты",
+      "AOI_RADIUS": "Радиус зоны интереса (AoI) (пикс.)",
+      "SECURITY_MODE": "Режим безопасности (Высокий: Полный сервер / Средний: Администраторы на стороне клиента / Низкий: Полный клиент)",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Лимит размера змейки (по умолч.)",
+      "INITIAL_SIZE": "Начальный размер змейки",
+      "MIN_BOOST_SIZE": "Мин. размер для ускорения",
+      "SPEED": "Базовая скорость",
+      "MAX_ROTATION_RATE": "Макс. скорость поворота",
+      "BOOST_CONSUMPTION_RATE": "Потребление ускорения (размер/тик)",
+      "FPS": "FPS сервера",
+      "FOOD_SPAWN_INTERVAL": "Интервал появления еды (мс)",
+      "FOOD_ATTRACTION_STRENGTH": "Сила притяжения еды",
+      "FOOD_SNAP_DISTANCE": "Расстояние прилипания еды",
+      "DEFAULT_ZOOM_LEVEL": "Уровень масштабирования по умолч.",
+      "TELEPORT_VIOLATION_THRESHOLD": "Порог нарушений телепортации",
+      "TELEPORT_TOLERANCE_FACTOR": "Фактор допуска телепортации",
+      "BOTS_ENABLED": "Боты включены",
+      "BOT_MAX_COUNT": "Макс. количество ботов",
+      "BOT_SPAWN_INTERVAL_MS": "Интервал появления ботов (мс)",
+      "BOT_EXPIRATION_TIME_MS": "Время жизни ботов (мс)",
+      "BOT_DIFFICULTY": "Сложность ботов"
+    },
+    "boolean": {
+      "yes": "Да",
+      "no": "Нет"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Доступ запрещен. Перенаправление...",
+    "settingsUpdated": "Настройки успешно обновлены.",
+    "settingsUpdatedWithRestart": "Настройки обновлены. Требуется перезапуск сервера для изменений карты/безопасности.",
+    "settingsUpdatedFpsRestart": "Настройки обновлены. Игровой цикл перезапущен для FPS.",
+    "settingsUpdateError": "Ошибка при обновлении настроек.",
+    "loadSettingsError": "Ошибка загрузки настроек: {{error}}",
+    "loadUsersError": "Ошибка загрузки пользователей.",
+    "networkError": "Сетевая ошибка или сервер недоступен.",
+    "invalidResponse": "Неверный ответ от сервера (не JSON)",
+    "changes": "Изменения:",
+    "restartRequired": "Требуется перезапуск сервера для применения изменений (Размер/Форма карты, Режим безопасности, Радиус AoI).",
+    "fpsRestart": "Игровой цикл был перезапущен для применения нового FPS.",
+    "noChanges": "Настройки не были изменены.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Ошибка во время предварительного просмотра.",
+    "pruneError": "Ошибка во время операции очистки.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Пожалуйста, выберите файл MP3.",
+      "loginRequired": "Вы должны войти в систему, чтобы сохранять пользовательские звуки.",
+      "saveError": "Ошибка сохранения звука. Локальное хранилище может быть заполнено.",
+      "readError": "Ошибка чтения звукового файла.",
+      "clearLoginRequired": "Вы должны войти в систему, чтобы очистить звуки.",
+      "clearError": "Произошла ошибка при удалении звуков."
+    },
+    "confirms": {
+      "clearAll": "Вы уверены, что хотите удалить все пользовательские звуки для этой учетной записи?"
+    },
+    "statusTitles": {
+      "saveError": "Ошибка сохранения",
+      "readError": "Ошибка чтения",
+      "saved": "Звук сохранен",
+      "savedWithName": "Сохранено: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Сервер недоступен - Slither Clone SIO",
+    "logoAlt": "Логотип Сервер недоступен",
+    "mainHeader": "Сервер недоступен",
+    "explanation": "Сервер <span class=\"game-name\">Slither Clone SIO</span> временно недоступен или недостижим. Мы пытаемся восстановить соединение для вас.",
+    "snakeTitle": "А пока поиграйте в Змейку!",
+    "snakeScoreLabel": "Счет: 0",
+    "snakeControls": "Стрелки / ZQSD / WASD: Движение | Enter: Старт/Рестарт",
+    "status": {
+      "label": "Статус:",
+      "searching": "Поиск...",
+      "checking": "Проверка...",
+      "connected": "Подключено!",
+      "nextAttemptLabel": "Следующая попытка через",
+      "secondsSuffix": "сек",
+      "attemptsLabel": "Попытки:"
+    },
+    "refreshButton": "Проверить сейчас",
+    "redirectInfo": "Вы будете автоматически перенаправлены, как только сервер снова будет в сети."
+  },
+  "offlineSnake": {
     "hud": {
-      "sizeLabel": "Размер: {{size}}",
-      "positionLabel": "Позиция: {{x}}x{{y}}",
-      "ghostMode": "Режим призрака",
-      "spectator": "Наблюдатель"
-    },
-    "ghostMode": {
-      "selected": "Выбрано: <span class=\"selected-player-name\">{{name}}</span>",
-      "unknownPlayer": "Неизвестно",
-      "controlsSelected": "<kbd>K</kbd>: Убить | <kbd>C</kbd>: Очистить | <kbd>F</kbd>: Заморозить/Разморозить | <kbd>Esc</kbd>: Отменить выбор",
-      "controlsGeneral": "ЛКМ: Выбрать сущность / Перетащить для панорамирования<br>Колесо: Масштаб | <kbd>Esc</kbd>: Отменить выбор"
-    },
-    "mainPage": {
-      "title": "Slither Clone SIO"
-    },
-    "mainMenu": {
-      "title": "Добро пожаловать в <span class=\"blink\">Slither Clone SIO</span>",
-      "helpButtonTitle": "Помощь и Авторы",
-      "adminLink": "Админ",
-      "exitGhostButton": "Выйти из режима призрака"
-    },
-    "ui": {
-      "buttons": {
-        "playGuest": "Играть как гость",
-        "playAsUser": "Играть как {{username}}",
-        "login": "Войти",
-        "createAccount": "Создать аккаунт",
-        "customizeSkin": "Настроить внешний вид",
-        "customSounds": "Пользовательские звуки",
-        "showLeaderboard": "Показать таблицу лидеров",
-        "ghostMode": "Режим призрака",
-        "deleteAccount": "Удалить мой аккаунт",
-        "logout": "Выйти"
-      },
-      "alerts": {
-        "colorTooDark": "Выбранный цвет очень темный и может быть плохо виден. Рекомендуется более светлый цвет.",
-        "missingCredentials": "Пожалуйста, введите имя пользователя и пароль.",
-        "usernameLength": "Имя пользователя должно содержать от {{min}} до {{max}} символов.",
-        "passwordLength": "Пароль должен содержать не менее {{min}} символов.",
-        "maxPatternColors": "Достигнуто максимальное количество цветов узора: {{max}}.",
-        "canvasError": "Критическая ошибка: Не удалось найти элемент canvas для наложения текста!",
-        "gameModuleError": "Критическая ошибка: Не удалось инициализировать игровой модуль!",
-        "fetchAccountError": "Ошибка при получении данных учетной записи.",
-        "loginError": "Ошибка входа: {{error}}",
-        "creationError": "Ошибка создания: {{error}}",
-        "skinUpdateError": "Сетевая или серверная ошибка при обновлении внешнего вида: {{error}}",
-        "skinUpdatedTemp": "Внешний вид обновлен для временной сессии.",
-        "deleteAccountError": "Сетевая ошибка при удалении учетной записи."
-      },
-      "confirms": {
-        "enterGhostMode": "Войти в режим призрака (наблюдатель)?",
-        "deleteAccount": "Вы уверены, что хотите навсегда удалить свою учетную запись \"{{username}}\"? Это действие необратимо."
-      },
-      "welcomeMessage": "Привет, {{username}}!",
-      "welcomeMessage_admin": "Привет, {{username}} (Админ)!"
-    },
-    "forms": {
-      "common": {
-        "usernameLabel": "Имя пользователя:",
-        "passwordLabel": "Пароль:",
-        "backButton": "Назад"
-      },
-      "guest": {
-        "title": "Играть как гость",
-        "note": "Цвета и скин будут установлены через \"Настроить внешний вид\".",
-        "submitButton": "Начать игру"
-      },
-      "login": {
-        "title": "Войти",
-        "submitButton": "Войти"
-      },
-      "create": {
-        "title": "Создать аккаунт",
-        "initialHeadColorLabel": "Начальный цвет головы:",
-        "initialBodyColorLabel": "Начальный цвет тела:",
-        "submitButton": "Создать"
-      },
-      "skin": {
-        "title": "Настроить внешний вид",
-        "headColorLabel": "Цвет головы:",
-        "bodyTypeLabel": "Тип тела",
-        "bodyTypeSingle": "Один цвет",
-        "bodyTypePattern": "Повторяющийся узор",
-        "bodyColorLabel": "Цвет тела:",
-        "patternColorsLabel": "Цвета узора (макс. 8)",
-        "trailEffectLabel": "Эффект следа",
-        "trailEffect": {
-          "none": "Нет",
-          "sparkle": "Искры",
-          "smoke": "Зеленый дым",
-          "fire": "Огонь",
-          "ice": "Ледяные осколки",
-          "electric": "Электрические искры",
-          "rainbow": "Радуга",
-          "bubbles": "Пузыри",
-          "glitch": "Глюк",
-          "void": "Пустота / Тень",
-          "confetti": "Конфетти"
-        },
-        "submitButton": "Сохранить внешний вид"
-      },
-      "sound": {
-        "title": "Пользовательские звуки",
-        "info": "Загрузите файлы MP3 (хранятся локально) для событий.",
-        "deathLabel": "Звук смерти:",
-        "killLabel": "Звук убийства:",
-        "boostLabel": "Звук ускорения:",
-        "clearButton": "Очистить звуки"
-      }
+      "scoreLabel": "Счет: {{score}}"
     },
     "gameOver": {
-      "replayButton": "Играть снова",
-      "backToMenuButton": "Вернуться в меню",
-      "finalSizeLabel": "Ваш размер был: {{size}}"
+      "win": "ПОБЕДА!",
+      "lose": "ПОРАЖЕНИЕ!",
+      "scoreLabel": "Счет: {{score}}",
+      "promptLine1": "Нажмите Enter",
+      "promptLine2": "чтобы сыграть снова"
     },
-    "leaderboard": {
-      "title": "Таблица лидеров",
-      "header": {
-        "name": "Имя",
-        "status": "Статус",
-        "size": "Размер",
-        "kills": "Убийства",
-        "deaths": "Смерти",
-        "kd": "K/D"
-      },
-      "noPlayers": "Пока нет игроков в рейтинге.",
-      "status": {
-        "ingame": "В игре",
-        "online": "Онлайн",
-        "offline": "Офлайн",
-        "never": "Никогда",
-        "na": "Н/Д",
-        "ingameTitle": "В настоящее время в игре"
-      },
-      "time": {
-        "secondsAgo_one": "{{count}} сек назад",
-        "secondsAgo_other": "{{count}} сек назад",
-        "minutesAgo_one": "{{count}} мин назад",
-        "minutesAgo_other": "{{count}} мин назад",
-        "hoursAgo_one": "{{count}} час назад",
-        "hoursAgo_other": "{{count}} часов назад",
-        "daysAgo_one": "{{count}} день назад",
-        "daysAgo_other": "{{count}} дней назад",
-        "yesterday": "Вчера"
-      },
-      "lastLoginTitle": "Последний вход: {{date}}"
-    },
-    "helpPanel": {
-      "menuKeysTitle": "Горячие клавиши (Меню)",
-      "menuKeys": {
-        "navigate": "↑ / ↓ / Tab: Навигация по кнопкам",
-        "activate": "Enter: Активировать выбранную кнопку",
-        "close": "Esc: Закрыть эту панель / Назад"
-      },
-      "gameKeysTitle": "Горячие клавиши (Игра)",
-      "gameKeys": {
-        "mouse": "Мышь: Управлять змейкой",
-        "boost": "ЛКМ / Пробел: Ускорение",
-        "adminCheat": "P: Чит администратора (если админ)"
-      },
-      "ghostKeysTitle": "Горячие клавиши (Призрак)",
-      "ghostKeys": {
-        "select": "ЛКМ (на игроке): Выбрать игрока",
-        "pan": "ЛКМ + Перетаскивание (пустое место): Панорамирование камеры",
-        "zoom": "Колесо мыши: Масштабирование",
-        "kill": "K (если игрок выбран): Убить игрока",
-        "clear": "C (если игрок выбран): Очистить игрока (без еды)",
-        "freeze": "F (если игрок выбран): Заморозить/Разморозить игрока",
-        "deselect": "Esc: Отменить выбор"
-      },
-      "creditsTitle": "Авторы",
-      "creditsAuthor": "Автор: Анонимный автор",
-      "creditsLicense": "Лицензия: MIT",
-      "creditsGithub": "Проект на GitHub"
+    "countdown": "НАЧАЛО ЧЕРЕЗ {{count}}",
+    "startScreen": {
+      "title": "ЗМЕЙКА",
+      "promptLine1": "Нажмите Enter",
+      "promptLine2": "чтобы играть"
     }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Внутренняя ошибка сервера.",
+      "invalidAdminStatus": "Неверный статус 'isAdmin'.",
+      "userNotFound": "Пользователь не найден.",
+      "invalidSuspendStatus": "Неверный статус 'isSuspended'.",
+      "cannotDeleteSelf": "Вы не можете удалить свою учетную запись администратора здесь.",
+      "prunePreviewError": "Ошибка во время предварительного просмотра очистки.",
+      "pruneError": "Ошибка во время операции очистки.",
+      "rateLimit": "Слишком много попыток создания учетной записи. Пожалуйста, повторите попытку примерно через {{minutes}} мин.",
+      "missingCredentials": "Требуется имя пользователя и пароль.",
+      "usernameTooLong": "Имя пользователя не может превышать {{maxLength}} символов.",
+      "usernameTooShort": "Имя пользователя должно содержать не менее {{minLength}} символов.",
+      "passwordTooShort": "Пароль должен содержать не менее {{minLength}} символов.",
+      "usernameTaken": "Это имя пользователя уже занято.",
+      "invalidCredentials": "Неверное имя пользователя или пароль.",
+      "accountSuspended": "Эта учетная запись в настоящее время заблокирована.",
+      "notAuthenticated": "Не аутентифицирован.",
+      "invalidHeadColor": "Неверный цвет головы.",
+      "missingSkinData": "Данные скина отсутствуют или неверны.",
+      "invalidBodyType": "Неверный тип тела.",
+      "invalidBodyColor": "Неверный цвет тела в данных скина.",
+      "invalidPatternColorsType": "Цвета узора должны быть массивом.",
+      "tooManyPatternColors": "Слишком много цветов узора (макс. {{max}}).",
+      "invalidPatternColorValue": "В узоре найден неверный цвет.",
+      "invalidTrailEffect": "Неверный эффект следа.",
+      "adminCannotDeleteSelf": "Администраторы не могут удалить свою учетную запись через этот интерфейс.",
+      "deleteAccountError": "Внутренняя ошибка при удалении учетной записи."
+    },
+    "success": {
+      "accountCreated": "Учетная запись успешно создана и выполнен вход.",
+      "login": "Вход выполнен успешно.",
+      "logout": "Выход выполнен успешно.",
+      "skinUpdated": "Внешний вид успешно обновлен.",
+      "accountDeleted": "Ваша учетная запись успешно удалена."
+    },
+    "admin": {
+      "adminStatusUpdated": "Статус администратора для {{username}} обновлен.",
+      "suspendStatusUpdated": "Статус блокировки для {{username}} обновлен.",
+      "userDeleted": "Учетная запись {{username}} успешно удалена.",
+      "pruneNoUsers": "Неактивные аккаунты для очистки не найдены.",
+      "pruneSuccess": "Очищено {{count}} неактивных аккаунтов."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Ваша учетная запись заблокирована.",
+      "accountError": "Ошибка учетной записи. Пожалуйста, войдите снова.",
+      "alreadyConnected": "Эта учетная запись уже подключена к игре.",
+      "deletedByAdmin": "Ваша учетная запись была удалена администратором.",
+      "accountDeleted": "Ваша учетная запись была удалена."
+    },
+    "kickReason": "Выгнаны {{admin}}",
+    "banReason": "Забанены {{admin}}",
+    "clearReason": "Очищены {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Действие не авторизовано.",
+      "targetNotFound": "Целевой игрок не найден.",
+      "kickSuccess": "{{username}} был выгнан.",
+      "kickOfflineSuccess": "{{username}} (уже отключен) удален из игры.",
+      "kickError": "Не удалось найти сокет или состояние для {{username}}.",
+      "banSuccess": "{{username}} был забанен (учетная запись заблокирована, игрок выгнан).",
+      "banAccountOnlySuccess": "Учетная запись {{username}} заблокирована (игрок уже отключен или удален).",
+      "banError": "Невозможно забанить {{username}} (временная или несуществующая учетная запись).",
+      "freezeSuccess": "{{username}} был заморожен.",
+      "unfreezeSuccess": "{{username}} был разморожен.",
+      "killSuccess": "{{username}} был убит.",
+      "clearSuccess": "{{username}} был очищен (удален без выпадения еды).",
+      "clearError": "Не удалось очистить {{username}} (уже удален?).",
+      "unknownAction": "Неизвестное действие."
+    },
+    "userConnected": "{{username}} присоединился к игре.",
+    "userDisconnected": "{{username}} покинул игру.",
+    "disconnectReason": "Отключено: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Неизвестное столкновение",
+      "boundary": "Столкнулся с границей карты.",
+      "teleport": "Отключено: Подозрительное движение.",
+      "selfCollision": "Анти-чит: Самостолкновение.",
+      "inactivity": "Бездействие.",
+      "killedByAdmin": "Убит {{admin}}",
+      "botExpired": "Бот истек.",
+      "clientCollision": "Столкновение с телом (клиент)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Размер: {{size}}",
+    "positionLabel": "Позиция: {{x}}x{{y}}",
+    "ghostMode": "Режим призрака",
+    "spectator": "Наблюдатель"
+  },
+  "ghostMode": {
+    "selected": "Выбрано: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Неизвестно",
+    "controlsSelected": "<kbd>K</kbd>: Убить | <kbd>C</kbd>: Очистить | <kbd>F</kbd>: Заморозить/Разморозить | <kbd>Esc</kbd>: Отменить выбор",
+    "controlsGeneral": "ЛКМ: Выбрать сущность / Перетащить для панорамирования<br>Колесо: Масштаб | <kbd>Esc</kbd>: Отменить выбор"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "Добро пожаловать в <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "Помощь и Авторы",
+    "adminLink": "Админ",
+    "exitGhostButton": "Выйти из режима призрака"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Играть как гость",
+      "playAsUser": "Играть как {{username}}",
+      "login": "Войти",
+      "createAccount": "Создать аккаунт",
+      "customizeSkin": "Настроить внешний вид",
+      "customSounds": "Пользовательские звуки",
+      "showLeaderboard": "Показать таблицу лидеров",
+      "ghostMode": "Режим призрака",
+      "deleteAccount": "Удалить мой аккаунт",
+      "logout": "Выйти"
+    },
+    "alerts": {
+      "colorTooDark": "Выбранный цвет очень темный и может быть плохо виден. Рекомендуется более светлый цвет.",
+      "missingCredentials": "Пожалуйста, введите имя пользователя и пароль.",
+      "usernameLength": "Имя пользователя должно содержать от {{min}} до {{max}} символов.",
+      "passwordLength": "Пароль должен содержать не менее {{min}} символов.",
+      "maxPatternColors": "Достигнуто максимальное количество цветов узора: {{max}}.",
+      "canvasError": "Критическая ошибка: Не удалось найти элемент canvas для наложения текста!",
+      "gameModuleError": "Критическая ошибка: Не удалось инициализировать игровой модуль!",
+      "fetchAccountError": "Ошибка при получении данных учетной записи.",
+      "loginError": "Ошибка входа: {{error}}",
+      "creationError": "Ошибка создания: {{error}}",
+      "skinUpdateError": "Сетевая или серверная ошибка при обновлении внешнего вида: {{error}}",
+      "skinUpdatedTemp": "Внешний вид обновлен для временной сессии.",
+      "deleteAccountError": "Сетевая ошибка при удалении учетной записи."
+    },
+    "confirms": {
+      "enterGhostMode": "Войти в режим призрака (наблюдатель)?",
+      "deleteAccount": "Вы уверены, что хотите навсегда удалить свою учетную запись \"{{username}}\"? Это действие необратимо."
+    },
+    "welcomeMessage": "Привет, {{username}}!",
+    "welcomeMessage_admin": "Привет, {{username}} (Админ)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Имя пользователя:",
+      "passwordLabel": "Пароль:",
+      "backButton": "Назад"
+    },
+    "guest": {
+      "title": "Играть как гость",
+      "note": "Цвета и скин будут установлены через \"Настроить внешний вид\".",
+      "submitButton": "Начать игру"
+    },
+    "login": {
+      "title": "Войти",
+      "submitButton": "Войти"
+    },
+    "create": {
+      "title": "Создать аккаунт",
+      "initialHeadColorLabel": "Начальный цвет головы:",
+      "initialBodyColorLabel": "Начальный цвет тела:",
+      "submitButton": "Создать"
+    },
+    "skin": {
+      "title": "Настроить внешний вид",
+      "headColorLabel": "Цвет головы:",
+      "bodyTypeLabel": "Тип тела",
+      "bodyTypeSingle": "Один цвет",
+      "bodyTypePattern": "Повторяющийся узор",
+      "bodyColorLabel": "Цвет тела:",
+      "patternColorsLabel": "Цвета узора (макс. 8)",
+      "trailEffectLabel": "Эффект следа",
+      "trailEffect": {
+        "none": "Нет",
+        "sparkle": "Искры",
+        "smoke": "Зеленый дым",
+        "fire": "Огонь",
+        "ice": "Ледяные осколки",
+        "electric": "Электрические искры",
+        "rainbow": "Радуга",
+        "bubbles": "Пузыри",
+        "glitch": "Глюк",
+        "void": "Пустота / Тень",
+        "confetti": "Конфетти"
+      },
+      "submitButton": "Сохранить внешний вид"
+    },
+    "sound": {
+      "title": "Пользовательские звуки",
+      "info": "Загрузите файлы MP3 (хранятся локально) для событий.",
+      "deathLabel": "Звук смерти:",
+      "killLabel": "Звук убийства:",
+      "boostLabel": "Звук ускорения:",
+      "clearButton": "Очистить звуки"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Играть снова",
+    "backToMenuButton": "Вернуться в меню",
+    "finalSizeLabel": "Ваш размер был: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Таблица лидеров",
+    "header": {
+      "name": "Имя",
+      "status": "Статус",
+      "size": "Размер",
+      "kills": "Убийства",
+      "deaths": "Смерти",
+      "kd": "K/D"
+    },
+    "noPlayers": "Пока нет игроков в рейтинге.",
+    "status": {
+      "ingame": "В игре",
+      "online": "Онлайн",
+      "offline": "Офлайн",
+      "never": "Никогда",
+      "na": "Н/Д",
+      "ingameTitle": "В настоящее время в игре"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} сек назад",
+      "secondsAgo_other": "{{count}} сек назад",
+      "minutesAgo_one": "{{count}} мин назад",
+      "minutesAgo_other": "{{count}} мин назад",
+      "hoursAgo_one": "{{count}} час назад",
+      "hoursAgo_other": "{{count}} часов назад",
+      "daysAgo_one": "{{count}} день назад",
+      "daysAgo_other": "{{count}} дней назад",
+      "yesterday": "Вчера"
+    },
+    "lastLoginTitle": "Последний вход: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Горячие клавиши (Меню)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Навигация по кнопкам",
+      "activate": "Enter: Активировать выбранную кнопку",
+      "close": "Esc: Закрыть эту панель / Назад"
+    },
+    "gameKeysTitle": "Горячие клавиши (Игра)",
+    "gameKeys": {
+      "mouse": "Мышь: Управлять змейкой",
+      "boost": "ЛКМ / Пробел: Ускорение",
+      "adminCheat": "P: Чит администратора (если админ)"
+    },
+    "ghostKeysTitle": "Горячие клавиши (Призрак)",
+    "ghostKeys": {
+      "select": "ЛКМ (на игроке): Выбрать игрока",
+      "pan": "ЛКМ + Перетаскивание (пустое место): Панорамирование камеры",
+      "zoom": "Колесо мыши: Масштабирование",
+      "kill": "K (если игрок выбран): Убить игрока",
+      "clear": "C (если игрок выбран): Очистить игрока (без еды)",
+      "freeze": "F (если игрок выбран): Заморозить/Разморозить игрока",
+      "deselect": "Esc: Отменить выбор"
+    },
+    "creditsTitle": "Авторы",
+    "creditsAuthor": "Автор: Анонимный автор",
+    "creditsLicense": "Лицензия: MIT",
+    "creditsGithub": "Проект на GitHub"
   }
-  
+}

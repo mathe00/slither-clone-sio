@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Chế độ Bảo mật *:",
       "high": "Cao (Khuyến nghị)",
-      "low": "Thấp (Client + Nhẹ)"
+      "low": "Thấp (Client + Nhẹ)",
+      "medium": "Trung bình (Quản trị viên phía máy khách)"
     },
     "teleportViolationThreshold": {
       "label": "Ngưỡng Vi phạm Dịch chuyển:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Chiều cao Bản đồ (px)",
       "MAP_SHAPE": "Hình dạng Bản đồ",
       "AOI_RADIUS": "Bán kính Khu vực Quan tâm (AoI) (px)",
-      "SECURITY_MODE": "Chế độ Bảo mật",
+      "SECURITY_MODE": "Chế độ bảo mật (Cao: Máy chủ đầy đủ / Trung bình: Quản trị viên phía máy khách / Thấp: Máy khách đầy đủ)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Giới hạn Kích thước Rắn (Mặc định)",
       "INITIAL_SIZE": "Kích thước Rắn Ban đầu",
       "MIN_BOOST_SIZE": "Kích thước Tối thiểu để Tăng tốc",

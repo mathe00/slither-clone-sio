@@ -1,527 +1,527 @@
 {
-    "pageTitle": "Admin - Slither Clone",
-    "backButtonTitle": "Kembali ke halaman utama",
-    "tabs": {
-      "settings": "Pengaturan Umum",
-      "users": "Manajemen Pengguna",
-      "currentConfig": "Konfigurasi Saat Ini"
+  "pageTitle": "Admin - Slither Clone",
+  "backButtonTitle": "Kembali ke halaman utama",
+  "tabs": {
+    "settings": "Pengaturan Umum",
+    "users": "Manajemen Pengguna",
+    "currentConfig": "Konfigurasi Saat Ini"
+  },
+  "settingsForm": {
+    "title": "Pengaturan Umum",
+    "passwordNote": "<strong>Catatan:</strong> Untuk mengatur atau mengatur ulang kata sandi admin, hentikan server dan jalankan dengan perintah:<br/><code>node backend/server.js --set-new-password KATA_SANDI_BARU_ANDA</code><br/>Akses ke halaman ini memerlukan sesi admin aktif (melalui cookie).<br/>Beberapa pengaturan (ditandai *) memerlukan restart server untuk diterapkan.",
+    "mapWidth": {
+      "label": "Lebar Peta (px) *:",
+      "placeholder": "mis. 4000"
     },
-    "settingsForm": {
-      "title": "Pengaturan Umum",
-      "passwordNote": "<strong>Catatan:</strong> Untuk mengatur atau mengatur ulang kata sandi admin, hentikan server dan jalankan dengan perintah:<br/><code>node backend/server.js --set-new-password KATA_SANDI_BARU_ANDA</code><br/>Akses ke halaman ini memerlukan sesi admin aktif (melalui cookie).<br/>Beberapa pengaturan (ditandai *) memerlukan restart server untuk diterapkan.",
-      "mapWidth": {
-        "label": "Lebar Peta (px) *:",
-        "placeholder": "mis. 4000"
-      },
-      "mapHeight": {
-        "label": "Tinggi Peta (px) *:",
-        "placeholder": "mis. 4000"
-      },
-      "mapShape": {
-        "label": "Bentuk Peta *:",
-        "rectangle": "Persegi Panjang",
-        "circle": "Lingkaran"
-      },
-      "aoiRadius": {
-        "label": "Radius Area Minat (AoI) (px) *:",
-        "placeholder": "mis. 2000"
-      },
-      "maxTrailLengthDefault": {
-        "label": "Batas Ukuran Ular (Default):",
-        "placeholder": "mis. 1000"
-      },
-      "initialSize": {
-        "label": "Ukuran Ular Awal:",
-        "placeholder": "mis. 50"
-      },
-      "speed": {
-        "label": "Kecepatan Dasar:",
-        "placeholder": "mis. 1"
-      },
-      "maxRotationRate": {
-        "label": "Tingkat Rotasi Maks (rad/tick):",
-        "placeholder": "mis. 0.08"
-      },
-      "minBoostSize": {
-        "label": "Ukuran Min. untuk Boost:",
-        "placeholder": "mis. 50"
-      },
-      "boostConsumptionRate": {
-        "label": "Tingkat Konsumsi Boost:",
-        "placeholder": "mis. 1"
-      },
-      "foodSpawnInterval": {
-        "label": "Interval Spawn Makanan (ms):",
-        "placeholder": "mis. 5000"
-      },
-      "fps": {
-        "label": "FPS Server (loop/detik):",
-        "placeholder": "mis. 45"
-      },
-      "foodAttractionStrength": {
-        "label": "Kekuatan Tarik Makanan:",
-        "placeholder": "mis. 0.1"
-      },
-      "foodSnapDistance": {
-        "label": "Jarak Snap Makanan:",
-        "placeholder": "mis. 5"
-      },
-      "defaultZoomLevel": {
-        "label": "Tingkat Zoom Default:",
-        "placeholder": "mis. 1.0"
-      },
-      "securityMode": {
-        "label": "Mode Keamanan *:",
-        "high": "Tinggi (Disarankan)",
-        "low": "Rendah (Klien + Ringan)"
-      },
-      "teleportViolationThreshold": {
-        "label": "Ambang Pelanggaran Teleportasi:",
-        "placeholder": "mis. 5"
-      },
-      "teleportToleranceFactor": {
-        "label": "Faktor Toleransi Teleportasi:",
-        "placeholder": "mis. 1.5"
-      },
-      "botsEnabled": {
-        "label": "Aktifkan Bot:",
-        "yes": "Ya",
-        "no": "Tidak"
-      },
-      "botMaxCount": {
-        "label": "Jumlah Bot Maks:",
-        "placeholder": "mis. 10"
-      },
-      "botSpawnIntervalMs": {
-        "label": "Interval Spawn Bot (ms):",
-        "placeholder": "mis. 5000"
-      },
-      "botExpirationTimeMs": {
-        "label": "Masa Hidup Bot (ms):",
-        "placeholder": "mis. 120000"
-      },
-      "botDifficulty": {
-        "label": "Kesulitan Bot:",
-        "easy": "Mudah",
-        "medium": "Sedang",
-        "hard": "Sulit"
-      },
-      "adminMessageText": {
-        "label": "Pesan Admin (biarkan kosong untuk menghapus):",
-        "placeholder": "Pesan untuk ditampilkan ke semua pemain"
-      },
-      "adminMessageDuration": {
-        "label": "Durasi Pesan (detik):",
-        "placeholder": "mis. 10"
-      },
-      "updateButton": "Perbarui Pengaturan"
+    "mapHeight": {
+      "label": "Tinggi Peta (px) *:",
+      "placeholder": "mis. 4000"
     },
-    "userManagement": {
-      "title": "Manajemen Pengguna",
-      "loading": "Memuat...",
-      "noUsers": "Tidak ada pengguna ditemukan.",
-      "table": {
-        "headerUser": "Pengguna",
-        "headerStatus": "Status",
-        "headerLastLogin": "Login Terakhir",
-        "headerCreated": "Dibuat",
-        "headerActions": "Tindakan"
-      },
-      "status": {
-        "admin": "Admin",
-        "suspended": "Ditangguhkan",
-        "normal": "Normal",
-        "never": "Tidak Pernah",
-        "unknown": "Tidak Diketahui"
-      },
-      "actions": {
-        "removeAdmin": "Hapus Admin",
-        "makeAdmin": "Jadikan Admin",
-        "unban": "Batalkan Penangguhan",
-        "suspend": "Tangguhkan",
-        "delete": "Hapus"
-      },
-      "pruneButton": "Bersihkan Akun Tidak Aktif",
-      "confirmDelete": "Apakah Anda yakin ingin menghapus pengguna \"{{username}}\" secara permanen? Tindakan ini tidak dapat diurungkan.",
-      "confirmPrune_one": "Apakah Anda yakin ingin menghapus {{count}} akun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak dapat diurungkan.",
-      "confirmPrune_other": "Apakah Anda yakin ingin menghapus {{count}} akun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak dapat diurungkan.",
-      "confirmPruneZero": "Tidak ada akun tidak aktif yang ditemukan berdasarkan kriteria saat ini. Apakah Anda masih ingin menjalankan operasi (untuk berjaga-jaga)?",
-      "confirmPruneZeroConfirm": "Konfirmasi operasi pembersihan meskipun 0 akun terdeteksi?",
-      "pruneCancelled": "Operasi pembersihan dibatalkan."
+    "mapShape": {
+      "label": "Bentuk Peta *:",
+      "rectangle": "Persegi Panjang",
+      "circle": "Lingkaran"
     },
-    "currentConfig": {
-      "title": "Konfigurasi Server Saat Ini",
-      "loading": "Memuat konfigurasi...",
-      "loadError": "Tidak dapat memuat konfigurasi.",
-      "loadSuccess": "Konfigurasi saat ini dimuat.",
-      "keys": {
-        "MAP_WIDTH": "Lebar Peta (px)",
-        "MAP_HEIGHT": "Tinggi Peta (px)",
-        "MAP_SHAPE": "Bentuk Peta",
-        "AOI_RADIUS": "Radius Area Minat (AoI) (px)",
-        "SECURITY_MODE": "Mode Keamanan",
-        "MAX_TRAIL_LENGTH_DEFAULT": "Batas Ukuran Ular (Default)",
-        "INITIAL_SIZE": "Ukuran Ular Awal",
-        "MIN_BOOST_SIZE": "Ukuran Min. untuk Boost",
-        "SPEED": "Kecepatan Dasar",
-        "MAX_ROTATION_RATE": "Tingkat Rotasi Maks",
-        "BOOST_CONSUMPTION_RATE": "Konsumsi Boost (Ukuran/tick)",
-        "FPS": "FPS Server",
-        "FOOD_SPAWN_INTERVAL": "Interval Spawn Makanan (ms)",
-        "FOOD_ATTRACTION_STRENGTH": "Kekuatan Tarik Makanan",
-        "FOOD_SNAP_DISTANCE": "Jarak Snap Makanan",
-        "DEFAULT_ZOOM_LEVEL": "Tingkat Zoom Default",
-        "TELEPORT_VIOLATION_THRESHOLD": "Ambang Pelanggaran Teleportasi",
-        "TELEPORT_TOLERANCE_FACTOR": "Faktor Toleransi Teleportasi",
-        "BOTS_ENABLED": "Bot Diaktifkan",
-        "BOT_MAX_COUNT": "Jumlah Bot Maks",
-        "BOT_SPAWN_INTERVAL_MS": "Interval Spawn Bot (ms)",
-        "BOT_EXPIRATION_TIME_MS": "Masa Hidup Bot (ms)",
-        "BOT_DIFFICULTY": "Kesulitan Bot"
-      },
-      "boolean": {
-        "yes": "Ya",
-        "no": "Tidak"
-      }
+    "aoiRadius": {
+      "label": "Radius Area Minat (AoI) (px) *:",
+      "placeholder": "mis. 2000"
     },
-    "feedback": {
-      "accessDenied": "Akses ditolak. Mengalihkan...",
-      "settingsUpdated": "Pengaturan berhasil diperbarui.",
-      "settingsUpdatedWithRestart": "Pengaturan diperbarui. Restart server diperlukan untuk perubahan peta/keamanan.",
-      "settingsUpdatedFpsRestart": "Pengaturan diperbarui. Loop game direstart untuk FPS.",
-      "settingsUpdateError": "Kesalahan saat memperbarui pengaturan.",
-      "loadSettingsError": "Kesalahan memuat pengaturan: {{error}}",
-      "loadUsersError": "Kesalahan memuat pengguna.",
-      "networkError": "Kesalahan jaringan atau server tidak tersedia.",
-      "invalidResponse": "Respons tidak valid dari server (bukan JSON)",
-      "changes": "Perubahan:",
-      "restartRequired": "Restart server diperlukan untuk menerapkan perubahan (Ukuran/Bentuk Peta, Mode Keamanan, Radius AoI).",
-      "fpsRestart": "Loop game telah direstart untuk menerapkan FPS baru.",
-      "noChanges": "Tidak ada pengaturan yang diubah.",
-      "userActionSuccess": "{{message}}",
-      "userActionError": "{{message}}",
-      "prunePreviewError": "Kesalahan saat pratinjau.",
-      "pruneError": "Kesalahan saat operasi pembersihan.",
-      "pruneSuccess": "{{message}}"
+    "maxTrailLengthDefault": {
+      "label": "Batas Ukuran Ular (Default):",
+      "placeholder": "mis. 1000"
     },
-    "soundManager": {
-      "alerts": {
-        "selectMp3": "Silakan pilih file MP3.",
-        "loginRequired": "Anda harus login untuk menyimpan suara kustom.",
-        "saveError": "Kesalahan menyimpan suara. Penyimpanan lokal mungkin penuh.",
-        "readError": "Kesalahan membaca file suara.",
-        "clearLoginRequired": "Anda harus login untuk menghapus suara.",
-        "clearError": "Terjadi kesalahan saat menghapus suara."
-      },
-      "confirms": {
-        "clearAll": "Apakah Anda yakin ingin menghapus semua suara kustom untuk akun ini?"
-      },
-      "statusTitles": {
-        "saveError": "Kesalahan Simpan",
-        "readError": "Kesalahan Baca",
-        "saved": "Suara disimpan",
-        "savedWithName": "Disimpan: {{filename}}"
-      }
+    "initialSize": {
+      "label": "Ukuran Ular Awal:",
+      "placeholder": "mis. 50"
     },
-    "offlinePage": {
-      "title": "Server Tidak Tersedia - Slither Clone SIO",
-      "logoAlt": "Logo Server Tidak Tersedia",
-      "mainHeader": "Server Tidak Tersedia",
-      "explanation": "Server <span class=\"game-name\">Slither Clone SIO</span> tampaknya sedang offline sementara atau tidak dapat dijangkau. Kami mencoba membangun kembali koneksi untuk Anda.",
-      "snakeTitle": "Sementara itu, mainkan Snake!",
-      "snakeScoreLabel": "Skor: 0",
-      "snakeControls": "Panah / ZQSD / WASD: Bergerak | Enter: Mulai/Restart",
-      "status": {
-        "label": "Status:",
-        "searching": "Mencari...",
-        "checking": "Memeriksa...",
-        "connected": "Terhubung!",
-        "nextAttemptLabel": "Percobaan berikutnya dalam",
-        "secondsSuffix": "detik",
-        "attemptsLabel": "Percobaan:"
-      },
-      "refreshButton": "Periksa Sekarang",
-      "redirectInfo": "Anda akan dialihkan secara otomatis segera setelah server kembali online."
+    "speed": {
+      "label": "Kecepatan Dasar:",
+      "placeholder": "mis. 1"
     },
-    "offlineSnake": {
-      "hud": {
-        "scoreLabel": "Skor: {{score}}"
-      },
-      "gameOver": {
-        "win": "MENANG!",
-        "lose": "KALAH!",
-        "scoreLabel": "Skor: {{score}}",
-        "promptLine1": "Tekan Enter",
-        "promptLine2": "untuk Bermain Lagi"
-      },
-      "countdown": "MULAI DALAM {{count}}",
-      "startScreen": {
-        "title": "SNAKE",
-        "promptLine1": "Tekan Enter",
-        "promptLine2": "untuk Bermain"
-      }
+    "maxRotationRate": {
+      "label": "Tingkat Rotasi Maks (rad/tick):",
+      "placeholder": "mis. 0.08"
     },
-    "api": {
-      "errors": {
-        "internalServerError": "Kesalahan server internal.",
-        "invalidAdminStatus": "Status 'isAdmin' tidak valid.",
-        "userNotFound": "Pengguna tidak ditemukan.",
-        "invalidSuspendStatus": "Status 'isSuspended' tidak valid.",
-        "cannotDeleteSelf": "Anda tidak dapat menghapus akun admin Anda sendiri di sini.",
-        "prunePreviewError": "Kesalahan saat pratinjau pembersihan.",
-        "pruneError": "Kesalahan saat operasi pembersihan.",
-        "rateLimit": "Terlalu banyak percobaan pembuatan akun. Silakan coba lagi dalam waktu sekitar {{minutes}} menit.",
-        "missingCredentials": "Nama pengguna dan kata sandi diperlukan.",
-        "usernameTooLong": "Nama pengguna tidak boleh melebihi {{maxLength}} karakter.",
-        "usernameTooShort": "Nama pengguna harus minimal {{minLength}} karakter.",
-        "passwordTooShort": "Kata sandi harus minimal {{minLength}} karakter.",
-        "usernameTaken": "Nama pengguna ini sudah digunakan.",
-        "invalidCredentials": "Nama pengguna atau kata sandi tidak valid.",
-        "accountSuspended": "Akun ini saat ini ditangguhkan.",
-        "notAuthenticated": "Tidak diautentikasi.",
-        "invalidHeadColor": "Warna kepala tidak valid.",
-        "missingSkinData": "Data skin hilang atau tidak valid.",
-        "invalidBodyType": "Jenis tubuh tidak valid.",
-        "invalidBodyColor": "Warna tubuh tidak valid dalam data skin.",
-        "invalidPatternColorsType": "Warna pola harus berupa array.",
-        "tooManyPatternColors": "Terlalu banyak warna pola (maks {{max}}).",
-        "invalidPatternColorValue": "Warna tidak valid ditemukan dalam pola.",
-        "invalidTrailEffect": "Efek jejak tidak valid.",
-        "adminCannotDeleteSelf": "Administrator tidak dapat menghapus akun mereka sendiri melalui antarmuka ini.",
-        "deleteAccountError": "Kesalahan internal saat penghapusan akun."
-      },
-      "success": {
-        "accountCreated": "Akun berhasil dibuat dan login.",
-        "login": "Login berhasil.",
-        "logout": "Logout berhasil.",
-        "skinUpdated": "Tampilan berhasil diperbarui.",
-        "accountDeleted": "Akun Anda berhasil dihapus."
-      },
-      "admin": {
-        "adminStatusUpdated": "Status admin untuk {{username}} diperbarui.",
-        "suspendStatusUpdated": "Status penangguhan untuk {{username}} diperbarui.",
-        "userDeleted": "Akun {{username}} berhasil dihapus.",
-        "pruneNoUsers": "Tidak ada akun tidak aktif yang ditemukan untuk dibersihkan.",
-        "pruneSuccess": "{{count}} akun tidak aktif dibersihkan."
-      }
+    "minBoostSize": {
+      "label": "Ukuran Min. untuk Boost:",
+      "placeholder": "mis. 50"
     },
-    "socket": {
-      "loginFailed": {
-        "suspended": "Akun Anda ditangguhkan.",
-        "accountError": "Kesalahan akun. Silakan login lagi.",
-        "alreadyConnected": "Akun ini sudah terhubung ke game.",
-        "deletedByAdmin": "Akun Anda dihapus oleh administrator.",
-        "accountDeleted": "Akun Anda telah dihapus."
-      },
-      "kickReason": "Dikeluarkan oleh {{admin}}",
-      "banReason": "Diblokir oleh {{admin}}",
-      "clearReason": "Dibersihkan oleh {{admin}}",
-      "adminFeedback": {
-        "unauthorized": "Tindakan tidak diizinkan.",
-        "targetNotFound": "Pemain target tidak ditemukan.",
-        "kickSuccess": "{{username}} dikeluarkan.",
-        "kickOfflineSuccess": "{{username}} (sudah terputus) dihapus dari game.",
-        "kickError": "Tidak dapat menemukan soket atau status untuk {{username}}.",
-        "banSuccess": "{{username}} diblokir (akun ditangguhkan dan pemain dikeluarkan).",
-        "banAccountOnlySuccess": "Akun {{username}} ditangguhkan (pemain sudah terputus atau dihapus).",
-        "banError": "Tidak dapat memblokir {{username}} (akun sementara atau tidak ada).",
-        "freezeSuccess": "{{username}} dibekukan.",
-        "unfreezeSuccess": "{{username}} dicairkan.",
-        "killSuccess": "{{username}} dibunuh.",
-        "clearSuccess": "{{username}} dibersihkan (dihapus tanpa menjatuhkan makanan).",
-        "clearError": "Tidak dapat membersihkan {{username}} (sudah dihapus?).",
-        "unknownAction": "Tindakan tidak dikenal."
-      },
-      "userConnected": "{{username}} bergabung ke game.",
-      "userDisconnected": "{{username}} meninggalkan game.",
-      "disconnectReason": "Terputus: {{reason}}"
+    "boostConsumptionRate": {
+      "label": "Tingkat Konsumsi Boost:",
+      "placeholder": "mis. 1"
     },
-    "game": {
-      "deathReason": {
-        "unknown": "Tabrakan tidak dikenal",
-        "boundary": "Menabrak batas peta.",
-        "teleport": "Terputus: Gerakan mencurigakan.",
-        "selfCollision": "Anti-cheat: Tabrakan diri.",
-        "inactivity": "Tidak aktif.",
-        "killedByAdmin": "Dibunuh oleh {{admin}}",
-        "botExpired": "Bot kedaluwarsa.",
-        "clientCollision": "Tabrakan tubuh (klien)"
-      }
+    "foodSpawnInterval": {
+      "label": "Interval Spawn Makanan (ms):",
+      "placeholder": "mis. 5000"
     },
+    "fps": {
+      "label": "FPS Server (loop/detik):",
+      "placeholder": "mis. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Kekuatan Tarik Makanan:",
+      "placeholder": "mis. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Jarak Snap Makanan:",
+      "placeholder": "mis. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Tingkat Zoom Default:",
+      "placeholder": "mis. 1.0"
+    },
+    "securityMode": {
+      "label": "Mode Keamanan *:",
+      "high": "Tinggi (Disarankan)",
+      "low": "Rendah (Klien + Ringan)",
+      "medium": "Sedang (Admin Sisi Klien)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Ambang Pelanggaran Teleportasi:",
+      "placeholder": "mis. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Faktor Toleransi Teleportasi:",
+      "placeholder": "mis. 1.5"
+    },
+    "botsEnabled": {
+      "label": "Aktifkan Bot:",
+      "yes": "Ya",
+      "no": "Tidak"
+    },
+    "botMaxCount": {
+      "label": "Jumlah Bot Maks:",
+      "placeholder": "mis. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Interval Spawn Bot (ms):",
+      "placeholder": "mis. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Masa Hidup Bot (ms):",
+      "placeholder": "mis. 120000"
+    },
+    "botDifficulty": {
+      "label": "Kesulitan Bot:",
+      "easy": "Mudah",
+      "medium": "Sedang",
+      "hard": "Sulit"
+    },
+    "adminMessageText": {
+      "label": "Pesan Admin (biarkan kosong untuk menghapus):",
+      "placeholder": "Pesan untuk ditampilkan ke semua pemain"
+    },
+    "adminMessageDuration": {
+      "label": "Durasi Pesan (detik):",
+      "placeholder": "mis. 10"
+    },
+    "updateButton": "Perbarui Pengaturan"
+  },
+  "userManagement": {
+    "title": "Manajemen Pengguna",
+    "loading": "Memuat...",
+    "noUsers": "Tidak ada pengguna ditemukan.",
+    "table": {
+      "headerUser": "Pengguna",
+      "headerStatus": "Status",
+      "headerLastLogin": "Login Terakhir",
+      "headerCreated": "Dibuat",
+      "headerActions": "Tindakan"
+    },
+    "status": {
+      "admin": "Admin",
+      "suspended": "Ditangguhkan",
+      "normal": "Normal",
+      "never": "Tidak Pernah",
+      "unknown": "Tidak Diketahui"
+    },
+    "actions": {
+      "removeAdmin": "Hapus Admin",
+      "makeAdmin": "Jadikan Admin",
+      "unban": "Batalkan Penangguhan",
+      "suspend": "Tangguhkan",
+      "delete": "Hapus"
+    },
+    "pruneButton": "Bersihkan Akun Tidak Aktif",
+    "confirmDelete": "Apakah Anda yakin ingin menghapus pengguna \"{{username}}\" secara permanen? Tindakan ini tidak dapat diurungkan.",
+    "confirmPrune_one": "Apakah Anda yakin ingin menghapus {{count}} akun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak dapat diurungkan.",
+    "confirmPrune_other": "Apakah Anda yakin ingin menghapus {{count}} akun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak dapat diurungkan.",
+    "confirmPruneZero": "Tidak ada akun tidak aktif yang ditemukan berdasarkan kriteria saat ini. Apakah Anda masih ingin menjalankan operasi (untuk berjaga-jaga)?",
+    "confirmPruneZeroConfirm": "Konfirmasi operasi pembersihan meskipun 0 akun terdeteksi?",
+    "pruneCancelled": "Operasi pembersihan dibatalkan."
+  },
+  "currentConfig": {
+    "title": "Konfigurasi Server Saat Ini",
+    "loading": "Memuat konfigurasi...",
+    "loadError": "Tidak dapat memuat konfigurasi.",
+    "loadSuccess": "Konfigurasi saat ini dimuat.",
+    "keys": {
+      "MAP_WIDTH": "Lebar Peta (px)",
+      "MAP_HEIGHT": "Tinggi Peta (px)",
+      "MAP_SHAPE": "Bentuk Peta",
+      "AOI_RADIUS": "Radius Area Minat (AoI) (px)",
+      "SECURITY_MODE": "Mode Keamanan (Tinggi: Server Penuh / Sedang: Admin Sisi Klien / Rendah: Klien Penuh)",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Batas Ukuran Ular (Default)",
+      "INITIAL_SIZE": "Ukuran Ular Awal",
+      "MIN_BOOST_SIZE": "Ukuran Min. untuk Boost",
+      "SPEED": "Kecepatan Dasar",
+      "MAX_ROTATION_RATE": "Tingkat Rotasi Maks",
+      "BOOST_CONSUMPTION_RATE": "Konsumsi Boost (Ukuran/tick)",
+      "FPS": "FPS Server",
+      "FOOD_SPAWN_INTERVAL": "Interval Spawn Makanan (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Kekuatan Tarik Makanan",
+      "FOOD_SNAP_DISTANCE": "Jarak Snap Makanan",
+      "DEFAULT_ZOOM_LEVEL": "Tingkat Zoom Default",
+      "TELEPORT_VIOLATION_THRESHOLD": "Ambang Pelanggaran Teleportasi",
+      "TELEPORT_TOLERANCE_FACTOR": "Faktor Toleransi Teleportasi",
+      "BOTS_ENABLED": "Bot Diaktifkan",
+      "BOT_MAX_COUNT": "Jumlah Bot Maks",
+      "BOT_SPAWN_INTERVAL_MS": "Interval Spawn Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Masa Hidup Bot (ms)",
+      "BOT_DIFFICULTY": "Kesulitan Bot"
+    },
+    "boolean": {
+      "yes": "Ya",
+      "no": "Tidak"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Akses ditolak. Mengalihkan...",
+    "settingsUpdated": "Pengaturan berhasil diperbarui.",
+    "settingsUpdatedWithRestart": "Pengaturan diperbarui. Restart server diperlukan untuk perubahan peta/keamanan.",
+    "settingsUpdatedFpsRestart": "Pengaturan diperbarui. Loop game direstart untuk FPS.",
+    "settingsUpdateError": "Kesalahan saat memperbarui pengaturan.",
+    "loadSettingsError": "Kesalahan memuat pengaturan: {{error}}",
+    "loadUsersError": "Kesalahan memuat pengguna.",
+    "networkError": "Kesalahan jaringan atau server tidak tersedia.",
+    "invalidResponse": "Respons tidak valid dari server (bukan JSON)",
+    "changes": "Perubahan:",
+    "restartRequired": "Restart server diperlukan untuk menerapkan perubahan (Ukuran/Bentuk Peta, Mode Keamanan, Radius AoI).",
+    "fpsRestart": "Loop game telah direstart untuk menerapkan FPS baru.",
+    "noChanges": "Tidak ada pengaturan yang diubah.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Kesalahan saat pratinjau.",
+    "pruneError": "Kesalahan saat operasi pembersihan.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Silakan pilih file MP3.",
+      "loginRequired": "Anda harus login untuk menyimpan suara kustom.",
+      "saveError": "Kesalahan menyimpan suara. Penyimpanan lokal mungkin penuh.",
+      "readError": "Kesalahan membaca file suara.",
+      "clearLoginRequired": "Anda harus login untuk menghapus suara.",
+      "clearError": "Terjadi kesalahan saat menghapus suara."
+    },
+    "confirms": {
+      "clearAll": "Apakah Anda yakin ingin menghapus semua suara kustom untuk akun ini?"
+    },
+    "statusTitles": {
+      "saveError": "Kesalahan Simpan",
+      "readError": "Kesalahan Baca",
+      "saved": "Suara disimpan",
+      "savedWithName": "Disimpan: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server Tidak Tersedia - Slither Clone SIO",
+    "logoAlt": "Logo Server Tidak Tersedia",
+    "mainHeader": "Server Tidak Tersedia",
+    "explanation": "Server <span class=\"game-name\">Slither Clone SIO</span> tampaknya sedang offline sementara atau tidak dapat dijangkau. Kami mencoba membangun kembali koneksi untuk Anda.",
+    "snakeTitle": "Sementara itu, mainkan Snake!",
+    "snakeScoreLabel": "Skor: 0",
+    "snakeControls": "Panah / ZQSD / WASD: Bergerak | Enter: Mulai/Restart",
+    "status": {
+      "label": "Status:",
+      "searching": "Mencari...",
+      "checking": "Memeriksa...",
+      "connected": "Terhubung!",
+      "nextAttemptLabel": "Percobaan berikutnya dalam",
+      "secondsSuffix": "detik",
+      "attemptsLabel": "Percobaan:"
+    },
+    "refreshButton": "Periksa Sekarang",
+    "redirectInfo": "Anda akan dialihkan secara otomatis segera setelah server kembali online."
+  },
+  "offlineSnake": {
     "hud": {
-      "sizeLabel": "Ukuran: {{size}}",
-      "positionLabel": "Posisi: {{x}}x{{y}}",
-      "ghostMode": "Mode Hantu",
-      "spectator": "Penonton"
-    },
-    "ghostMode": {
-      "selected": "Dipilih: <span class=\"selected-player-name\">{{name}}</span>",
-      "unknownPlayer": "Tidak Dikenal",
-      "controlsSelected": "<kbd>K</kbd>: Bunuh | <kbd>C</kbd>: Bersihkan | <kbd>F</kbd>: Bekukan/Cairkan | <kbd>Esc</kbd>: Batalkan Pilihan",
-      "controlsGeneral": "Klik Kiri: Pilih Entitas / Seret untuk Pan<br>Roda: Zoom | <kbd>Esc</kbd>: Batalkan Pilihan"
-    },
-    "mainPage": {
-      "title": "Slither Clone SIO"
-    },
-    "mainMenu": {
-      "title": "Selamat Datang di <span class=\"blink\">Slither Clone SIO</span>",
-      "helpButtonTitle": "Bantuan & Kredit",
-      "adminLink": "Admin",
-      "exitGhostButton": "Keluar Mode Hantu"
-    },
-    "ui": {
-      "buttons": {
-        "playGuest": "Main sebagai Tamu",
-        "playAsUser": "Bermain sebagai {{username}}",
-        "login": "Login",
-        "createAccount": "Buat Akun",
-        "customizeSkin": "Sesuaikan Tampilan",
-        "customSounds": "Suara Kustom",
-        "showLeaderboard": "Tampilkan Papan Peringkat",
-        "ghostMode": "Mode Hantu",
-        "deleteAccount": "Hapus Akun Saya",
-        "logout": "Logout"
-      },
-      "alerts": {
-        "colorTooDark": "Warna yang dipilih sangat gelap dan mungkin sulit dilihat. Disarankan warna yang lebih terang.",
-        "missingCredentials": "Silakan masukkan nama pengguna dan kata sandi.",
-        "usernameLength": "Nama pengguna harus antara {{min}} dan {{max}} karakter.",
-        "passwordLength": "Kata sandi harus minimal {{min}} karakter.",
-        "maxPatternColors": "Maksimal {{max}} warna pola tercapai.",
-        "canvasError": "Kesalahan Kritis: Tidak dapat menemukan elemen kanvas untuk overlay teks!",
-        "gameModuleError": "Kesalahan Kritis: Tidak dapat menginisialisasi modul game!",
-        "fetchAccountError": "Kesalahan mengambil data akun.",
-        "loginError": "Kesalahan Login: {{error}}",
-        "creationError": "Kesalahan Pembuatan: {{error}}",
-        "skinUpdateError": "Kesalahan jaringan atau server saat memperbarui tampilan: {{error}}",
-        "skinUpdatedTemp": "Tampilan diperbarui untuk sesi sementara.",
-        "deleteAccountError": "Kesalahan jaringan saat penghapusan akun."
-      },
-      "confirms": {
-        "enterGhostMode": "Masuk Mode Hantu (penonton)?",
-        "deleteAccount": "Apakah Anda yakin ingin menghapus akun \"{{username}}\" secara permanen? Tindakan ini tidak dapat diurungkan."
-      },
-      "welcomeMessage": "Halo {{username}}!",
-      "welcomeMessage_admin": "Halo {{username}} (Admin)!"
-    },
-    "forms": {
-      "common": {
-        "usernameLabel": "Nama Pengguna:",
-        "passwordLabel": "Kata Sandi:",
-        "backButton": "Kembali"
-      },
-      "guest": {
-        "title": "Main sebagai Tamu",
-        "note": "Warna dan skin akan diatur melalui \"Sesuaikan Tampilan\".",
-        "submitButton": "Mulai Game"
-      },
-      "login": {
-        "title": "Login",
-        "submitButton": "Login"
-      },
-      "create": {
-        "title": "Buat Akun",
-        "initialHeadColorLabel": "Warna Kepala Awal:",
-        "initialBodyColorLabel": "Warna Tubuh Awal:",
-        "submitButton": "Buat"
-      },
-      "skin": {
-        "title": "Sesuaikan Tampilan",
-        "headColorLabel": "Warna Kepala:",
-        "bodyTypeLabel": "Jenis Tubuh",
-        "bodyTypeSingle": "Warna Tunggal",
-        "bodyTypePattern": "Pola Berulang",
-        "bodyColorLabel": "Warna Tubuh:",
-        "patternColorsLabel": "Warna Pola (maks 8)",
-        "trailEffectLabel": "Efek Jejak",
-        "trailEffect": {
-          "none": "Tidak Ada",
-          "sparkle": "Berkilau",
-          "smoke": "Asap Hijau",
-          "fire": "Api",
-          "ice": "Pecahan Es",
-          "electric": "Percikan Listrik",
-          "rainbow": "Pelangi",
-          "bubbles": "Gelembung",
-          "glitch": "Glitch",
-          "void": "Void / Bayangan",
-          "confetti": "Konfeti"
-        },
-        "submitButton": "Simpan Tampilan"
-      },
-      "sound": {
-        "title": "Suara Kustom",
-        "info": "Unggah file MP3 (disimpan secara lokal) untuk acara.",
-        "deathLabel": "Suara Kematian:",
-        "killLabel": "Suara Kill:",
-        "boostLabel": "Suara Boost:",
-        "clearButton": "Hapus Suara"
-      }
+      "scoreLabel": "Skor: {{score}}"
     },
     "gameOver": {
-      "replayButton": "Main Lagi",
-      "backToMenuButton": "Kembali ke Menu",
-      "finalSizeLabel": "Ukuran Anda adalah: {{size}}"
+      "win": "MENANG!",
+      "lose": "KALAH!",
+      "scoreLabel": "Skor: {{score}}",
+      "promptLine1": "Tekan Enter",
+      "promptLine2": "untuk Bermain Lagi"
     },
-    "leaderboard": {
-      "title": "Papan Peringkat",
-      "header": {
-        "name": "Nama",
-        "status": "Status",
-        "size": "Ukuran",
-        "kills": "Kills",
-        "deaths": "Kematian",
-        "kd": "K/D"
-      },
-      "noPlayers": "Belum ada pemain yang masuk peringkat.",
-      "status": {
-        "ingame": "Dalam Game",
-        "online": "Online",
-        "offline": "Offline",
-        "never": "Tidak Pernah",
-        "na": "N/A",
-        "ingameTitle": "Saat ini dalam game"
-      },
-      "time": {
-        "secondsAgo_one": "{{count}} detik lalu",
-        "secondsAgo_other": "{{count}} detik lalu",
-        "minutesAgo_one": "{{count}} menit lalu",
-        "minutesAgo_other": "{{count}} menit lalu",
-        "hoursAgo_one": "{{count}} jam lalu",
-        "hoursAgo_other": "{{count}} jam lalu",
-        "daysAgo_one": "{{count}} hari lalu",
-        "daysAgo_other": "{{count}} hari lalu",
-        "yesterday": "Kemarin"
-      },
-      "lastLoginTitle": "Login terakhir: {{date}}"
-    },
-    "helpPanel": {
-      "menuKeysTitle": "Pintasan Keyboard (Menu)",
-      "menuKeys": {
-        "navigate": "↑ / ↓ / Tab: Navigasi tombol",
-        "activate": "Enter: Aktifkan tombol yang dipilih",
-        "close": "Esc: Tutup panel ini / Kembali"
-      },
-      "gameKeysTitle": "Pintasan Keyboard (Game)",
-      "gameKeys": {
-        "mouse": "Mouse: Kendalikan ular",
-        "boost": "Klik Kiri / Spasi: Boost",
-        "adminCheat": "P: Cheat Admin (jika admin)"
-      },
-      "ghostKeysTitle": "Pintasan Keyboard (Hantu)",
-      "ghostKeys": {
-        "select": "Klik Kiri (pada pemain): Pilih Pemain",
-        "pan": "Klik Kiri + Seret (ruang kosong): Geser Kamera",
-        "zoom": "Roda Mouse: Zoom",
-        "kill": "K (jika pemain dipilih): Bunuh Pemain",
-        "clear": "C (jika pemain dipilih): Bersihkan Pemain (tanpa makanan)",
-        "freeze": "F (jika pemain dipilih): Bekukan/Cairkan Pemain",
-        "deselect": "Esc: Batalkan Pilihan Pemain"
-      },
-      "creditsTitle": "Kredit",
-      "creditsAuthor": "Penulis: Penulis Anonim",
-      "creditsLicense": "Lisensi: MIT",
-      "creditsGithub": "Proyek di GitHub"
+    "countdown": "MULAI DALAM {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Tekan Enter",
+      "promptLine2": "untuk Bermain"
     }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Kesalahan server internal.",
+      "invalidAdminStatus": "Status 'isAdmin' tidak valid.",
+      "userNotFound": "Pengguna tidak ditemukan.",
+      "invalidSuspendStatus": "Status 'isSuspended' tidak valid.",
+      "cannotDeleteSelf": "Anda tidak dapat menghapus akun admin Anda sendiri di sini.",
+      "prunePreviewError": "Kesalahan saat pratinjau pembersihan.",
+      "pruneError": "Kesalahan saat operasi pembersihan.",
+      "rateLimit": "Terlalu banyak percobaan pembuatan akun. Silakan coba lagi dalam waktu sekitar {{minutes}} menit.",
+      "missingCredentials": "Nama pengguna dan kata sandi diperlukan.",
+      "usernameTooLong": "Nama pengguna tidak boleh melebihi {{maxLength}} karakter.",
+      "usernameTooShort": "Nama pengguna harus minimal {{minLength}} karakter.",
+      "passwordTooShort": "Kata sandi harus minimal {{minLength}} karakter.",
+      "usernameTaken": "Nama pengguna ini sudah digunakan.",
+      "invalidCredentials": "Nama pengguna atau kata sandi tidak valid.",
+      "accountSuspended": "Akun ini saat ini ditangguhkan.",
+      "notAuthenticated": "Tidak diautentikasi.",
+      "invalidHeadColor": "Warna kepala tidak valid.",
+      "missingSkinData": "Data skin hilang atau tidak valid.",
+      "invalidBodyType": "Jenis tubuh tidak valid.",
+      "invalidBodyColor": "Warna tubuh tidak valid dalam data skin.",
+      "invalidPatternColorsType": "Warna pola harus berupa array.",
+      "tooManyPatternColors": "Terlalu banyak warna pola (maks {{max}}).",
+      "invalidPatternColorValue": "Warna tidak valid ditemukan dalam pola.",
+      "invalidTrailEffect": "Efek jejak tidak valid.",
+      "adminCannotDeleteSelf": "Administrator tidak dapat menghapus akun mereka sendiri melalui antarmuka ini.",
+      "deleteAccountError": "Kesalahan internal saat penghapusan akun."
+    },
+    "success": {
+      "accountCreated": "Akun berhasil dibuat dan login.",
+      "login": "Login berhasil.",
+      "logout": "Logout berhasil.",
+      "skinUpdated": "Tampilan berhasil diperbarui.",
+      "accountDeleted": "Akun Anda berhasil dihapus."
+    },
+    "admin": {
+      "adminStatusUpdated": "Status admin untuk {{username}} diperbarui.",
+      "suspendStatusUpdated": "Status penangguhan untuk {{username}} diperbarui.",
+      "userDeleted": "Akun {{username}} berhasil dihapus.",
+      "pruneNoUsers": "Tidak ada akun tidak aktif yang ditemukan untuk dibersihkan.",
+      "pruneSuccess": "{{count}} akun tidak aktif dibersihkan."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Akun Anda ditangguhkan.",
+      "accountError": "Kesalahan akun. Silakan login lagi.",
+      "alreadyConnected": "Akun ini sudah terhubung ke game.",
+      "deletedByAdmin": "Akun Anda dihapus oleh administrator.",
+      "accountDeleted": "Akun Anda telah dihapus."
+    },
+    "kickReason": "Dikeluarkan oleh {{admin}}",
+    "banReason": "Diblokir oleh {{admin}}",
+    "clearReason": "Dibersihkan oleh {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Tindakan tidak diizinkan.",
+      "targetNotFound": "Pemain target tidak ditemukan.",
+      "kickSuccess": "{{username}} dikeluarkan.",
+      "kickOfflineSuccess": "{{username}} (sudah terputus) dihapus dari game.",
+      "kickError": "Tidak dapat menemukan soket atau status untuk {{username}}.",
+      "banSuccess": "{{username}} diblokir (akun ditangguhkan dan pemain dikeluarkan).",
+      "banAccountOnlySuccess": "Akun {{username}} ditangguhkan (pemain sudah terputus atau dihapus).",
+      "banError": "Tidak dapat memblokir {{username}} (akun sementara atau tidak ada).",
+      "freezeSuccess": "{{username}} dibekukan.",
+      "unfreezeSuccess": "{{username}} dicairkan.",
+      "killSuccess": "{{username}} dibunuh.",
+      "clearSuccess": "{{username}} dibersihkan (dihapus tanpa menjatuhkan makanan).",
+      "clearError": "Tidak dapat membersihkan {{username}} (sudah dihapus?).",
+      "unknownAction": "Tindakan tidak dikenal."
+    },
+    "userConnected": "{{username}} bergabung ke game.",
+    "userDisconnected": "{{username}} meninggalkan game.",
+    "disconnectReason": "Terputus: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Tabrakan tidak dikenal",
+      "boundary": "Menabrak batas peta.",
+      "teleport": "Terputus: Gerakan mencurigakan.",
+      "selfCollision": "Anti-cheat: Tabrakan diri.",
+      "inactivity": "Tidak aktif.",
+      "killedByAdmin": "Dibunuh oleh {{admin}}",
+      "botExpired": "Bot kedaluwarsa.",
+      "clientCollision": "Tabrakan tubuh (klien)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Ukuran: {{size}}",
+    "positionLabel": "Posisi: {{x}}x{{y}}",
+    "ghostMode": "Mode Hantu",
+    "spectator": "Penonton"
+  },
+  "ghostMode": {
+    "selected": "Dipilih: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Tidak Dikenal",
+    "controlsSelected": "<kbd>K</kbd>: Bunuh | <kbd>C</kbd>: Bersihkan | <kbd>F</kbd>: Bekukan/Cairkan | <kbd>Esc</kbd>: Batalkan Pilihan",
+    "controlsGeneral": "Klik Kiri: Pilih Entitas / Seret untuk Pan<br>Roda: Zoom | <kbd>Esc</kbd>: Batalkan Pilihan"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "Selamat Datang di <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "Bantuan & Kredit",
+    "adminLink": "Admin",
+    "exitGhostButton": "Keluar Mode Hantu"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Main sebagai Tamu",
+      "playAsUser": "Bermain sebagai {{username}}",
+      "login": "Login",
+      "createAccount": "Buat Akun",
+      "customizeSkin": "Sesuaikan Tampilan",
+      "customSounds": "Suara Kustom",
+      "showLeaderboard": "Tampilkan Papan Peringkat",
+      "ghostMode": "Mode Hantu",
+      "deleteAccount": "Hapus Akun Saya",
+      "logout": "Logout"
+    },
+    "alerts": {
+      "colorTooDark": "Warna yang dipilih sangat gelap dan mungkin sulit dilihat. Disarankan warna yang lebih terang.",
+      "missingCredentials": "Silakan masukkan nama pengguna dan kata sandi.",
+      "usernameLength": "Nama pengguna harus antara {{min}} dan {{max}} karakter.",
+      "passwordLength": "Kata sandi harus minimal {{min}} karakter.",
+      "maxPatternColors": "Maksimal {{max}} warna pola tercapai.",
+      "canvasError": "Kesalahan Kritis: Tidak dapat menemukan elemen kanvas untuk overlay teks!",
+      "gameModuleError": "Kesalahan Kritis: Tidak dapat menginisialisasi modul game!",
+      "fetchAccountError": "Kesalahan mengambil data akun.",
+      "loginError": "Kesalahan Login: {{error}}",
+      "creationError": "Kesalahan Pembuatan: {{error}}",
+      "skinUpdateError": "Kesalahan jaringan atau server saat memperbarui tampilan: {{error}}",
+      "skinUpdatedTemp": "Tampilan diperbarui untuk sesi sementara.",
+      "deleteAccountError": "Kesalahan jaringan saat penghapusan akun."
+    },
+    "confirms": {
+      "enterGhostMode": "Masuk Mode Hantu (penonton)?",
+      "deleteAccount": "Apakah Anda yakin ingin menghapus akun \"{{username}}\" secara permanen? Tindakan ini tidak dapat diurungkan."
+    },
+    "welcomeMessage": "Halo {{username}}!",
+    "welcomeMessage_admin": "Halo {{username}} (Admin)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Nama Pengguna:",
+      "passwordLabel": "Kata Sandi:",
+      "backButton": "Kembali"
+    },
+    "guest": {
+      "title": "Main sebagai Tamu",
+      "note": "Warna dan skin akan diatur melalui \"Sesuaikan Tampilan\".",
+      "submitButton": "Mulai Game"
+    },
+    "login": {
+      "title": "Login",
+      "submitButton": "Login"
+    },
+    "create": {
+      "title": "Buat Akun",
+      "initialHeadColorLabel": "Warna Kepala Awal:",
+      "initialBodyColorLabel": "Warna Tubuh Awal:",
+      "submitButton": "Buat"
+    },
+    "skin": {
+      "title": "Sesuaikan Tampilan",
+      "headColorLabel": "Warna Kepala:",
+      "bodyTypeLabel": "Jenis Tubuh",
+      "bodyTypeSingle": "Warna Tunggal",
+      "bodyTypePattern": "Pola Berulang",
+      "bodyColorLabel": "Warna Tubuh:",
+      "patternColorsLabel": "Warna Pola (maks 8)",
+      "trailEffectLabel": "Efek Jejak",
+      "trailEffect": {
+        "none": "Tidak Ada",
+        "sparkle": "Berkilau",
+        "smoke": "Asap Hijau",
+        "fire": "Api",
+        "ice": "Pecahan Es",
+        "electric": "Percikan Listrik",
+        "rainbow": "Pelangi",
+        "bubbles": "Gelembung",
+        "glitch": "Glitch",
+        "void": "Void / Bayangan",
+        "confetti": "Konfeti"
+      },
+      "submitButton": "Simpan Tampilan"
+    },
+    "sound": {
+      "title": "Suara Kustom",
+      "info": "Unggah file MP3 (disimpan secara lokal) untuk acara.",
+      "deathLabel": "Suara Kematian:",
+      "killLabel": "Suara Kill:",
+      "boostLabel": "Suara Boost:",
+      "clearButton": "Hapus Suara"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Main Lagi",
+    "backToMenuButton": "Kembali ke Menu",
+    "finalSizeLabel": "Ukuran Anda adalah: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Papan Peringkat",
+    "header": {
+      "name": "Nama",
+      "status": "Status",
+      "size": "Ukuran",
+      "kills": "Kills",
+      "deaths": "Kematian",
+      "kd": "K/D"
+    },
+    "noPlayers": "Belum ada pemain yang masuk peringkat.",
+    "status": {
+      "ingame": "Dalam Game",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Tidak Pernah",
+      "na": "N/A",
+      "ingameTitle": "Saat ini dalam game"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} detik lalu",
+      "secondsAgo_other": "{{count}} detik lalu",
+      "minutesAgo_one": "{{count}} menit lalu",
+      "minutesAgo_other": "{{count}} menit lalu",
+      "hoursAgo_one": "{{count}} jam lalu",
+      "hoursAgo_other": "{{count}} jam lalu",
+      "daysAgo_one": "{{count}} hari lalu",
+      "daysAgo_other": "{{count}} hari lalu",
+      "yesterday": "Kemarin"
+    },
+    "lastLoginTitle": "Login terakhir: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Pintasan Keyboard (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigasi tombol",
+      "activate": "Enter: Aktifkan tombol yang dipilih",
+      "close": "Esc: Tutup panel ini / Kembali"
+    },
+    "gameKeysTitle": "Pintasan Keyboard (Game)",
+    "gameKeys": {
+      "mouse": "Mouse: Kendalikan ular",
+      "boost": "Klik Kiri / Spasi: Boost",
+      "adminCheat": "P: Cheat Admin (jika admin)"
+    },
+    "ghostKeysTitle": "Pintasan Keyboard (Hantu)",
+    "ghostKeys": {
+      "select": "Klik Kiri (pada pemain): Pilih Pemain",
+      "pan": "Klik Kiri + Seret (ruang kosong): Geser Kamera",
+      "zoom": "Roda Mouse: Zoom",
+      "kill": "K (jika pemain dipilih): Bunuh Pemain",
+      "clear": "C (jika pemain dipilih): Bersihkan Pemain (tanpa makanan)",
+      "freeze": "F (jika pemain dipilih): Bekukan/Cairkan Pemain",
+      "deselect": "Esc: Batalkan Pilihan Pemain"
+    },
+    "creditsTitle": "Kredit",
+    "creditsAuthor": "Penulis: Penulis Anonim",
+    "creditsLicense": "Lisensi: MIT",
+    "creditsGithub": "Proyek di GitHub"
   }
-  
+}

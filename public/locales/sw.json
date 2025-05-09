@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Hali ya Usalama *:",
       "high": "Juu (Inapendekezwa)",
-      "low": "Chini (Mteja + Nyepesi)"
+      "low": "Chini (Mteja + Nyepesi)",
+      "medium": "Wastani (Wasimamizi Upande wa Mteja)"
     },
     "teleportViolationThreshold": {
       "label": "Kizingiti cha Ukiukaji wa Teleport:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Urefu wa Ramani (px)",
       "MAP_SHAPE": "Umbo la Ramani",
       "AOI_RADIUS": "Nusu Kipenyo cha Eneo la Kuvutia (AoI) (px)",
-      "SECURITY_MODE": "Hali ya Usalama",
+      "SECURITY_MODE": "Hali ya Usalama (Juu: Seva Kamili / Wastani: Wasimamizi Upande wa Mteja / Chini: Mteja Kamili)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Kikomo cha Ukubwa wa Nyoka (Chaguo-msingi)",
       "INITIAL_SIZE": "Ukubwa wa Awali wa Nyoka",
       "MIN_BOOST_SIZE": "Ukubwa wa Chini kwa Boost",

@@ -73,7 +73,8 @@
     "securityMode": {
       "label": "Mod Securitate *:",
       "high": "Ridicat (Recomandat)",
-      "low": "Scăzut (Client + Ușor)"
+      "low": "Scăzut (Client + Ușor)",
+      "medium": "Mediu (Administratori Client-Side)"
     },
     "teleportViolationThreshold": {
       "label": "Prag Încălcare Teleportare:",
@@ -164,7 +165,7 @@
       "MAP_HEIGHT": "Înălțime Hartă (px)",
       "MAP_SHAPE": "Formă Hartă",
       "AOI_RADIUS": "Rază Zonă de Interes (AoI) (px)",
-      "SECURITY_MODE": "Mod Securitate",
+      "SECURITY_MODE": "Mod Securitate (Înalt: Server Complet / Mediu: Administratori Client-Side / Scăzut: Client Complet)",
       "MAX_TRAIL_LENGTH_DEFAULT": "Limită Mărime Șarpe (Implicit)",
       "INITIAL_SIZE": "Mărime Inițială Șarpe",
       "MIN_BOOST_SIZE": "Mărime Min. pentru Boost",

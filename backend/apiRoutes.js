@@ -137,7 +137,7 @@ function createApiRouter(dependencies) {
             }
 
             // --- Specific Validations after Conversion ---
-            if (configKey === "SECURITY_MODE" && !["high", "low"].includes(convertedFormValue)) { console.warn(`Admin: Invalid value for SECURITY_MODE: '${convertedFormValue}'. Must be 'high' or 'low'.`); return; }
+            if (configKey === "SECURITY_MODE" && !["high", "medium", "low"].includes(convertedFormValue)) { console.warn(`Admin: Invalid value for SECURITY_MODE: '${convertedFormValue}'. Must be 'high', 'medium', or 'low'.`); return; }
             if (configKey === "BOT_DIFFICULTY" && !["easy", "medium", "hard"].includes(convertedFormValue)) { console.warn(`Admin: Invalid value for BOT_DIFFICULTY: '${convertedFormValue}'. Must be 'easy', 'medium', or 'hard'.`); return; }
             if (configKey === "MAP_SHAPE" && !["rectangle", "circle"].includes(convertedFormValue)) { console.warn(`Admin: Invalid value for MAP_SHAPE: '${convertedFormValue}'. Must be 'rectangle' or 'circle'.`); return; }
 
