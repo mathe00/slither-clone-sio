@@ -1,0 +1,533 @@
+{
+  "pageTitle": "ผู้ดูแลระบบ - โคลน Slither",
+  "backButtonTitle": "กลับไปที่หน้าหลัก",
+  "tabs": {
+    "settings": "การตั้งค่าทั่วไป",
+    "users": "การจัดการผู้ใช้",
+    "currentConfig": "การกำหนดค่าปัจจุบัน"
+  },
+  "settingsForm": {
+    "title": "การตั้งค่าทั่วไป",
+    "passwordNote": "<strong>หมายเหตุ:</strong> หากต้องการตั้งค่าหรือรีเซ็ตรหัสผ่านผู้ดูแลระบบ ให้หยุดเซิร์ฟเวอร์แล้วเรียกใช้ด้วยคำสั่ง:<br/><code>node backend/server.js --set-new-password รหัสผ่านใหม่ของคุณ</code><br/>การเข้าถึงหน้านี้ต้องใช้เซสชันผู้ดูแลระบบที่ใช้งานอยู่ (ผ่านคุกกี้)<br/>การตั้งค่าบางอย่าง (ที่มีเครื่องหมาย *) จำเป็นต้องรีสตาร์ทเซิร์ฟเวอร์เพื่อนำไปใช้",
+    "mapWidth": {
+      "label": "ความกว้างของแผนที่ (px) *:",
+      "placeholder": "เช่น 4000"
+    },
+    "mapHeight": {
+      "label": "ความสูงของแผนที่ (px) *:",
+      "placeholder": "เช่น 4000"
+    },
+    "mapShape": {
+      "label": "รูปร่างแผนที่ *:",
+      "rectangle": "สี่เหลี่ยมผืนผ้า",
+      "circle": "วงกลม"
+    },
+    "aoiRadius": {
+      "label": "รัศมีพื้นที่ที่น่าสนใจ (AoI) (px) *:",
+      "placeholder": "เช่น 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "ขีดจำกัดขนาดงู (ค่าเริ่มต้น):",
+      "placeholder": "เช่น 1000"
+    },
+    "initialSize": {
+      "label": "ขนาดเริ่มต้นของงู:",
+      "placeholder": "เช่น 50"
+    },
+    "speed": {
+      "label": "ความเร็วพื้นฐาน:",
+      "placeholder": "เช่น 1"
+    },
+    "maxRotationRate": {
+      "label": "อัตราการหมุนสูงสุด (rad/tick):",
+      "placeholder": "เช่น 0.08"
+    },
+    "minBoostSize": {
+      "label": "ขนาดขั้นต่ำสำหรับการบูสต์:",
+      "placeholder": "เช่น 50"
+    },
+    "boostConsumptionRate": {
+      "label": "อัตราการใช้บูสต์:",
+      "placeholder": "เช่น 1"
+    },
+    "foodSpawnInterval": {
+      "label": "ช่วงเวลาการเกิดอาหาร (ms):",
+      "placeholder": "เช่น 5000"
+    },
+    "fps": {
+      "label": "FPS เซิร์ฟเวอร์ (loops/sec):",
+      "placeholder": "เช่น 45"
+    },
+    "foodAttractionStrength": {
+      "label": "ความแรงในการดึงดูดอาหาร:",
+      "placeholder": "เช่น 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "ระยะการดูดอาหาร:",
+      "placeholder": "เช่น 5"
+    },
+    "defaultZoomLevel": {
+      "label": "ระดับการซูมเริ่มต้น:",
+      "placeholder": "เช่น 1.0"
+    },
+    "securityMode": {
+      "label": "โหมดความปลอดภัย *:",
+      "high": "สูง (แนะนำ)",
+      "low": "ต่ำ (ไคลเอนต์ + เบา)"
+    },
+    "teleportViolationThreshold": {
+      "label": "เกณฑ์การละเมิดการเทเลพอร์ต:",
+      "placeholder": "เช่น 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "ปัจจัยความทนทานต่อการเทเลพอร์ต:",
+      "placeholder": "เช่น 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "เปิดใช้งานโหมดพระเจ้าเมื่อเกิด:",
+      "yes": "ใช่",
+      "no": "ไม่"
+    },
+    "botsEnabled": {
+      "label": "เปิดใช้งานบอท:",
+      "yes": "ใช่",
+      "no": "ไม่"
+    },
+    "botMaxCount": {
+      "label": "จำนวนบอทสูงสุด:",
+      "placeholder": "เช่น 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "ช่วงเวลาการเกิดบอท (ms):",
+      "placeholder": "เช่น 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "อายุการใช้งานของบอท (ms):",
+      "placeholder": "เช่น 120000"
+    },
+    "botDifficulty": {
+      "label": "ความยากของบอท:",
+      "easy": "ง่าย",
+      "medium": "ปานกลาง",
+      "hard": "ยาก"
+    },
+    "adminMessageText": {
+      "label": "ข้อความผู้ดูแลระบบ (เว้นว่างไว้เพื่อล้าง):",
+      "placeholder": "ข้อความที่จะแสดงให้ผู้เล่นทุกคน"
+    },
+    "adminMessageDuration": {
+      "label": "ระยะเวลาข้อความ (วินาที):",
+      "placeholder": "เช่น 10"
+    },
+    "updateButton": "อัปเดตการตั้งค่า"
+  },
+  "userManagement": {
+    "title": "การจัดการผู้ใช้",
+    "loading": "กำลังโหลด...",
+    "noUsers": "ไม่พบผู้ใช้",
+    "table": {
+      "headerUser": "ผู้ใช้",
+      "headerStatus": "สถานะ",
+      "headerLastLogin": "เข้าสู่ระบบล่าสุด",
+      "headerCreated": "สร้างเมื่อ",
+      "headerActions": "การดำเนินการ"
+    },
+    "status": {
+      "admin": "ผู้ดูแลระบบ",
+      "suspended": "ถูกระงับ",
+      "normal": "ปกติ",
+      "never": "ไม่เคย",
+      "unknown": "ไม่ทราบ"
+    },
+    "actions": {
+      "removeAdmin": "ลบผู้ดูแลระบบ",
+      "makeAdmin": "ตั้งเป็นผู้ดูแลระบบ",
+      "unban": "ยกเลิกการระงับ",
+      "suspend": "ระงับ",
+      "delete": "ลบ"
+    },
+    "pruneButton": "ล้างบัญชีที่ไม่มีการใช้งาน",
+    "confirmDelete": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีผู้ใช้ \"{{username}}\" อย่างถาวร? การกระทำนี้ไม่สามารถย้อนกลับได้",
+    "confirmPrune_one": "คุณแน่ใจหรือไม่ว่าต้องการลบ {{count}} บัญชีที่ไม่มีการใช้งาน (ไม่มีการใช้งาน >15 วัน และสถิติต่ำมาก)? การกระทำนี้ไม่สามารถย้อนกลับได้",
+    "confirmPrune_other": "คุณแน่ใจหรือไม่ว่าต้องการลบ {{count}} บัญชีที่ไม่มีการใช้งาน (ไม่มีการใช้งาน >15 วัน และสถิติต่ำมาก)? การกระทำนี้ไม่สามารถย้อนกลับได้",
+    "confirmPruneZero": "ไม่พบบัญชีที่ไม่มีการใช้งานตามเกณฑ์ปัจจุบัน คุณยังต้องการดำเนินการต่อหรือไม่ (เผื่อไว้)?",
+    "confirmPruneZeroConfirm": "ยืนยันการดำเนินการล้างแม้ว่าจะตรวจพบ 0 บัญชี?",
+    "pruneCancelled": "การดำเนินการล้างถูกยกเลิก"
+  },
+  "currentConfig": {
+    "title": "การกำหนดค่าเซิร์ฟเวอร์ปัจจุบัน",
+    "loading": "กำลังโหลดการกำหนดค่า...",
+    "loadError": "ไม่สามารถโหลดการกำหนดค่าได้",
+    "loadSuccess": "โหลดการกำหนดค่าปัจจุบันแล้ว",
+    "keys": {
+      "MAP_WIDTH": "ความกว้างของแผนที่ (px)",
+      "MAP_HEIGHT": "ความสูงของแผนที่ (px)",
+      "MAP_SHAPE": "รูปร่างแผนที่",
+      "AOI_RADIUS": "รัศมีพื้นที่ที่น่าสนใจ (AoI) (px)",
+      "SECURITY_MODE": "โหมดความปลอดภัย",
+      "MAX_TRAIL_LENGTH_DEFAULT": "ขีดจำกัดขนาดงู (ค่าเริ่มต้น)",
+      "INITIAL_SIZE": "ขนาดเริ่มต้นของงู",
+      "MIN_BOOST_SIZE": "ขนาดขั้นต่ำสำหรับการบูสต์",
+      "SPEED": "ความเร็วพื้นฐาน",
+      "MAX_ROTATION_RATE": "อัตราการหมุนสูงสุด",
+      "BOOST_CONSUMPTION_RATE": "การใช้บูสต์ (ขนาด/tick)",
+      "FPS": "FPS เซิร์ฟเวอร์",
+      "FOOD_SPAWN_INTERVAL": "ช่วงเวลาการเกิดอาหาร (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "ความแรงในการดึงดูดอาหาร",
+      "FOOD_SNAP_DISTANCE": "ระยะการดูดอาหาร",
+      "DEFAULT_ZOOM_LEVEL": "ระดับการซูมเริ่มต้น",
+      "TELEPORT_VIOLATION_THRESHOLD": "เกณฑ์การละเมิดการเทเลพอร์ต",
+      "TELEPORT_TOLERANCE_FACTOR": "ปัจจัยความทนทานต่อการเทเลพอร์ต",
+      "BOTS_ENABLED": "เปิดใช้งานบอท",
+      "BOT_MAX_COUNT": "จำนวนบอทสูงสุด",
+      "BOT_SPAWN_INTERVAL_MS": "ช่วงเวลาการเกิดบอท (ms)",
+      "BOT_EXPIRATION_TIME_MS": "อายุการใช้งานของบอท (ms)",
+      "BOT_DIFFICULTY": "ความยากของบอท"
+    },
+    "boolean": {
+      "yes": "ใช่",
+      "no": "ไม่"
+    }
+  },
+  "feedback": {
+    "accessDenied": "การเข้าถึงถูกปฏิเสธ กำลังเปลี่ยนเส้นทาง...",
+    "settingsUpdated": "อัปเดตการตั้งค่าสำเร็จแล้ว",
+    "settingsUpdatedWithRestart": "อัปเดตการตั้งค่าแล้ว จำเป็นต้องรีสตาร์ทเซิร์ฟเวอร์เพื่อเปลี่ยนแปลงแผนที่/ความปลอดภัย",
+    "settingsUpdatedFpsRestart": "อัปเดตการตั้งค่าแล้ว วงจรเกมรีสตาร์ทเพื่อเปลี่ยนแปลง FPS",
+    "settingsUpdateError": "เกิดข้อผิดพลาดในการอัปเดตการตั้งค่า",
+    "loadSettingsError": "เกิดข้อผิดพลาดในการโหลดการตั้งค่า: {{error}}",
+    "loadUsersError": "เกิดข้อผิดพลาดในการโหลดผู้ใช้",
+    "networkError": "เกิดข้อผิดพลาดของเครือข่ายหรือเซิร์ฟเวอร์ไม่พร้อมใช้งาน",
+    "invalidResponse": "การตอบสนองจากเซิร์ฟเวอร์ไม่ถูกต้อง (ไม่ใช่ JSON)",
+    "changes": "การเปลี่ยนแปลง:",
+    "restartRequired": "จำเป็นต้องรีสตาร์ทเซิร์ฟเวอร์เพื่อใช้การเปลี่ยนแปลง (ขนาด/รูปร่างแผนที่, โหมดความปลอดภัย, รัศมี AoI)",
+    "fpsRestart": "วงจรเกมได้รีสตาร์ทเพื่อใช้ FPS ใหม่แล้ว",
+    "noChanges": "ไม่มีการแก้ไขการตั้งค่าใดๆ",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "เกิดข้อผิดพลาดระหว่างการแสดงตัวอย่าง",
+    "pruneError": "เกิดข้อผิดพลาดระหว่างการดำเนินการล้าง",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "โปรดเลือกไฟล์ MP3",
+      "loginRequired": "คุณต้องเข้าสู่ระบบเพื่อบันทึกเสียงที่กำหนดเอง",
+      "saveError": "เกิดข้อผิดพลาดในการบันทึกเสียง พื้นที่จัดเก็บข้อมูลในเครื่องอาจเต็ม",
+      "readError": "เกิดข้อผิดพลาดในการอ่านไฟล์เสียง",
+      "clearLoginRequired": "คุณต้องเข้าสู่ระบบเพื่อล้างเสียง",
+      "clearError": "เกิดข้อผิดพลาดขณะลบเสียง"
+    },
+    "confirms": {
+      "clearAll": "คุณแน่ใจหรือไม่ว่าต้องการลบเสียงที่กำหนดเองทั้งหมดสำหรับบัญชีนี้?"
+    },
+    "statusTitles": {
+      "saveError": "ข้อผิดพลาดในการบันทึก",
+      "readError": "ข้อผิดพลาดในการอ่าน",
+      "saved": "บันทึกเสียงแล้ว",
+      "savedWithName": "บันทึกแล้ว: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "เซิร์ฟเวอร์ไม่พร้อมใช้งาน - โคลน Slither SIO",
+    "logoAlt": "โลโก้เซิร์ฟเวอร์ไม่พร้อมใช้งาน",
+    "mainHeader": "เซิร์ฟเวอร์ไม่พร้อมใช้งาน",
+    "explanation": "เซิร์ฟเวอร์ <span class=\"game-name\">โคลน Slither SIO</span> ดูเหมือนจะออฟไลน์ชั่วคราวหรือไม่สามารถเข้าถึงได้ เรากำลังพยายามสร้างการเชื่อมต่อใหม่ให้คุณ",
+    "snakeTitle": "ในระหว่างนี้ เล่นเกมงู!",
+    "snakeScoreLabel": "คะแนน: 0",
+    "snakeControls": "ลูกศร / ZQSD / WASD: เคลื่อนที่ | Enter: เริ่ม/เริ่มใหม่",
+    "status": {
+      "label": "สถานะ:",
+      "searching": "กำลังค้นหา...",
+      "checking": "กำลังตรวจสอบ...",
+      "connected": "เชื่อมต่อแล้ว!",
+      "nextAttemptLabel": "การพยายามครั้งต่อไปใน",
+      "secondsSuffix": "วินาที",
+      "attemptsLabel": "การพยายาม:"
+    },
+    "refreshButton": "ตรวจสอบตอนนี้",
+    "redirectInfo": "คุณจะถูกเปลี่ยนเส้นทางโดยอัตโนมัติทันทีที่เซิร์ฟเวอร์กลับมาออนไลน์"
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "คะแนน: {{score}}"
+    },
+    "gameOver": {
+      "win": "ชนะ!",
+      "lose": "แพ้!",
+      "scoreLabel": "คะแนน: {{score}}",
+      "promptLine1": "กด Enter",
+      "promptLine2": "เพื่อเล่นอีกครั้ง"
+    },
+    "countdown": "เริ่มใน {{count}}",
+    "startScreen": {
+      "title": "งู",
+      "promptLine1": "กด Enter",
+      "promptLine2": "เพื่อเล่น"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "ข้อผิดพลาดภายในเซิร์ฟเวอร์",
+      "invalidAdminStatus": "สถานะ 'isAdmin' ไม่ถูกต้อง",
+      "userNotFound": "ไม่พบผู้ใช้",
+      "invalidSuspendStatus": "สถานะ 'isSuspended' ไม่ถูกต้อง",
+      "cannotDeleteSelf": "คุณไม่สามารถลบบัญชีผู้ดูแลระบบของคุณเองได้ที่นี่",
+      "prunePreviewError": "เกิดข้อผิดพลาดระหว่างการแสดงตัวอย่างการล้าง",
+      "pruneError": "เกิดข้อผิดพลาดระหว่างการดำเนินการล้าง",
+      "rateLimit": "พยายามสร้างบัญชีมากเกินไป โปรดลองอีกครั้งในอีกประมาณ {{minutes}} นาที",
+      "missingCredentials": "ต้องระบุชื่อผู้ใช้และรหัสผ่าน",
+      "usernameTooLong": "ชื่อผู้ใช้ต้องไม่เกิน {{maxLength}} ตัวอักษร",
+      "usernameTooShort": "ชื่อผู้ใช้ต้องมีอย่างน้อย {{minLength}} ตัวอักษร",
+      "passwordTooShort": "รหัสผ่านต้องมีอย่างน้อย {{minLength}} ตัวอักษร",
+      "usernameTaken": "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว",
+      "invalidCredentials": "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",
+      "accountSuspended": "บัญชีนี้ถูกระงับชั่วคราว",
+      "notAuthenticated": "ไม่ได้รับการยืนยันตัวตน",
+      "invalidHeadColor": "สีหัวไม่ถูกต้อง",
+      "missingSkinData": "ข้อมูลสกินหายไปหรือไม่ถูกต้อง",
+      "invalidBodyType": "ประเภทของร่างกายไม่ถูกต้อง",
+      "invalidBodyColor": "สีร่างกายในข้อมูลสกินไม่ถูกต้อง",
+      "invalidPatternColorsType": "สีของรูปแบบต้องเป็นอาร์เรย์",
+      "tooManyPatternColors": "สีของรูปแบบมากเกินไป (สูงสุด {{max}})",
+      "invalidPatternColorValue": "พบสีที่ไม่ถูกต้องในรูปแบบ",
+      "invalidTrailEffect": "เอฟเฟกต์เส้นทางไม่ถูกต้อง",
+      "adminCannotDeleteSelf": "ผู้ดูแลระบบไม่สามารถลบบัญชีของตนเองผ่านอินเทอร์เฟซนี้ได้",
+      "deleteAccountError": "เกิดข้อผิดพลาดภายในระหว่างการลบบัญชี"
+    },
+    "success": {
+      "accountCreated": "สร้างบัญชีและเข้าสู่ระบบสำเร็จแล้ว",
+      "login": "เข้าสู่ระบบสำเร็จ",
+      "logout": "ออกจากระบบสำเร็จ",
+      "skinUpdated": "อัปเดตรูปลักษณ์สำเร็จแล้ว",
+      "accountDeleted": "บัญชีของคุณถูกลบสำเร็จแล้ว"
+    },
+    "admin": {
+      "adminStatusUpdated": "อัปเดตสถานะผู้ดูแลระบบสำหรับ {{username}} แล้ว",
+      "suspendStatusUpdated": "อัปเดตสถานะการระงับสำหรับ {{username}} แล้ว",
+      "userDeleted": "ลบบัญชี {{username}} สำเร็จแล้ว",
+      "pruneNoUsers": "ไม่พบบัญชีที่ไม่มีการใช้งานที่จะล้าง",
+      "pruneSuccess": "ล้างบัญชีที่ไม่มีการใช้งาน {{count}} บัญชีแล้ว"
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "บัญชีของคุณถูกระงับ",
+      "accountError": "เกิดข้อผิดพลาดของบัญชี โปรดเข้าสู่ระบบอีกครั้ง",
+      "alreadyConnected": "บัญชีนี้เชื่อมต่อกับเกมอยู่แล้ว",
+      "deletedByAdmin": "บัญชีของคุณถูกลบโดยผู้ดูแลระบบ",
+      "accountDeleted": "บัญชีของคุณถูกลบแล้ว"
+    },
+    "kickReason": "ถูกเตะโดย {{admin}}",
+    "banReason": "ถูกแบนโดย {{admin}}",
+    "clearReason": "ถูกล้างโดย {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "การดำเนินการไม่ได้รับอนุญาต",
+      "targetNotFound": "ไม่พบผู้เล่นเป้าหมาย",
+      "kickSuccess": "{{username}} ถูกเตะแล้ว",
+      "kickOfflineSuccess": "{{username}} (ตัดการเชื่อมต่อแล้ว) ถูกลบออกจากเกมแล้ว",
+      "kickError": "ไม่พบซ็อกเก็ตหรือสถานะสำหรับ {{username}}",
+      "banSuccess": "{{username}} ถูกแบนแล้ว (บัญชีถูกระงับและผู้เล่นถูกเตะ)",
+      "banAccountOnlySuccess": "บัญชี {{username}} ถูกระงับ (ผู้เล่นตัดการเชื่อมต่อหรือถูกลบแล้ว)",
+      "banError": "ไม่สามารถแบน {{username}} (บัญชีชั่วคราวหรือไม่มีอยู่)",
+      "freezeSuccess": "{{username}} ถูกแช่แข็งแล้ว",
+      "unfreezeSuccess": "{{username}} ถูกยกเลิกการแช่แข็งแล้ว",
+      "killSuccess": "{{username}} ถูกฆ่าแล้ว",
+      "clearSuccess": "{{username}} ถูกล้างแล้ว (ลบออกโดยไม่ทิ้งอาหาร)",
+      "clearError": "ไม่สามารถล้าง {{username}} (ถูกลบไปแล้ว?)",
+      "unknownAction": "การดำเนินการที่ไม่รู้จัก"
+    },
+    "userConnected": "{{username}} เข้าร่วมเกมแล้ว",
+    "userDisconnected": "{{username}} ออกจากเกมแล้ว",
+    "disconnectReason": "ตัดการเชื่อมต่อ: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "การชนที่ไม่รู้จัก",
+      "boundary": "ชนขอบแผนที่",
+      "teleport": "ตัดการเชื่อมต่อ: การเคลื่อนไหวที่น่าสงสัย",
+      "selfCollision": "ป้องกันการโกง: การชนตัวเอง",
+      "inactivity": "ไม่มีการใช้งาน",
+      "killedByAdmin": "ถูกฆ่าโดย {{admin}}",
+      "botExpired": "บอทหมดอายุ",
+      "clientCollision": "การชนของร่างกาย (ไคลเอนต์)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "ขนาด: {{size}}",
+    "positionLabel": "ตำแหน่ง: {{x}}x{{y}}",
+    "ghostMode": "โหมดผี",
+    "spectator": "ผู้ชม"
+  },
+  "ghostMode": {
+    "selected": "เลือกแล้ว: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "ไม่ทราบ",
+    "controlsSelected": "<kbd>K</kbd>: ฆ่า | <kbd>C</kbd>: ล้าง | <kbd>F</kbd>: แช่แข็ง/ยกเลิกการแช่แข็ง | <kbd>Esc</kbd>: ยกเลิกการเลือก",
+    "controlsGeneral": "คลิกซ้าย: เลือกเอนทิตี / ลากเพื่อเลื่อน<br>วงล้อ: ซูม | <kbd>Esc</kbd>: ยกเลิกการเลือก"
+  },
+  "mainPage": {
+    "title": "โคลน Slither SIO"
+  },
+  "mainMenu": {
+    "title": "ยินดีต้อนรับสู่ <span class=\"blink\">โคลน Slither SIO</span>",
+    "helpButtonTitle": "ความช่วยเหลือและเครดิต",
+    "adminLink": "ผู้ดูแลระบบ",
+    "exitGhostButton": "ออกจากโหมดผี"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "เล่นในฐานะแขก",
+      "playAsUser": "เล่นในฐานะ {{username}}",
+      "login": "เข้าสู่ระบบ",
+      "createAccount": "สร้างบัญชี",
+      "customizeSkin": "ปรับแต่งรูปลักษณ์",
+      "customSounds": "เสียงที่กำหนดเอง",
+      "showLeaderboard": "แสดงกระดานผู้นำ",
+      "ghostMode": "โหมดผี",
+      "deleteAccount": "ลบบัญชีของฉัน",
+      "logout": "ออกจากระบบ"
+    },
+    "alerts": {
+      "colorTooDark": "สีที่เลือกมืดเกินไปและอาจมองเห็นได้ยาก แนะนำให้ใช้สีที่สว่างกว่า",
+      "missingCredentials": "โปรดป้อนชื่อผู้ใช้และรหัสผ่าน",
+      "usernameLength": "ชื่อผู้ใช้ต้องมีความยาวระหว่าง {{min}} ถึง {{max}} ตัวอักษร",
+      "passwordLength": "รหัสผ่านต้องมีความยาวอย่างน้อย {{minLength}} ตัวอักษร",
+      "maxPatternColors": "ถึงขีดจำกัดสีของรูปแบบสูงสุด {{max}} สีแล้ว",
+      "canvasError": "ข้อผิดพลาดร้ายแรง: ไม่พบองค์ประกอบผ้าใบสำหรับข้อความซ้อนทับ!",
+      "gameModuleError": "ข้อผิดพลาดร้ายแรง: ไม่สามารถเริ่มต้นโมดูลเกมได้!",
+      "fetchAccountError": "เกิดข้อผิดพลาดในการดึงข้อมูลบัญชี",
+      "loginError": "ข้อผิดพลาดในการเข้าสู่ระบบ: {{error}}",
+      "creationError": "ข้อผิดพลาดในการสร้าง: {{error}}",
+      "skinUpdateError": "เกิดข้อผิดพลาดของเครือข่ายหรือเซิร์ฟเวอร์ขณะอัปเดตรูปลักษณ์: {{error}}",
+      "skinUpdatedTemp": "อัปเดตรูปลักษณ์สำหรับเซสชันชั่วคราวแล้ว",
+      "deleteAccountError": "เกิดข้อผิดพลาดของเครือข่ายระหว่างการลบบัญชี"
+    },
+    "confirms": {
+      "enterGhostMode": "เข้าสู่โหมดผี (ผู้ชม)?",
+      "deleteAccount": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชี \"{{username}}\" ของคุณอย่างถาวร? การกระทำนี้ไม่สามารถย้อนกลับได้"
+    },
+    "welcomeMessage": "สวัสดี {{username}}!",
+    "welcomeMessage_admin": "สวัสดี {{username}} (ผู้ดูแลระบบ)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "ชื่อผู้ใช้:",
+      "passwordLabel": "รหัสผ่าน:",
+      "backButton": "กลับ"
+    },
+    "guest": {
+      "title": "เล่นในฐานะแขก",
+      "note": "สีและสกินจะถูกตั้งค่าผ่าน \"ปรับแต่งรูปลักษณ์\"",
+      "submitButton": "เริ่มเกม"
+    },
+    "login": {
+      "title": "เข้าสู่ระบบ",
+      "submitButton": "เข้าสู่ระบบ"
+    },
+    "create": {
+      "title": "สร้างบัญชี",
+      "initialHeadColorLabel": "สีหัวเริ่มต้น:",
+      "initialBodyColorLabel": "สีตัวเริ่มต้น:",
+      "submitButton": "สร้าง"
+    },
+    "skin": {
+      "title": "ปรับแต่งรูปลักษณ์",
+      "headColorLabel": "สีหัว:",
+      "bodyTypeLabel": "ประเภทของร่างกาย",
+      "bodyTypeSingle": "สีเดียว",
+      "bodyTypePattern": "รูปแบบซ้ำ",
+      "bodyColorLabel": "สีร่างกาย:",
+      "patternColorsLabel": "สีของรูปแบบ (สูงสุด 8)",
+      "trailEffectLabel": "เอฟเฟกต์เส้นทาง",
+      "trailEffect": {
+        "none": "ไม่มี",
+        "sparkle": "ประกายไฟ",
+        "smoke": "ควันสีเขียว",
+        "fire": "ไฟ",
+        "ice": "เศษน้ำแข็ง",
+        "electric": "ประกายไฟฟ้า",
+        "rainbow": "สายรุ้ง",
+        "bubbles": "ฟองสบู่",
+        "glitch": "ข้อผิดพลาด",
+        "void": "ความว่างเปล่า / เงา",
+        "confetti": "กระดาษโปรย"
+      },
+      "submitButton": "บันทึกรูปลักษณ์"
+    },
+    "sound": {
+      "title": "เสียงที่กำหนดเอง",
+      "info": "อัปโหลดไฟล์ MP3 (จัดเก็บในเครื่อง) สำหรับเหตุการณ์ต่างๆ",
+      "deathLabel": "เสียงตาย:",
+      "killLabel": "เสียงฆ่า:",
+      "boostLabel": "เสียงบูสต์:",
+      "clearButton": "ล้างเสียง"
+    }
+  },
+  "gameOver": {
+    "replayButton": "เล่นอีกครั้ง",
+    "backToMenuButton": "กลับไปที่เมนู",
+    "finalSizeLabel": "ขนาดของคุณคือ: {{size}}"
+  },
+  "leaderboard": {
+    "title": "กระดานผู้นำ",
+    "header": {
+      "name": "ชื่อ",
+      "status": "สถานะ",
+      "size": "ขนาด",
+      "kills": "การฆ่า",
+      "deaths": "การตาย",
+      "kd": "K/D"
+    },
+    "noPlayers": "ยังไม่มีผู้เล่นจัดอันดับ",
+    "status": {
+      "ingame": "ในเกม",
+      "online": "ออนไลน์",
+      "offline": "ออฟไลน์",
+      "never": "ไม่เคย",
+      "na": "ไม่มีข้อมูล",
+      "ingameTitle": "กำลังอยู่ในเกม"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} วินาทีที่แล้ว",
+      "secondsAgo_other": "{{count}} วินาทีที่แล้ว",
+      "minutesAgo_one": "{{count}} นาทีที่แล้ว",
+      "minutesAgo_other": "{{count}} นาทีที่แล้ว",
+      "hoursAgo_one": "{{count}} ชั่วโมงที่แล้ว",
+      "hoursAgo_other": "{{count}} ชั่วโมงที่แล้ว",
+      "daysAgo_one": "{{count}} วันที่แล้ว",
+      "daysAgo_other": "{{count}} วันที่แล้ว",
+      "yesterday": "เมื่อวาน"
+    },
+    "lastLoginTitle": "เข้าสู่ระบบล่าสุด: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "ปุ่มลัด (เมนู)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: เลื่อนปุ่ม",
+      "activate": "Enter: เปิดใช้งานปุ่มที่เลือก",
+      "close": "Esc: ปิดแผงนี้ / กลับ"
+    },
+    "gameKeysTitle": "ปุ่มลัด (เกม)",
+    "gameKeys": {
+      "mouse": "เมาส์: ควบคุมงู",
+      "boost": "คลิกซ้าย / Space: บูสต์",
+      "adminCheat": "P: สูตรโกงผู้ดูแลระบบ (ถ้าเป็นผู้ดูแลระบบ)"
+    },
+    "ghostKeysTitle": "ปุ่มลัด (ผี)",
+    "ghostKeys": {
+      "select": "คลิกซ้าย (บนผู้เล่น): เลือกผู้เล่น",
+      "pan": "คลิกซ้าย + ลาก (พื้นที่ว่าง): เลื่อนกล้อง",
+      "zoom": "วงล้อเมาส์: ซูมเข้า/ออก",
+      "kill": "K (ถ้าเลือกผู้เล่น): ฆ่าผู้เล่น",
+      "clear": "C (ถ้าเลือกผู้เล่น): ล้างผู้เล่น (ไม่มีอาหาร)",
+      "freeze": "F (ถ้าเลือกผู้เล่น): แช่แข็ง/ยกเลิกการแช่แข็งผู้เล่น",
+      "deselect": "Esc: ยกเลิกการเลือกผู้เล่น"
+    },
+    "creditsTitle": "เครดิต",
+    "creditsAuthor": "ผู้แต่ง: ผู้แต่งที่ไม่ระบุชื่อ",
+    "creditsLicense": "ใบอนุญาต: MIT",
+    "creditsGithub": "โครงการบน GitHub"
+  },
+  "NEW_KEY_1": "ข้อความต้นฉบับสำหรับคีย์ใหม่แรก",
+  "NEW_KEY_2": "ข้อความต้นฉบับสำหรับคีย์ใหม่ที่สอง"
+}

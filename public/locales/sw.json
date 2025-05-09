@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Msimamizi - Nakala ya Slither",
+  "backButtonTitle": "Rudi kwenye ukurasa mkuu",
+  "tabs": {
+    "settings": "Mipangilio ya Jumla",
+    "users": "Usimamizi wa Watumiaji",
+    "currentConfig": "Usanidi wa Sasa"
+  },
+  "settingsForm": {
+    "title": "Mipangilio ya Jumla",
+    "passwordNote": "<strong>Kumbuka:</strong> Kuweka au kuweka upya nenosiri la msimamizi, simamisha seva na uiendeshe kwa amri:<br/><code>node backend/server.js --set-new-password NENOSIRI_LAKO_JIPYA</code><br/>Ufikiaji wa ukurasa huu unahitaji kipindi cha msimamizi kinachoendelea (kupitia kuki).<br/>Baadhi ya mipangilio (iliyotiwa alama *) yanahitaji seva iwashwe upya ili kutumika.",
+    "mapWidth": {
+      "label": "Upana wa Ramani (px) *:",
+      "placeholder": "k.m. 4000"
+    },
+    "mapHeight": {
+      "label": "Urefu wa Ramani (px) *:",
+      "placeholder": "k.m. 4000"
+    },
+    "mapShape": {
+      "label": "Umbo la Ramani *:",
+      "rectangle": "Mstatili",
+      "circle": "Duara"
+    },
+    "aoiRadius": {
+      "label": "Nusu Kipenyo cha Eneo la Kuvutia (AoI) (px) *:",
+      "placeholder": "k.m. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Kikomo cha Ukubwa wa Nyoka (Chaguo-msingi):",
+      "placeholder": "k.m. 1000"
+    },
+    "initialSize": {
+      "label": "Ukubwa wa Awali wa Nyoka:",
+      "placeholder": "k.m. 50"
+    },
+    "speed": {
+      "label": "Kasi ya Msingi:",
+      "placeholder": "k.m. 1"
+    },
+    "maxRotationRate": {
+      "label": "Kiwango cha Juu cha Mzunguko (rad/tick):",
+      "placeholder": "k.m. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Ukubwa wa Chini kwa Boost:",
+      "placeholder": "k.m. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Kiwango cha Matumizi ya Boost:",
+      "placeholder": "k.m. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Muda wa Kuzaa Chakula (ms):",
+      "placeholder": "k.m. 5000"
+    },
+    "fps": {
+      "label": "FPS ya Seva (mizunguko/sek):",
+      "placeholder": "k.m. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Nguvu ya Mvuto wa Chakula:",
+      "placeholder": "k.m. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Umbali wa Kunasa Chakula:",
+      "placeholder": "k.m. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Kiwango cha Kukuza Chaguo-msingi:",
+      "placeholder": "k.m. 1.0"
+    },
+    "securityMode": {
+      "label": "Hali ya Usalama *:",
+      "high": "Juu (Inapendekezwa)",
+      "low": "Chini (Mteja + Nyepesi)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Kizingiti cha Ukiukaji wa Teleport:",
+      "placeholder": "k.m. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Kipengele cha Uvumilivu wa Teleport:",
+      "placeholder": "k.m. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Washa Hali ya Mungu wakati wa Kuzaa:",
+      "yes": "Ndio",
+      "no": "Hapana"
+    },
+    "botsEnabled": {
+      "label": "Washa Boti:",
+      "yes": "Ndio",
+      "no": "Hapana"
+    },
+    "botMaxCount": {
+      "label": "Idadi ya Juu ya Boti:",
+      "placeholder": "k.m. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Muda wa Kuzaa Boti (ms):",
+      "placeholder": "k.m. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Muda wa Kuisha kwa Boti (ms):",
+      "placeholder": "k.m. 120000"
+    },
+    "botDifficulty": {
+      "label": "Ugumu wa Boti:",
+      "easy": "Rahisi",
+      "medium": "Kati",
+      "hard": "Ngumu"
+    },
+    "adminMessageText": {
+      "label": "Ujumbe wa Msimamizi (acha wazi ili kufuta):",
+      "placeholder": "Ujumbe wa kuonyesha kwa wachezaji wote"
+    },
+    "adminMessageDuration": {
+      "label": "Muda wa Ujumbe (sekunde):",
+      "placeholder": "k.m. 10"
+    },
+    "updateButton": "Sasisha Mipangilio"
+  },
+  "userManagement": {
+    "title": "Usimamizi wa Watumiaji",
+    "loading": "Inapakia...",
+    "noUsers": "Hakuna watumiaji waliopatikana.",
+    "table": {
+      "headerUser": "Mtumiaji",
+      "headerStatus": "Hali",
+      "headerLastLogin": "Ingizo la Mwisho",
+      "headerCreated": "Imeundwa",
+      "headerActions": "Vitendo"
+    },
+    "status": {
+      "admin": "Msimamizi",
+      "suspended": "Imesimamishwa",
+      "normal": "Kawaida",
+      "never": "Kamwe",
+      "unknown": "Haijulikani"
+    },
+    "actions": {
+      "removeAdmin": "Ondoa Msimamizi",
+      "makeAdmin": "Fanya Msimamizi",
+      "unban": "Ondoa Usimamishaji",
+      "suspend": "Simamisha",
+      "delete": "Futa"
+    },
+    "pruneButton": "Safisha Akaunti Zisizotumika",
+    "confirmDelete": "Una uhakika unataka kufuta kabisa mtumiaji \"{{username}}\"? Kitendo hiki hakiwezi kutenduliwa.",
+    "confirmPrune_one": "Una uhakika unataka kufuta akaunti {{count}} isiyotumika (isiyotumika >siku 15 NA takwimu za chini sana)? Kitendo hiki hakiwezi kutenduliwa.",
+    "confirmPrune_other": "Una uhakika unataka kufuta akaunti {{count}} zisizotumika (zisizotumika >siku 15 NA takwimu za chini sana)? Kitendo hiki hakiwezi kutenduliwa.",
+    "confirmPruneZero": "Hakuna akaunti zisizotumika zilizopatikana kulingana na vigezo vya sasa. Bado unataka kuendesha operesheni (kwa kila kesi)?",
+    "confirmPruneZeroConfirm": "Thibitisha operesheni ya kusafisha hata kama akaunti 0 ziligunduliwa?",
+    "pruneCancelled": "Operesheni ya kusafisha imeghairiwa."
+  },
+  "currentConfig": {
+    "title": "Usanidi wa Sasa wa Seva",
+    "loading": "Inapakia usanidi...",
+    "loadError": "Haikuweza kupakia usanidi.",
+    "loadSuccess": "Usanidi wa sasa umepakiwa.",
+    "keys": {
+      "MAP_WIDTH": "Upana wa Ramani (px)",
+      "MAP_HEIGHT": "Urefu wa Ramani (px)",
+      "MAP_SHAPE": "Umbo la Ramani",
+      "AOI_RADIUS": "Nusu Kipenyo cha Eneo la Kuvutia (AoI) (px)",
+      "SECURITY_MODE": "Hali ya Usalama",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Kikomo cha Ukubwa wa Nyoka (Chaguo-msingi)",
+      "INITIAL_SIZE": "Ukubwa wa Awali wa Nyoka",
+      "MIN_BOOST_SIZE": "Ukubwa wa Chini kwa Boost",
+      "SPEED": "Kasi ya Msingi",
+      "MAX_ROTATION_RATE": "Kiwango cha Juu cha Mzunguko",
+      "BOOST_CONSUMPTION_RATE": "Matumizi ya Boost (Ukubwa/tick)",
+      "FPS": "FPS ya Seva",
+      "FOOD_SPAWN_INTERVAL": "Muda wa Kuzaa Chakula (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Nguvu ya Mvuto wa Chakula",
+      "FOOD_SNAP_DISTANCE": "Umbali wa Kunasa Chakula",
+      "DEFAULT_ZOOM_LEVEL": "Kiwango cha Kukuza Chaguo-msingi",
+      "TELEPORT_VIOLATION_THRESHOLD": "Kizingiti cha Ukiukaji wa Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Kipengele cha Uvumilivu wa Teleport",
+      "BOTS_ENABLED": "Boti Zimewashwa",
+      "BOT_MAX_COUNT": "Idadi ya Juu ya Boti",
+      "BOT_SPAWN_INTERVAL_MS": "Muda wa Kuzaa Boti (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Muda wa Kuisha kwa Boti (ms)",
+      "BOT_DIFFICULTY": "Ugumu wa Boti"
+    },
+    "boolean": {
+      "yes": "Ndio",
+      "no": "Hapana"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Ufikiaji umekataliwa. Inaelekeza upya...",
+    "settingsUpdated": "Mipangilio imesasishwa kwa mafanikio.",
+    "settingsUpdatedWithRestart": "Mipangilio imesasishwa. Kuanzisha upya seva kunahitajika kwa mabadiliko ya ramani/usalama.",
+    "settingsUpdatedFpsRestart": "Mipangilio imesasishwa. Mzunguko wa mchezo umeanza upya kwa mabadiliko ya FPS.",
+    "settingsUpdateError": "Hitilafu kusasisha mipangilio.",
+    "loadSettingsError": "Hitilafu kupakia mipangilio: {{error}}",
+    "loadUsersError": "Hitilafu kupakia watumiaji.",
+    "networkError": "Hitilafu ya mtandao au seva haipatikani.",
+    "invalidResponse": "Jibu batili kutoka kwa seva (sio JSON)",
+    "changes": "Mabadiliko:",
+    "restartRequired": "Kuanzisha upya seva kunahitajika ili kutumia mabadiliko (Ukubwa/Umbo la Ramani, Hali ya Usalama, Nusu Kipenyo cha AoI).",
+    "fpsRestart": "Mzunguko wa mchezo umeanza upya ili kutumia FPS mpya.",
+    "noChanges": "Hakuna mipangilio iliyobadilishwa.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Hitilafu wakati wa onyesho la kukagua.",
+    "pruneError": "Hitilafu wakati wa operesheni ya kusafisha.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Tafadhali chagua faili ya MP3.",
+      "loginRequired": "Lazima uwe umeingia ili kuhifadhi sauti maalum.",
+      "saveError": "Hitilafu kuhifadhi sauti. Hifadhi ya ndani inaweza kuwa imejaa.",
+      "readError": "Hitilafu kusoma faili ya sauti.",
+      "clearLoginRequired": "Lazima uwe umeingia ili kufuta sauti.",
+      "clearError": "Hitilafu ilitokea wakati wa kufuta sauti."
+    },
+    "confirms": {
+      "clearAll": "Una uhakika unataka kufuta sauti zote maalum za akaunti hii?"
+    },
+    "statusTitles": {
+      "saveError": "Hitilafu ya Kuhifadhi",
+      "readError": "Hitilafu ya Kusoma",
+      "saved": "Sauti imehifadhiwa",
+      "savedWithName": "Imehifadhiwa: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Seva Haipatikani - Nakala ya Slither SIO",
+    "logoAlt": "Logo ya Seva Haipatikani",
+    "mainHeader": "Seva Haipatikani",
+    "explanation": "Seva ya <span class=\"game-name\">Nakala ya Slither SIO</span> inaonekana kuwa nje ya mtandao kwa muda au haipatikani. Tunajaribu kurejesha muunganisho kwako.",
+    "snakeTitle": "Wakati huo huo, cheza Nyoka!",
+    "snakeScoreLabel": "Alama: 0",
+    "snakeControls": "Mishale / ZQSD / WASD: Sogeza | Enter: Anza/Anzisha Upya",
+    "status": {
+      "label": "Hali:",
+      "searching": "Inatafuta...",
+      "checking": "Inakagua...",
+      "connected": "Imeunganishwa!",
+      "nextAttemptLabel": "Jaribio linalofuata baada ya",
+      "secondsSuffix": "sekunde",
+      "attemptsLabel": "Majaribio:"
+    },
+    "refreshButton": "Kagua Sasa",
+    "redirectInfo": "Utaelekezwa upya kiotomatiki mara tu seva itakaporejea mtandaoni."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Alama: {{score}}"
+    },
+    "gameOver": {
+      "win": "UMESHINDA!",
+      "lose": "UMESHINDWA!",
+      "scoreLabel": "Alama: {{score}}",
+      "promptLine1": "Bonyeza Enter",
+      "promptLine2": "Ili Kucheza Tena"
+    },
+    "countdown": "INAANZA BAADA YA {{count}}",
+    "startScreen": {
+      "title": "NYOKA",
+      "promptLine1": "Bonyeza Enter",
+      "promptLine2": "Ili Kucheza"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Hitilafu ya ndani ya seva.",
+      "invalidAdminStatus": "Hali batili ya 'isAdmin'.",
+      "userNotFound": "Mtumiaji hajapatikana.",
+      "invalidSuspendStatus": "Hali batili ya 'isSuspended'.",
+      "cannotDeleteSelf": "Huwezi kufuta akaunti yako ya msimamizi hapa.",
+      "prunePreviewError": "Hitilafu wakati wa onyesho la kukagua la kusafisha.",
+      "pruneError": "Hitilafu wakati wa operesheni ya kusafisha.",
+      "rateLimit": "Majaribio mengi sana ya kuunda akaunti. Tafadhali jaribu tena baada ya takriban dakika {{minutes}}.",
+      "missingCredentials": "Jina la mtumiaji na nenosiri vinahitajika.",
+      "usernameTooLong": "Jina la mtumiaji haliwezi kuzidi herufi {{maxLength}}.",
+      "usernameTooShort": "Jina la mtumiaji lazima liwe na angalau herufi {{minLength}}.",
+      "passwordTooShort": "Nenosiri lazima liwe na angalau herufi {{minLength}}.",
+      "usernameTaken": "Jina hili la mtumiaji tayari linatumika.",
+      "invalidCredentials": "Jina la mtumiaji au nenosiri batili.",
+      "accountSuspended": "Akaunti hii imesimamishwa kwa sasa.",
+      "notAuthenticated": "Haijathibitishwa.",
+      "invalidHeadColor": "Rangi batili ya kichwa.",
+      "missingSkinData": "Data ya ngozi haipo au ni batili.",
+      "invalidBodyType": "Aina batili ya mwili.",
+      "invalidBodyColor": "Rangi batili ya mwili katika data ya ngozi.",
+      "invalidPatternColorsType": "Rangi za muundo lazima ziwe safu.",
+      "tooManyPatternColors": "Rangi nyingi sana za muundo (kiwango cha juu {{max}}).",
+      "invalidPatternColorValue": "Rangi batili imepatikana katika muundo.",
+      "invalidTrailEffect": "Athari batili ya mkia.",
+      "adminCannotDeleteSelf": "Wasimamizi hawawezi kufuta akaunti zao wenyewe kupitia kiolesura hiki.",
+      "deleteAccountError": "Hitilafu ya ndani wakati wa kufuta akaunti."
+    },
+    "success": {
+      "accountCreated": "Akaunti imeundwa na umeingia kwa mafanikio.",
+      "login": "Kuingia kumefanikiwa.",
+      "logout": "Kutoka kumefanikiwa.",
+      "skinUpdated": "Mwonekano umesasishwa kwa mafanikio.",
+      "accountDeleted": "Akaunti yako imefutwa kwa mafanikio."
+    },
+    "admin": {
+      "adminStatusUpdated": "Hali ya msimamizi kwa {{username}} imesasishwa.",
+      "suspendStatusUpdated": "Hali ya kusimamishwa kwa {{username}} imesasishwa.",
+      "userDeleted": "Akaunti {{username}} imefutwa kwa mafanikio.",
+      "pruneNoUsers": "Hakuna akaunti zisizotumika zilizopatikana za kusafisha.",
+      "pruneSuccess": "Akaunti {{count}} zisizotumika zimesafishwa."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Akaunti yako imesimamishwa.",
+      "accountError": "Hitilafu ya akaunti. Tafadhali ingia tena.",
+      "alreadyConnected": "Akaunti hii tayari imeunganishwa na mchezo.",
+      "deletedByAdmin": "Akaunti yako ilifutwa na msimamizi.",
+      "accountDeleted": "Akaunti yako imefutwa."
+    },
+    "kickReason": "Umetolewa na {{admin}}",
+    "banReason": "Umepigwa marufuku na {{admin}}",
+    "clearReason": "Umesafishwa na {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Kitendo hakiruhusiwi.",
+      "targetNotFound": "Mchezaji lengwa hajapatikana.",
+      "kickSuccess": "{{username}} ametolewa.",
+      "kickOfflineSuccess": "{{username}} (tayari ametoka) ameondolewa kwenye mchezo.",
+      "kickError": "Haikuweza kupata soketi au hali ya {{username}}.",
+      "banSuccess": "{{username}} amepigwa marufuku (akaunti imesimamishwa na mchezaji ametolewa).",
+      "banAccountOnlySuccess": "Akaunti {{username}} imesimamishwa (mchezaji tayari ametoka au ameondolewa).",
+      "banError": "Haiwezi kumpiga marufuku {{username}} (akaunti ya muda au isiyokuwepo).",
+      "freezeSuccess": "{{username}} amegandishwa.",
+      "unfreezeSuccess": "{{username}} ameachiliwa.",
+      "killSuccess": "{{username}} ameuawa.",
+      "clearSuccess": "{{username}} amesafishwa (ameondolewa bila kuacha chakula).",
+      "clearError": "Haikuweza kumsafisha {{username}} (tayari ameondolewa?).",
+      "unknownAction": "Kitendo kisichojulikana."
+    },
+    "userConnected": "{{username}} amejiunga na mchezo.",
+    "userDisconnected": "{{username}} ameondoka kwenye mchezo.",
+    "disconnectReason": "Imekatika: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Mgongano usiojulikana",
+      "boundary": "Umegonga mpaka wa ramani.",
+      "teleport": "Imekatika: Mwendo wa kutiliwa shaka.",
+      "selfCollision": "Kupambana na udanganyifu: Kujigonga mwenyewe.",
+      "inactivity": "Kutokuwa na shughuli.",
+      "killedByAdmin": "Umeuawa na {{admin}}",
+      "botExpired": "Boti imeisha muda.",
+      "clientCollision": "Mgongano wa mwili (mteja)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Ukubwa: {{size}}",
+    "positionLabel": "Nafasi: {{x}}x{{y}}",
+    "ghostMode": "Hali ya Roho",
+    "spectator": "Mtazamaji"
+  },
+  "ghostMode": {
+    "selected": "Imechaguliwa: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Haijulikani",
+    "controlsSelected": "<kbd>K</kbd>: Ua | <kbd>C</kbd>: Safisha | <kbd>F</kbd>: Gandisha/Achia | <kbd>Esc</kbd>: Acha Kuchagua",
+    "controlsGeneral": "Bofya Kushoto: Chagua Kitu / Buruta ili Kusogeza<br>Gurudumu: Kuza | <kbd>Esc</kbd>: Acha Kuchagua"
+  },
+  "mainPage": {
+    "title": "Nakala ya Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Karibu kwenye <span class=\"blink\">Nakala ya Slither SIO</span>",
+    "helpButtonTitle": "Msaada na Sifa",
+    "adminLink": "Msimamizi",
+    "exitGhostButton": "Toka Hali ya Roho"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Cheza kama Mgeni",
+      "playAsUser": "Cheza kama {{username}}",
+      "login": "Ingia",
+      "createAccount": "Fungua Akaunti",
+      "customizeSkin": "Badilisha Mwonekano",
+      "customSounds": "Sauti Maalum",
+      "showLeaderboard": "Onyesha Ubao wa Wanaoongoza",
+      "ghostMode": "Hali ya Roho",
+      "deleteAccount": "Futa Akaunti Yangu",
+      "logout": "Toka"
+    },
+    "alerts": {
+      "colorTooDark": "Rangi iliyochaguliwa ni nyeusi sana na inaweza kuwa ngumu kuona. Rangi nyepesi inapendekezwa.",
+      "missingCredentials": "Tafadhali ingiza jina la mtumiaji na nenosiri.",
+      "usernameLength": "Jina la mtumiaji lazima liwe kati ya herufi {{min}} na {{max}}.",
+      "passwordLength": "Nenosiri lazima liwe na angalau herufi {{minLength}}.",
+      "maxPatternColors": "Idadi ya juu ya rangi za muundo {{max}} imefikiwa.",
+      "canvasError": "Hitilafu Kubwa: Haikuweza kupata kipengele cha turubai ya maandishi!",
+      "gameModuleError": "Hitilafu Kubwa: Haikuweza kuanzisha moduli ya mchezo!",
+      "fetchAccountError": "Hitilafu kupata data ya akaunti.",
+      "loginError": "Hitilafu ya Kuingia: {{error}}",
+      "creationError": "Hitilafu ya Kuunda: {{error}}",
+      "skinUpdateError": "Hitilafu ya mtandao au seva wakati wa kusasisha mwonekano: {{error}}",
+      "skinUpdatedTemp": "Mwonekano umesasishwa kwa kipindi cha muda.",
+      "deleteAccountError": "Hitilafu ya mtandao wakati wa kufuta akaunti."
+    },
+    "confirms": {
+      "enterGhostMode": "Ingia Hali ya Roho (mtazamaji)?",
+      "deleteAccount": "Una uhakika unataka kufuta kabisa akaunti yako \"{{username}}\"? Kitendo hiki hakiwezi kutenduliwa."
+    },
+    "welcomeMessage": "Habari {{username}}!",
+    "welcomeMessage_admin": "Habari {{username}} (Msimamizi)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Jina la mtumiaji:",
+      "passwordLabel": "Nenosiri:",
+      "backButton": "Rudi"
+    },
+    "guest": {
+      "title": "Cheza kama Mgeni",
+      "note": "Rangi na ngozi zitawekwa kupitia \"Badilisha Mwonekano\".",
+      "submitButton": "Anza Mchezo"
+    },
+    "login": {
+      "title": "Ingia",
+      "submitButton": "Ingia"
+    },
+    "create": {
+      "title": "Fungua Akaunti",
+      "initialHeadColorLabel": "Rangi ya Awali ya Kichwa:",
+      "initialBodyColorLabel": "Rangi ya Awali ya Mwili:",
+      "submitButton": "Fungua"
+    },
+    "skin": {
+      "title": "Badilisha Mwonekano",
+      "headColorLabel": "Rangi ya Kichwa:",
+      "bodyTypeLabel": "Aina ya Mwili",
+      "bodyTypeSingle": "Rangi Moja",
+      "bodyTypePattern": "Muundo Unaorudiwa",
+      "bodyColorLabel": "Rangi ya Mwili:",
+      "patternColorsLabel": "Rangi za Muundo (kiwango cha juu 8)",
+      "trailEffectLabel": "Athari ya Mkia",
+      "trailEffect": {
+        "none": "Hakuna",
+        "sparkle": "Cheche",
+        "smoke": "Moshi wa Kijani",
+        "fire": "Moto",
+        "ice": "Vipande vya Barafu",
+        "electric": "Cheche za Umeme",
+        "rainbow": "Upinde wa mvua",
+        "bubbles": "Mapovu",
+        "glitch": "Glitch",
+        "void": "Utupu / Kivuli",
+        "confetti": "Konfeti"
+      },
+      "submitButton": "Hifadhi Mwonekano"
+    },
+    "sound": {
+      "title": "Sauti Maalum",
+      "info": "Pakia faili za MP3 (zilizohifadhiwa ndani) kwa matukio.",
+      "deathLabel": "Sauti ya Kifo:",
+      "killLabel": "Sauti ya Kuua:",
+      "boostLabel": "Sauti ya Boost:",
+      "clearButton": "Futa Sauti"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Cheza Tena",
+    "backToMenuButton": "Rudi kwenye Menyu",
+    "finalSizeLabel": "Ukubwa wako ulikuwa: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Ubao wa Wanaoongoza",
+    "header": {
+      "name": "Jina",
+      "status": "Hali",
+      "size": "Ukubwa",
+      "kills": "Mauaji",
+      "deaths": "Vifo",
+      "kd": "K/D"
+    },
+    "noPlayers": "Hakuna wachezaji walioorodheshwa bado.",
+    "status": {
+      "ingame": "Katika Mchezo",
+      "online": "Mtandaoni",
+      "offline": "Nje ya Mtandao",
+      "never": "Kamwe",
+      "na": "H/P",
+      "ingameTitle": "Kwa sasa yuko kwenye mchezo"
+    },
+    "time": {
+      "secondsAgo_one": "sekunde {{count}} iliyopita",
+      "secondsAgo_other": "sekunde {{count}} zilizopita",
+      "minutesAgo_one": "dakika {{count}} iliyopita",
+      "minutesAgo_other": "dakika {{count}} zilizopita",
+      "hoursAgo_one": "saa {{count}} iliyopita",
+      "hoursAgo_other": "saa {{count}} zilizopita",
+      "daysAgo_one": "siku {{count}} iliyopita",
+      "daysAgo_other": "siku {{count}} zilizopita",
+      "yesterday": "Jana"
+    },
+    "lastLoginTitle": "Ingizo la mwisho: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Njia za Mkato za Kibodi (Menyu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Sogeza vitufe",
+      "activate": "Enter: Washa kitufe kilichochaguliwa",
+      "close": "Esc: Funga paneli hii / Rudi"
+    },
+    "gameKeysTitle": "Njia za Mkato za Kibodi (Mchezo)",
+    "gameKeys": {
+      "mouse": "Panya: Endesha nyoka",
+      "boost": "Bofya Kushoto / Space: Boost",
+      "adminCheat": "P: Udanganyifu wa Msimamizi (kama ni msimamizi)"
+    },
+    "ghostKeysTitle": "Njia za Mkato za Kibodi (Roho)",
+    "ghostKeys": {
+      "select": "Bofya Kushoto (kwa mchezaji): Chagua Mchezaji",
+      "pan": "Bofya Kushoto + Buruta (nafasi tupu): Sogeza Kamera",
+      "zoom": "Gurudumu la Panya: Kuza Ndani/Nje",
+      "kill": "K (kama mchezaji amechaguliwa): Ua Mchezaji",
+      "clear": "C (kama mchezaji amechaguliwa): Safisha Mchezaji (bila chakula)",
+      "freeze": "F (kama mchezaji amechaguliwa): Gandisha/Achia Mchezaji",
+      "deselect": "Esc: Acha Kuchagua Mchezaji"
+    },
+    "creditsTitle": "Sifa",
+    "creditsAuthor": "Mwandishi: Mwandishi Asiyejulikana",
+    "creditsLicense": "Leseni: MIT",
+    "creditsGithub": "Mradi kwenye GitHub"
+  },
+  "NEW_KEY_1": "Maandishi chanzo kwa ufunguo wa kwanza mpya.",
+  "NEW_KEY_2": "Maandishi chanzo kwa ufunguo wa pili mpya."
+}

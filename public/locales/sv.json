@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Slither Klon",
+  "backButtonTitle": "Tillbaka till huvudsidan",
+  "tabs": {
+    "settings": "Allmänna inställningar",
+    "users": "Användarhantering",
+    "currentConfig": "Nuvarande konfiguration"
+  },
+  "settingsForm": {
+    "title": "Allmänna inställningar",
+    "passwordNote": "<strong>Obs:</strong> För att ställa in eller återställa administratörslösenordet, stoppa servern och kör den med kommandot:<br/><code>node backend/server.js --set-new-password DITT_NYA_LÖSENORD</code><br/>Åtkomst till denna sida kräver en aktiv administratörssession (via cookie).<br/>Vissa inställningar (markerade med *) kräver en serveromstart för att tillämpas.",
+    "mapWidth": {
+      "label": "Kartbredd (px) *:",
+      "placeholder": "t.ex. 4000"
+    },
+    "mapHeight": {
+      "label": "Karthöjd (px) *:",
+      "placeholder": "t.ex. 4000"
+    },
+    "mapShape": {
+      "label": "Kartform *:",
+      "rectangle": "Rektangel",
+      "circle": "Cirkel"
+    },
+    "aoiRadius": {
+      "label": "Intresseområdesradie (AoI) (px) *:",
+      "placeholder": "t.ex. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Ormstorleksgräns (Standard):",
+      "placeholder": "t.ex. 1000"
+    },
+    "initialSize": {
+      "label": "Initial ormstorlek:",
+      "placeholder": "t.ex. 50"
+    },
+    "speed": {
+      "label": "Bashastighet:",
+      "placeholder": "t.ex. 1"
+    },
+    "maxRotationRate": {
+      "label": "Max rotationshastighet (rad/tick):",
+      "placeholder": "t.ex. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. storlek för boost:",
+      "placeholder": "t.ex. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Boostförbrukningsgrad:",
+      "placeholder": "t.ex. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Matspawnintervall (ms):",
+      "placeholder": "t.ex. 5000"
+    },
+    "fps": {
+      "label": "Server FPS (loopar/sek):",
+      "placeholder": "t.ex. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Matattraktionsstyrka:",
+      "placeholder": "t.ex. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Matfästningsavstånd:",
+      "placeholder": "t.ex. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Standardzoomnivå:",
+      "placeholder": "t.ex. 1.0"
+    },
+    "securityMode": {
+      "label": "Säkerhetsläge *:",
+      "high": "Hög (Rekommenderas)",
+      "low": "Låg (Klient + Lätt)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Tröskel för teleporteringsöverträdelse:",
+      "placeholder": "t.ex. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Teleporteringstoleransfaktor:",
+      "placeholder": "t.ex. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Aktivera God Mode vid spawn:",
+      "yes": "Ja",
+      "no": "Nej"
+    },
+    "botsEnabled": {
+      "label": "Aktivera botar:",
+      "yes": "Ja",
+      "no": "Nej"
+    },
+    "botMaxCount": {
+      "label": "Max antal botar:",
+      "placeholder": "t.ex. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Botspawnintervall (ms):",
+      "placeholder": "t.ex. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Botlivslängd (ms):",
+      "placeholder": "t.ex. 120000"
+    },
+    "botDifficulty": {
+      "label": "Botsvårighetsgrad:",
+      "easy": "Lätt",
+      "medium": "Medel",
+      "hard": "Svår"
+    },
+    "adminMessageText": {
+      "label": "Administratörsmeddelande (lämna tomt för att rensa):",
+      "placeholder": "Meddelande att visa för alla spelare"
+    },
+    "adminMessageDuration": {
+      "label": "Meddelandets varaktighet (sekunder):",
+      "placeholder": "t.ex. 10"
+    },
+    "updateButton": "Uppdatera inställningar"
+  },
+  "userManagement": {
+    "title": "Användarhantering",
+    "loading": "Laddar...",
+    "noUsers": "Inga användare hittades.",
+    "table": {
+      "headerUser": "Användare",
+      "headerStatus": "Status",
+      "headerLastLogin": "Senaste inloggning",
+      "headerCreated": "Skapad",
+      "headerActions": "Åtgärder"
+    },
+    "status": {
+      "admin": "Administratör",
+      "suspended": "Avstängd",
+      "normal": "Normal",
+      "never": "Aldrig",
+      "unknown": "Okänd"
+    },
+    "actions": {
+      "removeAdmin": "Ta bort administratör",
+      "makeAdmin": "Gör till administratör",
+      "unban": "Häv avstängning",
+      "suspend": "Stäng av",
+      "delete": "Ta bort"
+    },
+    "pruneButton": "Rensa inaktiva konton",
+    "confirmDelete": "Är du säker på att du vill ta bort användaren \"{{username}}\" permanent? Denna åtgärd kan inte ångras.",
+    "confirmPrune_one": "Är du säker på att du vill ta bort {{count}} inaktivt konto (inaktivt >15 dagar OCH mycket låg statistik)? Denna åtgärd kan inte ångras.",
+    "confirmPrune_other": "Är du säker på att du vill ta bort {{count}} inaktiva konton (inaktiva >15 dagar OCH mycket låg statistik)? Denna åtgärd kan inte ångras.",
+    "confirmPruneZero": "Inga inaktiva konton hittades baserat på nuvarande kriterier. Vill du fortfarande köra operationen (för säkerhets skull)?",
+    "confirmPruneZeroConfirm": "Bekräfta rensningsoperationen även om 0 konton upptäcktes?",
+    "pruneCancelled": "Rensningsoperationen avbröts."
+  },
+  "currentConfig": {
+    "title": "Nuvarande serverkonfiguration",
+    "loading": "Laddar konfiguration...",
+    "loadError": "Kunde inte ladda konfigurationen.",
+    "loadSuccess": "Nuvarande konfiguration laddad.",
+    "keys": {
+      "MAP_WIDTH": "Kartbredd (px)",
+      "MAP_HEIGHT": "Karthöjd (px)",
+      "MAP_SHAPE": "Kartform",
+      "AOI_RADIUS": "Intresseområdesradie (AoI) (px)",
+      "SECURITY_MODE": "Säkerhetsläge",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Ormstorleksgräns (Standard)",
+      "INITIAL_SIZE": "Initial ormstorlek",
+      "MIN_BOOST_SIZE": "Min. storlek för boost",
+      "SPEED": "Bashastighet",
+      "MAX_ROTATION_RATE": "Max rotationshastighet",
+      "BOOST_CONSUMPTION_RATE": "Boostförbrukning (Storlek/tick)",
+      "FPS": "Server FPS",
+      "FOOD_SPAWN_INTERVAL": "Matspawnintervall (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Matattraktionsstyrka",
+      "FOOD_SNAP_DISTANCE": "Matfästningsavstånd",
+      "DEFAULT_ZOOM_LEVEL": "Standardzoomnivå",
+      "TELEPORT_VIOLATION_THRESHOLD": "Tröskel för teleporteringsöverträdelse",
+      "TELEPORT_TOLERANCE_FACTOR": "Teleporteringstoleransfaktor",
+      "BOTS_ENABLED": "Botar aktiverade",
+      "BOT_MAX_COUNT": "Max antal botar",
+      "BOT_SPAWN_INTERVAL_MS": "Botspawnintervall (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Botlivslängd (ms)",
+      "BOT_DIFFICULTY": "Botsvårighetsgrad"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nej"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Åtkomst nekad. Omdirigerar...",
+    "settingsUpdated": "Inställningarna har uppdaterats.",
+    "settingsUpdatedWithRestart": "Inställningarna har uppdaterats. Serveromstart krävs för kart-/säkerhetsändringar.",
+    "settingsUpdatedFpsRestart": "Inställningarna har uppdaterats. Spelloopen har startats om för FPS-ändring.",
+    "settingsUpdateError": "Fel vid uppdatering av inställningar.",
+    "loadSettingsError": "Fel vid laddning av inställningar: {{error}}",
+    "loadUsersError": "Fel vid laddning av användare.",
+    "networkError": "Nätverksfel eller servern är inte tillgänglig.",
+    "invalidResponse": "Ogiltigt svar från servern (inte JSON)",
+    "changes": "Ändringar:",
+    "restartRequired": "En serveromstart krävs för att tillämpa ändringar (Kartstorlek/-form, Säkerhetsläge, AoI-radie).",
+    "fpsRestart": "Spelloopen har startats om för att tillämpa den nya FPS:en.",
+    "noChanges": "Inga inställningar ändrades.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Fel under förhandsgranskning.",
+    "pruneError": "Fel under rensningsoperationen.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Välj en MP3-fil.",
+      "loginRequired": "Du måste vara inloggad för att spara anpassade ljud.",
+      "saveError": "Fel vid sparande av ljud. Lokalt lagringsutrymme kan vara fullt.",
+      "readError": "Fel vid läsning av ljudfil.",
+      "clearLoginRequired": "Du måste vara inloggad för att rensa ljud.",
+      "clearError": "Ett fel uppstod vid radering av ljud."
+    },
+    "confirms": {
+      "clearAll": "Är du säker på att du vill ta bort alla anpassade ljud för detta konto?"
+    },
+    "statusTitles": {
+      "saveError": "Sparfel",
+      "readError": "Läsfel",
+      "saved": "Ljud sparat",
+      "savedWithName": "Sparat: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Servern är inte tillgänglig - Slither Klon SIO",
+    "logoAlt": "Servern är inte tillgänglig logotyp",
+    "mainHeader": "Servern är inte tillgänglig",
+    "explanation": "<span class=\"game-name\">Slither Klon SIO</span>-servern verkar vara tillfälligt offline eller oåtkomlig. Vi försöker återupprätta anslutningen åt dig.",
+    "snakeTitle": "Spela Snake under tiden!",
+    "snakeScoreLabel": "Poäng: 0",
+    "snakeControls": "Pilar / ZQSD / WASD: Flytta | Enter: Starta/Starta om",
+    "status": {
+      "label": "Status:",
+      "searching": "Söker...",
+      "checking": "Kontrollerar...",
+      "connected": "Ansluten!",
+      "nextAttemptLabel": "Nästa försök om",
+      "secondsSuffix": "sek",
+      "attemptsLabel": "Försök:"
+    },
+    "refreshButton": "Kontrollera nu",
+    "redirectInfo": "Du kommer att omdirigeras automatiskt så snart servern är online igen."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Poäng: {{score}}"
+    },
+    "gameOver": {
+      "win": "VINST!",
+      "lose": "FÖRLUST!",
+      "scoreLabel": "Poäng: {{score}}",
+      "promptLine1": "Tryck på Enter",
+      "promptLine2": "för att Spela Igen"
+    },
+    "countdown": "STARTAR OM {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Tryck på Enter",
+      "promptLine2": "för att Spela"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Internt serverfel.",
+      "invalidAdminStatus": "Ogiltig 'isAdmin'-status.",
+      "userNotFound": "Användaren hittades inte.",
+      "invalidSuspendStatus": "Ogiltig 'isSuspended'-status.",
+      "cannotDeleteSelf": "Du kan inte ta bort ditt eget administratörskonto här.",
+      "prunePreviewError": "Fel under förhandsgranskning av rensning.",
+      "pruneError": "Fel under rensningsoperationen.",
+      "rateLimit": "För många försök att skapa konto. Försök igen om cirka {{minutes}} minut(er).",
+      "missingCredentials": "Användarnamn och lösenord krävs.",
+      "usernameTooLong": "Användarnamnet får inte överstiga {{maxLength}} tecken.",
+      "usernameTooShort": "Användarnamnet måste vara minst {{minLength}} tecken långt.",
+      "passwordTooShort": "Lösenordet måste vara minst {{minLength}} tecken långt.",
+      "usernameTaken": "Detta användarnamn är redan upptaget.",
+      "invalidCredentials": "Ogiltigt användarnamn eller lösenord.",
+      "accountSuspended": "Detta konto är för närvarande avstängt.",
+      "notAuthenticated": "Inte autentiserad.",
+      "invalidHeadColor": "Ogiltig huvudfärg.",
+      "missingSkinData": "Skin-data saknas eller är ogiltig.",
+      "invalidBodyType": "Ogiltig kroppstyp.",
+      "invalidBodyColor": "Ogiltig kroppsfärg i skin-data.",
+      "invalidPatternColorsType": "Mönsterfärger måste vara en array.",
+      "tooManyPatternColors": "För många mönsterfärger (max {{max}}).",
+      "invalidPatternColorValue": "Ogiltig färg hittades i mönstret.",
+      "invalidTrailEffect": "Ogiltig spåreffekt.",
+      "adminCannotDeleteSelf": "Administratörer kan inte ta bort sitt eget konto via detta gränssnitt.",
+      "deleteAccountError": "Internt fel vid borttagning av konto."
+    },
+    "success": {
+      "accountCreated": "Kontot har skapats och du har loggats in.",
+      "login": "Inloggning lyckades.",
+      "logout": "Utloggning lyckades.",
+      "skinUpdated": "Utseendet har uppdaterats.",
+      "accountDeleted": "Ditt konto har tagits bort."
+    },
+    "admin": {
+      "adminStatusUpdated": "Administratörsstatus för {{username}} har uppdaterats.",
+      "suspendStatusUpdated": "Avstängningsstatus för {{username}} har uppdaterats.",
+      "userDeleted": "Kontot {{username}} har tagits bort.",
+      "pruneNoUsers": "Inga inaktiva konton hittades att rensa.",
+      "pruneSuccess": "{{count}} inaktiva konto(n) har rensats."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Ditt konto är avstängt.",
+      "accountError": "Kontofel. Logga in igen.",
+      "alreadyConnected": "Detta konto är redan anslutet till spelet.",
+      "deletedByAdmin": "Ditt konto har tagits bort av en administratör.",
+      "accountDeleted": "Ditt konto har tagits bort."
+    },
+    "kickReason": "Utkastad av {{admin}}",
+    "banReason": "Bannlyst av {{admin}}",
+    "clearReason": "Rensad av {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Åtgärden är inte auktoriserad.",
+      "targetNotFound": "Målspelaren hittades inte.",
+      "kickSuccess": "{{username}} blev utkastad.",
+      "kickOfflineSuccess": "{{username}} (redan frånkopplad) togs bort från spelet.",
+      "kickError": "Kunde inte hitta socket eller status för {{username}}.",
+      "banSuccess": "{{username}} blev bannlyst (kontot avstängt och spelaren utkastad).",
+      "banAccountOnlySuccess": "Kontot {{username}} avstängt (spelaren redan frånkopplad eller borttagen).",
+      "banError": "Kan inte bannlysa {{username}} (tillfälligt eller obefintligt konto).",
+      "freezeSuccess": "{{username}} blev fryst.",
+      "unfreezeSuccess": "{{username}} blev upptinad.",
+      "killSuccess": "{{username}} blev dödad.",
+      "clearSuccess": "{{username}} blev rensad (borttagen utan att lämna mat).",
+      "clearError": "Kunde inte rensa {{username}} (redan borttagen?).",
+      "unknownAction": "Okänd åtgärd."
+    },
+    "userConnected": "{{username}} anslöt till spelet.",
+    "userDisconnected": "{{username}} lämnade spelet.",
+    "disconnectReason": "Frånkopplad: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Okänd kollision",
+      "boundary": "Träffade kartgränsen.",
+      "teleport": "Frånkopplad: Misstänkt rörelse.",
+      "selfCollision": "Anti-fusk: Självkollision.",
+      "inactivity": "Inaktivitet.",
+      "killedByAdmin": "Dödad av {{admin}}",
+      "botExpired": "Boten löpte ut.",
+      "clientCollision": "Kroppskollision (klient)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Storlek: {{size}}",
+    "positionLabel": "Position: {{x}}x{{y}}",
+    "ghostMode": "Spökläge",
+    "spectator": "Åskådare"
+  },
+  "ghostMode": {
+    "selected": "Vald: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Okänd",
+    "controlsSelected": "<kbd>K</kbd>: Döda | <kbd>C</kbd>: Rensa | <kbd>F</kbd>: Frys/Tina | <kbd>Esc</kbd>: Avmarkera",
+    "controlsGeneral": "Vänsterklick: Välj entitet / Dra för att panorera<br>Hjul: Zooma | <kbd>Esc</kbd>: Avmarkera"
+  },
+  "mainPage": {
+    "title": "Slither Klon SIO"
+  },
+  "mainMenu": {
+    "title": "Välkommen till <span class=\"blink\">Slither Klon SIO</span>",
+    "helpButtonTitle": "Hjälp & Krediter",
+    "adminLink": "Admin",
+    "exitGhostButton": "Lämna spökläge"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Spela som gäst",
+      "playAsUser": "Spela som {{username}}",
+      "login": "Logga in",
+      "createAccount": "Skapa konto",
+      "customizeSkin": "Anpassa utseende",
+      "customSounds": "Anpassade ljud",
+      "showLeaderboard": "Visa topplista",
+      "ghostMode": "Spökläge",
+      "deleteAccount": "Ta bort mitt konto",
+      "logout": "Logga ut"
+    },
+    "alerts": {
+      "colorTooDark": "Den valda färgen är mycket mörk och kan vara svår att se. En ljusare färg rekommenderas.",
+      "missingCredentials": "Ange användarnamn och lösenord.",
+      "usernameLength": "Användarnamnet måste vara mellan {{min}} och {{max}} tecken.",
+      "passwordLength": "Lösenordet måste vara minst {{minLength}} tecken långt.",
+      "maxPatternColors": "Maximalt {{max}} mönsterfärger har uppnåtts.",
+      "canvasError": "Kritiskt fel: Kunde inte hitta textöverlagringscanvaselement!",
+      "gameModuleError": "Kritiskt fel: Kunde inte initiera spelmodul!",
+      "fetchAccountError": "Fel vid hämtning av kontodata.",
+      "loginError": "Inloggningsfel: {{error}}",
+      "creationError": "Skapandefel: {{error}}",
+      "skinUpdateError": "Nätverks- eller serverfel vid uppdatering av utseende: {{error}}",
+      "skinUpdatedTemp": "Utseendet har uppdaterats för tillfällig session.",
+      "deleteAccountError": "Nätverksfel vid borttagning av konto."
+    },
+    "confirms": {
+      "enterGhostMode": "Gå in i spökläge (åskådare)?",
+      "deleteAccount": "Är du säker på att du vill ta bort ditt konto \"{{username}}\" permanent? Denna åtgärd kan inte ångras."
+    },
+    "welcomeMessage": "Hej {{username}}!",
+    "welcomeMessage_admin": "Hej {{username}} (Administratör)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Användarnamn:",
+      "passwordLabel": "Lösenord:",
+      "backButton": "Tillbaka"
+    },
+    "guest": {
+      "title": "Spela som gäst",
+      "note": "Färger och skin kommer att ställas in via \"Anpassa utseende\".",
+      "submitButton": "Starta spel"
+    },
+    "login": {
+      "title": "Logga in",
+      "submitButton": "Logga in"
+    },
+    "create": {
+      "title": "Skapa konto",
+      "initialHeadColorLabel": "Initial huvudfärg:",
+      "initialBodyColorLabel": "Initial kroppsfärg:",
+      "submitButton": "Skapa"
+    },
+    "skin": {
+      "title": "Anpassa utseende",
+      "headColorLabel": "Huvudfärg:",
+      "bodyTypeLabel": "Kroppstyp",
+      "bodyTypeSingle": "Enkel färg",
+      "bodyTypePattern": "Upprepande mönster",
+      "bodyColorLabel": "Kroppsfärg:",
+      "patternColorsLabel": "Mönsterfärger (max 8)",
+      "trailEffectLabel": "Spåreffekt",
+      "trailEffect": {
+        "none": "Ingen",
+        "sparkle": "Gnistra",
+        "smoke": "Grön rök",
+        "fire": "Eld",
+        "ice": "Isskärvor",
+        "electric": "Elektriska gnistor",
+        "rainbow": "Regnbåge",
+        "bubbles": "Bubblor",
+        "glitch": "Glitch",
+        "void": "Tomrum / Skugga",
+        "confetti": "Konfetti"
+      },
+      "submitButton": "Spara utseende"
+    },
+    "sound": {
+      "title": "Anpassade ljud",
+      "info": "Ladda upp MP3-filer (lagrade lokalt) för händelser.",
+      "deathLabel": "Dödsljud:",
+      "killLabel": "Kill-ljud:",
+      "boostLabel": "Boost-ljud:",
+      "clearButton": "Rensa ljud"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Spela igen",
+    "backToMenuButton": "Tillbaka till menyn",
+    "finalSizeLabel": "Din storlek var: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Topplista",
+    "header": {
+      "name": "Namn",
+      "status": "Status",
+      "size": "Storlek",
+      "kills": "Kills",
+      "deaths": "Dödsfall",
+      "kd": "K/D"
+    },
+    "noPlayers": "Inga spelare rankade ännu.",
+    "status": {
+      "ingame": "I spel",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Aldrig",
+      "na": "Ej tillg.",
+      "ingameTitle": "För närvarande i spel"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} sek sedan",
+      "secondsAgo_other": "{{count}} sek sedan",
+      "minutesAgo_one": "{{count}} min sedan",
+      "minutesAgo_other": "{{count}} min sedan",
+      "hoursAgo_one": "{{count}} tim sedan",
+      "hoursAgo_other": "{{count}} tim sedan",
+      "daysAgo_one": "{{count}} dag sedan",
+      "daysAgo_other": "{{count}} dagar sedan",
+      "yesterday": "Igår"
+    },
+    "lastLoginTitle": "Senaste inloggning: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Kortkommandon (Meny)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigera knappar",
+      "activate": "Enter: Aktivera vald knapp",
+      "close": "Esc: Stäng denna panel / Tillbaka"
+    },
+    "gameKeysTitle": "Kortkommandon (Spel)",
+    "gameKeys": {
+      "mouse": "Mus: Styr orm",
+      "boost": "Vänsterklick / Mellanslag: Boost",
+      "adminCheat": "P: Administratörsfusk (om administratör)"
+    },
+    "ghostKeysTitle": "Kortkommandon (Spöke)",
+    "ghostKeys": {
+      "select": "Vänsterklick (på spelare): Välj spelare",
+      "pan": "Vänsterklick + Dra (tomt utrymme): Panorera kamera",
+      "zoom": "Mushjul: Zooma in/ut",
+      "kill": "K (om spelare vald): Döda spelare",
+      "clear": "C (om spelare vald): Rensa spelare (ingen mat)",
+      "freeze": "F (om spelare vald): Frys/Tina spelare",
+      "deselect": "Esc: Avmarkera spelare"
+    },
+    "creditsTitle": "Krediter",
+    "creditsAuthor": "Författare: Anonym författare",
+    "creditsLicense": "Licens: MIT",
+    "creditsGithub": "Projekt på GitHub"
+  },
+  "NEW_KEY_1": "Källtext för den första nya nyckeln.",
+  "NEW_KEY_2": "Källtext för den andra nya nyckeln."
+}

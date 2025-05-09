@@ -23,7 +23,7 @@
  */
 
 // Increment cache version when assets change
-const CACHE_NAME = "slither-clone-offline-v4";
+const CACHE_NAME = "slither-clone-offline-v5";
 const OFFLINE_URL = "/offline.html"; // Page to serve on network failure
 
 // --- Core Assets to Cache ---
@@ -32,24 +32,45 @@ const CORE_ASSETS = [
   // Offline Page & Dependencies
   OFFLINE_URL,
   "/offline-snake-game.js", // Script for the offline snake game
-  "/locales/ar.json", // Arabic
-  "/locales/de.json", // German
-  "/locales/en.json", // English
-  "/locales/es.json", // Spanish
-  "/locales/fr.json", // French
-  "/locales/hi.json", // Hindi
-  "/locales/id.json", // Indonesian
-  "/locales/it.json", // Italian
-  "/locales/ja.json", // Japanese
-  "/locales/ko.json", // Korean
-  "/locales/pl.json", // Polish
-  "/locales/pt.json", // Portuguese
-  "/locales/ru.json", // Russian
-  "/locales/tr.json", // Turkish
-  "/locales/zh.json", // Chinese
-  // i18next CDN scripts (Needed for offline page i18n)
-  // WARNING: Caching external CDN resources can be fragile.
-  // Consider hosting these locally for better reliability.
+
+  // All Locale Files
+  "/locales/en.json",
+  "/locales/fr.json",
+  "/locales/es.json",
+  "/locales/de.json",
+  "/locales/zh.json", // Chinese (Simplified)
+  "/locales/ar.json",
+  "/locales/pt.json",
+  "/locales/ru.json",
+  "/locales/ja.json",
+  "/locales/hi.json",
+  "/locales/ko.json",
+  "/locales/it.json",
+  "/locales/tr.json",
+  "/locales/id.json",
+  "/locales/pl.json",
+  "/locales/bn.json", // Bengali
+  "/locales/ur.json", // Urdu
+  "/locales/vi.json", // Vietnamese
+  "/locales/th.json", // Thai
+  "/locales/fil.json", // Filipino
+  "/locales/fa.json", // Persian (Farsi)
+  "/locales/ms.json", // Malay
+  "/locales/nl.json", // Dutch
+  "/locales/uk.json", // Ukrainian
+  "/locales/el.json", // Greek
+  "/locales/sv.json", // Swedish
+  "/locales/fi.json", // Finnish
+  "/locales/hu.json", // Hungarian
+  "/locales/ro.json", // Romanian
+  "/locales/cs.json", // Czech
+  "/locales/sw.json", // Swahili
+  "/locales/ha.json", // Hausa
+  "/locales/yo.json", // Yoruba
+  "/locales/ig.json", // Igbo
+  "/locales/zht.json", // Chinese (Traditional)
+
+  // i18next CDN scripts
   "https://unpkg.com/i18next/i18next.min.js",
   "https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js",
   "https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
@@ -80,8 +101,7 @@ self.addEventListener("install", (event) => {
         // Use addAll with Request objects for CDN URLs to handle potential CORS issues during caching
         const requests = CORE_ASSETS.map(url => {
             if (url.startsWith('http')) {
-                // Create a Request object for external URLs, mode 'no-cors' might be needed
-                // depending on CDN headers, but 'cors' is generally preferred if allowed.
+                // Create a Request object for external URLs, mode 'cors' is generally preferred if allowed.
                 return new Request(url, { mode: 'cors' });
             }
             return url; // Local URLs can be added directly

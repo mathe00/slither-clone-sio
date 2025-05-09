@@ -1,0 +1,533 @@
+{
+  "pageTitle": "مدیر - کلون اسلایدر",
+  "backButtonTitle": "بازگشت به صفحه اصلی",
+  "tabs": {
+    "settings": "تنظیمات عمومی",
+    "users": "مدیریت کاربران",
+    "currentConfig": "پیکربندی فعلی"
+  },
+  "settingsForm": {
+    "title": "تنظیمات عمومی",
+    "passwordNote": "<strong>توجه:</strong> برای تنظیم یا بازنشانی رمز عبور مدیر، سرور را متوقف کرده و با دستور زیر اجرا کنید:<br/><code>node backend/server.js --set-new-password رمز_عبور_جدید_شما</code><br/>دسترسی به این صفحه نیازمند یک جلسه مدیر فعال (از طریق کوکی) است.<br/>برخی تنظیمات (با * مشخص شده‌اند) برای اعمال شدن نیاز به راه‌اندازی مجدد سرور دارند.",
+    "mapWidth": {
+      "label": "عرض نقشه (px) *:",
+      "placeholder": "مثال: ۴۰۰۰"
+    },
+    "mapHeight": {
+      "label": "ارتفاع نقشه (px) *:",
+      "placeholder": "مثال: ۴۰۰۰"
+    },
+    "mapShape": {
+      "label": "شکل نقشه *:",
+      "rectangle": "مستطیل",
+      "circle": "دایره"
+    },
+    "aoiRadius": {
+      "label": "شعاع منطقه مورد علاقه (AoI) (px) *:",
+      "placeholder": "مثال: ۲۰۰۰"
+    },
+    "maxTrailLengthDefault": {
+      "label": "محدودیت اندازه مار (پیش‌فرض):",
+      "placeholder": "مثال: ۱۰۰۰"
+    },
+    "initialSize": {
+      "label": "اندازه اولیه مار:",
+      "placeholder": "مثال: ۵۰"
+    },
+    "speed": {
+      "label": "سرعت پایه:",
+      "placeholder": "مثال: ۱"
+    },
+    "maxRotationRate": {
+      "label": "حداکثر نرخ چرخش (rad/tick):",
+      "placeholder": "مثال: ۰.۰۸"
+    },
+    "minBoostSize": {
+      "label": "حداقل اندازه برای بوست:",
+      "placeholder": "مثال: ۵۰"
+    },
+    "boostConsumptionRate": {
+      "label": "نرخ مصرف بوست:",
+      "placeholder": "مثال: ۱"
+    },
+    "foodSpawnInterval": {
+      "label": "فاصله زمانی تولید غذا (ms):",
+      "placeholder": "مثال: ۵۰۰۰"
+    },
+    "fps": {
+      "label": "FPS سرور (loops/sec):",
+      "placeholder": "مثال: ۴۵"
+    },
+    "foodAttractionStrength": {
+      "label": "قدرت جذب غذا:",
+      "placeholder": "مثال: ۰.۱"
+    },
+    "foodSnapDistance": {
+      "label": "فاصله چسبیدن غذا:",
+      "placeholder": "مثال: ۵"
+    },
+    "defaultZoomLevel": {
+      "label": "سطح بزرگنمایی پیش‌فرض:",
+      "placeholder": "مثال: ۱.۰"
+    },
+    "securityMode": {
+      "label": "حالت امنیتی *:",
+      "high": "بالا (توصیه شده)",
+      "low": "پایین (مشتری + سبک)"
+    },
+    "teleportViolationThreshold": {
+      "label": "آستانه تخلف تلپورت:",
+      "placeholder": "مثال: ۵"
+    },
+    "teleportToleranceFactor": {
+      "label": "ضریب تحمل تلپورت:",
+      "placeholder": "مثال: ۱.۵"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "فعال کردن حالت خدا در هنگام تولید:",
+      "yes": "بله",
+      "no": "خیر"
+    },
+    "botsEnabled": {
+      "label": "فعال کردن ربات‌ها:",
+      "yes": "بله",
+      "no": "خیر"
+    },
+    "botMaxCount": {
+      "label": "حداکثر تعداد ربات:",
+      "placeholder": "مثال: ۱۰"
+    },
+    "botSpawnIntervalMs": {
+      "label": "فاصله زمانی تولید ربات (ms):",
+      "placeholder": "مثال: ۵۰۰۰"
+    },
+    "botExpirationTimeMs": {
+      "label": "طول عمر ربات (ms):",
+      "placeholder": "مثال: ۱۲۰۰۰۰"
+    },
+    "botDifficulty": {
+      "label": "سختی ربات:",
+      "easy": "آسان",
+      "medium": "متوسط",
+      "hard": "سخت"
+    },
+    "adminMessageText": {
+      "label": "پیام مدیر (برای پاک کردن خالی بگذارید):",
+      "placeholder": "پیام برای نمایش به همه بازیکنان"
+    },
+    "adminMessageDuration": {
+      "label": "مدت زمان پیام (ثانیه):",
+      "placeholder": "مثال: ۱۰"
+    },
+    "updateButton": "به‌روزرسانی تنظیمات"
+  },
+  "userManagement": {
+    "title": "مدیریت کاربران",
+    "loading": "در حال بارگذاری...",
+    "noUsers": "هیچ کاربری یافت نشد.",
+    "table": {
+      "headerUser": "کاربر",
+      "headerStatus": "وضعیت",
+      "headerLastLogin": "آخرین ورود",
+      "headerCreated": "ایجاد شده",
+      "headerActions": "اقدامات"
+    },
+    "status": {
+      "admin": "مدیر",
+      "suspended": "معلق",
+      "normal": "عادی",
+      "never": "هرگز",
+      "unknown": "ناشناخته"
+    },
+    "actions": {
+      "removeAdmin": "حذف مدیر",
+      "makeAdmin": "تبدیل به مدیر",
+      "unban": "رفع تعلیق",
+      "suspend": "تعلیق",
+      "delete": "حذف"
+    },
+    "pruneButton": "پاکسازی حساب‌های غیرفعال",
+    "confirmDelete": "آیا مطمئن هستید که می‌خواهید کاربر «{{username}}» را برای همیشه حذف کنید؟ این عمل غیرقابل بازگشت است.",
+    "confirmPrune_one": "آیا مطمئن هستید که می‌خواهید {{count}} حساب غیرفعال (غیرفعال > ۱۵ روز و آمار بسیار پایین) را حذف کنید؟ این عمل غیرقابل بازگشت است.",
+    "confirmPrune_other": "آیا مطمئن هستید که می‌خواهید {{count}} حساب غیرفعال (غیرفعال > ۱۵ روز و آمار بسیار پایین) را حذف کنید؟ این عمل غیرقابل بازگشت است.",
+    "confirmPruneZero": "هیچ حساب غیرفعالی بر اساس معیارهای فعلی یافت نشد. آیا هنوز می‌خواهید عملیات را اجرا کنید (محض احتیاط)؟",
+    "confirmPruneZeroConfirm": "عملیات پاکسازی را حتی اگر ۰ حساب شناسایی شد تأیید می‌کنید؟",
+    "pruneCancelled": "عملیات پاکسازی لغو شد."
+  },
+  "currentConfig": {
+    "title": "پیکربندی فعلی سرور",
+    "loading": "در حال بارگذاری پیکربندی...",
+    "loadError": "بارگذاری پیکربندی ناموفق بود.",
+    "loadSuccess": "پیکربندی فعلی بارگذاری شد.",
+    "keys": {
+      "MAP_WIDTH": "عرض نقشه (px)",
+      "MAP_HEIGHT": "ارتفاع نقشه (px)",
+      "MAP_SHAPE": "شکل نقشه",
+      "AOI_RADIUS": "شعاع منطقه مورد علاقه (AoI) (px)",
+      "SECURITY_MODE": "حالت امنیتی",
+      "MAX_TRAIL_LENGTH_DEFAULT": "محدودیت اندازه مار (پیش‌فرض)",
+      "INITIAL_SIZE": "اندازه اولیه مار",
+      "MIN_BOOST_SIZE": "حداقل اندازه برای بوست",
+      "SPEED": "سرعت پایه",
+      "MAX_ROTATION_RATE": "حداکثر نرخ چرخش",
+      "BOOST_CONSUMPTION_RATE": "مصرف بوست (اندازه/تیک)",
+      "FPS": "FPS سرور",
+      "FOOD_SPAWN_INTERVAL": "فاصله زمانی تولید غذا (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "قدرت جذب غذا",
+      "FOOD_SNAP_DISTANCE": "فاصله چسبیدن غذا",
+      "DEFAULT_ZOOM_LEVEL": "سطح بزرگنمایی پیش‌فرض",
+      "TELEPORT_VIOLATION_THRESHOLD": "آستانه تخلف تلپورت",
+      "TELEPORT_TOLERANCE_FACTOR": "ضریب تحمل تلپورت",
+      "BOTS_ENABLED": "ربات‌ها فعال",
+      "BOT_MAX_COUNT": "حداکثر تعداد ربات",
+      "BOT_SPAWN_INTERVAL_MS": "فاصله زمانی تولید ربات (ms)",
+      "BOT_EXPIRATION_TIME_MS": "طول عمر ربات (ms)",
+      "BOT_DIFFICULTY": "سختی ربات"
+    },
+    "boolean": {
+      "yes": "بله",
+      "no": "خیر"
+    }
+  },
+  "feedback": {
+    "accessDenied": "دسترسی رد شد. در حال هدایت مجدد...",
+    "settingsUpdated": "تنظیمات با موفقیت به‌روز شد.",
+    "settingsUpdatedWithRestart": "تنظیمات به‌روز شد. برای تغییرات نقشه/امنیتی نیاز به راه‌اندازی مجدد سرور است.",
+    "settingsUpdatedFpsRestart": "تنظیمات به‌روز شد. حلقه بازی برای تغییر FPS مجدداً راه‌اندازی شد.",
+    "settingsUpdateError": "خطا در به‌روزرسانی تنظیمات.",
+    "loadSettingsError": "خطا در بارگذاری تنظیمات: {{error}}",
+    "loadUsersError": "خطا در بارگذاری کاربران.",
+    "networkError": "خطای شبکه یا سرور در دسترس نیست.",
+    "invalidResponse": "پاسخ نامعتبر از سرور (JSON نیست)",
+    "changes": "تغییرات:",
+    "restartRequired": "برای اعمال تغییرات (اندازه/شکل نقشه، حالت امنیتی، شعاع AoI) نیاز به راه‌اندازی مجدد سرور است.",
+    "fpsRestart": "حلقه بازی برای اعمال FPS جدید مجدداً راه‌اندازی شده است.",
+    "noChanges": "هیچ تنظیماتی تغییر نکرد.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "خطا در هنگام پیش‌نمایش.",
+    "pruneError": "خطا در هنگام عملیات پاکسازی.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "لطفاً یک فایل MP3 انتخاب کنید.",
+      "loginRequired": "برای ذخیره صداهای سفارشی باید وارد شوید.",
+      "saveError": "خطا در ذخیره صدا. ممکن است حافظه محلی پر باشد.",
+      "readError": "خطا در خواندن فایل صوتی.",
+      "clearLoginRequired": "برای پاک کردن صداها باید وارد شوید.",
+      "clearError": "هنگام حذف صداها خطایی روی داد."
+    },
+    "confirms": {
+      "clearAll": "آیا مطمئن هستید که می‌خواهید تمام صداهای سفارشی این حساب را حذف کنید؟"
+    },
+    "statusTitles": {
+      "saveError": "خطای ذخیره",
+      "readError": "خطای خواندن",
+      "saved": "صدا ذخیره شد",
+      "savedWithName": "ذخیره شد: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "سرور در دسترس نیست - کلون اسلایدر SIO",
+    "logoAlt": "لوگوی سرور در دسترس نیست",
+    "mainHeader": "سرور در دسترس نیست",
+    "explanation": "سرور <span class=\"game-name\">کلون اسلایدر SIO</span> به نظر می‌رسد موقتاً آفلاین یا غیرقابل دسترس است. ما در حال تلاش برای برقراری مجدد اتصال برای شما هستیم.",
+    "snakeTitle": "در این فاصله، مار بازی کنید!",
+    "snakeScoreLabel": "امتیاز: ۰",
+    "snakeControls": "کلیدهای جهت‌نما / ZQSD / WASD: حرکت | Enter: شروع/شروع مجدد",
+    "status": {
+      "label": "وضعیت:",
+      "searching": "در حال جستجو...",
+      "checking": "در حال بررسی...",
+      "connected": "متصل شد!",
+      "nextAttemptLabel": "تلاش بعدی تا",
+      "secondsSuffix": "ثانیه دیگر",
+      "attemptsLabel": "تلاش‌ها:"
+    },
+    "refreshButton": "اکنون بررسی کنید",
+    "redirectInfo": "به محض آنلاین شدن سرور، به طور خودکار هدایت خواهید شد."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "امتیاز: {{score}}"
+    },
+    "gameOver": {
+      "win": "برنده شدی!",
+      "lose": "باختی!",
+      "scoreLabel": "امتیاز: {{score}}",
+      "promptLine1": "Enter را فشار دهید",
+      "promptLine2": "برای بازی مجدد"
+    },
+    "countdown": "شروع تا {{count}}",
+    "startScreen": {
+      "title": "مار",
+      "promptLine1": "Enter را فشار دهید",
+      "promptLine2": "برای بازی"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "خطای داخلی سرور.",
+      "invalidAdminStatus": "وضعیت 'isAdmin' نامعتبر است.",
+      "userNotFound": "کاربر یافت نشد.",
+      "invalidSuspendStatus": "وضعیت 'isSuspended' نامعتبر است.",
+      "cannotDeleteSelf": "شما نمی‌توانید حساب مدیر خود را در اینجا حذف کنید.",
+      "prunePreviewError": "خطا در هنگام پیش‌نمایش پاکسازی.",
+      "pruneError": "خطا در هنگام عملیات پاکسازی.",
+      "rateLimit": "تعداد تلاش‌ها برای ایجاد حساب بیش از حد مجاز است. لطفاً حدود {{minutes}} دقیقه دیگر دوباره امتحان کنید.",
+      "missingCredentials": "نام کاربری و رمز عبور الزامی است.",
+      "usernameTooLong": "نام کاربری نمی‌تواند بیش از {{maxLength}} کاراکتر باشد.",
+      "usernameTooShort": "نام کاربری باید حداقل {{minLength}} کاراکتر طول داشته باشد.",
+      "passwordTooShort": "رمز عبور باید حداقل {{minLength}} کاراکتر طول داشته باشد.",
+      "usernameTaken": "این نام کاربری قبلاً گرفته شده است.",
+      "invalidCredentials": "نام کاربری یا رمز عبور نامعتبر است.",
+      "accountSuspended": "این حساب در حال حاضر معلق است.",
+      "notAuthenticated": "احراز هویت نشده است.",
+      "invalidHeadColor": "رنگ سر نامعتبر است.",
+      "missingSkinData": "داده‌های پوست موجود نیست یا نامعتبر است.",
+      "invalidBodyType": "نوع بدن نامعتبر است.",
+      "invalidBodyColor": "رنگ بدن در داده‌های پوست نامعتبر است.",
+      "invalidPatternColorsType": "رنگ‌های الگو باید یک آرایه باشند.",
+      "tooManyPatternColors": "تعداد رنگ‌های الگو بیش از حد مجاز است (حداکثر {{max}}).",
+      "invalidPatternColorValue": "رنگ نامعتبر در الگو یافت شد.",
+      "invalidTrailEffect": "اثر دنباله نامعتبر است.",
+      "adminCannotDeleteSelf": "مدیران نمی‌توانند حساب خود را از طریق این رابط حذف کنند.",
+      "deleteAccountError": "خطای داخلی هنگام حذف حساب."
+    },
+    "success": {
+      "accountCreated": "حساب با موفقیت ایجاد و وارد شد.",
+      "login": "ورود موفقیت‌آمیز بود.",
+      "logout": "خروج موفقیت‌آمیز بود.",
+      "skinUpdated": "ظاهر با موفقیت به‌روز شد.",
+      "accountDeleted": "حساب شما با موفقیت حذف شد."
+    },
+    "admin": {
+      "adminStatusUpdated": "وضعیت مدیر برای {{username}} به‌روز شد.",
+      "suspendStatusUpdated": "وضعیت تعلیق برای {{username}} به‌روز شد.",
+      "userDeleted": "حساب {{username}} با موفقیت حذف شد.",
+      "pruneNoUsers": "هیچ حساب غیرفعالی برای پاکسازی یافت نشد.",
+      "pruneSuccess": "{{count}} حساب غیرفعال پاکسازی شد."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "حساب شما معلق است.",
+      "accountError": "خطای حساب. لطفاً دوباره وارد شوید.",
+      "alreadyConnected": "این حساب قبلاً به بازی متصل شده است.",
+      "deletedByAdmin": "حساب شما توسط مدیر حذف شد.",
+      "accountDeleted": "حساب شما حذف شده است."
+    },
+    "kickReason": "توسط {{admin}} اخراج شدید",
+    "banReason": "توسط {{admin}} مسدود شدید",
+    "clearReason": "توسط {{admin}} پاکسازی شدید",
+    "adminFeedback": {
+      "unauthorized": "اقدام مجاز نیست.",
+      "targetNotFound": "بازیکن هدف یافت نشد.",
+      "kickSuccess": "{{username}} اخراج شد.",
+      "kickOfflineSuccess": "{{username}} (قبلاً قطع شده بود) از بازی حذف شد.",
+      "kickError": "سوکت یا وضعیت برای {{username}} یافت نشد.",
+      "banSuccess": "{{username}} مسدود شد (حساب معلق و بازیکن اخراج شد).",
+      "banAccountOnlySuccess": "حساب {{username}} معلق شد (بازیکن قبلاً قطع شده یا حذف شده بود).",
+      "banError": "امکان مسدود کردن {{username}} وجود ندارد (حساب موقت یا ناموجود).",
+      "freezeSuccess": "{{username}} منجمد شد.",
+      "unfreezeSuccess": "{{username}} از انجماد خارج شد.",
+      "killSuccess": "{{username}} کشته شد.",
+      "clearSuccess": "{{username}} پاکسازی شد (بدون انداختن غذا حذف شد).",
+      "clearError": "امکان پاکسازی {{username}} وجود ندارد (قبلاً حذف شده است؟).",
+      "unknownAction": "اقدام ناشناخته."
+    },
+    "userConnected": "{{username}} به بازی پیوست.",
+    "userDisconnected": "{{username}} بازی را ترک کرد.",
+    "disconnectReason": "قطع شد: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "برخورد ناشناخته",
+      "boundary": "به مرز نقشه برخورد کردید.",
+      "teleport": "قطع شد: حرکت مشکوک.",
+      "selfCollision": "ضد تقلب: برخورد با خود.",
+      "inactivity": "عدم فعالیت.",
+      "killedByAdmin": "توسط {{admin}} کشته شدید",
+      "botExpired": "ربات منقضی شد.",
+      "clientCollision": "برخورد بدن (مشتری)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "اندازه: {{size}}",
+    "positionLabel": "موقعیت: {{x}}x{{y}}",
+    "ghostMode": "حالت روح",
+    "spectator": "تماشاگر"
+  },
+  "ghostMode": {
+    "selected": "انتخاب شده: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "ناشناخته",
+    "controlsSelected": "<kbd>K</kbd>: کشتن | <kbd>C</kbd>: پاکسازی | <kbd>F</kbd>: انجماد/رفع انجماد | <kbd>Esc</kbd>: لغو انتخاب",
+    "controlsGeneral": "کلیک چپ: انتخاب موجودیت / کشیدن برای حرکت<br>چرخ ماوس: بزرگنمایی | <kbd>Esc</kbd>: لغو انتخاب"
+  },
+  "mainPage": {
+    "title": "کلون اسلایدر SIO"
+  },
+  "mainMenu": {
+    "title": "به <span class=\"blink\">کلون اسلایدر SIO</span> خوش آمدید",
+    "helpButtonTitle": "راهنما و اعتبارها",
+    "adminLink": "مدیر",
+    "exitGhostButton": "خروج از حالت روح"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "بازی به عنوان مهمان",
+      "playAsUser": "بازی به عنوان {{username}}",
+      "login": "ورود",
+      "createAccount": "ایجاد حساب",
+      "customizeSkin": "سفارشی‌سازی ظاهر",
+      "customSounds": "صداهای سفارشی",
+      "showLeaderboard": "نمایش جدول امتیازات",
+      "ghostMode": "حالت روح",
+      "deleteAccount": "حذف حساب من",
+      "logout": "خروج"
+    },
+    "alerts": {
+      "colorTooDark": "رنگ انتخاب شده بسیار تیره است و ممکن است به سختی دیده شود. رنگ روشن‌تری توصیه می‌شود.",
+      "missingCredentials": "لطفاً نام کاربری و رمز عبور را وارد کنید.",
+      "usernameLength": "نام کاربری باید بین {{min}} و {{max}} کاراکتر باشد.",
+      "passwordLength": "رمز عبور باید حداقل {{minLength}} کاراکتر طول داشته باشد.",
+      "maxPatternColors": "حداکثر {{max}} رنگ الگو достигнуто.",
+      "canvasError": "خطای بحرانی: عنصر بوم پوشش متن یافت نشد!",
+      "gameModuleError": "خطای بحرانی: ماژول بازی راه‌اندازی نشد!",
+      "fetchAccountError": "خطا در دریافت داده‌های حساب.",
+      "loginError": "خطای ورود: {{error}}",
+      "creationError": "خطای ایجاد: {{error}}",
+      "skinUpdateError": "خطای شبکه یا سرور هنگام به‌روزرسانی ظاهر: {{error}}",
+      "skinUpdatedTemp": "ظاهر برای جلسه موقت به‌روز شد.",
+      "deleteAccountError": "خطای شبکه هنگام حذف حساب."
+    },
+    "confirms": {
+      "enterGhostMode": "وارد حالت روح (تماشاگر) می‌شوید؟",
+      "deleteAccount": "آیا مطمئن هستید که می‌خواهید حساب «{{username}}» خود را برای همیشه حذف کنید؟ این عمل غیرقابل بازگشت است."
+    },
+    "welcomeMessage": "سلام {{username}}!",
+    "welcomeMessage_admin": "سلام {{username}} (مدیر)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "نام کاربری:",
+      "passwordLabel": "رمز عبور:",
+      "backButton": "بازگشت"
+    },
+    "guest": {
+      "title": "بازی به عنوان مهمان",
+      "note": "رنگ‌ها و پوست از طریق «سفارشی‌سازی ظاهر» تنظیم می‌شوند.",
+      "submitButton": "شروع بازی"
+    },
+    "login": {
+      "title": "ورود",
+      "submitButton": "ورود"
+    },
+    "create": {
+      "title": "ایجاد حساب",
+      "initialHeadColorLabel": "رنگ اولیه سر:",
+      "initialBodyColorLabel": "رنگ اولیه بدن:",
+      "submitButton": "ایجاد"
+    },
+    "skin": {
+      "title": "سفارشی‌سازی ظاهر",
+      "headColorLabel": "رنگ سر:",
+      "bodyTypeLabel": "نوع بدن",
+      "bodyTypeSingle": "تک رنگ",
+      "bodyTypePattern": "الگوی تکراری",
+      "bodyColorLabel": "رنگ بدن:",
+      "patternColorsLabel": "رنگ‌های الگو (حداکثر ۸)",
+      "trailEffectLabel": "اثر دنباله",
+      "trailEffect": {
+        "none": "هیچکدام",
+        "sparkle": "درخشش",
+        "smoke": "دود سبز",
+        "fire": "آتش",
+        "ice": "تکه‌های یخ",
+        "electric": "جرقه‌های الکتریکی",
+        "rainbow": "رنگین‌کمان",
+        "bubbles": "حباب‌ها",
+        "glitch": "گلیچ",
+        "void": "خلأ / سایه",
+        "confetti": "کاغذ رنگی"
+      },
+      "submitButton": "ذخیره ظاهر"
+    },
+    "sound": {
+      "title": "صداهای سفارشی",
+      "info": "فایل‌های MP3 (ذخیره شده محلی) را برای رویدادها بارگذاری کنید.",
+      "deathLabel": "صدای مرگ:",
+      "killLabel": "صدای کشتن:",
+      "boostLabel": "صدای بوست:",
+      "clearButton": "پاک کردن صداها"
+    }
+  },
+  "gameOver": {
+    "replayButton": "بازی مجدد",
+    "backToMenuButton": "بازگشت به منو",
+    "finalSizeLabel": "اندازه شما بود: {{size}}"
+  },
+  "leaderboard": {
+    "title": "جدول امتیازات",
+    "header": {
+      "name": "نام",
+      "status": "وضعیت",
+      "size": "اندازه",
+      "kills": "کشتارها",
+      "deaths": "مرگ‌ها",
+      "kd": "K/D"
+    },
+    "noPlayers": "هنوز هیچ بازیکنی رتبه‌بندی نشده است.",
+    "status": {
+      "ingame": "در بازی",
+      "online": "آنلاین",
+      "offline": "آفلاین",
+      "never": "هرگز",
+      "na": "N/A",
+      "ingameTitle": "در حال حاضر در بازی"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} ثانیه پیش",
+      "secondsAgo_other": "{{count}} ثانیه پیش",
+      "minutesAgo_one": "{{count}} دقیقه پیش",
+      "minutesAgo_other": "{{count}} دقیقه پیش",
+      "hoursAgo_one": "{{count}} ساعت پیش",
+      "hoursAgo_other": "{{count}} ساعت پیش",
+      "daysAgo_one": "{{count}} روز پیش",
+      "daysAgo_other": "{{count}} روز پیش",
+      "yesterday": "دیروز"
+    },
+    "lastLoginTitle": "آخرین ورود: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "میانبرهای صفحه کلید (منو)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: پیمایش دکمه‌ها",
+      "activate": "Enter: فعال کردن دکمه انتخاب شده",
+      "close": "Esc: بستن این پنل / بازگشت"
+    },
+    "gameKeysTitle": "میانبرهای صفحه کلید (بازی)",
+    "gameKeys": {
+      "mouse": "ماوس: هدایت مار",
+      "boost": "کلیک چپ / Space: بوست",
+      "adminCheat": "P: تقلب مدیر (اگر مدیر هستید)"
+    },
+    "ghostKeysTitle": "میانبرهای صفحه کلید (روح)",
+    "ghostKeys": {
+      "select": "کلیک چپ (روی بازیکن): انتخاب بازیکن",
+      "pan": "کلیک چپ + کشیدن (فضای خالی): حرکت دوربین",
+      "zoom": "چرخ ماوس: بزرگنمایی/کوچک‌نمایی",
+      "kill": "K (اگر بازیکن انتخاب شده باشد): کشتن بازیکن",
+      "clear": "C (اگر بازیکن انتخاب شده باشد): پاکسازی بازیکن (بدون غذا)",
+      "freeze": "F (اگر بازیکن انتخاب شده باشد): انجماد/رفع انجماد بازیکن",
+      "deselect": "Esc: لغو انتخاب بازیکن"
+    },
+    "creditsTitle": "اعتبارها",
+    "creditsAuthor": "نویسنده: نویسنده ناشناس",
+    "creditsLicense": "مجوز: MIT",
+    "creditsGithub": "پروژه در GitHub"
+  },
+  "NEW_KEY_1": "متن منبع برای اولین کلید جدید.",
+  "NEW_KEY_2": "متن منبع برای دومین کلید جدید."
+}

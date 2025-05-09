@@ -26,7 +26,8 @@ async function initializeI18n() {
       .use(i18nextHttpBackend)
       .use(i18nextBrowserLanguageDetector)
       .init({
-        debug: false, fallbackLng: "en", supportedLngs: ["en", "fr", "es", "de", "zh"],
+        debug: false, fallbackLng: "en",
+        supportedLngs: ['en', 'fr', 'es', 'de', 'zh', 'ar', 'pt', 'ru', 'ja', 'hi', 'ko', 'it', 'tr', 'id', 'pl', 'bn', 'ur', 'vi', 'th', 'fil', 'fa', 'ms', 'nl', 'uk', 'el', 'sv', 'fi', 'hu', 'ro', 'cs', 'sw', 'ha', 'yo', 'ig', 'zht'],
         load: "languageOnly", nonExplicitSupportedLngs: true, ns: ["translation"], defaultNS: "translation",
         backend: { loadPath: "/locales/{{lng}}.json" },
         detection: { order: ["navigator", "htmlTag"], caches: [] },

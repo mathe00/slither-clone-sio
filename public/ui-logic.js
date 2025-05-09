@@ -147,7 +147,7 @@ async function initializeI18n() {
       .init({
         debug: false, // Set to true for debugging
         fallbackLng: "en",
-        supportedLngs: ['en', 'fr', 'es', 'de', 'zh'],
+        supportedLngs: ['en', 'fr', 'es', 'de', 'zh', 'ar', 'pt', 'ru', 'ja', 'hi', 'ko', 'it', 'tr', 'id', 'pl', 'bn', 'ur', 'vi', 'th', 'fil', 'fa', 'ms', 'nl', 'uk', 'el', 'sv', 'fi', 'hu', 'ro', 'cs', 'sw', 'ha', 'yo', 'ig', 'zht'],
         load: 'languageOnly', // Important for mapping 'fr-FR' to 'fr'
         nonExplicitSupportedLngs: true, // Important for mapping 'fr-FR' to 'fr'
         backend: {

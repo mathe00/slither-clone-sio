@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Kwafin Slither",
+  "backButtonTitle": "Koma babban shafi",
+  "tabs": {
+    "settings": "Saitunan Gabaɗaya",
+    "users": "Gudanar da Masu Amfani",
+    "currentConfig": "Saitin Yanzu"
+  },
+  "settingsForm": {
+    "title": "Saitunan Gabaɗaya",
+    "passwordNote": "<strong>Lura:</strong> Don saita ko sake saita kalmar sirri ta admin, dakatar da uwar garken kuma gudanar da shi da umarnin:<br/><code>node backend/server.js --set-new-password SABUWAR_KALMAR_SIRRIN_KA</code><br/>Samun damar wannan shafin yana buƙatar zaman admin mai aiki (ta hanyar kuki).<br/>Wasu saituna (masu alamar *) suna buƙatar sake kunna uwar garken don amfani da su.",
+    "mapWidth": {
+      "label": "Faɗin Taswira (px) *:",
+      "placeholder": "misali 4000"
+    },
+    "mapHeight": {
+      "label": "Tsayin Taswira (px) *:",
+      "placeholder": "misali 4000"
+    },
+    "mapShape": {
+      "label": "Siffar Taswira *:",
+      "rectangle": "Murabba'i",
+      "circle": "Da'ira"
+    },
+    "aoiRadius": {
+      "label": "Radius na Yankin Sha'awa (AoI) (px) *:",
+      "placeholder": "misali 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Iyakar Girman Maciji (Na asali):",
+      "placeholder": "misali 1000"
+    },
+    "initialSize": {
+      "label": "Girman Maciji na Farko:",
+      "placeholder": "misali 50"
+    },
+    "speed": {
+      "label": "Gudun Asali:",
+      "placeholder": "misali 1"
+    },
+    "maxRotationRate": {
+      "label": "Matsakaicin Gudun Juyawa (rad/tick):",
+      "placeholder": "misali 0.08"
+    },
+    "minBoostSize": {
+      "label": "Mafi Karancin Girma don Boost:",
+      "placeholder": "misali 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Adadin Amfani da Boost:",
+      "placeholder": "misali 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Tazarar Bayyanar Abinci (ms):",
+      "placeholder": "misali 5000"
+    },
+    "fps": {
+      "label": "FPS na Uwar Garke (zagaye/sakan):",
+      "placeholder": "misali 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Ƙarfin Jan Abinci:",
+      "placeholder": "misali 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Nisan Kama Abinci:",
+      "placeholder": "misali 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Matsayin Zuƙowa na Asali:",
+      "placeholder": "misali 1.0"
+    },
+    "securityMode": {
+      "label": "Yanayin Tsaro *:",
+      "high": "Babba (An Shawarta)",
+      "low": "Ƙasa (Abokin Ciniki + Haske)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Matsayin Keta Dokar Teleport:",
+      "placeholder": "misali 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Dalilin Haƙurin Teleport:",
+      "placeholder": "misali 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Kunna Yanayin Allah lokacin bayyana:",
+      "yes": "Ee",
+      "no": "A'a"
+    },
+    "botsEnabled": {
+      "label": "Kunna Bot:",
+      "yes": "Ee",
+      "no": "A'a"
+    },
+    "botMaxCount": {
+      "label": "Matsakaicin Adadin Bot:",
+      "placeholder": "misali 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Tazarar Bayyanar Bot (ms):",
+      "placeholder": "misali 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Lokacin Karewar Bot (ms):",
+      "placeholder": "misali 120000"
+    },
+    "botDifficulty": {
+      "label": "Wahalar Bot:",
+      "easy": "Sauƙi",
+      "medium": "Matsakaici",
+      "hard": "Mai Wahala"
+    },
+    "adminMessageText": {
+      "label": "Saƙon Admin (bar fanko don sharewa):",
+      "placeholder": "Saƙo don nunawa ga dukkan 'yan wasa"
+    },
+    "adminMessageDuration": {
+      "label": "Tsawon Lokacin Saƙo (sakan):",
+      "placeholder": "misali 10"
+    },
+    "updateButton": "Sabunta Saituna"
+  },
+  "userManagement": {
+    "title": "Gudanar da Masu Amfani",
+    "loading": "Ana lodawa...",
+    "noUsers": "Ba a sami masu amfani ba.",
+    "table": {
+      "headerUser": "Mai Amfani",
+      "headerStatus": "Hali",
+      "headerLastLogin": "Shiga na Karshe",
+      "headerCreated": "An Ƙirƙira",
+      "headerActions": "Ayyuka"
+    },
+    "status": {
+      "admin": "Admin",
+      "suspended": "An Dakatar",
+      "normal": "Na Al'ada",
+      "never": "Ba Sau Ɗaya Ba",
+      "unknown": "Ba a San Ba"
+    },
+    "actions": {
+      "removeAdmin": "Cire Admin",
+      "makeAdmin": "Mayar Admin",
+      "unban": "Cire Dakatarwa",
+      "suspend": "Dakatar",
+      "delete": "Share"
+    },
+    "pruneButton": "Tsaftace Asusun da Ba Sa Aiki",
+    "confirmDelete": "Shin ka tabbata kana son share mai amfani \"{{username}}\" har abada? Wannan aikin ba za a iya mayar da shi baya ba.",
+    "confirmPrune_one": "Shin ka tabbata kana son share asusu {{count}} da ba ya aiki (ba ya aiki >kwana 15 KUMA ƙididdiga masu ƙanƙanta)? Wannan aikin ba za a iya mayar da shi baya ba.",
+    "confirmPrune_other": "Shin ka tabbata kana son share asusu {{count}} da ba sa aiki (ba sa aiki >kwana 15 KUMA ƙididdiga masu ƙanƙanta)? Wannan aikin ba za a iya mayar da shi baya ba.",
+    "confirmPruneZero": "Ba a sami asusun da ba sa aiki ba bisa ga ma'auni na yanzu. Shin har yanzu kana son gudanar da aikin (idan da hali)?",
+    "confirmPruneZeroConfirm": "Tabbatar da aikin tsaftacewa koda kuwa an gano asusu 0?",
+    "pruneCancelled": "An soke aikin tsaftacewa."
+  },
+  "currentConfig": {
+    "title": "Saitin Uwar Garke na Yanzu",
+    "loading": "Ana lodin saiti...",
+    "loadError": "Ba a iya lodin saiti ba.",
+    "loadSuccess": "An loda saitin yanzu.",
+    "keys": {
+      "MAP_WIDTH": "Faɗin Taswira (px)",
+      "MAP_HEIGHT": "Tsayin Taswira (px)",
+      "MAP_SHAPE": "Siffar Taswira",
+      "AOI_RADIUS": "Radius na Yankin Sha'awa (AoI) (px)",
+      "SECURITY_MODE": "Yanayin Tsaro",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Iyakar Girman Maciji (Na asali)",
+      "INITIAL_SIZE": "Girman Maciji na Farko",
+      "MIN_BOOST_SIZE": "Mafi Karancin Girma don Boost",
+      "SPEED": "Gudun Asali",
+      "MAX_ROTATION_RATE": "Matsakaicin Gudun Juyawa",
+      "BOOST_CONSUMPTION_RATE": "Amfani da Boost (Girma/tick)",
+      "FPS": "FPS na Uwar Garke",
+      "FOOD_SPAWN_INTERVAL": "Tazarar Bayyanar Abinci (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Ƙarfin Jan Abinci",
+      "FOOD_SNAP_DISTANCE": "Nisan Kama Abinci",
+      "DEFAULT_ZOOM_LEVEL": "Matsayin Zuƙowa na Asali",
+      "TELEPORT_VIOLATION_THRESHOLD": "Matsayin Keta Dokar Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Dalilin Haƙurin Teleport",
+      "BOTS_ENABLED": "An Kunna Bot",
+      "BOT_MAX_COUNT": "Matsakaicin Adadin Bot",
+      "BOT_SPAWN_INTERVAL_MS": "Tazarar Bayyanar Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Lokacin Karewar Bot (ms)",
+      "BOT_DIFFICULTY": "Wahalar Bot"
+    },
+    "boolean": {
+      "yes": "Ee",
+      "no": "A'a"
+    }
+  },
+  "feedback": {
+    "accessDenied": "An hana shiga. Ana turawa...",
+    "settingsUpdated": "An sabunta saituna cikin nasara.",
+    "settingsUpdatedWithRestart": "An sabunta saituna. Ana buƙatar sake kunna uwar garken don canje-canjen taswira/tsaro.",
+    "settingsUpdatedFpsRestart": "An sabunta saituna. An sake kunna zagayen wasan don canjin FPS.",
+    "settingsUpdateError": "Kuskure wajen sabunta saituna.",
+    "loadSettingsError": "Kuskure wajen lodin saituna: {{error}}",
+    "loadUsersError": "Kuskure wajen lodin masu amfani.",
+    "networkError": "Kuskuren hanyar sadarwa ko uwar garken ba ta samuwa.",
+    "invalidResponse": "Amsa mara inganci daga uwar garken (ba JSON ba)",
+    "changes": "Canje-canje:",
+    "restartRequired": "Ana buƙatar sake kunna uwar garken don amfani da canje-canje (Girman/Siffar Taswira, Yanayin Tsaro, Radius na AoI).",
+    "fpsRestart": "An sake kunna zagayen wasan don amfani da sabon FPS.",
+    "noChanges": "Ba a canza saituna ba.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Kuskure yayin duba farko.",
+    "pruneError": "Kuskure yayin aikin tsaftacewa.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Da fatan za a zaɓi fayil na MP3.",
+      "loginRequired": "Dole ne ka shiga don adana sautunan al'ada.",
+      "saveError": "Kuskure wajen adana sauti. Ma'ajiyar gida na iya cika.",
+      "readError": "Kuskure wajen karanta fayil na sauti.",
+      "clearLoginRequired": "Dole ne ka shiga don share sautuna.",
+      "clearError": "An sami kuskure yayin share sautuna."
+    },
+    "confirms": {
+      "clearAll": "Shin ka tabbata kana son share duk sautunan al'ada na wannan asusun?"
+    },
+    "statusTitles": {
+      "saveError": "Kuskuren Adanawa",
+      "readError": "Kuskuren Karatu",
+      "saved": "An adana sauti",
+      "savedWithName": "An adana: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Uwar Garke Ba Ta Samuwa - Kwafin Slither SIO",
+    "logoAlt": "Logo na Uwar Garke Ba Ta Samuwa",
+    "mainHeader": "Uwar Garke Ba Ta Samuwa",
+    "explanation": "Uwar garken <span class=\"game-name\">Kwafin Slither SIO</span> da alama tana kashe na ɗan lokaci ko ba a iya samunta. Muna ƙoƙarin sake kafa haɗin gwiwa a gare ku.",
+    "snakeTitle": "A halin yanzu, yi wasan Maciji!",
+    "snakeScoreLabel": "Maki: 0",
+    "snakeControls": "Kibiyoyi / ZQSD / WASD: Motsa | Enter: Fara/Sake Farawa",
+    "status": {
+      "label": "Hali:",
+      "searching": "Ana nema...",
+      "checking": "Ana dubawa...",
+      "connected": "An haɗa!",
+      "nextAttemptLabel": "Ƙoƙari na gaba cikin",
+      "secondsSuffix": "sakan",
+      "attemptsLabel": "Ƙoƙari:"
+    },
+    "refreshButton": "Duba Yanzu",
+    "redirectInfo": "Za a tura ka kai tsaye da zarar uwar garken ta dawo kan layi."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Maki: {{score}}"
+    },
+    "gameOver": {
+      "win": "KA YI NASARA!",
+      "lose": "KA FAƊI!",
+      "scoreLabel": "Maki: {{score}}",
+      "promptLine1": "Danna Enter",
+      "promptLine2": "Don Sake Wasa"
+    },
+    "countdown": "FARAWA CIKIN {{count}}",
+    "startScreen": {
+      "title": "MACIJI",
+      "promptLine1": "Danna Enter",
+      "promptLine2": "Don Wasa"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Kuskuren uwar garke na ciki.",
+      "invalidAdminStatus": "Matsayin 'isAdmin' mara inganci.",
+      "userNotFound": "Ba a sami mai amfani ba.",
+      "invalidSuspendStatus": "Matsayin 'isSuspended' mara inganci.",
+      "cannotDeleteSelf": "Ba za ka iya share asusun admin naka a nan ba.",
+      "prunePreviewError": "Kuskure yayin duba farko na tsaftacewa.",
+      "pruneError": "Kuskure yayin aikin tsaftacewa.",
+      "rateLimit": "Ƙoƙarin ƙirƙirar asusu da yawa. Da fatan za a sake gwadawa cikin kimanin minti {{minutes}}.",
+      "missingCredentials": "Ana buƙatar sunan mai amfani da kalmar sirri.",
+      "usernameTooLong": "Sunan mai amfani ba zai iya wuce haruffa {{maxLength}} ba.",
+      "usernameTooShort": "Sunan mai amfani dole ne ya kasance aƙalla haruffa {{minLength}}.",
+      "passwordTooShort": "Kalmar sirri dole ne ta kasance aƙalla haruffa {{minLength}}.",
+      "usernameTaken": "An riga an yi amfani da wannan sunan mai amfani.",
+      "invalidCredentials": "Sunan mai amfani ko kalmar sirri mara inganci.",
+      "accountSuspended": "An dakatar da wannan asusun a halin yanzu.",
+      "notAuthenticated": "Ba a tantance ba.",
+      "invalidHeadColor": "Launin kai mara inganci.",
+      "missingSkinData": "Bayanin fata ya ɓace ko mara inganci.",
+      "invalidBodyType": "Nau'in jiki mara inganci.",
+      "invalidBodyColor": "Launin jiki mara inganci a cikin bayanin fata.",
+      "invalidPatternColorsType": "Launukan tsari dole ne su kasance jeri.",
+      "tooManyPatternColors": "Launukan tsari da yawa (mafi yawa {{max}}).",
+      "invalidPatternColorValue": "An sami launi mara inganci a cikin tsari.",
+      "invalidTrailEffect": "Tasirin sawu mara inganci.",
+      "adminCannotDeleteSelf": "Masu gudanarwa ba za su iya share asusunsu ta wannan hanyar sadarwa ba.",
+      "deleteAccountError": "Kuskuren ciki yayin share asusu."
+    },
+    "success": {
+      "accountCreated": "An ƙirƙiri asusu kuma an shiga cikin nasara.",
+      "login": "Shiga ya yi nasara.",
+      "logout": "Fita ya yi nasara.",
+      "skinUpdated": "An sabunta kamanni cikin nasara.",
+      "accountDeleted": "An share asusunka cikin nasara."
+    },
+    "admin": {
+      "adminStatusUpdated": "An sabunta matsayin admin na {{username}}.",
+      "suspendStatusUpdated": "An sabunta matsayin dakatarwa na {{username}}.",
+      "userDeleted": "An share asusun {{username}} cikin nasara.",
+      "pruneNoUsers": "Ba a sami asusun da ba sa aiki ba don tsaftacewa.",
+      "pruneSuccess": "An tsaftace asusu {{count}} da ba sa aiki."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "An dakatar da asusunka.",
+      "accountError": "Kuskuren asusu. Da fatan za a sake shiga.",
+      "alreadyConnected": "Wannan asusun ya riga ya haɗu da wasan.",
+      "deletedByAdmin": "Admin ya share asusunka.",
+      "accountDeleted": "An share asusunka."
+    },
+    "kickReason": "An kore ka daga {{admin}}",
+    "banReason": "An dakatar da kai daga {{admin}}",
+    "clearReason": "An share ka daga {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Ba a ba da izinin aiki ba.",
+      "targetNotFound": "Ba a sami ɗan wasan da aka nufa ba.",
+      "kickSuccess": "An kori {{username}}.",
+      "kickOfflineSuccess": "An cire {{username}} (wanda ya riga ya fita) daga wasan.",
+      "kickError": "Ba a iya samun soket ko hali na {{username}} ba.",
+      "banSuccess": "An dakatar da {{username}} (an dakatar da asusu kuma an kori ɗan wasa).",
+      "banAccountOnlySuccess": "An dakatar da asusun {{username}} (ɗan wasa ya riga ya fita ko an cire shi).",
+      "banError": "Ba za a iya dakatar da {{username}} ba (asusun wucin gadi ko babu shi).",
+      "freezeSuccess": "An daskarar da {{username}}.",
+      "unfreezeSuccess": "An narkar da {{username}}.",
+      "killSuccess": "An kashe {{username}}.",
+      "clearSuccess": "An share {{username}} (an cire ba tare da barin abinci ba).",
+      "clearError": "Ba a iya share {{username}} ba (an riga an cire shi?).",
+      "unknownAction": "Aiki da ba a sani ba."
+    },
+    "userConnected": "{{username}} ya shiga wasan.",
+    "userDisconnected": "{{username}} ya bar wasan.",
+    "disconnectReason": "An cire haɗin: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Karo da ba a sani ba",
+      "boundary": "Ka bugi gefen taswira.",
+      "teleport": "An cire haɗin: Motsi mai ban mamaki.",
+      "selfCollision": "Anti-zamba: Karo da kai.",
+      "inactivity": "Rashin aiki.",
+      "killedByAdmin": "An kashe ka daga {{admin}}",
+      "botExpired": "Bot ya ƙare.",
+      "clientCollision": "Karo na jiki (abokin ciniki)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Girma: {{size}}",
+    "positionLabel": "Matsayi: {{x}}x{{y}}",
+    "ghostMode": "Yanayin Fatalwa",
+    "spectator": "Mai Kallo"
+  },
+  "ghostMode": {
+    "selected": "An Zaɓa: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Ba a San Ba",
+    "controlsSelected": "<kbd>K</kbd>: Kashe | <kbd>C</kbd>: Share | <kbd>F</kbd>: Daskare/Narke | <kbd>Esc</kbd>: Cire Zaɓi",
+    "controlsGeneral": "Danna Hagu: Zaɓi Abu / Ja don Matsarwa<br>Dabaran: Zuƙowa | <kbd>Esc</kbd>: Cire Zaɓi"
+  },
+  "mainPage": {
+    "title": "Kwafin Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Barka da zuwa <span class=\"blink\">Kwafin Slither SIO</span>",
+    "helpButtonTitle": "Taimako & Masu Ba da Gudummawa",
+    "adminLink": "Admin",
+    "exitGhostButton": "Fita Yanayin Fatalwa"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Yi Wasa a Matsayin Baƙo",
+      "playAsUser": "Yi Wasa a Matsayin {{username}}",
+      "login": "Shiga",
+      "createAccount": "Ƙirƙiri Asusu",
+      "customizeSkin": "Gyara Kamanni",
+      "customSounds": "Sautunan Al'ada",
+      "showLeaderboard": "Nuna Jadawalin Mafi Girma",
+      "ghostMode": "Yanayin Fatalwa",
+      "deleteAccount": "Share Asusuna",
+      "logout": "Fita"
+    },
+    "alerts": {
+      "colorTooDark": "Launin da aka zaɓa yana da duhu sosai kuma yana iya zama da wuya a gani. An ba da shawarar launi mai haske.",
+      "missingCredentials": "Da fatan za a shigar da sunan mai amfani da kalmar sirri.",
+      "usernameLength": "Sunan mai amfani dole ne ya kasance tsakanin haruffa {{min}} da {{max}}.",
+      "passwordLength": "Kalmar sirri dole ne ta kasance aƙalla haruffa {{minLength}}.",
+      "maxPatternColors": "An kai matsakaicin adadin launukan tsari {{max}}.",
+      "canvasError": "Babban Kuskure: Ba a iya samun abin zane na rubutu ba!",
+      "gameModuleError": "Babban Kuskure: Ba a iya fara tsarin wasan ba!",
+      "fetchAccountError": "Kuskure wajen samun bayanan asusu.",
+      "loginError": "Kuskuren Shiga: {{error}}",
+      "creationError": "Kuskuren Ƙirƙira: {{error}}",
+      "skinUpdateError": "Kuskuren hanyar sadarwa ko uwar garke yayin sabunta kamanni: {{error}}",
+      "skinUpdatedTemp": "An sabunta kamanni don zaman wucin gadi.",
+      "deleteAccountError": "Kuskuren hanyar sadarwa yayin share asusu."
+    },
+    "confirms": {
+      "enterGhostMode": "Shiga Yanayin Fatalwa (mai kallo)?",
+      "deleteAccount": "Shin ka tabbata kana son share asusunka \"{{username}}\" har abada? Wannan aikin ba za a iya mayar da shi baya ba."
+    },
+    "welcomeMessage": "Sannu {{username}}!",
+    "welcomeMessage_admin": "Sannu {{username}} (Admin)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Sunan mai amfani:",
+      "passwordLabel": "Kalmar sirri:",
+      "backButton": "Baya"
+    },
+    "guest": {
+      "title": "Yi Wasa a Matsayin Baƙo",
+      "note": "Za a saita launuka da fata ta hanyar \"Gyara Kamanni\".",
+      "submitButton": "Fara Wasa"
+    },
+    "login": {
+      "title": "Shiga",
+      "submitButton": "Shiga"
+    },
+    "create": {
+      "title": "Ƙirƙiri Asusu",
+      "initialHeadColorLabel": "Launin Kai na Farko:",
+      "initialBodyColorLabel": "Launin Jiki na Farko:",
+      "submitButton": "Ƙirƙiri"
+    },
+    "skin": {
+      "title": "Gyara Kamanni",
+      "headColorLabel": "Launin Kai:",
+      "bodyTypeLabel": "Nau'in Jiki",
+      "bodyTypeSingle": "Launi Guda",
+      "bodyTypePattern": "Tsarin Maimaitawa",
+      "bodyColorLabel": "Launin Jiki:",
+      "patternColorsLabel": "Launukan Tsari (mafi yawa 8)",
+      "trailEffectLabel": "Tasirin Sawu",
+      "trailEffect": {
+        "none": "Babu",
+        "sparkle": "Walƙiya",
+        "smoke": "Hayaki Kore",
+        "fire": "Wuta",
+        "ice": "Gutsun Kankara",
+        "electric": "Tartsatsin Wuta",
+        "rainbow": " Bakan Gizo",
+        "bubbles": "Kumfa",
+        "glitch": "Glitch",
+        "void": "Fanko / Inuwa",
+        "confetti": "Confetti"
+      },
+      "submitButton": "Adana Kamanni"
+    },
+    "sound": {
+      "title": "Sautunan Al'ada",
+      "info": "Loda fayilolin MP3 (waɗanda aka adana a gida) don abubuwan da suka faru.",
+      "deathLabel": "Sautin Mutuwa:",
+      "killLabel": "Sautin Kashewa:",
+      "boostLabel": "Sautin Boost:",
+      "clearButton": "Share Sautuna"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Sake Wasa",
+    "backToMenuButton": "Koma Menu",
+    "finalSizeLabel": "Girmanka ya kasance: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Jadawalin Mafi Girma",
+    "header": {
+      "name": "Suna",
+      "status": "Hali",
+      "size": "Girma",
+      "kills": "Kashe-kashe",
+      "deaths": "Mutuwa",
+      "kd": "K/D"
+    },
+    "noPlayers": "Babu 'yan wasa da aka jera tukuna.",
+    "status": {
+      "ingame": "Cikin Wasa",
+      "online": "Kan Layi",
+      "offline": "Ba Kan Layi Ba",
+      "never": "Ba Sau Ɗaya Ba",
+      "na": "B/A",
+      "ingameTitle": "A halin yanzu yana cikin wasa"
+    },
+    "time": {
+      "secondsAgo_one": "sakan {{count}} da ya wuce",
+      "secondsAgo_other": "sakan {{count}} da suka wuce",
+      "minutesAgo_one": "minti {{count}} da ya wuce",
+      "minutesAgo_other": "minti {{count}} da suka wuce",
+      "hoursAgo_one": "awa {{count}} da ya wuce",
+      "hoursAgo_other": "awa {{count}} da suka wuce",
+      "daysAgo_one": "kwana {{count}} da ya wuce",
+      "daysAgo_other": "kwana {{count}} da suka wuce",
+      "yesterday": "Jiya"
+    },
+    "lastLoginTitle": "Shiga na ƙarshe: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Gajerun Hanyoyi na Maballin Allon Rubutu (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Kewaya maɓallai",
+      "activate": "Enter: Kunna maɓallin da aka zaɓa",
+      "close": "Esc: Rufe wannan panel / Baya"
+    },
+    "gameKeysTitle": "Gajerun Hanyoyi na Maballin Allon Rubutu (Wasa)",
+    "gameKeys": {
+      "mouse": "Linzamin kwamfuta: Sarrafa maciji",
+      "boost": "Danna Hagu / Space: Boost",
+      "adminCheat": "P: Zamba na Admin (idan admin ne)"
+    },
+    "ghostKeysTitle": "Gajerun Hanyoyi na Maballin Allon Rubutu (Fatalwa)",
+    "ghostKeys": {
+      "select": "Danna Hagu (kan ɗan wasa): Zaɓi Ɗan Wasa",
+      "pan": "Danna Hagu + Ja (wurin da babu komai): Matsar da Kamara",
+      "zoom": "Dabaran Linzamin Kwamfuta: Zuƙowa Ciki/Waje",
+      "kill": "K (idan an zaɓi ɗan wasa): Kashe Ɗan Wasa",
+      "clear": "C (idan an zaɓi ɗan wasa): Share Ɗan Wasa (ba tare da abinci ba)",
+      "freeze": "F (idan an zaɓi ɗan wasa): Daskare/Narke Ɗan Wasa",
+      "deselect": "Esc: Cire Zaɓin Ɗan Wasa"
+    },
+    "creditsTitle": "Masu Ba da Gudummawa",
+    "creditsAuthor": "Mawallafi: Mawallafi da Ba a San Shi Ba",
+    "creditsLicense": "Lasisin: MIT",
+    "creditsGithub": "Aikin a GitHub"
+  },
+  "NEW_KEY_1": "Rubutun tushe don maɓalli na farko sabo.",
+  "NEW_KEY_2": "Rubutun tushe don maɓalli na biyu sabo."
+}

@@ -1,0 +1,533 @@
+{
+  "pageTitle": "ایڈمن - سلیدر کلون",
+  "backButtonTitle": "مرکزی صفحہ پر واپس جائیں",
+  "tabs": {
+    "settings": "عمومی ترتیبات",
+    "users": "صارف کا انتظام",
+    "currentConfig": "موجودہ کنفیگریشن"
+  },
+  "settingsForm": {
+    "title": "عمومی ترتیبات",
+    "passwordNote": "<strong>نوٹ:</strong> ایڈمن پاس ورڈ سیٹ یا ری سیٹ کرنے کے لیے، سرور کو روکیں اور کمانڈ کے ساتھ چلائیں:<br/><code>node backend/server.js --set-new-password آپ_کا_نیا_پاس_ورڈ</code><br/>اس صفحے تک رسائی کے لیے ایک فعال ایڈمن سیشن (کوکی کے ذریعے) درکار ہے۔<br/>کچھ ترتیبات (* نشان زدہ) کو لاگو کرنے کے لیے سرور کو دوبارہ شروع کرنے کی ضرورت ہے۔",
+    "mapWidth": {
+      "label": "نقشے کی چوڑائی (px) *:",
+      "placeholder": "مثلاً ۴۰۰۰"
+    },
+    "mapHeight": {
+      "label": "نقشے کی اونچائی (px) *:",
+      "placeholder": "مثلاً ۴۰۰۰"
+    },
+    "mapShape": {
+      "label": "نقشے کی شکل *:",
+      "rectangle": "مستطیل",
+      "circle": "دائرہ"
+    },
+    "aoiRadius": {
+      "label": "دلچسپی کا علاقہ (AoI) رداس (px) *:",
+      "placeholder": "مثلاً ۲۰۰۰"
+    },
+    "maxTrailLengthDefault": {
+      "label": "سانپ کے سائز کی حد (پہلے سے طے شدہ):",
+      "placeholder": "مثلاً ۱۰۰۰"
+    },
+    "initialSize": {
+      "label": "سانپ کا ابتدائی سائز:",
+      "placeholder": "مثلاً ۵۰"
+    },
+    "speed": {
+      "label": "بنیادی رفتار:",
+      "placeholder": "مثلاً ۱"
+    },
+    "maxRotationRate": {
+      "label": "زیادہ سے زیادہ گردش کی شرح (rad/tick):",
+      "placeholder": "مثلاً ۰.۰۸"
+    },
+    "minBoostSize": {
+      "label": "بوسٹ کے لیے کم از کم سائز:",
+      "placeholder": "مثلاً ۵۰"
+    },
+    "boostConsumptionRate": {
+      "label": "بوسٹ کی کھپت کی شرح:",
+      "placeholder": "مثلاً ۱"
+    },
+    "foodSpawnInterval": {
+      "label": "کھانے کے سپون کا وقفہ (ms):",
+      "placeholder": "مثلاً ۵۰۰۰"
+    },
+    "fps": {
+      "label": "سرور FPS (loops/sec):",
+      "placeholder": "مثلاً ۴۵"
+    },
+    "foodAttractionStrength": {
+      "label": "کھانے کی کشش کی طاقت:",
+      "placeholder": "مثلاً ۰.۱"
+    },
+    "foodSnapDistance": {
+      "label": "کھانے کا سنیپ فاصلہ:",
+      "placeholder": "مثلاً ۵"
+    },
+    "defaultZoomLevel": {
+      "label": "پہلے سے طے شدہ زوم لیول:",
+      "placeholder": "مثلاً ۱.۰"
+    },
+    "securityMode": {
+      "label": "سیکیورٹی موڈ *:",
+      "high": "اعلی (تجویز کردہ)",
+      "low": "کم (کلائنٹ + ہلکا)"
+    },
+    "teleportViolationThreshold": {
+      "label": "ٹیلی پورٹ کی خلاف ورزی کی حد:",
+      "placeholder": "مثلاً ۵"
+    },
+    "teleportToleranceFactor": {
+      "label": "ٹیلی پورٹ رواداری کا عنصر:",
+      "placeholder": "مثلاً ۱.۵"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "سپون پر گاڈ موڈ فعال کریں:",
+      "yes": "ہاں",
+      "no": "نہیں"
+    },
+    "botsEnabled": {
+      "label": "بوٹس فعال کریں:",
+      "yes": "ہاں",
+      "no": "نہیں"
+    },
+    "botMaxCount": {
+      "label": "زیادہ سے زیادہ بوٹس کی تعداد:",
+      "placeholder": "مثلاً ۱۰"
+    },
+    "botSpawnIntervalMs": {
+      "label": "بوٹ سپون کا وقفہ (ms):",
+      "placeholder": "مثلاً ۵۰۰۰"
+    },
+    "botExpirationTimeMs": {
+      "label": "بوٹ کی زندگی کا دورانیہ (ms):",
+      "placeholder": "مثلاً ۱۲۰۰۰۰"
+    },
+    "botDifficulty": {
+      "label": "بوٹ کی مشکل:",
+      "easy": "آسان",
+      "medium": "درمیانہ",
+      "hard": "مشکل"
+    },
+    "adminMessageText": {
+      "label": "ایڈمن پیغام (صاف کرنے کے لیے خالی چھوڑ دیں):",
+      "placeholder": "تمام کھلاڑیوں کو دکھانے کے لیے پیغام"
+    },
+    "adminMessageDuration": {
+      "label": "پیغام کا دورانیہ (سیکنڈ):",
+      "placeholder": "مثلاً ۱۰"
+    },
+    "updateButton": "ترتیبات اپ ڈیٹ کریں"
+  },
+  "userManagement": {
+    "title": "صارف کا انتظام",
+    "loading": "لوڈ ہو رہا ہے۔۔۔",
+    "noUsers": "کوئی صارف نہیں ملا۔",
+    "table": {
+      "headerUser": "صارف",
+      "headerStatus": "حیثیت",
+      "headerLastLogin": "آخری لاگ ان",
+      "headerCreated": "تخلیق کیا گیا",
+      "headerActions": "اعمال"
+    },
+    "status": {
+      "admin": "ایڈمن",
+      "suspended": "معطل",
+      "normal": "عام",
+      "never": "کبھی نہیں",
+      "unknown": "نامعلوم"
+    },
+    "actions": {
+      "removeAdmin": "ایڈمن ہٹائیں",
+      "makeAdmin": "ایڈمن بنائیں",
+      "unban": "معطلی ختم کریں",
+      "suspend": "معطل کریں",
+      "delete": "حذف کریں"
+    },
+    "pruneButton": "غیر فعال اکاؤنٹس کو صاف کریں",
+    "confirmDelete": "کیا آپ واقعی صارف \"{{username}}\" کو مستقل طور پر حذف کرنا چاہتے ہیں؟ یہ عمل ناقابل واپسی ہے۔",
+    "confirmPrune_one": "کیا آپ واقعی {{count}} غیر فعال اکاؤنٹ (15 دن سے زیادہ غیر فعال اور بہت کم اعدادوشمار) کو حذف کرنا چاہتے ہیں؟ یہ عمل ناقابل واپسی ہے۔",
+    "confirmPrune_other": "کیا آپ واقعی {{count}} غیر فعال اکاؤنٹس (15 دن سے زیادہ غیر فعال اور بہت کم اعدادوشمار) کو حذف کرنا چاہتے ہیں؟ یہ عمل ناقابل واپسی ہے۔",
+    "confirmPruneZero": "موجودہ معیار کی بنیاد پر کوئی غیر فعال اکاؤنٹ نہیں ملا۔ کیا آپ پھر بھی آپریشن چلانا چاہتے ہیں (محض احتیاطاً)؟",
+    "confirmPruneZeroConfirm": "0 اکاؤنٹس کا پتہ چلنے کے باوجود صاف کرنے کے آپریشن کی تصدیق کریں؟",
+    "pruneCancelled": "صاف کرنے کا آپریشن منسوخ کر دیا گیا۔"
+  },
+  "currentConfig": {
+    "title": "موجودہ سرور کنفیگریشن",
+    "loading": "کنفیگریشن لوڈ ہو رہی ہے۔۔۔",
+    "loadError": "کنفیگریشن لوڈ نہیں ہو سکی۔",
+    "loadSuccess": "موجودہ کنفیگریشن لوڈ ہو گئی۔",
+    "keys": {
+      "MAP_WIDTH": "نقشے کی چوڑائی (px)",
+      "MAP_HEIGHT": "نقشے کی اونچائی (px)",
+      "MAP_SHAPE": "نقشے کی شکل",
+      "AOI_RADIUS": "دلچسپی کا علاقہ (AoI) رداس (px)",
+      "SECURITY_MODE": "سیکیورٹی موڈ",
+      "MAX_TRAIL_LENGTH_DEFAULT": "سانپ کے سائز کی حد (پہلے سے طے شدہ)",
+      "INITIAL_SIZE": "سانپ کا ابتدائی سائز",
+      "MIN_BOOST_SIZE": "بوسٹ کے لیے کم از کم سائز",
+      "SPEED": "بنیادی رفتار",
+      "MAX_ROTATION_RATE": "زیادہ سے زیادہ گردش کی شرح",
+      "BOOST_CONSUMPTION_RATE": "بوسٹ کی کھپت (سائز/ٹک)",
+      "FPS": "سرور FPS",
+      "FOOD_SPAWN_INTERVAL": "کھانے کے سپون کا وقفہ (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "کھانے کی کشش کی طاقت",
+      "FOOD_SNAP_DISTANCE": "کھانے کا سنیپ فاصلہ",
+      "DEFAULT_ZOOM_LEVEL": "پہلے سے طے شدہ زوم لیول",
+      "TELEPORT_VIOLATION_THRESHOLD": "ٹیلی پورٹ کی خلاف ورزی کی حد",
+      "TELEPORT_TOLERANCE_FACTOR": "ٹیلی پورٹ رواداری کا عنصر",
+      "BOTS_ENABLED": "بوٹس فعال",
+      "BOT_MAX_COUNT": "زیادہ سے زیادہ بوٹس کی تعداد",
+      "BOT_SPAWN_INTERVAL_MS": "بوٹ سپون کا وقفہ (ms)",
+      "BOT_EXPIRATION_TIME_MS": "بوٹ کی زندگی کا دورانیہ (ms)",
+      "BOT_DIFFICULTY": "بوٹ کی مشکل"
+    },
+    "boolean": {
+      "yes": "ہاں",
+      "no": "نہیں"
+    }
+  },
+  "feedback": {
+    "accessDenied": "رسائی مسترد کر دی گئی۔ ری ڈائریکٹ کیا جا رہا ہے۔۔۔",
+    "settingsUpdated": "ترتیبات کامیابی سے اپ ڈیٹ ہو گئیں۔",
+    "settingsUpdatedWithRestart": "ترتیبات اپ ڈیٹ ہو گئیں۔ نقشہ/سیکیورٹی تبدیلیوں کے لیے سرور کو دوبارہ شروع کرنے کی ضرورت ہے۔",
+    "settingsUpdatedFpsRestart": "ترتیبات اپ ڈیٹ ہو گئیں۔ FPS تبدیلی کے لیے گیم لوپ دوبارہ شروع ہو گیا۔",
+    "settingsUpdateError": "ترتیبات اپ ڈیٹ کرنے میں خرابی۔",
+    "loadSettingsError": "ترتیبات لوڈ کرنے میں خرابی: {{error}}",
+    "loadUsersError": "صارفین کو لوڈ کرنے میں خرابی۔",
+    "networkError": "نیٹ ورک کی خرابی یا سرور دستیاب نہیں۔",
+    "invalidResponse": "سرور سے غلط جواب (JSON نہیں)",
+    "changes": "تبدیلیاں:",
+    "restartRequired": "تبدیلیوں (نقشے کا سائز/شکل، سیکیورٹی موڈ، AoI رداس) کو لاگو کرنے کے لیے سرور کو دوبارہ شروع کرنے کی ضرورت ہے۔",
+    "fpsRestart": "نیا FPS لاگو کرنے کے لیے گیم لوپ دوبارہ شروع ہو گیا ہے۔",
+    "noChanges": "کوئی ترتیبات تبدیل نہیں کی گئیں۔",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "پیش نظارہ کے دوران خرابی۔",
+    "pruneError": "صاف کرنے کے آپریشن کے دوران خرابی۔",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "براہ کرم ایک MP3 فائل منتخب کریں۔",
+      "loginRequired": "حسب ضرورت آوازیں محفوظ کرنے کے لیے آپ کو لاگ ان ہونا ضروری ہے۔",
+      "saveError": "آواز محفوظ کرنے میں خرابی۔ مقامی اسٹوریج بھرا ہو سکتا ہے۔",
+      "readError": "آواز کی فائل پڑھنے میں خرابی۔",
+      "clearLoginRequired": "آوازیں صاف کرنے کے لیے آپ کو لاگ ان ہونا ضروری ہے۔",
+      "clearError": "آوازیں حذف کرتے وقت ایک خرابی پیش آئی۔"
+    },
+    "confirms": {
+      "clearAll": "کیا آپ واقعی اس اکاؤنٹ کے لیے تمام حسب ضرورت آوازیں حذف کرنا چاہتے ہیں؟"
+    },
+    "statusTitles": {
+      "saveError": "محفوظ کرنے میں خرابی",
+      "readError": "پڑھنے میں خرابی",
+      "saved": "آواز محفوظ ہو گئی",
+      "savedWithName": "محفوظ کیا گیا: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "سرور دستیاب نہیں - سلیدر کلون SIO",
+    "logoAlt": "سرور دستیاب نہیں لوگو",
+    "mainHeader": "سرور دستیاب نہیں",
+    "explanation": "<span class=\"game-name\">سلیدر کلون SIO</span> سرور عارضی طور پر آف لائن یا ناقابل رسائی لگتا ہے۔ ہم آپ کے لیے کنکشن دوبارہ قائم کرنے کی کوشش کر رہے ہیں۔",
+    "snakeTitle": "اس دوران، سانپ کھیلیں!",
+    "snakeScoreLabel": "اسکور: 0",
+    "snakeControls": "تیر / ZQSD / WASD: حرکت کریں | Enter: شروع/دوبارہ شروع کریں",
+    "status": {
+      "label": "حیثیت:",
+      "searching": "تلاش کیا جا رہا ہے۔۔۔",
+      "checking": "جانچ پڑتال کی جا رہی ہے۔۔۔",
+      "connected": "منسلک!",
+      "nextAttemptLabel": "اگلی کوشش میں",
+      "secondsSuffix": "سیکنڈ",
+      "attemptsLabel": "کوششیں:"
+    },
+    "refreshButton": "ابھی چیک کریں",
+    "redirectInfo": "سرور آن لائن ہوتے ہی آپ کو خود بخود ری ڈائریکٹ کر دیا جائے گا۔"
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "اسکور: {{score}}"
+    },
+    "gameOver": {
+      "win": "جیت!",
+      "lose": "ہار!",
+      "scoreLabel": "اسکور: {{score}}",
+      "promptLine1": "Enter دبائیں",
+      "promptLine2": "دوبارہ کھیلنے کے لیے"
+    },
+    "countdown": "{{count}} میں شروع ہو رہا ہے",
+    "startScreen": {
+      "title": "سانپ",
+      "promptLine1": "Enter دبائیں",
+      "promptLine2": "کھیلنے کے لیے"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "اندرونی سرور کی خرابی۔",
+      "invalidAdminStatus": "غلط 'isAdmin' حیثیت۔",
+      "userNotFound": "صارف نہیں ملا۔",
+      "invalidSuspendStatus": "غلط 'isSuspended' حیثیت۔",
+      "cannotDeleteSelf": "آپ یہاں اپنا ایڈمن اکاؤنٹ حذف نہیں کر سکتے۔",
+      "prunePreviewError": "صاف کرنے کے پیش نظارہ کے دوران خرابی۔",
+      "pruneError": "صاف کرنے کے آپریشن کے دوران خرابی۔",
+      "rateLimit": "اکاؤنٹ بنانے کی بہت زیادہ کوششیں۔ براہ کرم تقریباً {{minutes}} منٹ میں دوبارہ کوشش کریں۔",
+      "missingCredentials": "صارف نام اور پاس ورڈ درکار ہے۔",
+      "usernameTooLong": "صارف نام {{maxLength}} حروف سے زیادہ نہیں ہو سکتا۔",
+      "usernameTooShort": "صارف نام کم از کم {{minLength}} حروف کا ہونا چاہیے۔",
+      "passwordTooShort": "پاس ورڈ کم از کم {{minLength}} حروف کا ہونا چاہیے۔",
+      "usernameTaken": "یہ صارف نام پہلے ہی استعمال میں ہے۔",
+      "invalidCredentials": "غلط صارف نام یا پاس ورڈ۔",
+      "accountSuspended": "یہ اکاؤنٹ فی الحال معطل ہے۔",
+      "notAuthenticated": "توثیق شدہ نہیں۔",
+      "invalidHeadColor": "غلط سر کا رنگ۔",
+      "missingSkinData": "جلد کا ڈیٹا غائب یا غلط ہے۔",
+      "invalidBodyType": "غلط جسم کی قسم۔",
+      "invalidBodyColor": "جلد کے ڈیٹا میں غلط جسم کا رنگ۔",
+      "invalidPatternColorsType": "پیٹرن کے رنگ ایک массив ہونے چاہئیں۔",
+      "tooManyPatternColors": "بہت زیادہ پیٹرن کے رنگ (زیادہ سے زیادہ {{max}})۔",
+      "invalidPatternColorValue": "پیٹرن میں غلط رنگ پایا گیا۔",
+      "invalidTrailEffect": "غلط پگڈنڈی کا اثر۔",
+      "adminCannotDeleteSelf": "منتظمین اس انٹرفیس کے ذریعے اپنا اکاؤنٹ حذف نہیں کر سکتے۔",
+      "deleteAccountError": "اکاؤنٹ حذف کرنے کے دوران اندرونی خرابی۔"
+    },
+    "success": {
+      "accountCreated": "اکاؤنٹ کامیابی سے بنایا اور لاگ ان کیا گیا۔",
+      "login": "لاگ ان کامیاب۔",
+      "logout": "لاگ آؤٹ کامیاب۔",
+      "skinUpdated": "ظاہری شکل کامیابی سے اپ ڈیٹ ہو گئی۔",
+      "accountDeleted": "آپ کا اکاؤنٹ کامیابی سے حذف کر دیا گیا ہے۔"
+    },
+    "admin": {
+      "adminStatusUpdated": "{{username}} کے لیے ایڈمن کی حیثیت اپ ڈیٹ ہو گئی۔",
+      "suspendStatusUpdated": "{{username}} کے لیے معطلی کی حیثیت اپ ڈیٹ ہو گئی۔",
+      "userDeleted": "اکاؤنٹ {{username}} کامیابی سے حذف کر دیا گیا۔",
+      "pruneNoUsers": "صاف کرنے کے لیے کوئی غیر فعال اکاؤنٹ نہیں ملا۔",
+      "pruneSuccess": "{{count}} غیر فعال اکاؤنٹ (اکاؤنٹس) صاف کر دیے گئے۔"
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "آپ کا اکاؤنٹ معطل ہے۔",
+      "accountError": "اکاؤنٹ کی خرابی۔ براہ کرم دوبارہ لاگ ان کریں۔",
+      "alreadyConnected": "یہ اکاؤنٹ پہلے ہی گیم سے منسلک ہے۔",
+      "deletedByAdmin": "آپ کا اکاؤنٹ ایک منتظم نے حذف کر دیا تھا۔",
+      "accountDeleted": "آپ کا اکاؤنٹ حذف کر دیا گیا ہے۔"
+    },
+    "kickReason": "{{admin}} کی طرف سے نکالا گیا",
+    "banReason": "{{admin}} کی طرف سے پابندی عائد کی گئی",
+    "clearReason": "{{admin}} کی طرف سے صاف کیا گیا",
+    "adminFeedback": {
+      "unauthorized": "عمل کی اجازت نہیں۔",
+      "targetNotFound": "ہدف کھلاڑی نہیں ملا۔",
+      "kickSuccess": "{{username}} کو نکال دیا گیا۔",
+      "kickOfflineSuccess": "{{username}} (پہلے سے منقطع) گیم سے ہٹا دیا گیا۔",
+      "kickError": "{{username}} کے لیے ساکٹ یا حالت نہیں مل سکی۔",
+      "banSuccess": "{{username}} پر پابندی عائد کر دی گئی (اکاؤنٹ معطل اور کھلاڑی نکالا گیا)۔",
+      "banAccountOnlySuccess": "اکاؤنٹ {{username}} معطل (کھلاڑی پہلے سے منقطع یا ہٹا دیا گیا)۔",
+      "banError": "{{username}} پر پابندی عائد نہیں کی جا سکتی (عارضی یا غیر موجود اکاؤنٹ)۔",
+      "freezeSuccess": "{{username}} کو منجمد کر دیا گیا۔",
+      "unfreezeSuccess": "{{username}} کو غیر منجمد کر دیا گیا۔",
+      "killSuccess": "{{username}} کو مار دیا گیا۔",
+      "clearSuccess": "{{username}} کو صاف کر دیا گیا (کھانا گرائے بغیر ہٹایا گیا)۔",
+      "clearError": "{{username}} کو صاف نہیں کیا جا سکا (پہلے ہی ہٹا دیا گیا؟)۔",
+      "unknownAction": "نامعلوم عمل۔"
+    },
+    "userConnected": "{{username}} گیم میں شامل ہوا۔",
+    "userDisconnected": "{{username}} گیم چھوڑ گیا۔",
+    "disconnectReason": "منقطع: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "نامعلوم تصادم",
+      "boundary": "نقشے کے کنارے سے ٹکرایا۔",
+      "teleport": "منقطع: مشکوک حرکت۔",
+      "selfCollision": "اینٹی چیٹ: خود تصادم۔",
+      "inactivity": "غیرفعالیت۔",
+      "killedByAdmin": "{{admin}} کی طرف سے مارا گیا",
+      "botExpired": "بوٹ کی میعاد ختم ہو گئی۔",
+      "clientCollision": "جسمانی تصادم (کلائنٹ)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "سائز: {{size}}",
+    "positionLabel": "مقام: {{x}}x{{y}}",
+    "ghostMode": "گھوسٹ موڈ",
+    "spectator": "تماشائی"
+  },
+  "ghostMode": {
+    "selected": "منتخب: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "نامعلوم",
+    "controlsSelected": "<kbd>K</kbd>: ماریں | <kbd>C</kbd>: صاف کریں | <kbd>F</kbd>: منجمد/غیر منجمد کریں | <kbd>Esc</kbd>: غیر منتخب کریں",
+    "controlsGeneral": "بایاں کلک: ہستی منتخب کریں / پین کرنے کے لیے گھسیٹیں<br>پہیہ: زوم | <kbd>Esc</kbd>: غیر منتخب کریں"
+  },
+  "mainPage": {
+    "title": "سلیدر کلون SIO"
+  },
+  "mainMenu": {
+    "title": "<span class=\"blink\">سلیدر کلون SIO</span> میں خوش آمدید",
+    "helpButtonTitle": "مدد اور کریڈٹس",
+    "adminLink": "ایڈمن",
+    "exitGhostButton": "گھوسٹ موڈ سے باہر نکلیں"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "مہمان کے طور پر کھیلیں",
+      "playAsUser": "{{username}} کے طور پر کھیلیں",
+      "login": "لاگ ان کریں",
+      "createAccount": "اکاؤنٹ بنائیں",
+      "customizeSkin": "ظاہری شکل کو حسب ضرورت بنائیں",
+      "customSounds": "حسب ضرورت آوازیں",
+      "showLeaderboard": "لیڈر بورڈ دکھائیں",
+      "ghostMode": "گھوسٹ موڈ",
+      "deleteAccount": "میرا اکاؤنٹ حذف کریں",
+      "logout": "لاگ آؤٹ کریں"
+    },
+    "alerts": {
+      "colorTooDark": "منتخب کردہ رنگ بہت گہرا ہے اور دیکھنے میں مشکل ہو سکتا ہے۔ ہلکا رنگ تجویز کیا جاتا ہے۔",
+      "missingCredentials": "براہ کرم صارف نام اور پاس ورڈ درج کریں۔",
+      "usernameLength": "صارف نام {{min}} اور {{max}} حروف کے درمیان ہونا چاہیے۔",
+      "passwordLength": "پاس ورڈ کم از کم {{min}} حروف کا ہونا چاہیے۔",
+      "maxPatternColors": "{{max}} پیٹرن رنگوں کی زیادہ سے زیادہ حد تک پہنچ گئی۔",
+      "canvasError": "شدید خرابی: ٹیکسٹ اوورلے کینوس عنصر نہیں مل سکا!",
+      "gameModuleError": "شدید خرابی: گیم ماڈیول شروع نہیں کیا جا سکا!",
+      "fetchAccountError": "اکاؤنٹ کا ڈیٹا حاصل کرنے میں خرابی۔",
+      "loginError": "لاگ ان کی خرابی: {{error}}",
+      "creationError": "تخلیق کی خرابی: {{error}}",
+      "skinUpdateError": "ظاہری شکل کو اپ ڈیٹ کرتے وقت نیٹ ورک یا سرور کی خرابی: {{error}}",
+      "skinUpdatedTemp": "عارضی سیشن کے لیے ظاہری شکل اپ ڈیٹ ہو گئی۔",
+      "deleteAccountError": "اکاؤنٹ حذف کرنے کے دوران نیٹ ورک کی خرابی۔"
+    },
+    "confirms": {
+      "enterGhostMode": "گھوسٹ موڈ (تماشائی) میں داخل ہوں؟",
+      "deleteAccount": "کیا آپ واقعی اپنا اکاؤنٹ \"{{username}}\" مستقل طور پر حذف کرنا چاہتے ہیں؟ یہ عمل ناقابل واپسی ہے۔"
+    },
+    "welcomeMessage": "ہیلو {{username}}!",
+    "welcomeMessage_admin": "ہیلو {{username}} (ایڈمن)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "صارف نام:",
+      "passwordLabel": "پاس ورڈ:",
+      "backButton": "پیچھے"
+    },
+    "guest": {
+      "title": "مہمان کے طور پر کھیلیں",
+      "note": "رنگ اور جلد \"ظاہری شکل کو حسب ضرورت بنائیں\" کے ذریعے سیٹ کیے جائیں گے۔",
+      "submitButton": "گیم شروع کریں"
+    },
+    "login": {
+      "title": "لاگ ان کریں",
+      "submitButton": "لاگ ان کریں"
+    },
+    "create": {
+      "title": "اکاؤنٹ بنائیں",
+      "initialHeadColorLabel": "ابتدائی سر کا رنگ:",
+      "initialBodyColorLabel": "ابتدائی جسم کا رنگ:",
+      "submitButton": "بنائیں"
+    },
+    "skin": {
+      "title": "ظاہری شکل کو حسب ضرورت بنائیں",
+      "headColorLabel": "سر کا رنگ:",
+      "bodyTypeLabel": "جسم کی قسم",
+      "bodyTypeSingle": "واحد رنگ",
+      "bodyTypePattern": "دہرایا جانے والا پیٹرن",
+      "bodyColorLabel": "جسم کا رنگ:",
+      "patternColorsLabel": "پیٹرن کے رنگ (زیادہ سے زیادہ 8)",
+      "trailEffectLabel": "پگڈنڈی کا اثر",
+      "trailEffect": {
+        "none": "کوئی نہیں",
+        "sparkle": "چمک",
+        "smoke": "سبز دھواں",
+        "fire": "آگ",
+        "ice": "برف کے ٹکڑے",
+        "electric": "بجلی کی چنگاریاں",
+        "rainbow": "قوس قزح",
+        "bubbles": "بلبلے",
+        "glitch": "گڑبڑ",
+        "void": "خلا / سایہ",
+        "confetti": "کنفیٹی"
+      },
+      "submitButton": "ظاہری شکل محفوظ کریں"
+    },
+    "sound": {
+      "title": "حسب ضرورت آوازیں",
+      "info": "واقعات کے لیے MP3 فائلیں (مقامی طور پر محفوظ) اپ لوڈ کریں۔",
+      "deathLabel": "موت کی آواز:",
+      "killLabel": "مارنے کی آواز:",
+      "boostLabel": "بوسٹ کی آواز:",
+      "clearButton": "آوازیں صاف کریں"
+    }
+  },
+  "gameOver": {
+    "replayButton": "دوبارہ کھیلیں",
+    "backToMenuButton": "مینو پر واپس جائیں",
+    "finalSizeLabel": "آپ کا سائز تھا: {{size}}"
+  },
+  "leaderboard": {
+    "title": "لیڈر بورڈ",
+    "header": {
+      "name": "نام",
+      "status": "حیثیت",
+      "size": "سائز",
+      "kills": "ہلاکتیں",
+      "deaths": "اموات",
+      "kd": "K/D"
+    },
+    "noPlayers": "ابھی تک کوئی کھلاڑی درجہ بند نہیں ہوا۔",
+    "status": {
+      "ingame": "گیم میں",
+      "online": "آن لائن",
+      "offline": "آف لائن",
+      "never": "کبھی نہیں",
+      "na": "N/A",
+      "ingameTitle": "فی الحال گیم میں"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} سیکنڈ پہلے",
+      "secondsAgo_other": "{{count}} سیکنڈ پہلے",
+      "minutesAgo_one": "{{count}} منٹ پہلے",
+      "minutesAgo_other": "{{count}} منٹ پہلے",
+      "hoursAgo_one": "{{count}} گھنٹہ پہلے",
+      "hoursAgo_other": "{{count}} گھنٹے پہلے",
+      "daysAgo_one": "{{count}} دن پہلے",
+      "daysAgo_other": "{{count}} دن پہلے",
+      "yesterday": "کل"
+    },
+    "lastLoginTitle": "آخری لاگ ان: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "کی بورڈ شارٹ کٹس (مینو)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: بٹن نیویگیٹ کریں",
+      "activate": "Enter: منتخب بٹن کو فعال کریں",
+      "close": "Esc: اس پینل کو بند کریں / پیچھے جائیں"
+    },
+    "gameKeysTitle": "کی بورڈ شارٹ کٹس (گیم)",
+    "gameKeys": {
+      "mouse": "ماؤس: سانپ چلائیں",
+      "boost": "بایاں کلک / Space: بوسٹ",
+      "adminCheat": "P: ایڈمن چیٹ (اگر ایڈمن ہو)"
+    },
+    "ghostKeysTitle": "کی بورڈ شارٹ کٹس (گھوسٹ)",
+    "ghostKeys": {
+      "select": "بایاں کلک (کھلاڑی پر): کھلاڑی منتخب کریں",
+      "pan": "بایاں کلک + گھسیٹیں (خالی جگہ): کیمرہ پین کریں",
+      "zoom": "ماؤس کا پہیہ: زوم ان/آؤٹ",
+      "kill": "K (اگر کھلاڑی منتخب ہو): کھلاڑی کو ماریں",
+      "clear": "C (اگر کھلاڑی منتخب ہو): کھلاڑی کو صاف کریں (کھانا نہیں)",
+      "freeze": "F (اگر کھلاڑی منتخب ہو): کھلاڑی کو منجمد/غیر منجمد کریں",
+      "deselect": "Esc: کھلاڑی کو غیر منتخب کریں"
+    },
+    "creditsTitle": "کریڈٹس",
+    "creditsAuthor": "مصنف: گمنام مصنف",
+    "creditsLicense": "لائسنس: MIT",
+    "creditsGithub": "GitHub پر پروجیکٹ"
+  },
+  "NEW_KEY_1": "پہلی نئی کلید کے لیے ماخذ متن۔",
+  "NEW_KEY_2": "دوسری نئی کلید کے لیے ماخذ متن۔"
+}

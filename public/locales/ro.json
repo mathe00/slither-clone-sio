@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Clonă Slither",
+  "backButtonTitle": "Înapoi la pagina principală",
+  "tabs": {
+    "settings": "Setări Generale",
+    "users": "Management Utilizatori",
+    "currentConfig": "Configurație Curentă"
+  },
+  "settingsForm": {
+    "title": "Setări Generale",
+    "passwordNote": "<strong>Notă:</strong> Pentru a seta sau reseta parola de administrator, opriți serverul și rulați-l cu comanda:<br/><code>node backend/server.js --set-new-password PAROLA_TA_NOUĂ</code><br/>Accesul la această pagină necesită o sesiune de administrator activă (prin cookie).<br/>Unele setări (marcate cu *) necesită repornirea serverului pentru a fi aplicate.",
+    "mapWidth": {
+      "label": "Lățime Hartă (px) *:",
+      "placeholder": "ex. 4000"
+    },
+    "mapHeight": {
+      "label": "Înălțime Hartă (px) *:",
+      "placeholder": "ex. 4000"
+    },
+    "mapShape": {
+      "label": "Formă Hartă *:",
+      "rectangle": "Dreptunghi",
+      "circle": "Cerc"
+    },
+    "aoiRadius": {
+      "label": "Rază Zonă de Interes (AoI) (px) *:",
+      "placeholder": "ex. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Limită Mărime Șarpe (Implicit):",
+      "placeholder": "ex. 1000"
+    },
+    "initialSize": {
+      "label": "Mărime Inițială Șarpe:",
+      "placeholder": "ex. 50"
+    },
+    "speed": {
+      "label": "Viteză de Bază:",
+      "placeholder": "ex. 1"
+    },
+    "maxRotationRate": {
+      "label": "Rată Maximă de Rotație (rad/tick):",
+      "placeholder": "ex. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Mărime Min. pentru Boost:",
+      "placeholder": "ex. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Rată Consum Boost:",
+      "placeholder": "ex. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Interval Apariție Mâncare (ms):",
+      "placeholder": "ex. 5000"
+    },
+    "fps": {
+      "label": "FPS Server (bucle/sec):",
+      "placeholder": "ex. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Forță Atracție Mâncare:",
+      "placeholder": "ex. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Distanță Prindere Mâncare:",
+      "placeholder": "ex. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Nivel Zoom Implicit:",
+      "placeholder": "ex. 1.0"
+    },
+    "securityMode": {
+      "label": "Mod Securitate *:",
+      "high": "Ridicat (Recomandat)",
+      "low": "Scăzut (Client + Ușor)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Prag Încălcare Teleportare:",
+      "placeholder": "ex. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Factor Toleranță Teleportare:",
+      "placeholder": "ex. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Activează God Mode la Apariție:",
+      "yes": "Da",
+      "no": "Nu"
+    },
+    "botsEnabled": {
+      "label": "Activează Boți:",
+      "yes": "Da",
+      "no": "Nu"
+    },
+    "botMaxCount": {
+      "label": "Număr Maxim Boți:",
+      "placeholder": "ex. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Interval Apariție Boți (ms):",
+      "placeholder": "ex. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Durată de Viață Bot (ms):",
+      "placeholder": "ex. 120000"
+    },
+    "botDifficulty": {
+      "label": "Dificultate Bot:",
+      "easy": "Ușor",
+      "medium": "Mediu",
+      "hard": "Greu"
+    },
+    "adminMessageText": {
+      "label": "Mesaj Administrator (lăsați gol pentru a șterge):",
+      "placeholder": "Mesaj de afișat tuturor jucătorilor"
+    },
+    "adminMessageDuration": {
+      "label": "Durată Mesaj (secunde):",
+      "placeholder": "ex. 10"
+    },
+    "updateButton": "Actualizează Setările"
+  },
+  "userManagement": {
+    "title": "Management Utilizatori",
+    "loading": "Se încarcă...",
+    "noUsers": "Niciun utilizator găsit.",
+    "table": {
+      "headerUser": "Utilizator",
+      "headerStatus": "Status",
+      "headerLastLogin": "Ultima Autentificare",
+      "headerCreated": "Creat",
+      "headerActions": "Acțiuni"
+    },
+    "status": {
+      "admin": "Administrator",
+      "suspended": "Suspendat",
+      "normal": "Normal",
+      "never": "Niciodată",
+      "unknown": "Necunoscut"
+    },
+    "actions": {
+      "removeAdmin": "Elimină Administrator",
+      "makeAdmin": "Fă Administrator",
+      "unban": "Anulează Suspendarea",
+      "suspend": "Suspendă",
+      "delete": "Șterge"
+    },
+    "pruneButton": "Curăță Conturile Inactive",
+    "confirmDelete": "Sigur doriți să ștergeți definitiv utilizatorul \"{{username}}\"? Această acțiune este ireversibilă.",
+    "confirmPrune_one": "Sigur doriți să ștergeți {{count}} cont inactiv (inactiv >15 zile ȘI statistici foarte scăzute)? Această acțiune este ireversibilă.",
+    "confirmPrune_other": "Sigur doriți să ștergeți {{count}} conturi inactive (inactive >15 zile ȘI statistici foarte scăzute)? Această acțiune este ireversibilă.",
+    "confirmPruneZero": "Niciun cont inactiv găsit pe baza criteriilor actuale. Doriți totuși să rulați operațiunea (pentru orice eventualitate)?",
+    "confirmPruneZeroConfirm": "Confirmați operațiunea de curățare chiar dacă au fost detectate 0 conturi?",
+    "pruneCancelled": "Operațiunea de curățare a fost anulată."
+  },
+  "currentConfig": {
+    "title": "Configurația Curentă a Serverului",
+    "loading": "Se încarcă configurația...",
+    "loadError": "Nu s-a putut încărca configurația.",
+    "loadSuccess": "Configurația curentă a fost încărcată.",
+    "keys": {
+      "MAP_WIDTH": "Lățime Hartă (px)",
+      "MAP_HEIGHT": "Înălțime Hartă (px)",
+      "MAP_SHAPE": "Formă Hartă",
+      "AOI_RADIUS": "Rază Zonă de Interes (AoI) (px)",
+      "SECURITY_MODE": "Mod Securitate",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Limită Mărime Șarpe (Implicit)",
+      "INITIAL_SIZE": "Mărime Inițială Șarpe",
+      "MIN_BOOST_SIZE": "Mărime Min. pentru Boost",
+      "SPEED": "Viteză de Bază",
+      "MAX_ROTATION_RATE": "Rată Maximă de Rotație",
+      "BOOST_CONSUMPTION_RATE": "Consum Boost (Mărime/tick)",
+      "FPS": "FPS Server",
+      "FOOD_SPAWN_INTERVAL": "Interval Apariție Mâncare (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Forță Atracție Mâncare",
+      "FOOD_SNAP_DISTANCE": "Distanță Prindere Mâncare",
+      "DEFAULT_ZOOM_LEVEL": "Nivel Zoom Implicit",
+      "TELEPORT_VIOLATION_THRESHOLD": "Prag Încălcare Teleportare",
+      "TELEPORT_TOLERANCE_FACTOR": "Factor Toleranță Teleportare",
+      "BOTS_ENABLED": "Boți Activați",
+      "BOT_MAX_COUNT": "Număr Maxim Boți",
+      "BOT_SPAWN_INTERVAL_MS": "Interval Apariție Boți (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Durată de Viață Bot (ms)",
+      "BOT_DIFFICULTY": "Dificultate Bot"
+    },
+    "boolean": {
+      "yes": "Da",
+      "no": "Nu"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Acces refuzat. Se redirecționează...",
+    "settingsUpdated": "Setările au fost actualizate cu succes.",
+    "settingsUpdatedWithRestart": "Setările au fost actualizate. Este necesară repornirea serverului pentru modificările de hartă/securitate.",
+    "settingsUpdatedFpsRestart": "Setările au fost actualizate. Bucla de joc a fost repornită pentru modificarea FPS.",
+    "settingsUpdateError": "Eroare la actualizarea setărilor.",
+    "loadSettingsError": "Eroare la încărcarea setărilor: {{error}}",
+    "loadUsersError": "Eroare la încărcarea utilizatorilor.",
+    "networkError": "Eroare de rețea sau server indisponibil.",
+    "invalidResponse": "Răspuns invalid de la server (nu JSON)",
+    "changes": "Modificări:",
+    "restartRequired": "Este necesară repornirea serverului pentru a aplica modificările (Mărime/Formă Hartă, Mod Securitate, Rază AoI).",
+    "fpsRestart": "Bucla de joc a fost repornită pentru a aplica noul FPS.",
+    "noChanges": "Nicio setare nu a fost modificată.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Eroare în timpul previzualizării.",
+    "pruneError": "Eroare în timpul operațiunii de curățare.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Vă rugăm să selectați un fișier MP3.",
+      "loginRequired": "Trebuie să fiți autentificat pentru a salva sunete personalizate.",
+      "saveError": "Eroare la salvarea sunetului. Spațiul de stocare local ar putea fi plin.",
+      "readError": "Eroare la citirea fișierului de sunet.",
+      "clearLoginRequired": "Trebuie să fiți autentificat pentru a șterge sunetele.",
+      "clearError": "A apărut o eroare la ștergerea sunetelor."
+    },
+    "confirms": {
+      "clearAll": "Sigur doriți să ștergeți toate sunetele personalizate pentru acest cont?"
+    },
+    "statusTitles": {
+      "saveError": "Eroare Salvare",
+      "readError": "Eroare Citire",
+      "saved": "Sunet salvat",
+      "savedWithName": "Salvat: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server Indisponibil - Clonă Slither SIO",
+    "logoAlt": "Logo Server Indisponibil",
+    "mainHeader": "Server Indisponibil",
+    "explanation": "Serverul <span class=\"game-name\">Clonă Slither SIO</span> pare a fi temporar offline sau inaccesibil. Încercăm să restabilim conexiunea pentru dvs.",
+    "snakeTitle": "Între timp, joacă Snake!",
+    "snakeScoreLabel": "Scor: 0",
+    "snakeControls": "Săgeți / ZQSD / WASD: Mișcare | Enter: Start/Repornire",
+    "status": {
+      "label": "Status:",
+      "searching": "Se caută...",
+      "checking": "Se verifică...",
+      "connected": "Conectat!",
+      "nextAttemptLabel": "Următoarea încercare în",
+      "secondsSuffix": "sec",
+      "attemptsLabel": "Încercări:"
+    },
+    "refreshButton": "Verifică Acum",
+    "redirectInfo": "Veți fi redirecționat automat de îndată ce serverul revine online."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Scor: {{score}}"
+    },
+    "gameOver": {
+      "win": "AI CÂȘTIGAT!",
+      "lose": "AI PIERDUT!",
+      "scoreLabel": "Scor: {{score}}",
+      "promptLine1": "Apasă Enter",
+      "promptLine2": "pentru a Juca Din Nou"
+    },
+    "countdown": "ÎNCEPE ÎN {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Apasă Enter",
+      "promptLine2": "pentru a Juca"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Eroare internă de server.",
+      "invalidAdminStatus": "Status 'isAdmin' invalid.",
+      "userNotFound": "Utilizator negăsit.",
+      "invalidSuspendStatus": "Status 'isSuspended' invalid.",
+      "cannotDeleteSelf": "Nu puteți șterge propriul cont de administrator aici.",
+      "prunePreviewError": "Eroare în timpul previzualizării curățării.",
+      "pruneError": "Eroare în timpul operațiunii de curățare.",
+      "rateLimit": "Prea multe încercări de creare a contului. Vă rugăm să încercați din nou în aproximativ {{minutes}} minut(e).",
+      "missingCredentials": "Nume de utilizator și parolă necesare.",
+      "usernameTooLong": "Numele de utilizator nu poate depăși {{maxLength}} caractere.",
+      "usernameTooShort": "Numele de utilizator trebuie să aibă cel puțin {{minLength}} caractere.",
+      "passwordTooShort": "Parola trebuie să aibă cel puțin {{minLength}} caractere.",
+      "usernameTaken": "Acest nume de utilizator este deja folosit.",
+      "invalidCredentials": "Nume de utilizator sau parolă invalid(ă).",
+      "accountSuspended": "Acest cont este suspendat în prezent.",
+      "notAuthenticated": "Neautentificat.",
+      "invalidHeadColor": "Culoare cap invalidă.",
+      "missingSkinData": "Date skin lipsă sau invalide.",
+      "invalidBodyType": "Tip corp invalid.",
+      "invalidBodyColor": "Culoare corp invalidă în datele skin.",
+      "invalidPatternColorsType": "Culorile modelului trebuie să fie un array.",
+      "tooManyPatternColors": "Prea multe culori de model (max {{max}}).",
+      "invalidPatternColorValue": "Culoare invalidă găsită în model.",
+      "invalidTrailEffect": "Efect de urmă invalid.",
+      "adminCannotDeleteSelf": "Administratorii nu își pot șterge propriul cont prin această interfață.",
+      "deleteAccountError": "Eroare internă la ștergerea contului."
+    },
+    "success": {
+      "accountCreated": "Cont creat și autentificat cu succes.",
+      "login": "Autentificare reușită.",
+      "logout": "Deconectare reușită.",
+      "skinUpdated": "Aspect actualizat cu succes.",
+      "accountDeleted": "Contul dvs. a fost șters cu succes."
+    },
+    "admin": {
+      "adminStatusUpdated": "Statusul de administrator pentru {{username}} a fost actualizat.",
+      "suspendStatusUpdated": "Statusul de suspendare pentru {{username}} a fost actualizat.",
+      "userDeleted": "Contul {{username}} a fost șters cu succes.",
+      "pruneNoUsers": "Niciun cont inactiv găsit pentru curățare.",
+      "pruneSuccess": "{{count}} cont(uri) inactiv(e) curățat(e)."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Contul dvs. este suspendat.",
+      "accountError": "Eroare de cont. Vă rugăm să vă autentificați din nou.",
+      "alreadyConnected": "Acest cont este deja conectat la joc.",
+      "deletedByAdmin": "Contul dvs. a fost șters de un administrator.",
+      "accountDeleted": "Contul dvs. a fost șters."
+    },
+    "kickReason": "Dat afară de {{admin}}",
+    "banReason": "Interzis de {{admin}}",
+    "clearReason": "Curățat de {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Acțiune neautorizată.",
+      "targetNotFound": "Jucătorul țintă nu a fost găsit.",
+      "kickSuccess": "{{username}} a fost dat afară.",
+      "kickOfflineSuccess": "{{username}} (deja deconectat) a fost eliminat din joc.",
+      "kickError": "Nu s-a putut găsi socket-ul sau starea pentru {{username}}.",
+      "banSuccess": "{{username}} a fost interzis (cont suspendat și jucător dat afară).",
+      "banAccountOnlySuccess": "Contul {{username}} a fost suspendat (jucător deja deconectat sau eliminat).",
+      "banError": "Nu se poate interzice {{username}} (cont temporar sau inexistent).",
+      "freezeSuccess": "{{username}} a fost înghețat.",
+      "unfreezeSuccess": "{{username}} a fost dezghețat.",
+      "killSuccess": "{{username}} a fost ucis.",
+      "clearSuccess": "{{username}} a fost curățat (eliminat fără a lăsa mâncare).",
+      "clearError": "Nu s-a putut curăța {{username}} (deja eliminat?).",
+      "unknownAction": "Acțiune necunoscută."
+    },
+    "userConnected": "{{username}} s-a alăturat jocului.",
+    "userDisconnected": "{{username}} a părăsit jocul.",
+    "disconnectReason": "Deconectat: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Coliziune necunoscută",
+      "boundary": "Ați lovit marginea hărții.",
+      "teleport": "Deconectat: Mișcare suspectă.",
+      "selfCollision": "Anti-cheat: Auto-coliziune.",
+      "inactivity": "Inactivitate.",
+      "killedByAdmin": "Ucis de {{admin}}",
+      "botExpired": "Bot expirat.",
+      "clientCollision": "Coliziune corp (client)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Mărime: {{size}}",
+    "positionLabel": "Poziție: {{x}}x{{y}}",
+    "ghostMode": "Mod Fantomă",
+    "spectator": "Spectator"
+  },
+  "ghostMode": {
+    "selected": "Selectat: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Necunoscut",
+    "controlsSelected": "<kbd>K</kbd>: Omoară | <kbd>C</kbd>: Curăță | <kbd>F</kbd>: Îngheață/Dezgheață | <kbd>Esc</kbd>: Deselectează",
+    "controlsGeneral": "Click Stânga: Selectează Entitate / Trage pentru Panoramare<br>Rotiță: Zoom | <kbd>Esc</kbd>: Deselectează"
+  },
+  "mainPage": {
+    "title": "Clonă Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Bun venit la <span class=\"blink\">Clonă Slither SIO</span>",
+    "helpButtonTitle": "Ajutor & Credite",
+    "adminLink": "Admin",
+    "exitGhostButton": "Ieși din Modul Fantomă"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Joacă sebagai Oaspete",
+      "playAsUser": "Joacă sebagai {{username}}",
+      "login": "Autentificare",
+      "createAccount": "Creează Cont",
+      "customizeSkin": "Personalizează Aspectul",
+      "customSounds": "Sunete Personalizate",
+      "showLeaderboard": "Arată Clasamentul",
+      "ghostMode": "Mod Fantomă",
+      "deleteAccount": "Șterge Contul Meu",
+      "logout": "Deconectare"
+    },
+    "alerts": {
+      "colorTooDark": "Culoarea aleasă este foarte închisă și ar putea fi greu de văzut. Se recomandă o culoare mai deschisă.",
+      "missingCredentials": "Vă rugăm să introduceți un nume de utilizator și o parolă.",
+      "usernameLength": "Numele de utilizator trebuie să aibă între {{min}} și {{max}} caractere.",
+      "passwordLength": "Parola trebuie să aibă cel puțin {{minLength}} caractere.",
+      "maxPatternColors": "S-a atins numărul maxim de {{max}} culori de model.",
+      "canvasError": "Eroare Critică: Nu s-a putut găsi elementul canvas pentru suprapunerea textului!",
+      "gameModuleError": "Eroare Critică: Nu s-a putut inițializa modulul de joc!",
+      "fetchAccountError": "Eroare la preluarea datelor contului.",
+      "loginError": "Eroare Autentificare: {{error}}",
+      "creationError": "Eroare Creare: {{error}}",
+      "skinUpdateError": "Eroare de rețea sau server la actualizarea aspectului: {{error}}",
+      "skinUpdatedTemp": "Aspect actualizat pentru sesiunea temporară.",
+      "deleteAccountError": "Eroare de rețea la ștergerea contului."
+    },
+    "confirms": {
+      "enterGhostMode": "Intrați în Modul Fantomă (spectator)?",
+      "deleteAccount": "Sigur doriți să ștergeți definitiv contul \"{{username}}\"? Această acțiune este ireversibilă."
+    },
+    "welcomeMessage": "Salut {{username}}!",
+    "welcomeMessage_admin": "Salut {{username}} (Administrator)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Nume utilizator:",
+      "passwordLabel": "Parolă:",
+      "backButton": "Înapoi"
+    },
+    "guest": {
+      "title": "Joacă sebagai Oaspete",
+      "note": "Culorile și skin-ul vor fi setate prin \"Personalizează Aspectul\".",
+      "submitButton": "Pornește Jocul"
+    },
+    "login": {
+      "title": "Autentificare",
+      "submitButton": "Autentificare"
+    },
+    "create": {
+      "title": "Creează Cont",
+      "initialHeadColorLabel": "Culoare Cap Inițială:",
+      "initialBodyColorLabel": "Culoare Corp Inițială:",
+      "submitButton": "Creează"
+    },
+    "skin": {
+      "title": "Personalizează Aspectul",
+      "headColorLabel": "Culoare Cap:",
+      "bodyTypeLabel": "Tip Corp",
+      "bodyTypeSingle": "O Singură Culoare",
+      "bodyTypePattern": "Model Repetitiv",
+      "bodyColorLabel": "Culoare Corp:",
+      "patternColorsLabel": "Culori Model (max 8)",
+      "trailEffectLabel": "Efect Urmă",
+      "trailEffect": {
+        "none": "Niciunul",
+        "sparkle": "Scântei",
+        "smoke": "Fum Verde",
+        "fire": "Foc",
+        "ice": "Așchii de Gheață",
+        "electric": "Scântei Electrice",
+        "rainbow": "Curcubeu",
+        "bubbles": "Bule",
+        "glitch": "Glitch",
+        "void": "Vid / Umbră",
+        "confetti": "Confeti"
+      },
+      "submitButton": "Salvează Aspectul"
+    },
+    "sound": {
+      "title": "Sunete Personalizate",
+      "info": "Încărcați fișiere MP3 (stocate local) pentru evenimente.",
+      "deathLabel": "Sunet Moarte:",
+      "killLabel": "Sunet Ucidere:",
+      "boostLabel": "Sunet Boost:",
+      "clearButton": "Șterge Sunetele"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Joacă Din Nou",
+    "backToMenuButton": "Înapoi la Meniu",
+    "finalSizeLabel": "Mărimea ta a fost: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Clasament",
+    "header": {
+      "name": "Nume",
+      "status": "Status",
+      "size": "Mărime",
+      "kills": "Ucideri",
+      "deaths": "Morți",
+      "kd": "K/D"
+    },
+    "noPlayers": "Niciun jucător în clasament încă.",
+    "status": {
+      "ingame": "În Joc",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Niciodată",
+      "na": "N/A",
+      "ingameTitle": "Momentan în joc"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} sec în urmă",
+      "secondsAgo_other": "{{count}} sec în urmă",
+      "minutesAgo_one": "{{count}} min în urmă",
+      "minutesAgo_other": "{{count}} min în urmă",
+      "hoursAgo_one": "{{count}} oră în urmă",
+      "hoursAgo_other": "{{count}} ore în urmă",
+      "daysAgo_one": "{{count}} zi în urmă",
+      "daysAgo_other": "{{count}} zile în urmă",
+      "yesterday": "Ieri"
+    },
+    "lastLoginTitle": "Ultima autentificare: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Scurtături Tastatură (Meniu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigare butoane",
+      "activate": "Enter: Activează butonul selectat",
+      "close": "Esc: Închide acest panou / Înapoi"
+    },
+    "gameKeysTitle": "Scurtături Tastatură (Joc)",
+    "gameKeys": {
+      "mouse": "Mouse: Direcționează șarpele",
+      "boost": "Click Stânga / Spațiu: Boost",
+      "adminCheat": "P: Cheat Administrator (dacă ești administrator)"
+    },
+    "ghostKeysTitle": "Scurtături Tastatură (Fantomă)",
+    "ghostKeys": {
+      "select": "Click Stânga (pe jucător): Selectează Jucător",
+      "pan": "Click Stânga + Trage (spațiu gol): Panoramare Cameră",
+      "zoom": "Rotiță Mouse: Zoom In/Out",
+      "kill": "K (dacă jucătorul e selectat): Omoară Jucător",
+      "clear": "C (dacă jucătorul e selectat): Curăță Jucător (fără mâncare)",
+      "freeze": "F (dacă jucătorul e selectat): Îngheață/Dezgheață Jucător",
+      "deselect": "Esc: Deselectează Jucător"
+    },
+    "creditsTitle": "Credite",
+    "creditsAuthor": "Autor: Autor Anonim",
+    "creditsLicense": "Licență: MIT",
+    "creditsGithub": "Proiect pe GitHub"
+  },
+  "NEW_KEY_1": "Text sursă pentru prima cheie nouă.",
+  "NEW_KEY_2": "Text sursă pentru a doua cheie nouă."
+}

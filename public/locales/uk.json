@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Адмін - Клон Slither",
+  "backButtonTitle": "Повернутися на головну сторінку",
+  "tabs": {
+    "settings": "Загальні налаштування",
+    "users": "Управління користувачами",
+    "currentConfig": "Поточна конфігурація"
+  },
+  "settingsForm": {
+    "title": "Загальні налаштування",
+    "passwordNote": "<strong>Примітка:</strong> Щоб встановити або скинути пароль адміністратора, зупиніть сервер і запустіть його командою:<br/><code>node backend/server.js --set-new-password ВАШ_НОВИЙ_ПАРОЛЬ</code><br/>Доступ до цієї сторінки вимагає активної сесії адміністратора (через cookie).<br/>Деякі налаштування (позначені *) вимагають перезапуску сервера для застосування.",
+    "mapWidth": {
+      "label": "Ширина карти (px) *:",
+      "placeholder": "напр. 4000"
+    },
+    "mapHeight": {
+      "label": "Висота карти (px) *:",
+      "placeholder": "напр. 4000"
+    },
+    "mapShape": {
+      "label": "Форма карти *:",
+      "rectangle": "Прямокутник",
+      "circle": "Коло"
+    },
+    "aoiRadius": {
+      "label": "Радіус зони інтересу (AoI) (px) *:",
+      "placeholder": "напр. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Обмеження розміру змійки (за замовчуванням):",
+      "placeholder": "напр. 1000"
+    },
+    "initialSize": {
+      "label": "Початковий розмір змійки:",
+      "placeholder": "напр. 50"
+    },
+    "speed": {
+      "label": "Базова швидкість:",
+      "placeholder": "напр. 1"
+    },
+    "maxRotationRate": {
+      "label": "Макс. швидкість обертання (rad/tick):",
+      "placeholder": "напр. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Мін. розмір для прискорення:",
+      "placeholder": "напр. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Швидкість споживання прискорення:",
+      "placeholder": "напр. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Інтервал появи їжі (ms):",
+      "placeholder": "напр. 5000"
+    },
+    "fps": {
+      "label": "FPS сервера (циклів/сек):",
+      "placeholder": "напр. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Сила притягання їжі:",
+      "placeholder": "напр. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Відстань прилипання їжі:",
+      "placeholder": "напр. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Рівень масштабування за замовчуванням:",
+      "placeholder": "напр. 1.0"
+    },
+    "securityMode": {
+      "label": "Режим безпеки *:",
+      "high": "Високий (Рекомендовано)",
+      "low": "Низький (Клієнт + Легкий)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Поріг порушення телепортації:",
+      "placeholder": "напр. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Коефіцієнт толерантності телепортації:",
+      "placeholder": "напр. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Увімкнути режим Бога при появі:",
+      "yes": "Так",
+      "no": "Ні"
+    },
+    "botsEnabled": {
+      "label": "Увімкнути ботів:",
+      "yes": "Так",
+      "no": "Ні"
+    },
+    "botMaxCount": {
+      "label": "Макс. кількість ботів:",
+      "placeholder": "напр. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Інтервал появи ботів (ms):",
+      "placeholder": "напр. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Час життя бота (ms):",
+      "placeholder": "напр. 120000"
+    },
+    "botDifficulty": {
+      "label": "Складність бота:",
+      "easy": "Легко",
+      "medium": "Середнє",
+      "hard": "Важко"
+    },
+    "adminMessageText": {
+      "label": "Повідомлення адміністратора (залиште порожнім, щоб очистити):",
+      "placeholder": "Повідомлення для відображення всім гравцям"
+    },
+    "adminMessageDuration": {
+      "label": "Тривалість повідомлення (секунди):",
+      "placeholder": "напр. 10"
+    },
+    "updateButton": "Оновити налаштування"
+  },
+  "userManagement": {
+    "title": "Управління користувачами",
+    "loading": "Завантаження...",
+    "noUsers": "Користувачів не знайдено.",
+    "table": {
+      "headerUser": "Користувач",
+      "headerStatus": "Статус",
+      "headerLastLogin": "Останній вхід",
+      "headerCreated": "Створено",
+      "headerActions": "Дії"
+    },
+    "status": {
+      "admin": "Адміністратор",
+      "suspended": "Призупинено",
+      "normal": "Звичайний",
+      "never": "Ніколи",
+      "unknown": "Невідомо"
+    },
+    "actions": {
+      "removeAdmin": "Видалити адміністратора",
+      "makeAdmin": "Зробити адміністратором",
+      "unban": "Скасувати призупинення",
+      "suspend": "Призупинити",
+      "delete": "Видалити"
+    },
+    "pruneButton": "Очистити неактивні облікові записи",
+    "confirmDelete": "Ви впевнені, що хочете назавжди видалити користувача \"{{username}}\"? Цю дію неможливо скасувати.",
+    "confirmPrune_one": "Ви впевнені, що хочете видалити {{count}} неактивний обліковий запис (неактивний >15 днів ТА дуже низькі показники)? Цю дію неможливо скасувати.",
+    "confirmPrune_other": "Ви впевнені, що хочете видалити {{count}} неактивних облікових записів (неактивні >15 днів ТА дуже низькі показники)? Цю дію неможливо скасувати.",
+    "confirmPruneZero": "Не знайдено неактивних облікових записів за поточними критеріями. Все одно запустити операцію (про всяк випадок)?",
+    "confirmPruneZeroConfirm": "Підтвердити операцію очищення, навіть якщо виявлено 0 облікових записів?",
+    "pruneCancelled": "Операцію очищення скасовано."
+  },
+  "currentConfig": {
+    "title": "Поточна конфігурація сервера",
+    "loading": "Завантаження конфігурації...",
+    "loadError": "Не вдалося завантажити конфігурацію.",
+    "loadSuccess": "Поточну конфігурацію завантажено.",
+    "keys": {
+      "MAP_WIDTH": "Ширина карти (px)",
+      "MAP_HEIGHT": "Висота карти (px)",
+      "MAP_SHAPE": "Форма карти",
+      "AOI_RADIUS": "Радіус зони інтересу (AoI) (px)",
+      "SECURITY_MODE": "Режим безпеки",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Обмеження розміру змійки (за замовчуванням)",
+      "INITIAL_SIZE": "Початковий розмір змійки",
+      "MIN_BOOST_SIZE": "Мін. розмір для прискорення",
+      "SPEED": "Базова швидкість",
+      "MAX_ROTATION_RATE": "Макс. швидкість обертання",
+      "BOOST_CONSUMPTION_RATE": "Споживання прискорення (Розмір/тік)",
+      "FPS": "FPS сервера",
+      "FOOD_SPAWN_INTERVAL": "Інтервал появи їжі (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Сила притягання їжі",
+      "FOOD_SNAP_DISTANCE": "Відстань прилипання їжі",
+      "DEFAULT_ZOOM_LEVEL": "Рівень масштабування за замовчуванням",
+      "TELEPORT_VIOLATION_THRESHOLD": "Поріг порушення телепортації",
+      "TELEPORT_TOLERANCE_FACTOR": "КоефіцієENT толерантності телепортації",
+      "BOTS_ENABLED": "Боти увімкнено",
+      "BOT_MAX_COUNT": "Макс. кількість ботів",
+      "BOT_SPAWN_INTERVAL_MS": "Інтервал появи ботів (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Час життя бота (ms)",
+      "BOT_DIFFICULTY": "Складність бота"
+    },
+    "boolean": {
+      "yes": "Так",
+      "no": "Ні"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Доступ заборонено. Перенаправлення...",
+    "settingsUpdated": "Налаштування успішно оновлено.",
+    "settingsUpdatedWithRestart": "Налаштування оновлено. Для змін карти/безпеки потрібен перезапуск сервера.",
+    "settingsUpdatedFpsRestart": "Налаштування оновлено. Ігровий цикл перезапущено для зміни FPS.",
+    "settingsUpdateError": "Помилка оновлення налаштувань.",
+    "loadSettingsError": "Помилка завантаження налаштувань: {{error}}",
+    "loadUsersError": "Помилка завантаження користувачів.",
+    "networkError": "Помилка мережі або сервер недоступний.",
+    "invalidResponse": "Недійсна відповідь від сервера (не JSON)",
+    "changes": "Зміни:",
+    "restartRequired": "Для застосування змін (Розмір/Форма карти, Режим безпеки, Радіус AoI) потрібен перезапуск сервера.",
+    "fpsRestart": "Ігровий цикл перезапущено для застосування нового FPS.",
+    "noChanges": "Жодних налаштувань не змінено.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Помилка під час попереднього перегляду.",
+    "pruneError": "Помилка під час операції очищення.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Будь ласка, виберіть файл MP3.",
+      "loginRequired": "Ви повинні увійти, щоб зберегти власні звуки.",
+      "saveError": "Помилка збереження звуку. Локальне сховище може бути повним.",
+      "readError": "Помилка читання звукового файлу.",
+      "clearLoginRequired": "Ви повинні увійти, щоб очистити звуки.",
+      "clearError": "Сталася помилка під час видалення звуків."
+    },
+    "confirms": {
+      "clearAll": "Ви впевнені, що хочете видалити всі власні звуки для цього облікового запису?"
+    },
+    "statusTitles": {
+      "saveError": "Помилка збереження",
+      "readError": "Помилка читання",
+      "saved": "Звук збережено",
+      "savedWithName": "Збережено: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Сервер недоступний - Клон Slither SIO",
+    "logoAlt": "Логотип 'Сервер недоступний'",
+    "mainHeader": "Сервер недоступний",
+    "explanation": "Сервер <span class=\"game-name\">Клон Slither SIO</span>, схоже, тимчасово офлайн або недоступний. Ми намагаємося відновити з'єднання для вас.",
+    "snakeTitle": "Тим часом, пограйте в Змійку!",
+    "snakeScoreLabel": "Рахунок: 0",
+    "snakeControls": "Стрілки / ZQSD / WASD: Рух | Enter: Старт/Перезапуск",
+    "status": {
+      "label": "Статус:",
+      "searching": "Пошук...",
+      "checking": "Перевірка...",
+      "connected": "Підключено!",
+      "nextAttemptLabel": "Наступна спроба через",
+      "secondsSuffix": "сек",
+      "attemptsLabel": "Спроби:"
+    },
+    "refreshButton": "Перевірити зараз",
+    "redirectInfo": "Вас буде автоматично перенаправлено, як тільки сервер знову буде онлайн."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Рахунок: {{score}}"
+    },
+    "gameOver": {
+      "win": "ПЕРЕМОГА!",
+      "lose": "ПРОГРАШ!",
+      "scoreLabel": "Рахунок: {{score}}",
+      "promptLine1": "Натисніть Enter",
+      "promptLine2": "щоб Зіграти Знову"
+    },
+    "countdown": "ПОЧАТОК ЧЕРЕЗ {{count}}",
+    "startScreen": {
+      "title": "ЗМІЙКА",
+      "promptLine1": "Натисніть Enter",
+      "promptLine2": "щоб Грати"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Внутрішня помилка сервера.",
+      "invalidAdminStatus": "Недійсний статус 'isAdmin'.",
+      "userNotFound": "Користувача не знайдено.",
+      "invalidSuspendStatus": "Недійсний статус 'isSuspended'.",
+      "cannotDeleteSelf": "Ви не можете видалити власний обліковий запис адміністратора тут.",
+      "prunePreviewError": "Помилка під час попереднього перегляду очищення.",
+      "pruneError": "Помилка під час операції очищення.",
+      "rateLimit": "Забагато спроб створення облікового запису. Будь ласка, спробуйте ще раз приблизно через {{minutes}} хвилин.",
+      "missingCredentials": "Потрібні ім'я користувача та пароль.",
+      "usernameTooLong": "Ім'я користувача не може перевищувати {{maxLength}} символів.",
+      "usernameTooShort": "Ім'я користувача має містити щонайменше {{minLength}} символів.",
+      "passwordTooShort": "Пароль має містити щонайменше {{minLength}} символів.",
+      "usernameTaken": "Це ім'я користувача вже зайняте.",
+      "invalidCredentials": "Недійсне ім'я користувача або пароль.",
+      "accountSuspended": "Цей обліковий запис наразі призупинено.",
+      "notAuthenticated": "Не автентифіковано.",
+      "invalidHeadColor": "Недійсний колір голови.",
+      "missingSkinData": "Дані скіна відсутні або недійсні.",
+      "invalidBodyType": "Недійсний тип тіла.",
+      "invalidBodyColor": "Недійсний колір тіла в даних скіна.",
+      "invalidPatternColorsType": "Кольори візерунка мають бути масивом.",
+      "tooManyPatternColors": "Забагато кольорів візерунка (макс. {{max}}).",
+      "invalidPatternColorValue": "У візерунку знайдено недійсний колір.",
+      "invalidTrailEffect": "Недійсний ефект сліду.",
+      "adminCannotDeleteSelf": "Адміністратори не можуть видаляти власний обліковий запис через цей інтерфейс.",
+      "deleteAccountError": "Внутрішня помилка під час видалення облікового запису."
+    },
+    "success": {
+      "accountCreated": "Обліковий запис успішно створено та виконано вхід.",
+      "login": "Вхід успішний.",
+      "logout": "Вихід успішний.",
+      "skinUpdated": "Зовнішній вигляд успішно оновлено.",
+      "accountDeleted": "Ваш обліковий запис успішно видалено."
+    },
+    "admin": {
+      "adminStatusUpdated": "Статус адміністратора для {{username}} оновлено.",
+      "suspendStatusUpdated": "Статус призупинення для {{username}} оновлено.",
+      "userDeleted": "Обліковий запис {{username}} успішно видалено.",
+      "pruneNoUsers": "Не знайдено неактивних облікових записів для очищення.",
+      "pruneSuccess": "{{count}} неактивних облікових записів очищено."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Ваш обліковий запис призупинено.",
+      "accountError": "Помилка облікового запису. Будь ласка, увійдіть знову.",
+      "alreadyConnected": "Цей обліковий запис вже підключено до гри.",
+      "deletedByAdmin": "Ваш обліковий запис було видалено адміністратором.",
+      "accountDeleted": "Ваш обліковий запис видалено."
+    },
+    "kickReason": "Вигнано {{admin}}",
+    "banReason": "Заблоковано {{admin}}",
+    "clearReason": "Очищено {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Дія не авторизована.",
+      "targetNotFound": "Цільового гравця не знайдено.",
+      "kickSuccess": "{{username}} було вигнано.",
+      "kickOfflineSuccess": "{{username}} (вже відключено) видалено з гри.",
+      "kickError": "Не вдалося знайти сокет або стан для {{username}}.",
+      "banSuccess": "{{username}} було заблоковано (обліковий запис призупинено, а гравця вигнано).",
+      "banAccountOnlySuccess": "Обліковий запис {{username}} призупинено (гравця вже відключено або видалено).",
+      "banError": "Неможливо заблокувати {{username}} (тимчасовий або неіснуючий обліковий запис).",
+      "freezeSuccess": "{{username}} було заморожено.",
+      "unfreezeSuccess": "{{username}} було розморожено.",
+      "killSuccess": "{{username}} було вбито.",
+      "clearSuccess": "{{username}} було очищено (видалено без випадання їжі).",
+      "clearError": "Не вдалося очистити {{username}} (вже видалено?).",
+      "unknownAction": "Невідома дія."
+    },
+    "userConnected": "{{username}} приєднався до гри.",
+    "userDisconnected": "{{username}} покинув гру.",
+    "disconnectReason": "Відключено: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Невідоме зіткнення",
+      "boundary": "Врізався в межу карти.",
+      "teleport": "Відключено: Підозрілий рух.",
+      "selfCollision": "Анти-чит: Зіткнення з собою.",
+      "inactivity": "Бездіяльність.",
+      "killedByAdmin": "Вбито {{admin}}",
+      "botExpired": "Бот закінчився.",
+      "clientCollision": "Зіткнення тіла (клієнт)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Розмір: {{size}}",
+    "positionLabel": "Позиція: {{x}}x{{y}}",
+    "ghostMode": "Режим Привида",
+    "spectator": "Глядач"
+  },
+  "ghostMode": {
+    "selected": "Вибрано: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Невідомо",
+    "controlsSelected": "<kbd>K</kbd>: Вбити | <kbd>C</kbd>: Очистити | <kbd>F</kbd>: Заморозити/Розморозити | <kbd>Esc</kbd>: Скасувати вибір",
+    "controlsGeneral": "Лівий клік: Вибрати Сутність / Перетягнути для Панорамування<br>Колесо: Масштаб | <kbd>Esc</kbd>: Скасувати вибір"
+  },
+  "mainPage": {
+    "title": "Клон Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Ласкаво просимо до <span class=\"blink\">Клон Slither SIO</span>",
+    "helpButtonTitle": "Допомога та Автори",
+    "adminLink": "Адмін",
+    "exitGhostButton": "Вийти з Режиму Привида"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Грати як Гість",
+      "playAsUser": "Грати як {{username}}",
+      "login": "Увійти",
+      "createAccount": "Створити Обліковий Запис",
+      "customizeSkin": "Налаштувати Зовнішність",
+      "customSounds": "Власні Звуки",
+      "showLeaderboard": "Показати Таблицю Лідерів",
+      "ghostMode": "Режим Привида",
+      "deleteAccount": "Видалити Мій Обліковий Запис",
+      "logout": "Вийти"
+    },
+    "alerts": {
+      "colorTooDark": "Обраний колір дуже темний і може бути важко помітним. Рекомендується світліший колір.",
+      "missingCredentials": "Будь ласка, введіть ім'я користувача та пароль.",
+      "usernameLength": "Ім'я користувача має містити від {{min}} до {{max}} символів.",
+      "passwordLength": "Пароль має містити щонайменше {{minLength}} символів.",
+      "maxPatternColors": "Досягнуто максимальної кількості {{max}} кольорів візерунка.",
+      "canvasError": "Критична помилка: Не вдалося знайти елемент canvas для накладання тексту!",
+      "gameModuleError": "Критична помилка: Не вдалося ініціалізувати ігровий модуль!",
+      "fetchAccountError": "Помилка отримання даних облікового запису.",
+      "loginError": "Помилка входу: {{error}}",
+      "creationError": "Помилка створення: {{error}}",
+      "skinUpdateError": "Помилка мережі або сервера під час оновлення зовнішнього вигляду: {{error}}",
+      "skinUpdatedTemp": "Зовнішній вигляд оновлено для тимчасової сесії.",
+      "deleteAccountError": "Помилка мережі під час видалення облікового запису."
+    },
+    "confirms": {
+      "enterGhostMode": "Увійти в Режим Привида (глядач)?",
+      "deleteAccount": "Ви впевнені, що хочете назавжди видалити свій обліковий запис \"{{username}}\"? Цю дію неможливо скасувати."
+    },
+    "welcomeMessage": "Привіт, {{username}}!",
+    "welcomeMessage_admin": "Привіт, {{username}} (Адміністратор)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Ім'я користувача:",
+      "passwordLabel": "Пароль:",
+      "backButton": "Назад"
+    },
+    "guest": {
+      "title": "Грати як Гість",
+      "note": "Кольори та скін будуть встановлені через \"Налаштувати Зовнішність\".",
+      "submitButton": "Почати Гру"
+    },
+    "login": {
+      "title": "Увійти",
+      "submitButton": "Увійти"
+    },
+    "create": {
+      "title": "Створити Обліковий Запис",
+      "initialHeadColorLabel": "Початковий Колір Голови:",
+      "initialBodyColorLabel": "Початковий Колір Тіла:",
+      "submitButton": "Створити"
+    },
+    "skin": {
+      "title": "Налаштувати Зовнішність",
+      "headColorLabel": "Колір Голови:",
+      "bodyTypeLabel": "Тип Тіла",
+      "bodyTypeSingle": "Один Колір",
+      "bodyTypePattern": "Повторюваний Візерунок",
+      "bodyColorLabel": "Колір Тіла:",
+      "patternColorsLabel": "Кольори Візерунка (макс. 8)",
+      "trailEffectLabel": "Ефект Сліду",
+      "trailEffect": {
+        "none": "Немає",
+        "sparkle": "Іскри",
+        "smoke": "Зелений Дим",
+        "fire": "Вогонь",
+        "ice": "Крижані Осколки",
+        "electric": "Електричні Іскри",
+        "rainbow": "Веселка",
+        "bubbles": "Бульбашки",
+        "glitch": "Глюк",
+        "void": "Порожнеча / Тінь",
+        "confetti": "Конфетті"
+      },
+      "submitButton": "Зберегти Зовнішність"
+    },
+    "sound": {
+      "title": "Власні Звуки",
+      "info": "Завантажте файли MP3 (збережені локально) для подій.",
+      "deathLabel": "Звук Смерті:",
+      "killLabel": "Звук Вбивства:",
+      "boostLabel": "Звук Прискорення:",
+      "clearButton": "Очистити Звуки"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Грати Знову",
+    "backToMenuButton": "Повернутися до Меню",
+    "finalSizeLabel": "Ваш розмір був: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Таблиця лідерів",
+    "header": {
+      "name": "Ім'я",
+      "status": "Статус",
+      "size": "Розмір",
+      "kills": "Вбивства",
+      "deaths": "Смерті",
+      "kd": "K/D"
+    },
+    "noPlayers": "Ще немає гравців у рейтингу.",
+    "status": {
+      "ingame": "У Грі",
+      "online": "Онлайн",
+      "offline": "Офлайн",
+      "never": "Ніколи",
+      "na": "Н/Д",
+      "ingameTitle": "Зараз у грі"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} сек тому",
+      "secondsAgo_other": "{{count}} сек тому",
+      "minutesAgo_one": "{{count}} хв тому",
+      "minutesAgo_other": "{{count}} хв тому",
+      "hoursAgo_one": "{{count}} год тому",
+      "hoursAgo_other": "{{count}} год тому",
+      "daysAgo_one": "{{count}} день тому",
+      "daysAgo_other": "{{count}} днів тому",
+      "yesterday": "Вчора"
+    },
+    "lastLoginTitle": "Останній вхід: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Гарячі Клавіші (Меню)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Навігація по кнопках",
+      "activate": "Enter: Активувати вибрану кнопку",
+      "close": "Esc: Закрити цю панель / Назад"
+    },
+    "gameKeysTitle": "Гарячі Клавіші (Гра)",
+    "gameKeys": {
+      "mouse": "Миша: Керувати змійкою",
+      "boost": "Лівий клік / Пробіл: Прискорення",
+      "adminCheat": "P: Чіт Адміністратора (якщо адміністратор)"
+    },
+    "ghostKeysTitle": "Гарячі Клавіші (Привид)",
+    "ghostKeys": {
+      "select": "Лівий клік (на гравці): Вибрати Гравця",
+      "pan": "Лівий клік + Перетягування (порожнє місце): Панорамувати Камеру",
+      "zoom": "Колесо миші: Масштабувати",
+      "kill": "K (якщо гравець вибраний): Вбити Гравця",
+      "clear": "C (якщо гравець вибраний): Очистити Гравця (без їжі)",
+      "freeze": "F (якщо гравець вибраний): Заморозити/Розморозити Гравця",
+      "deselect": "Esc: Скасувати вибір Гравця"
+    },
+    "creditsTitle": "Автори",
+    "creditsAuthor": "Автор: Анонімний Автор",
+    "creditsLicense": "Ліцензія: MIT",
+    "creditsGithub": "Проект на GitHub"
+  },
+  "NEW_KEY_1": "Вихідний текст для першого нового ключа.",
+  "NEW_KEY_2": "Вихідний текст для другого нового ключа."
+}

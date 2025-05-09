@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Ylläpito - Slither-klooni",
+  "backButtonTitle": "Takaisin pääsivulle",
+  "tabs": {
+    "settings": "Yleiset Asetukset",
+    "users": "Käyttäjähallinta",
+    "currentConfig": "Nykyinen Kokoonpano"
+  },
+  "settingsForm": {
+    "title": "Yleiset Asetukset",
+    "passwordNote": "<strong>Huom:</strong> Asettaaksesi tai nollataksesi ylläpitäjän salasanan, pysäytä palvelin ja suorita se komennolla:<br/><code>node backend/server.js --set-new-password UUSI_SALASANASI</code><br/>Pääsy tälle sivulle vaatii aktiivisen ylläpitosession (evästeen kautta).<br/>Jotkin asetukset (merkitty *) vaativat palvelimen uudelleenkäynnistyksen astuakseen voimaan.",
+    "mapWidth": {
+      "label": "Kartan Leveys (px) *:",
+      "placeholder": "esim. 4000"
+    },
+    "mapHeight": {
+      "label": "Kartan Korkeus (px) *:",
+      "placeholder": "esim. 4000"
+    },
+    "mapShape": {
+      "label": "Kartan Muoto *:",
+      "rectangle": "Suorakulmio",
+      "circle": "Ympyrä"
+    },
+    "aoiRadius": {
+      "label": "Kiinnostusalueen Säde (AoI) (px) *:",
+      "placeholder": "esim. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Madon Koon Raja (Oletus):",
+      "placeholder": "esim. 1000"
+    },
+    "initialSize": {
+      "label": "Madon Alkukoko:",
+      "placeholder": "esim. 50"
+    },
+    "speed": {
+      "label": "Perusnopeus:",
+      "placeholder": "esim. 1"
+    },
+    "maxRotationRate": {
+      "label": "Maksimi Kääntymisnopeus (rad/tick):",
+      "placeholder": "esim. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Koko Boostille:",
+      "placeholder": "esim. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Boostin Kulutusnopeus:",
+      "placeholder": "esim. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Ruoan Syntymisväli (ms):",
+      "placeholder": "esim. 5000"
+    },
+    "fps": {
+      "label": "Palvelimen FPS (silmukat/s):",
+      "placeholder": "esim. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Ruoan Vetovoima:",
+      "placeholder": "esim. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Ruoan Nappausetäisyys:",
+      "placeholder": "esim. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Oletus Zoom-taso:",
+      "placeholder": "esim. 1.0"
+    },
+    "securityMode": {
+      "label": "Turvallisuustila *:",
+      "high": "Korkea (Suositeltu)",
+      "low": "Matala (Asiakas + Kevyt)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Teleporttirikkomuksen Kynnysarvo:",
+      "placeholder": "esim. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Teleportin Toleranssikerroin:",
+      "placeholder": "esim. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Ota God Mode käyttöön syntyessä:",
+      "yes": "Kyllä",
+      "no": "Ei"
+    },
+    "botsEnabled": {
+      "label": "Ota Botit käyttöön:",
+      "yes": "Kyllä",
+      "no": "Ei"
+    },
+    "botMaxCount": {
+      "label": "Bottien Maksimimäärä:",
+      "placeholder": "esim. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Bottien Syntymisväli (ms):",
+      "placeholder": "esim. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Botin Elinikä (ms):",
+      "placeholder": "esim. 120000"
+    },
+    "botDifficulty": {
+      "label": "Botin Vaikeustaso:",
+      "easy": "Helppo",
+      "medium": "Keskivaikea",
+      "hard": "Vaikea"
+    },
+    "adminMessageText": {
+      "label": "Ylläpitoviesti (jätä tyhjäksi poistaaksesi):",
+      "placeholder": "Viesti näytettäväksi kaikille pelaajille"
+    },
+    "adminMessageDuration": {
+      "label": "Viestin Kesto (sekuntia):",
+      "placeholder": "esim. 10"
+    },
+    "updateButton": "Päivitä Asetukset"
+  },
+  "userManagement": {
+    "title": "Käyttäjähallinta",
+    "loading": "Ladataan...",
+    "noUsers": "Käyttäjiä ei löytynyt.",
+    "table": {
+      "headerUser": "Käyttäjä",
+      "headerStatus": "Tila",
+      "headerLastLogin": "Viimeisin Kirjautuminen",
+      "headerCreated": "Luotu",
+      "headerActions": "Toiminnot"
+    },
+    "status": {
+      "admin": "Ylläpitäjä",
+      "suspended": "Jäädytetty",
+      "normal": "Normaali",
+      "never": "Ei koskaan",
+      "unknown": "Tuntematon"
+    },
+    "actions": {
+      "removeAdmin": "Poista Ylläpitäjä",
+      "makeAdmin": "Tee Ylläpitäjäksi",
+      "unban": "Poista Jäädytys",
+      "suspend": "Jäädytä",
+      "delete": "Poista"
+    },
+    "pruneButton": "Siivoa Passiiviset Tilit",
+    "confirmDelete": "Haluatko varmasti poistaa käyttäjän \"{{username}}\" pysyvästi? Tätä toimintoa ei voi kumota.",
+    "confirmPrune_one": "Haluatko varmasti poistaa {{count}} passiivisen tilin (passiivinen >15 päivää JA erittäin alhaiset tilastot)? Tätä toimintoa ei voi kumota.",
+    "confirmPrune_other": "Haluatko varmasti poistaa {{count}} passiivista tiliä (passiivisia >15 päivää JA erittäin alhaiset tilastot)? Tätä toimintoa ei voi kumota.",
+    "confirmPruneZero": "Passiivisia tilejä ei löytynyt nykyisillä kriteereillä. Haluatko silti suorittaa operaation (varmuuden vuoksi)?",
+    "confirmPruneZeroConfirm": "Vahvista siivousoperaatio, vaikka 0 tiliä havaittiin?",
+    "pruneCancelled": "Siivousoperaatio peruutettu."
+  },
+  "currentConfig": {
+    "title": "Nykyinen Palvelinkokoonpano",
+    "loading": "Ladataan kokoonpanoa...",
+    "loadError": "Kokoonpanon lataus epäonnistui.",
+    "loadSuccess": "Nykyinen kokoonpano ladattu.",
+    "keys": {
+      "MAP_WIDTH": "Kartan Leveys (px)",
+      "MAP_HEIGHT": "Kartan Korkeus (px)",
+      "MAP_SHAPE": "Kartan Muoto",
+      "AOI_RADIUS": "Kiinnostusalueen Säde (AoI) (px)",
+      "SECURITY_MODE": "Turvallisuustila",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Madon Koon Raja (Oletus)",
+      "INITIAL_SIZE": "Madon Alkukoko",
+      "MIN_BOOST_SIZE": "Min. Koko Boostille",
+      "SPEED": "Perusnopeus",
+      "MAX_ROTATION_RATE": "Maksimi Kääntymisnopeus",
+      "BOOST_CONSUMPTION_RATE": "Boostin Kulutus (Koko/tick)",
+      "FPS": "Palvelimen FPS",
+      "FOOD_SPAWN_INTERVAL": "Ruoan Syntymisväli (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Ruoan Vetovoima",
+      "FOOD_SNAP_DISTANCE": "Ruoan Nappausetäisyys",
+      "DEFAULT_ZOOM_LEVEL": "Oletus Zoom-taso",
+      "TELEPORT_VIOLATION_THRESHOLD": "Teleporttirikkomuksen Kynnysarvo",
+      "TELEPORT_TOLERANCE_FACTOR": "Teleportin Toleranssikerroin",
+      "BOTS_ENABLED": "Botit Käytössä",
+      "BOT_MAX_COUNT": "Bottien Maksimimäärä",
+      "BOT_SPAWN_INTERVAL_MS": "Bottien Syntymisväli (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Botin Elinikä (ms)",
+      "BOT_DIFFICULTY": "Botin Vaikeustaso"
+    },
+    "boolean": {
+      "yes": "Kyllä",
+      "no": "Ei"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Pääsy estetty. Uudelleenohjataan...",
+    "settingsUpdated": "Asetukset päivitetty onnistuneesti.",
+    "settingsUpdatedWithRestart": "Asetukset päivitetty. Palvelimen uudelleenkäynnistys vaaditaan kartta-/turvallisuusmuutoksille.",
+    "settingsUpdatedFpsRestart": "Asetukset päivitetty. Pelisilmukka käynnistetty uudelleen FPS-muutokselle.",
+    "settingsUpdateError": "Virhe asetusten päivityksessä.",
+    "loadSettingsError": "Virhe asetusten latauksessa: {{error}}",
+    "loadUsersError": "Virhe käyttäjien latauksessa.",
+    "networkError": "Verkkovirhe tai palvelin ei ole tavoitettavissa.",
+    "invalidResponse": "Virheellinen vastaus palvelimelta (ei JSON)",
+    "changes": "Muutokset:",
+    "restartRequired": "Palvelimen uudelleenkäynnistys vaaditaan muutosten (Kartan Koko/Muoto, Turvallisuustila, AoI-säde) soveltamiseksi.",
+    "fpsRestart": "Pelisilmukka on käynnistetty uudelleen uuden FPS:n soveltamiseksi.",
+    "noChanges": "Asetuksia ei muutettu.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Virhe esikatselun aikana.",
+    "pruneError": "Virhe siivousoperaation aikana.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Valitse MP3-tiedosto.",
+      "loginRequired": "Sinun on oltava kirjautuneena sisään tallentaaksesi mukautettuja ääniä.",
+      "saveError": "Virhe äänen tallennuksessa. Paikallinen tallennustila saattaa olla täynnä.",
+      "readError": "Virhe äänitiedoston lukemisessa.",
+      "clearLoginRequired": "Sinun on oltava kirjautuneena sisään poistaaksesi ääniä.",
+      "clearError": "Virhe tapahtui ääniä poistettaessa."
+    },
+    "confirms": {
+      "clearAll": "Haluatko varmasti poistaa kaikki tämän tilin mukautetut äänet?"
+    },
+    "statusTitles": {
+      "saveError": "Tallennusvirhe",
+      "readError": "Lukuvirhe",
+      "saved": "Ääni tallennettu",
+      "savedWithName": "Tallennettu: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Palvelin Ei Tavoitettavissa - Slither-klooni SIO",
+    "logoAlt": "Palvelin Ei Tavoitettavissa Logo",
+    "mainHeader": "Palvelin Ei Tavoitettavissa",
+    "explanation": "<span class=\"game-name\">Slither-klooni SIO</span> -palvelin näyttää olevan väliaikaisesti offline-tilassa tai tavoittamattomissa. Yritämme muodostaa yhteyden uudelleen puolestasi.",
+    "snakeTitle": "Pelaa sillä välin Matoa!",
+    "snakeScoreLabel": "Pisteet: 0",
+    "snakeControls": "Nuolet / ZQSD / WASD: Liiku | Enter: Aloita/Aloita Uudelleen",
+    "status": {
+      "label": "Tila:",
+      "searching": "Etsitään...",
+      "checking": "Tarkistetaan...",
+      "connected": "Yhdistetty!",
+      "nextAttemptLabel": "Seuraava yritys",
+      "secondsSuffix": "sekunnin kuluttua",
+      "attemptsLabel": "Yritykset:"
+    },
+    "refreshButton": "Tarkista Nyt",
+    "redirectInfo": "Sinut ohjataan automaattisesti uudelleen heti, kun palvelin on taas online-tilassa."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Pisteet: {{score}}"
+    },
+    "gameOver": {
+      "win": "VOITIT!",
+      "lose": "HÄVISIT!",
+      "scoreLabel": "Pisteet: {{score}}",
+      "promptLine1": "Paina Enter",
+      "promptLine2": "Pelataksesi Uudelleen"
+    },
+    "countdown": "ALKAA {{count}}",
+    "startScreen": {
+      "title": "MATO",
+      "promptLine1": "Paina Enter",
+      "promptLine2": "Pelataksesi"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Sisäinen palvelinvirhe.",
+      "invalidAdminStatus": "Virheellinen 'isAdmin'-tila.",
+      "userNotFound": "Käyttäjää ei löytynyt.",
+      "invalidSuspendStatus": "Virheellinen 'isSuspended'-tila.",
+      "cannotDeleteSelf": "Et voi poistaa omaa ylläpitäjätiliäsi täällä.",
+      "prunePreviewError": "Virhe siivouksen esikatselussa.",
+      "pruneError": "Virhe siivousoperaation aikana.",
+      "rateLimit": "Liian monta tilinluontiyritystä. Yritä uudelleen noin {{minutes}} minuutin kuluttua.",
+      "missingCredentials": "Käyttäjätunnus ja salasana vaaditaan.",
+      "usernameTooLong": "Käyttäjätunnus ei saa ylittää {{maxLength}} merkkiä.",
+      "usernameTooShort": "Käyttäjätunnuksen on oltava vähintään {{minLength}} merkkiä pitkä.",
+      "passwordTooShort": "Salasanan on oltava vähintään {{minLength}} merkkiä pitkä.",
+      "usernameTaken": "Tämä käyttäjätunnus on jo käytössä.",
+      "invalidCredentials": "Virheellinen käyttäjätunnus tai salasana.",
+      "accountSuspended": "Tämä tili on tällä hetkellä jäädytetty.",
+      "notAuthenticated": "Ei autentikoitu.",
+      "invalidHeadColor": "Virheellinen pään väri.",
+      "missingSkinData": "Skinitiedot puuttuvat tai ovat virheellisiä.",
+      "invalidBodyType": "Virheellinen vartalotyyppi.",
+      "invalidBodyColor": "Virheellinen vartalon väri skinitiedoissa.",
+      "invalidPatternColorsType": "Kuviovärien on oltava taulukko.",
+      "tooManyPatternColors": "Liian monta kuvioväriä (enintään {{max}}).",
+      "invalidPatternColorValue": "Kuviosta löytyi virheellinen väri.",
+      "invalidTrailEffect": "Virheellinen vanatehoste.",
+      "adminCannotDeleteSelf": "Ylläpitäjät eivät voi poistaa omaa tiliään tämän käyttöliittymän kautta.",
+      "deleteAccountError": "Sisäinen virhe tilin poiston aikana."
+    },
+    "success": {
+      "accountCreated": "Tili luotu ja kirjautuminen onnistui.",
+      "login": "Kirjautuminen onnistui.",
+      "logout": "Uloskirjautuminen onnistui.",
+      "skinUpdated": "Ulkoasu päivitetty onnistuneesti.",
+      "accountDeleted": "Tilisi on poistettu onnistuneesti."
+    },
+    "admin": {
+      "adminStatusUpdated": "Ylläpitäjän tila käyttäjälle {{username}} päivitetty.",
+      "suspendStatusUpdated": "Jäädytystila käyttäjälle {{username}} päivitetty.",
+      "userDeleted": "Tili {{username}} poistettu onnistuneesti.",
+      "pruneNoUsers": "Passiivisia tilejä ei löytynyt siivottavaksi.",
+      "pruneSuccess": "{{count}} passiivista tiliä siivottu."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Tilisi on jäädytetty.",
+      "accountError": "Tilin virhe. Kirjaudu uudelleen.",
+      "alreadyConnected": "Tämä tili on jo yhdistetty peliin.",
+      "deletedByAdmin": "Ylläpitäjä poisti tilisi.",
+      "accountDeleted": "Tilisi on poistettu."
+    },
+    "kickReason": "Potkittu {{admin}} toimesta",
+    "banReason": "Estetty {{admin}} toimesta",
+    "clearReason": "Siivottu {{admin}} toimesta",
+    "adminFeedback": {
+      "unauthorized": "Toiminto ei ole sallittu.",
+      "targetNotFound": "Kohdepelaajaa ei löytynyt.",
+      "kickSuccess": "{{username}} potkittiin.",
+      "kickOfflineSuccess": "{{username}} (jo yhteyden katkaissut) poistettiin pelistä.",
+      "kickError": "Sokettia tai tilaa ei löytynyt käyttäjälle {{username}}.",
+      "banSuccess": "{{username}} estettiin (tili jäädytetty ja pelaaja potkittu).",
+      "banAccountOnlySuccess": "Tili {{username}} jäädytetty (pelaaja jo yhteyden katkaissut tai poistettu).",
+      "banError": "Käyttäjää {{username}} ei voi estää (väliaikainen tai olematon tili).",
+      "freezeSuccess": "{{username}} jäädytettiin.",
+      "unfreezeSuccess": "{{username}} vapautettiin.",
+      "killSuccess": "{{username}} tapettiin.",
+      "clearSuccess": "{{username}} siivottiin (poistettiin ilman ruokaa).",
+      "clearError": "Käyttäjää {{username}} ei voitu siivota (jo poistettu?).",
+      "unknownAction": "Tuntematon toiminto."
+    },
+    "userConnected": "{{username}} liittyi peliin.",
+    "userDisconnected": "{{username}} lähti pelistä.",
+    "disconnectReason": "Yhteys katkaistu: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Tuntematon törmäys",
+      "boundary": "Osuit kartan reunaan.",
+      "teleport": "Yhteys katkaistu: Epäilyttävä liike.",
+      "selfCollision": "Huijauksenesto: Itsetörmäys.",
+      "inactivity": "Passiivisuus.",
+      "killedByAdmin": "Ylläpitäjä tappoi sinut: {{admin}}",
+      "botExpired": "Botti vanhentui.",
+      "clientCollision": "Kehon törmäys (asiakas)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Koko: {{size}}",
+    "positionLabel": "Sijainti: {{x}}x{{y}}",
+    "ghostMode": "Aavetila",
+    "spectator": "Katsoja"
+  },
+  "ghostMode": {
+    "selected": "Valittu: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Tuntematon",
+    "controlsSelected": "<kbd>K</kbd>: Tapa | <kbd>C</kbd>: Siivoa | <kbd>F</kbd>: Jäädytä/Vapauta | <kbd>Esc</kbd>: Poista valinta",
+    "controlsGeneral": "Vasen klikkaus: Valitse Kohde / Vedä panoroidaksesi<br>Vierityspyörä: Zoomaa | <kbd>Esc</kbd>: Poista valinta"
+  },
+  "mainPage": {
+    "title": "Slither-klooni SIO"
+  },
+  "mainMenu": {
+    "title": "Tervetuloa <span class=\"blink\">Slither-klooni SIO</span> -peliin",
+    "helpButtonTitle": "Ohje & Tekijät",
+    "adminLink": "Ylläpito",
+    "exitGhostButton": "Poistu Aavetilasta"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Pelaa Vieraana",
+      "playAsUser": "Pelaa nimellä {{username}}",
+      "login": "Kirjaudu Sisään",
+      "createAccount": "Luo Tili",
+      "customizeSkin": "Mukauta Ulkoasua",
+      "customSounds": "Mukautetut Äänet",
+      "showLeaderboard": "Näytä Tulostaulu",
+      "ghostMode": "Aavetila",
+      "deleteAccount": "Poista Tilini",
+      "logout": "Kirjaudu Ulos"
+    },
+    "alerts": {
+      "colorTooDark": "Valittu väri on hyvin tumma ja saattaa näkyä huonosti. Suositellaan vaaleampaa väriä.",
+      "missingCredentials": "Anna käyttäjätunnus ja salasana.",
+      "usernameLength": "Käyttäjätunnuksen on oltava {{min}}–{{max}} merkkiä pitkä.",
+      "passwordLength": "Salasanan on oltava vähintään {{minLength}} merkkiä pitkä.",
+      "maxPatternColors": "Kuviovärien enimmäismäärä {{max}} saavutettu.",
+      "canvasError": "Kriittinen Virhe: Tekstipeittokangaselementtiä ei löytynyt!",
+      "gameModuleError": "Kriittinen Virhe: Pelimoduulia ei voitu alustaa!",
+      "fetchAccountError": "Virhe tilitietojen haussa.",
+      "loginError": "Kirjautumisvirhe: {{error}}",
+      "creationError": "Luontivirhe: {{error}}",
+      "skinUpdateError": "Verkko- tai palvelinvirhe ulkoasun päivityksessä: {{error}}",
+      "skinUpdatedTemp": "Ulkoasu päivitetty väliaikaiselle istunnolle.",
+      "deleteAccountError": "Verkkovirhe tilin poiston aikana."
+    },
+    "confirms": {
+      "enterGhostMode": "Siirrytäänkö aavetilaan (katsoja)?",
+      "deleteAccount": "Haluatko varmasti poistaa tilisi \"{{username}}\" pysyvästi? Tätä toimintoa ei voi kumota."
+    },
+    "welcomeMessage": "Hei {{username}}!",
+    "welcomeMessage_admin": "Hei {{username}} (Ylläpitäjä)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Käyttäjätunnus:",
+      "passwordLabel": "Salasana:",
+      "backButton": "Takaisin"
+    },
+    "guest": {
+      "title": "Pelaa Vieraana",
+      "note": "Värit ja skini asetetaan \"Mukauta Ulkoasua\" -valikosta.",
+      "submitButton": "Aloita Peli"
+    },
+    "login": {
+      "title": "Kirjaudu Sisään",
+      "submitButton": "Kirjaudu"
+    },
+    "create": {
+      "title": "Luo Tili",
+      "initialHeadColorLabel": "Alkupään Väri:",
+      "initialBodyColorLabel": "Alkuvartalon Väri:",
+      "submitButton": "Luo"
+    },
+    "skin": {
+      "title": "Mukauta Ulkoasua",
+      "headColorLabel": "Pään Väri:",
+      "bodyTypeLabel": "Vartalon Tyyppi",
+      "bodyTypeSingle": "Yksi Väri",
+      "bodyTypePattern": "Toistuva Kuvio",
+      "bodyColorLabel": "Vartalon Väri:",
+      "patternColorsLabel": "Kuviovärit (enint. 8)",
+      "trailEffectLabel": "Vanatehoste",
+      "trailEffect": {
+        "none": "Ei mitään",
+        "sparkle": "Kipinät",
+        "smoke": "Vihreä Savu",
+        "fire": "Tuli",
+        "ice": "Jäänsirut",
+        "electric": "Sähkökipinät",
+        "rainbow": "Sateenkaari",
+        "bubbles": "Kuplat",
+        "glitch": "Glitch",
+        "void": "Tyhjyys / Varjo",
+        "confetti": "Konfetti"
+      },
+      "submitButton": "Tallenna Ulkoasu"
+    },
+    "sound": {
+      "title": "Mukautetut Äänet",
+      "info": "Lataa MP3-tiedostoja (paikallisesti tallennettu) tapahtumille.",
+      "deathLabel": "Kuolemaääni:",
+      "killLabel": "Tappoääni:",
+      "boostLabel": "Boost-ääni:",
+      "clearButton": "Poista Äänet"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Pelaa Uudelleen",
+    "backToMenuButton": "Takaisin Valikkoon",
+    "finalSizeLabel": "Kokosi oli: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Tulostaulu",
+    "header": {
+      "name": "Nimi",
+      "status": "Tila",
+      "size": "Koko",
+      "kills": "Tapot",
+      "deaths": "Kuolemat",
+      "kd": "K/D"
+    },
+    "noPlayers": "Ei vielä pelaajia listalla.",
+    "status": {
+      "ingame": "Pelissä",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Ei koskaan",
+      "na": "Ei saatavilla",
+      "ingameTitle": "Tällä hetkellä pelissä"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} sek sitten",
+      "secondsAgo_other": "{{count}} sek sitten",
+      "minutesAgo_one": "{{count}} min sitten",
+      "minutesAgo_other": "{{count}} min sitten",
+      "hoursAgo_one": "{{count}} tunti sitten",
+      "hoursAgo_other": "{{count}} tuntia sitten",
+      "daysAgo_one": "{{count}} päivä sitten",
+      "daysAgo_other": "{{count}} päivää sitten",
+      "yesterday": "Eilen"
+    },
+    "lastLoginTitle": "Viimeisin kirjautuminen: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Pikanäppäimet (Valikko)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Selaa painikkeita",
+      "activate": "Enter: Aktivoi valittu painike",
+      "close": "Esc: Sulje tämä paneeli / Takaisin"
+    },
+    "gameKeysTitle": "Pikanäppäimet (Peli)",
+    "gameKeys": {
+      "mouse": "Hiiri: Ohjaa matoa",
+      "boost": "Vasen klikkaus / Välilyönti: Boost",
+      "adminCheat": "P: Ylläpitohuijaus (jos ylläpitäjä)"
+    },
+    "ghostKeysTitle": "Pikanäppäimet (Aave)",
+    "ghostKeys": {
+      "select": "Vasen klikkaus (pelaajaan): Valitse Pelaaja",
+      "pan": "Vasen klikkaus + Vedä (tyhjä tila): Panoroi Kameraa",
+      "zoom": "Hiiren rulla: Zoomaa Sisään/Ulos",
+      "kill": "K (jos pelaaja valittu): Tapa Pelaaja",
+      "clear": "C (jos pelaaja valittu): Siivoa Pelaaja (ei ruokaa)",
+      "freeze": "F (jos pelaaja valittu): Jäädytä/Vapauta Pelaaja",
+      "deselect": "Esc: Poista Pelaajan Valinta"
+    },
+    "creditsTitle": "Tekijät",
+    "creditsAuthor": "Tekijä: Nimetön Tekijä",
+    "creditsLicense": "Lisenssi: MIT",
+    "creditsGithub": "Projekti GitHubissa"
+  },
+  "NEW_KEY_1": "Lähdeteksti ensimmäiselle uudelle avaimelle.",
+  "NEW_KEY_2": "Lähdeteksti toiselle uudelle avaimelle."
+}

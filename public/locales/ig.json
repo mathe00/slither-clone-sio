@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Onye nchịkwa - Oyiri Slither",
+  "backButtonTitle": "Laghachi na ibe mbụ",
+  "tabs": {
+    "settings": "Ntọala Izugbe",
+    "users": "Nchịkwa Ndị ọrụ",
+    "currentConfig": "Nhazi Dị Ugbu A"
+  },
+  "settingsForm": {
+    "title": "Ntọala Izugbe",
+    "passwordNote": "<strong>Rịba ama:</strong> Iji tọọ ma ọ bụ tọgharịa okwuntughe onye nchịkwa, kwụsị sava ahụ ma jiri iwu a gbaa ya:<br/><code>node backend/server.js --set-new-password OKWUNTUGHE_ỌHỤRỤ_GỊ</code><br/>Ịnweta ibe a chọrọ nnọkọ onye nchịkwa na-arụ ọrụ (site na kuki).<br/>Ụfọdụ ntọala (akara *) chọrọ ka amalitegharịa sava ahụ ka etinyere ha.",
+    "mapWidth": {
+      "label": "Obosara Maapụ (px) *:",
+      "placeholder": "d.m. 4000"
+    },
+    "mapHeight": {
+      "label": "Ogologo Maapụ (px) *:",
+      "placeholder": "d.m. 4000"
+    },
+    "mapShape": {
+      "label": "Ụdị Maapụ *:",
+      "rectangle": "Akụkụ Anọ",
+      "circle": "Okirikiri"
+    },
+    "aoiRadius": {
+      "label": "Radius Mpaghara Mmasị (AoI) (px) *:",
+      "placeholder": "d.m. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Oke Nha Agwọ (Nke izizi):",
+      "placeholder": "d.m. 1000"
+    },
+    "initialSize": {
+      "label": "Nha Agwọ Mbụ:",
+      "placeholder": "d.m. 50"
+    },
+    "speed": {
+      "label": "Ọsọ Isi:",
+      "placeholder": "d.m. 1"
+    },
+    "maxRotationRate": {
+      "label": "Ọnụego Ntụgharị Kacha (rad/tick):",
+      "placeholder": "d.m. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Nha Kacha nta maka Boost:",
+      "placeholder": "d.m. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Ọnụego Oriri Boost:",
+      "placeholder": "d.m. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Oge Nri Na-apụta (ms):",
+      "placeholder": "d.m. 5000"
+    },
+    "fps": {
+      "label": "FPS Sava (loops/sec):",
+      "placeholder": "d.m. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Ike Nri Na-adọta:",
+      "placeholder": "d.m. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Ebe Nri Na-arapara:",
+      "placeholder": "d.m. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Ọkwa Mbugharị Nke izizi:",
+      "placeholder": "d.m. 1.0"
+    },
+    "securityMode": {
+      "label": "Ụdị Nchedo *:",
+      "high": "Elu (Akwadoro)",
+      "low": "Dị ala (Onye ahịa + Dị Mfe)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Ọnụ ụzọ Mmebi Teleport:",
+      "placeholder": "d.m. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Ihe Mmehie Teleport:",
+      "placeholder": "d.m. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Mee ka ọnọdụ Chineke rụọ ọrụ mgbe ị na-apụta:",
+      "yes": "Ee",
+      "no": "Mba"
+    },
+    "botsEnabled": {
+      "label": "Mee ka Bot rụọ ọrụ:",
+      "yes": "Ee",
+      "no": "Mba"
+    },
+    "botMaxCount": {
+      "label": "Ọnụọgụ Bot Kacha:",
+      "placeholder": "d.m. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Oge Bot Na-apụta (ms):",
+      "placeholder": "d.m. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Oge Bot Ga-adịgide (ms):",
+      "placeholder": "d.m. 120000"
+    },
+    "botDifficulty": {
+      "label": "Nsogbu Bot:",
+      "easy": "Dị Mfe",
+      "medium": "Etiti",
+      "hard": "Siri Ike"
+    },
+    "adminMessageText": {
+      "label": "Ozi Onye Nchịkwa (hapụ oghere iji kpochapụ):",
+      "placeholder": "Ozi a ga-egosi ndị egwuregwu niile"
+    },
+    "adminMessageDuration": {
+      "label": "Ogologo Oge Ozi (sekọnd):",
+      "placeholder": "d.m. 10"
+    },
+    "updateButton": "Melite Ntọala"
+  },
+  "userManagement": {
+    "title": "Nchịkwa Ndị ọrụ",
+    "loading": "Na-ebudata...",
+    "noUsers": "Ọ dịghị ndị ọrụ achọtara.",
+    "table": {
+      "headerUser": "Onye ọrụ",
+      "headerStatus": "Ọnọdụ",
+      "headerLastLogin": "Nbanye Ikpeazụ",
+      "headerCreated": "E kere",
+      "headerActions": "Omume"
+    },
+    "status": {
+      "admin": "Onye nchịkwa",
+      "suspended": "Akụchiri",
+      "normal": "Nkịtị",
+      "never": "Ọ dịtụbeghị",
+      "unknown": "Amaghị"
+    },
+    "actions": {
+      "removeAdmin": "Wepụ Onye nchịkwa",
+      "makeAdmin": "Mee Onye nchịkwa",
+      "unban": "Wepụ Mmachibido",
+      "suspend": "Kwụsịtụ",
+      "delete": "Hichapụ"
+    },
+    "pruneButton": "Kpochapụ Akaụntụ Ndị Na-adịghị Arụ Ọrụ",
+    "confirmDelete": "Ị ji n'aka na ị chọrọ ihichapụ onye ọrụ \"{{username}}\" kpamkpam? Omume a enweghị ike ịgbanwe.",
+    "confirmPrune_one": "Ị ji n'aka na ị chọrọ ihichapụ akaụntụ {{count}} na-adịghị arụ ọrụ (anaghị arụ ọrụ >ụbọchị 15 NA ọnụ ọgụgụ dị ala nke ukwuu)? Omume a enweghị ike ịgbanwe.",
+    "confirmPrune_other": "Ị ji n'aka na ị chọrọ ihichapụ akaụntụ {{count}} na-adịghị arụ ọrụ (anaghị arụ ọrụ >ụbọchị 15 NA ọnụ ọgụgụ dị ala nke ukwuu)? Omume a enweghị ike ịgbanwe.",
+    "confirmPruneZero": "Ọ dịghị akaụntụ na-adịghị arụ ọrụ achọtara dabere na njirisi dị ugbu a. Ị ka chọrọ ịme ọrụ ahụ (ma ọ bụrụ na ọ dị)?",
+    "confirmPruneZeroConfirm": "Kwado ọrụ nchacha ọbụlagodi na achọpụtara akaụntụ 0?",
+    "pruneCancelled": "A kagbuola ọrụ nchacha."
+  },
+  "currentConfig": {
+    "title": "Nhazi Sava Dị Ugbu A",
+    "loading": "Na-ebudata nhazi...",
+    "loadError": "Enweghị ike ibudata nhazi.",
+    "loadSuccess": "Ebudatala nhazi dị ugbu a.",
+    "keys": {
+      "MAP_WIDTH": "Obosara Maapụ (px)",
+      "MAP_HEIGHT": "Ogologo Maapụ (px)",
+      "MAP_SHAPE": "Ụdị Maapụ",
+      "AOI_RADIUS": "Radius Mpaghara Mmasị (AoI) (px)",
+      "SECURITY_MODE": "Ụdị Nchedo",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Oke Nha Agwọ (Nke izizi)",
+      "INITIAL_SIZE": "Nha Agwọ Mbụ",
+      "MIN_BOOST_SIZE": "Nha Kacha nta maka Boost",
+      "SPEED": "Ọsọ Isi",
+      "MAX_ROTATION_RATE": "Ọnụego Ntụgharị Kacha",
+      "BOOST_CONSUMPTION_RATE": "Oriri Boost (Nha/tick)",
+      "FPS": "FPS Sava",
+      "FOOD_SPAWN_INTERVAL": "Oge Nri Na-apụta (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Ike Nri Na-adọta",
+      "FOOD_SNAP_DISTANCE": "Ebe Nri Na-arapara",
+      "DEFAULT_ZOOM_LEVEL": "Ọkwa Mbugharị Nke izizi",
+      "TELEPORT_VIOLATION_THRESHOLD": "Ọnụ ụzọ Mmebi Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Ihe Mmehie Teleport",
+      "BOTS_ENABLED": "Bot Enyere Aka",
+      "BOT_MAX_COUNT": "Ọnụọgụ Bot Kacha",
+      "BOT_SPAWN_INTERVAL_MS": "Oge Bot Na-apụta (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Oge Bot Ga-adịgide (ms)",
+      "BOT_DIFFICULTY": "Nsogbu Bot"
+    },
+    "boolean": {
+      "yes": "Ee",
+      "no": "Mba"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Ajụrụ ịnweta. Na-atụgharị...",
+    "settingsUpdated": "Emelitere ntọala nke ọma.",
+    "settingsUpdatedWithRestart": "Emelitere ntọala. Achọrọ mmalitegharị sava maka mgbanwe maapụ/nchekwa.",
+    "settingsUpdatedFpsRestart": "Emelitere ntọala. Amalitegharịrị loop egwuregwu maka mgbanwe FPS.",
+    "settingsUpdateError": "Njehie imelite ntọala.",
+    "loadSettingsError": "Njehie ibudata ntọala: {{error}}",
+    "loadUsersError": "Njehie ibudata ndị ọrụ.",
+    "networkError": "Njehie netwọk ma ọ bụ sava adịghị.",
+    "invalidResponse": "Nzaghachi ezighi ezi sitere na sava (ọ bụghị JSON)",
+    "changes": "Mgbanwe:",
+    "restartRequired": "Achọrọ mmalitegharị sava iji tinye mgbanwe (Nha/Ụdị Maapụ, Ụdị Nchedo, Radius AoI).",
+    "fpsRestart": "Amalitegharịrị loop egwuregwu iji tinye FPS ọhụrụ.",
+    "noChanges": "Ọ dịghị ntọala gbanwere.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Njehie n'oge nlele mbụ.",
+    "pruneError": "Njehie n'oge ọrụ nchacha.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Biko họrọ faịlụ MP3.",
+      "loginRequired": "Ị ga-abanyerịrị iji chekwaa ụda omenala.",
+      "saveError": "Njehie ichekwa ụda. Nchekwa mpaghara nwere ike ijujuru.",
+      "readError": "Njehie ịgụ faịlụ ụda.",
+      "clearLoginRequired": "Ị ga-abanyerịrị iji kpochapụ ụda.",
+      "clearError": "Njehie mere mgbe a na-ehichapụ ụda."
+    },
+    "confirms": {
+      "clearAll": "Ị ji n'aka na ị chọrọ ihichapụ ụda omenala niile maka akaụntụ a?"
+    },
+    "statusTitles": {
+      "saveError": "Njehie Nchekwa",
+      "readError": "Njehie Ịgụ",
+      "saved": "Echekwarala ụda",
+      "savedWithName": "Echekwarala: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Sava Adịghị - Oyiri Slither SIO",
+    "logoAlt": "Akara ngosi Sava Adịghị",
+    "mainHeader": "Sava Adịghị",
+    "explanation": "Sava <span class=\"game-name\">Oyiri Slither SIO</span> yiri ka ọ nọghị n'ịntanetị nwa oge ma ọ bụ enweghị ike iru ya. Anyị na-agbalị iweghachite njikọ maka gị.",
+    "snakeTitle": "Ka ọ dịgodị, kpọọ Agwọ!",
+    "snakeScoreLabel": "Akara: 0",
+    "snakeControls": "Akụ / ZQSD / WASD: Bugharịa | Tinye: Malite/Malitegharịa",
+    "status": {
+      "label": "Ọnọdụ:",
+      "searching": "Na-achọ...",
+      "checking": "Na-enyocha...",
+      "connected": "Ejikọrọ!",
+      "nextAttemptLabel": "Mgbalị ọzọ na",
+      "secondsSuffix": "sekọnd",
+      "attemptsLabel": "Mgbalị:"
+    },
+    "refreshButton": "Lelee Ugbu A",
+    "redirectInfo": "A ga-atụgharị gị na-akpaghị aka ozugbo sava laghachiri n'ịntanetị."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Akara: {{score}}"
+    },
+    "gameOver": {
+      "win": "Ị MERIWO!",
+      "lose": "Ị DABARA!",
+      "scoreLabel": "Akara: {{score}}",
+      "promptLine1": "Pịa Tinye",
+      "promptLine2": "Iji Kpọọ Ọzọ"
+    },
+    "countdown": "NA-AMALITE NA {{count}}",
+    "startScreen": {
+      "title": "AGWỌ",
+      "promptLine1": "Pịa Tinye",
+      "promptLine2": "Iji Kpọọ"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Njehie sava dị n'ime.",
+      "invalidAdminStatus": "Ọnọdụ 'isAdmin' ezighi ezi.",
+      "userNotFound": "Achọtaghị onye ọrụ.",
+      "invalidSuspendStatus": "Ọnọdụ 'isSuspended' ezighi ezi.",
+      "cannotDeleteSelf": "Ị nweghị ike ihichapụ akaụntụ onye nchịkwa nke gị ebe a.",
+      "prunePreviewError": "Njehie n'oge nlele mbụ nchacha.",
+      "pruneError": "Njehie n'oge ọrụ nchacha.",
+      "rateLimit": "Ọtụtụ mgbalị ịmepụta akaụntụ. Biko nwaa ọzọ n'ihe dị ka nkeji {{minutes}}.",
+      "missingCredentials": "A chọrọ aha njirimara na okwuntughe.",
+      "usernameTooLong": "Aha njirimara enweghị ike ịgafe mkpụrụedemede {{maxLength}}.",
+      "usernameTooShort": "Aha njirimara ga-enwerịrị opekata mpe mkpụrụedemede {{minLength}}.",
+      "passwordTooShort": "Okwuntughe ga-enwerịrị opekata mpe mkpụrụedemede {{minLength}}.",
+      "usernameTaken": "Ejirila aha njirimara a.",
+      "invalidCredentials": "Aha njirimara ma ọ bụ okwuntughe ezighi ezi.",
+      "accountSuspended": "Akụchiela akaụntụ a ugbu a.",
+      "notAuthenticated": "Enwetaghị ikike.",
+      "invalidHeadColor": "Agba isi ezighi ezi.",
+      "missingSkinData": "Data akpụkpọ ahụ na-efu ma ọ bụ ezighi ezi.",
+      "invalidBodyType": "Ụdị ahụ ezighi ezi.",
+      "invalidBodyColor": "Agba ahụ ezighi ezi na data akpụkpọ ahụ.",
+      "invalidPatternColorsType": "Agba ụkpụrụ ga-abụrịrị n'usoro.",
+      "tooManyPatternColors": "Ọtụtụ agba ụkpụrụ (kacha {{max}}).",
+      "invalidPatternColorValue": "Achọtara agba ezighi ezi na ụkpụrụ.",
+      "invalidTrailEffect": "Mmetụta ụzọ ezighi ezi.",
+      "adminCannotDeleteSelf": "Ndị nchịkwa enweghị ike ihichapụ akaụntụ nke ha site na interface a.",
+      "deleteAccountError": "Njehie dị n'ime mgbe a na-ehichapụ akaụntụ."
+    },
+    "success": {
+      "accountCreated": "Emebere akaụntụ ma banye nke ọma.",
+      "login": "Nbanye gara nke ọma.",
+      "logout": "Ọpụpụ gara nke ọma.",
+      "skinUpdated": "Emelitere ọdịdị nke ọma.",
+      "accountDeleted": "Ehichapụla akaụntụ gị nke ọma."
+    },
+    "admin": {
+      "adminStatusUpdated": "Emelitere ọkwa onye nchịkwa maka {{username}}.",
+      "suspendStatusUpdated": "Emelitere ọkwa nkwụsị maka {{username}}.",
+      "userDeleted": "Ehichapụla akaụntụ {{username}} nke ọma.",
+      "pruneNoUsers": "Ọ dịghị akaụntụ na-adịghị arụ ọrụ achọtara maka nchacha.",
+      "pruneSuccess": "Akaụntụ {{count}} na-adịghị arụ ọrụ ka a kpochapụrụ."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Akụchiela akaụntụ gị.",
+      "accountError": "Njehie akaụntụ. Biko banye ọzọ.",
+      "alreadyConnected": "Akaụntụ a ejikọrọlarị na egwuregwu ahụ.",
+      "deletedByAdmin": "Onye nchịkwa ehichapụla akaụntụ gị.",
+      "accountDeleted": "Ehichapụla akaụntụ gị."
+    },
+    "kickReason": "Onye {{admin}} chụpụrụ gị",
+    "banReason": "Onye {{admin}} machibidoro gị iwu",
+    "clearReason": "Onye {{admin}} kpochapụrụ gị",
+    "adminFeedback": {
+      "unauthorized": "Omume enyeghị ikike.",
+      "targetNotFound": "Achọtaghị onye egwuregwu ezubere iche.",
+      "kickSuccess": "A chụpụrụ {{username}}.",
+      "kickOfflineSuccess": "Ewepụrụ {{username}} (nke kwụsịrịlarị) na egwuregwu ahụ.",
+      "kickError": "Enweghị ike ịchọta soketị ma ọ bụ ọkwa maka {{username}}.",
+      "banSuccess": "Amachibidoro {{username}} iwu (akwụsịrị akaụntụ ma chụpụ onye egwuregwu).",
+      "banAccountOnlySuccess": "Akwụsịrị akaụntụ {{username}} (onye egwuregwu kwụsịrịlarị ma ọ bụ wepụ ya).",
+      "banError": "Enweghị ike machibido {{username}} iwu (akaụntụ nwa oge ma ọ bụ nke na-adịghị adị).",
+      "freezeSuccess": "Oyi kpọnwụrụ {{username}}.",
+      "unfreezeSuccess": "A gbazere {{username}}.",
+      "killSuccess": "Egburu {{username}}.",
+      "clearSuccess": "A kpochapụrụ {{username}} (wepụrụ na-ahapụghị nri).",
+      "clearError": "Enweghị ike ikpochapụ {{username}} (ewepụrụlarị?).",
+      "unknownAction": "Omume amaghị."
+    },
+    "userConnected": "{{username}} sonyeere egwuregwu ahụ.",
+    "userDisconnected": "{{username}} hapụrụ egwuregwu ahụ.",
+    "disconnectReason": "Kwụsịrị: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Nkwekọrịta amaghị",
+      "boundary": "Ị kụrụ oke maapụ.",
+      "teleport": "Kwụsịrị: Mgbagharị na-enyo enyo.",
+      "selfCollision": "Mgbochi aghụghọ: Nkwekọrịta onwe.",
+      "inactivity": "Enweghị ọrụ.",
+      "killedByAdmin": "Onye {{admin}} gburu gị",
+      "botExpired": "Bot kubiela.",
+      "clientCollision": "Nkwekọrịta ahụ (onye ahịa)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Nha: {{size}}",
+    "positionLabel": "Ọnọdụ: {{x}}x{{y}}",
+    "ghostMode": "Ụdị Mmụọ",
+    "spectator": "Onye Nkiri"
+  },
+  "ghostMode": {
+    "selected": "Ahọpụtara: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Amaghị",
+    "controlsSelected": "<kbd>K</kbd>: Gbuo | <kbd>C</kbd>: Kpochapụ | <kbd>F</kbd>: Mee ka oyi kpọnwụọ/Gbazee | <kbd>Esc</kbd>: Wepụ Nhọrọ",
+    "controlsGeneral": "Pịa Aka ekpe: Họrọ Ihe / Dọrọ ka ị Pịa<br>Wheel: Mbugharị | <kbd>Esc</kbd>: Wepụ Nhọrọ"
+  },
+  "mainPage": {
+    "title": "Oyiri Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Nnọọ na <span class=\"blink\">Oyiri Slither SIO</span>",
+    "helpButtonTitle": "Enyemaka & Ekele",
+    "adminLink": "Onye nchịkwa",
+    "exitGhostButton": "Pụọ na Ụdị Mmụọ"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Kpọọ dị ka Onye ọbịa",
+      "playAsUser": "Kpọọ dị ka {{username}}",
+      "login": "Banye",
+      "createAccount": "Mepụta Akaụntụ",
+      "customizeSkin": "Hazie Ọdịdị",
+      "customSounds": "Ụda Omenala",
+      "showLeaderboard": "Gosi Bọọdụ Ndị Isi",
+      "ghostMode": "Ụdị Mmụọ",
+      "deleteAccount": "Hichapụ Akaụntụ M",
+      "logout": "Pụọ"
+    },
+    "alerts": {
+      "colorTooDark": "Agba ahọpụtara gbara ọchịchịrị nke ukwuu ma nwee ike isiri ike ịhụ. A na-atụ aro agba dị ọkụ karị.",
+      "missingCredentials": "Biko tinye aha njirimara na okwuntughe.",
+      "usernameLength": "Aha njirimara ga-adị n'etiti mkpụrụedemede {{min}} na {{max}}.",
+      "passwordLength": "Okwuntughe ga-enwerịrị opekata mpe mkpụrụedemede {{minLength}}.",
+      "maxPatternColors": "Erutela oke agba ụkpụrụ {{max}}.",
+      "canvasError": "Njehie Dị Mkpa: Enweghị ike ịchọta ihe canvas maka ederede n'elu!",
+      "gameModuleError": "Njehie Dị Mkpa: Enweghị ike ịmalite modul egwuregwu!",
+      "fetchAccountError": "Njehie inweta data akaụntụ.",
+      "loginError": "Njehie Nbanye: {{error}}",
+      "creationError": "Njehie Okike: {{error}}",
+      "skinUpdateError": "Njehie netwọk ma ọ bụ sava mgbe a na-emelite ọdịdị: {{error}}",
+      "skinUpdatedTemp": "Emelitere ọdịdị maka nnọkọ nwa oge.",
+      "deleteAccountError": "Njehie netwọk mgbe a na-ehichapụ akaụntụ."
+    },
+    "confirms": {
+      "enterGhostMode": "Banye na Ụdị Mmụọ (onye nkiri)?",
+      "deleteAccount": "Ị ji n'aka na ị chọrọ ihichapụ akaụntụ gị \"{{username}}\" kpamkpam? Omume a enweghị ike ịgbanwe."
+    },
+    "welcomeMessage": "Nnọọ {{username}}!",
+    "welcomeMessage_admin": "Nnọọ {{username}} (Onye nchịkwa)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Aha njirimara:",
+      "passwordLabel": "Okwuntughe:",
+      "backButton": "Azụ"
+    },
+    "guest": {
+      "title": "Kpọọ dị ka Onye ọbịa",
+      "note": "A ga-edozi agba na akpụkpọ ahụ site na \"Hazie Ọdịdị\".",
+      "submitButton": "Malite Egwuregwu"
+    },
+    "login": {
+      "title": "Banye",
+      "submitButton": "Banye"
+    },
+    "create": {
+      "title": "Mepụta Akaụntụ",
+      "initialHeadColorLabel": "Agba Isi Mbụ:",
+      "initialBodyColorLabel": "Agba Ahụ Mbụ:",
+      "submitButton": "Mepụta"
+    },
+    "skin": {
+      "title": "Hazie Ọdịdị",
+      "headColorLabel": "Agba Isi:",
+      "bodyTypeLabel": "Ụdị Ahụ",
+      "bodyTypeSingle": "Otu Agba",
+      "bodyTypePattern": "Ụkpụrụ Na-emegharị",
+      "bodyColorLabel": "Agba Ahụ:",
+      "patternColorsLabel": "Agba Ụkpụrụ (kacha 8)",
+      "trailEffectLabel": "Mmetụta Ụzọ",
+      "trailEffect": {
+        "none": "Ọ dịghị",
+        "sparkle": "Ọkụ",
+        "smoke": "Anwụrụ ọkụ Akwụkwọ ndụ",
+        "fire": "Ọkụ",
+        "ice": "Mpekere Ice",
+        "electric": "Ọkụ eletrik",
+        "rainbow": "Eke miri",
+        "bubbles": "Afụfụ",
+        "glitch": "Glitch",
+        "void": "Oghere / Onyinyo",
+        "confetti": "Confetti"
+      },
+      "submitButton": "Chekwaa Ọdịdị"
+    },
+    "sound": {
+      "title": "Ụda Omenala",
+      "info": "Bulite faịlụ MP3 (echekwara na mpaghara) maka ihe omume.",
+      "deathLabel": "Ụda Ọnwụ:",
+      "killLabel": "Ụda Igbu:",
+      "boostLabel": "Ụda Boost:",
+      "clearButton": "Kpochapụ Ụda"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Kpọọ Ọzọ",
+    "backToMenuButton": "Laghachi na NchNhr",
+    "finalSizeLabel": "Nha gị bụ: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Bọọdụ Ndị Isi",
+    "header": {
+      "name": "Aha",
+      "status": "Ọnọdụ",
+      "size": "Nha",
+      "kills": "Ogbugbu",
+      "deaths": "Ọnwụ",
+      "kd": "K/D"
+    },
+    "noPlayers": "Ọ dịghị ndị egwuregwu edepụtara aha ugbu a.",
+    "status": {
+      "ingame": "N'ime Egwuregwu",
+      "online": "N'ịntanetị",
+      "offline": "Anọghị n'ịntanetị",
+      "never": "Ọ dịtụbeghị",
+      "na": "A/A",
+      "ingameTitle": "Nọ ugbu a n'ime egwuregwu"
+    },
+    "time": {
+      "secondsAgo_one": "sekọnd {{count}} gara aga",
+      "secondsAgo_other": "sekọnd {{count}} gara aga",
+      "minutesAgo_one": "nkeji {{count}} gara aga",
+      "minutesAgo_other": "nkeji {{count}} gara aga",
+      "hoursAgo_one": "awa {{count}} gara aga",
+      "hoursAgo_other": "awa {{count}} gara aga",
+      "daysAgo_one": "ụbọchị {{count}} gara aga",
+      "daysAgo_other": "ụbọchị {{count}} gara aga",
+      "yesterday": "Ụnyaahụ"
+    },
+    "lastLoginTitle": "Nbanye ikpeazụ: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Ụzọ mkpirisi Ahụigodo (NchNhr)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Gagharịa bọtịnụ",
+      "activate": "Tinye: Mee ka bọtịnụ ahọpụtara rụọ ọrụ",
+      "close": "Esc: Mechie panel a / Laghachi"
+    },
+    "gameKeysTitle": "Ụzọ mkpirisi Ahụigodo (Egwuregwu)",
+    "gameKeys": {
+      "mouse": "Ụsoro: Duzie agwọ",
+      "boost": "Pịa Aka ekpe / Space: Boost",
+      "adminCheat": "P: Nduhie Onye Nchịkwa (ọ bụrụ onye nchịkwa)"
+    },
+    "ghostKeysTitle": "Ụzọ mkpirisi Ahụigodo (Mmụọ)",
+    "ghostKeys": {
+      "select": "Pịa Aka ekpe (n'elu onye egwuregwu): Họrọ Onye Egwuregwu",
+      "pan": "Pịa Aka ekpe + Dọrọ (ebe tọgbọrọ chakoo): Bugharịa Igwefoto",
+      "zoom": "Wheel Ụsoro: Mbugharị N'ime/N'èzí",
+      "kill": "K (ọ bụrụ na ahọpụtara onye egwuregwu): Gbuo Onye Egwuregwu",
+      "clear": "C (ọ bụrụ na ahọpụtara onye egwuregwu): Kpochapụ Onye Egwuregwu (enweghị nri)",
+      "freeze": "F (ọ bụrụ na ahọpụtara onye egwuregwu): Mee ka Onye Egwuregwu kpọnwụọ/Gbazee",
+      "deselect": "Esc: Wepụ Nhọrọ Onye Egwuregwu"
+    },
+    "creditsTitle": "Ekele",
+    "creditsAuthor": "Onye edemede: Onye edemede A na-amaghị aha ya",
+    "creditsLicense": "Akwụkwọ ikike: MIT",
+    "creditsGithub": "Ọrụ na GitHub"
+  },
+  "NEW_KEY_1": "Ederede isi mmalite maka igodo ọhụrụ nke mbụ.",
+  "NEW_KEY_2": "Ederede isi mmalite maka igodo ọhụrụ nke abụọ."
+}

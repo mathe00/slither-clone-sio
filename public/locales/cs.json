@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Klon Slither",
+  "backButtonTitle": "Zpět na hlavní stránku",
+  "tabs": {
+    "settings": "Obecná Nastavení",
+    "users": "Správa Uživatelů",
+    "currentConfig": "Aktuální Konfigurace"
+  },
+  "settingsForm": {
+    "title": "Obecná Nastavení",
+    "passwordNote": "<strong>Poznámka:</strong> Pro nastavení nebo resetování hesla administrátora zastavte server a spusťte jej příkazem:<br/><code>node backend/server.js --set-new-password VAŠE_NOVÉ_HESLO</code><br/>Přístup k této stránce vyžaduje aktivní administrátorskou relaci (přes cookie).<br/>Některá nastavení (označená *) vyžadují restart serveru pro aplikaci.",
+    "mapWidth": {
+      "label": "Šířka Mapy (px) *:",
+      "placeholder": "např. 4000"
+    },
+    "mapHeight": {
+      "label": "Výška Mapy (px) *:",
+      "placeholder": "např. 4000"
+    },
+    "mapShape": {
+      "label": "Tvar Mapy *:",
+      "rectangle": "Obdélník",
+      "circle": "Kruh"
+    },
+    "aoiRadius": {
+      "label": "Poloměr Oblasti Zájmu (AoI) (px) *:",
+      "placeholder": "např. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Limit Velikosti Hada (Výchozí):",
+      "placeholder": "např. 1000"
+    },
+    "initialSize": {
+      "label": "Počáteční Velikost Hada:",
+      "placeholder": "např. 50"
+    },
+    "speed": {
+      "label": "Základní Rychlost:",
+      "placeholder": "např. 1"
+    },
+    "maxRotationRate": {
+      "label": "Max. Rychlost Otáčení (rad/tick):",
+      "placeholder": "např. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Velikost pro Boost:",
+      "placeholder": "např. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Míra Spotřeby Boostu:",
+      "placeholder": "např. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Interval Vzniku Jídla (ms):",
+      "placeholder": "např. 5000"
+    },
+    "fps": {
+      "label": "Server FPS (smyčky/s):",
+      "placeholder": "např. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Síla Přitažlivosti Jídla:",
+      "placeholder": "např. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Vzdálenost Přichycení Jídla:",
+      "placeholder": "např. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Výchozí Úroveň Přiblížení:",
+      "placeholder": "např. 1.0"
+    },
+    "securityMode": {
+      "label": "Bezpečnostní Režim *:",
+      "high": "Vysoký (Doporučeno)",
+      "low": "Nízký (Klient + Lehký)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Prah Porušení Teleportace:",
+      "placeholder": "např. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Faktor Tolerance Teleportace:",
+      "placeholder": "např. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Povolit God Mode při spawnu:",
+      "yes": "Ano",
+      "no": "Ne"
+    },
+    "botsEnabled": {
+      "label": "Povolit Boty:",
+      "yes": "Ano",
+      "no": "Ne"
+    },
+    "botMaxCount": {
+      "label": "Max. Počet Botů:",
+      "placeholder": "např. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Interval Vzniku Botů (ms):",
+      "placeholder": "např. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Životnost Bota (ms):",
+      "placeholder": "např. 120000"
+    },
+    "botDifficulty": {
+      "label": "Obtížnost Bota:",
+      "easy": "Lehká",
+      "medium": "Střední",
+      "hard": "Těžká"
+    },
+    "adminMessageText": {
+      "label": "Zpráva Administrátora (nechte prázdné pro smazání):",
+      "placeholder": "Zpráva k zobrazení všem hráčům"
+    },
+    "adminMessageDuration": {
+      "label": "Doba Trvání Zprávy (sekundy):",
+      "placeholder": "např. 10"
+    },
+    "updateButton": "Aktualizovat Nastavení"
+  },
+  "userManagement": {
+    "title": "Správa Uživatelů",
+    "loading": "Načítání...",
+    "noUsers": "Nenalezeni žádní uživatelé.",
+    "table": {
+      "headerUser": "Uživatel",
+      "headerStatus": "Stav",
+      "headerLastLogin": "Poslední Přihlášení",
+      "headerCreated": "Vytvořeno",
+      "headerActions": "Akce"
+    },
+    "status": {
+      "admin": "Administrátor",
+      "suspended": "Pozastaveno",
+      "normal": "Normální",
+      "never": "Nikdy",
+      "unknown": "Neznámý"
+    },
+    "actions": {
+      "removeAdmin": "Odebrat Administrátora",
+      "makeAdmin": "Učinit Administrátorem",
+      "unban": "Zrušit Pozastavení",
+      "suspend": "Pozastavit",
+      "delete": "Smazat"
+    },
+    "pruneButton": "Vyčistit Neaktivní Účty",
+    "confirmDelete": "Jste si jisti, že chcete trvale smazat uživatele \"{{username}}\"? Tato akce je nevratná.",
+    "confirmPrune_one": "Jste si jisti, že chcete smazat {{count}} neaktivní účet (neaktivní >15 dní A velmi nízké statistiky)? Tato akce je nevratná.",
+    "confirmPrune_other": "Jste si jisti, že chcete smazat {{count}} neaktivních účtů (neaktivní >15 dní A velmi nízké statistiky)? Tato akce je nevratná.",
+    "confirmPruneZero": "Nenalezeny žádné neaktivní účty na základě aktuálních kritérií. Chcete přesto spustit operaci (pro každý případ)?",
+    "confirmPruneZeroConfirm": "Potvrdit operaci vyčištění, i když bylo detekováno 0 účtů?",
+    "pruneCancelled": "Operace vyčištění zrušena."
+  },
+  "currentConfig": {
+    "title": "Aktuální Konfigurace Serveru",
+    "loading": "Načítání konfigurace...",
+    "loadError": "Nepodařilo se načíst konfiguraci.",
+    "loadSuccess": "Aktuální konfigurace načtena.",
+    "keys": {
+      "MAP_WIDTH": "Šířka Mapy (px)",
+      "MAP_HEIGHT": "Výška Mapy (px)",
+      "MAP_SHAPE": "Tvar Mapy",
+      "AOI_RADIUS": "Poloměr Oblasti Zájmu (AoI) (px)",
+      "SECURITY_MODE": "Bezpečnostní Režim",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Limit Velikosti Hada (Výchozí)",
+      "INITIAL_SIZE": "Počáteční Velikost Hada",
+      "MIN_BOOST_SIZE": "Min. Velikost pro Boost",
+      "SPEED": "Základní Rychlost",
+      "MAX_ROTATION_RATE": "Max. Rychlost Otáčení",
+      "BOOST_CONSUMPTION_RATE": "Spotřeba Boostu (Velikost/tick)",
+      "FPS": "Server FPS",
+      "FOOD_SPAWN_INTERVAL": "Interval Vzniku Jídla (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Síla Přitažlivosti Jídla",
+      "FOOD_SNAP_DISTANCE": "Vzdálenost Přichycení Jídla",
+      "DEFAULT_ZOOM_LEVEL": "Výchozí Úroveň Přiblížení",
+      "TELEPORT_VIOLATION_THRESHOLD": "Prah Porušení Teleportace",
+      "TELEPORT_TOLERANCE_FACTOR": "Faktor Tolerance Teleportace",
+      "BOTS_ENABLED": "Boti Povoleni",
+      "BOT_MAX_COUNT": "Max. Počet Botů",
+      "BOT_SPAWN_INTERVAL_MS": "Interval Vzniku Botů (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Životnost Bota (ms)",
+      "BOT_DIFFICULTY": "Obtížnost Bota"
+    },
+    "boolean": {
+      "yes": "Ano",
+      "no": "Ne"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Přístup odepřen. Přesměrovávání...",
+    "settingsUpdated": "Nastavení úspěšně aktualizována.",
+    "settingsUpdatedWithRestart": "Nastavení aktualizována. Pro změny mapy/bezpečnosti je nutný restart serveru.",
+    "settingsUpdatedFpsRestart": "Nastavení aktualizována. Herní smyčka restartována pro změnu FPS.",
+    "settingsUpdateError": "Chyba při aktualizaci nastavení.",
+    "loadSettingsError": "Chyba při načítání nastavení: {{error}}",
+    "loadUsersError": "Chyba při načítání uživatelů.",
+    "networkError": "Chyba sítě nebo server není dostupný.",
+    "invalidResponse": "Neplatná odpověď od serveru (není JSON)",
+    "changes": "Změny:",
+    "restartRequired": "Pro aplikaci změn (Velikost/Tvar Mapy, Bezpečnostní Režim, Poloměr AoI) je nutný restart serveru.",
+    "fpsRestart": "Herní smyčka byla restartována pro aplikaci nového FPS.",
+    "noChanges": "Žádná nastavení nebyla změněna.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Chyba během náhledu.",
+    "pruneError": "Chyba během operace vyčištění.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Vyberte prosím MP3 soubor.",
+      "loginRequired": "Pro uložení vlastních zvuků musíte být přihlášeni.",
+      "saveError": "Chyba při ukládání zvuku. Místní úložiště může být plné.",
+      "readError": "Chyba při čtení zvukového souboru.",
+      "clearLoginRequired": "Pro smazání zvuků musíte být přihlášeni.",
+      "clearError": "Při mazání zvuků došlo k chybě."
+    },
+    "confirms": {
+      "clearAll": "Jste si jisti, že chcete smazat všechny vlastní zvuky pro tento účet?"
+    },
+    "statusTitles": {
+      "saveError": "Chyba Uložení",
+      "readError": "Chyba Čtení",
+      "saved": "Zvuk uložen",
+      "savedWithName": "Uloženo: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server Není Dostupný - Klon Slither SIO",
+    "logoAlt": "Logo Server Není Dostupný",
+    "mainHeader": "Server Není Dostupný",
+    "explanation": "Server <span class=\"game-name\">Klon Slither SIO</span> se zdá být dočasně offline nebo nedostupný. Snažíme se pro vás obnovit připojení.",
+    "snakeTitle": "Mezitím si zahrajte Hada!",
+    "snakeScoreLabel": "Skóre: 0",
+    "snakeControls": "Šipky / ZQSD / WASD: Pohyb | Enter: Start/Restart",
+    "status": {
+      "label": "Stav:",
+      "searching": "Hledání...",
+      "checking": "Kontrola...",
+      "connected": "Připojeno!",
+      "nextAttemptLabel": "Další pokus za",
+      "secondsSuffix": "s",
+      "attemptsLabel": "Pokusy:"
+    },
+    "refreshButton": "Zkontrolovat Nyní",
+    "redirectInfo": "Budete automaticky přesměrováni, jakmile bude server opět online."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Skóre: {{score}}"
+    },
+    "gameOver": {
+      "win": "VÝHRA!",
+      "lose": "PROHRA!",
+      "scoreLabel": "Skóre: {{score}}",
+      "promptLine1": "Stiskněte Enter",
+      "promptLine2": "pro Novou Hru"
+    },
+    "countdown": "START ZA {{count}}",
+    "startScreen": {
+      "title": "HAD",
+      "promptLine1": "Stiskněte Enter",
+      "promptLine2": "pro Hraní"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Interní chyba serveru.",
+      "invalidAdminStatus": "Neplatný stav 'isAdmin'.",
+      "userNotFound": "Uživatel nenalezen.",
+      "invalidSuspendStatus": "Neplatný stav 'isSuspended'.",
+      "cannotDeleteSelf": "Zde nemůžete smazat vlastní administrátorský účet.",
+      "prunePreviewError": "Chyba během náhledu vyčištění.",
+      "pruneError": "Chyba během operace vyčištění.",
+      "rateLimit": "Příliš mnoho pokusů o vytvoření účtu. Zkuste to prosím znovu za přibližně {{minutes}} minut.",
+      "missingCredentials": "Vyžadováno uživatelské jméno a heslo.",
+      "usernameTooLong": "Uživatelské jméno nesmí přesáhnout {{maxLength}} znaků.",
+      "usernameTooShort": "Uživatelské jméno musí mít alespoň {{minLength}} znaků.",
+      "passwordTooShort": "Heslo musí mít alespoň {{minLength}} znaků.",
+      "usernameTaken": "Toto uživatelské jméno je již obsazeno.",
+      "invalidCredentials": "Neplatné uživatelské jméno nebo heslo.",
+      "accountSuspended": "Tento účet je aktuálně pozastaven.",
+      "notAuthenticated": "Neautentizováno.",
+      "invalidHeadColor": "Neplatná barva hlavy.",
+      "missingSkinData": "Chybí data skinu nebo jsou neplatná.",
+      "invalidBodyType": "Neplatný typ těla.",
+      "invalidBodyColor": "Neplatná barva těla v datech skinu.",
+      "invalidPatternColorsType": "Barvy vzoru musí být pole.",
+      "tooManyPatternColors": "Příliš mnoho barev vzoru (max {{max}}).",
+      "invalidPatternColorValue": "Ve vzoru nalezena neplatná barva.",
+      "invalidTrailEffect": "Neplatný efekt stopy.",
+      "adminCannotDeleteSelf": "Administrátoři nemohou smazat vlastní účet prostřednictvím tohoto rozhraní.",
+      "deleteAccountError": "Interní chyba při mazání účtu."
+    },
+    "success": {
+      "accountCreated": "Účet úspěšně vytvořen a přihlášen.",
+      "login": "Přihlášení úspěšné.",
+      "logout": "Odhlášení úspěšné.",
+      "skinUpdated": "Vzhled úspěšně aktualizován.",
+      "accountDeleted": "Váš účet byl úspěšně smazán."
+    },
+    "admin": {
+      "adminStatusUpdated": "Stav administrátora pro {{username}} aktualizován.",
+      "suspendStatusUpdated": "Stav pozastavení pro {{username}} aktualizován.",
+      "userDeleted": "Účet {{username}} úspěšně smazán.",
+      "pruneNoUsers": "Nenalezeny žádné neaktivní účty k vyčištění.",
+      "pruneSuccess": "{{count}} neaktivních účtů vyčištěno."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Váš účet je pozastaven.",
+      "accountError": "Chyba účtu. Přihlaste se prosím znovu.",
+      "alreadyConnected": "Tento účet je již připojen ke hře.",
+      "deletedByAdmin": "Váš účet byl smazán administrátorem.",
+      "accountDeleted": "Váš účet byl smazán."
+    },
+    "kickReason": "Vykopnut uživatelem {{admin}}",
+    "banReason": "Zabanován uživatelem {{admin}}",
+    "clearReason": "Vyčištěn uživatelem {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Akce není autorizována.",
+      "targetNotFound": "Cílový hráč nenalezen.",
+      "kickSuccess": "{{username}} byl vykopnut.",
+      "kickOfflineSuccess": "{{username}} (již odpojen) odstraněn ze hry.",
+      "kickError": "Nelze najít socket nebo stav pro {{username}}.",
+      "banSuccess": "{{username}} byl zabanován (účet pozastaven a hráč vykopnut).",
+      "banAccountOnlySuccess": "Účet {{username}} pozastaven (hráč již odpojen nebo odstraněn).",
+      "banError": "Nelze zabanovat {{username}} (dočasný nebo neexistující účet).",
+      "freezeSuccess": "{{username}} byl zmrazen.",
+      "unfreezeSuccess": "{{username}} byl rozmrazen.",
+      "killSuccess": "{{username}} byl zabit.",
+      "clearSuccess": "{{username}} byl vyčištěn (odstraněn bez zanechání jídla).",
+      "clearError": "Nelze vyčistit {{username}} (již odstraněn?).",
+      "unknownAction": "Neznámá akce."
+    },
+    "userConnected": "{{username}} se připojil/a do hry.",
+    "userDisconnected": "{{username}} opustil/a hru.",
+    "disconnectReason": "Odpojeno: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Neznámá kolize",
+      "boundary": "Narazil/a jsi do okraje mapy.",
+      "teleport": "Odpojeno: Podezřelý pohyb.",
+      "selfCollision": "Anti-cheat: Vlastní kolize.",
+      "inactivity": "Neaktivita.",
+      "killedByAdmin": "Zabit/a uživatelem {{admin}}",
+      "botExpired": "Bot vypršel.",
+      "clientCollision": "Kolize těla (klient)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Velikost: {{size}}",
+    "positionLabel": "Pozice: {{x}}x{{y}}",
+    "ghostMode": "Režim Ducha",
+    "spectator": "Divák"
+  },
+  "ghostMode": {
+    "selected": "Vybráno: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Neznámý",
+    "controlsSelected": "<kbd>K</kbd>: Zabít | <kbd>C</kbd>: Vyčistit | <kbd>F</kbd>: Zmrazit/Rozmrazit | <kbd>Esc</kbd>: Zrušit výběr",
+    "controlsGeneral": "Levé kliknutí: Vybrat Entitu / Táhnout pro Posun<br>Kolečko: Přiblížit | <kbd>Esc</kbd>: Zrušit výběr"
+  },
+  "mainPage": {
+    "title": "Klon Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Vítejte v <span class=\"blink\">Klon Slither SIO</span>",
+    "helpButtonTitle": "Nápověda & Autoři",
+    "adminLink": "Admin",
+    "exitGhostButton": "Opustit Režim Ducha"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Hrát jako Host",
+      "playAsUser": "Hrát jako {{username}}",
+      "login": "Přihlásit se",
+      "createAccount": "Vytvořit Účet",
+      "customizeSkin": "Přizpůsobit Vzhled",
+      "customSounds": "Vlastní Zvuky",
+      "showLeaderboard": "Zobrazit Žebříček",
+      "ghostMode": "Režim Ducha",
+      "deleteAccount": "Smazat Můj Účet",
+      "logout": "Odhlásit se"
+    },
+    "alerts": {
+      "colorTooDark": "Zvolená barva je velmi tmavá a může být špatně viditelná. Doporučuje se světlejší barva.",
+      "missingCredentials": "Zadejte prosím uživatelské jméno a heslo.",
+      "usernameLength": "Uživatelské jméno musí mít {{min}} až {{max}} znaků.",
+      "passwordLength": "Heslo musí mít alespoň {{minLength}} znaků.",
+      "maxPatternColors": "Bylo dosaženo maximálního počtu {{max}} barev vzoru.",
+      "canvasError": "Kritická Chyba: Nelze najít prvek canvas pro překrytí textu!",
+      "gameModuleError": "Kritická Chyba: Nelze inicializovat herní modul!",
+      "fetchAccountError": "Chyba při načítání dat účtu.",
+      "loginError": "Chyba Přihlášení: {{error}}",
+      "creationError": "Chyba Vytvoření: {{error}}",
+      "skinUpdateError": "Chyba sítě nebo serveru při aktualizaci vzhledu: {{error}}",
+      "skinUpdatedTemp": "Vzhled aktualizován pro dočasnou relaci.",
+      "deleteAccountError": "Chyba sítě při mazání účtu."
+    },
+    "confirms": {
+      "enterGhostMode": "Vstoupit do Režimu Ducha (divák)?",
+      "deleteAccount": "Jste si jisti, že chcete trvale smazat svůj účet \"{{username}}\"? Tato akce je nevratná."
+    },
+    "welcomeMessage": "Ahoj {{username}}!",
+    "welcomeMessage_admin": "Ahoj {{username}} (Administrátor)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Uživatelské jméno:",
+      "passwordLabel": "Heslo:",
+      "backButton": "Zpět"
+    },
+    "guest": {
+      "title": "Hrát jako Host",
+      "note": "Barvy a skin budou nastaveny přes \"Přizpůsobit Vzhled\".",
+      "submitButton": "Spustit Hru"
+    },
+    "login": {
+      "title": "Přihlásit se",
+      "submitButton": "Přihlásit se"
+    },
+    "create": {
+      "title": "Vytvořit Účet",
+      "initialHeadColorLabel": "Počáteční Barva Hlavy:",
+      "initialBodyColorLabel": "Počáteční Barva Těla:",
+      "submitButton": "Vytvořit"
+    },
+    "skin": {
+      "title": "Přizpůsobit Vzhled",
+      "headColorLabel": "Barva Hlavy:",
+      "bodyTypeLabel": "Typ Těla",
+      "bodyTypeSingle": "Jedna Barva",
+      "bodyTypePattern": "Opakující se Vzor",
+      "bodyColorLabel": "Barva Těla:",
+      "patternColorsLabel": "Barvy Vzoru (max 8)",
+      "trailEffectLabel": "Efekt Stopy",
+      "trailEffect": {
+        "none": "Žádný",
+        "sparkle": "Jiskry",
+        "smoke": "Zelený Kouř",
+        "fire": "Oheň",
+        "ice": "Ledové Střepy",
+        "electric": "Elektrické Jiskry",
+        "rainbow": "Duha",
+        "bubbles": "Bubliny",
+        "glitch": "Glitch",
+        "void": "Prázdnota / Stín",
+        "confetti": "Konfety"
+      },
+      "submitButton": "Uložit Vzhled"
+    },
+    "sound": {
+      "title": "Vlastní Zvuky",
+      "info": "Nahrajte MP3 soubory (uložené lokálně) pro události.",
+      "deathLabel": "Zvuk Smrti:",
+      "killLabel": "Zvuk Zabití:",
+      "boostLabel": "Zvuk Boostu:",
+      "clearButton": "Smazat Zvuky"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Hrát Znovu",
+    "backToMenuButton": "Zpět do Menu",
+    "finalSizeLabel": "Vaše velikost byla: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Žebříček",
+    "header": {
+      "name": "Jméno",
+      "status": "Stav",
+      "size": "Velikost",
+      "kills": "Zabití",
+      "deaths": "Smrti",
+      "kd": "K/D"
+    },
+    "noPlayers": "Zatím žádní hráči v žebříčku.",
+    "status": {
+      "ingame": "Ve Hře",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Nikdy",
+      "na": "N/A",
+      "ingameTitle": "Právě ve hře"
+    },
+    "time": {
+      "secondsAgo_one": "před {{count}} s",
+      "secondsAgo_other": "před {{count}} s",
+      "minutesAgo_one": "před {{count}} min",
+      "minutesAgo_other": "před {{count}} min",
+      "hoursAgo_one": "před {{count}} h",
+      "hoursAgo_other": "před {{count}} h",
+      "daysAgo_one": "před {{count}} dnem",
+      "daysAgo_other": "před {{count}} dny",
+      "yesterday": "Včera"
+    },
+    "lastLoginTitle": "Poslední přihlášení: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Klávesové Zkratky (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigace tlačítky",
+      "activate": "Enter: Aktivovat vybrané tlačítko",
+      "close": "Esc: Zavřít tento panel / Zpět"
+    },
+    "gameKeysTitle": "Klávesové Zkratky (Hra)",
+    "gameKeys": {
+      "mouse": "Myš: Ovládání hada",
+      "boost": "Levé kliknutí / Mezerník: Boost",
+      "adminCheat": "P: Administrátorský Cheat (pokud jste administrátor)"
+    },
+    "ghostKeysTitle": "Klávesové Zkratky (Duch)",
+    "ghostKeys": {
+      "select": "Levé kliknutí (na hráče): Vybrat Hráče",
+      "pan": "Levé kliknutí + Táhnout (prázdné místo): Posunout Kameru",
+      "zoom": "Kolečko myši: Přiblížit/Oddálit",
+      "kill": "K (pokud je hráč vybrán): Zabít Hráče",
+      "clear": "C (pokud je hráč vybrán): Vyčistit Hráče (bez jídla)",
+      "freeze": "F (pokud je hráč vybrán): Zmrazit/Rozmrazit Hráče",
+      "deselect": "Esc: Zrušit výběr Hráče"
+    },
+    "creditsTitle": "Autoři",
+    "creditsAuthor": "Autor: Anonymní Autor",
+    "creditsLicense": "Licence: MIT",
+    "creditsGithub": "Projekt na GitHubu"
+  },
+  "NEW_KEY_1": "Zdrojový text pro první nový klíč.",
+  "NEW_KEY_2": "Zdrojový text pro druhý nový klíč."
+}

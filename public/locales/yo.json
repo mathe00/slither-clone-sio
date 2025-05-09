@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Olùdarí - Ẹ̀dà Slither",
+  "backButtonTitle": "Padà sí ojúewé àkọ́kọ́",
+  "tabs": {
+    "settings": "Ètò Gbogbogbòò",
+    "users": "Ìṣàkóso Olùlò",
+    "currentConfig": "Ìṣètò Lọ́wọ́lọ́wọ́"
+  },
+  "settingsForm": {
+    "title": "Ètò Gbogbogbòò",
+    "passwordNote": "<strong>Àkíyèsí:</strong> Láti ṣètò tàbí tún ọ̀rọ̀-ìpamọ́ olùdarí ṣètò, dá dúró server náà kí o sì ṣiṣẹ́ẹ rẹ̀ pẹ̀lú àṣẹ:<br/><code>node backend/server.js --set-new-password Ọ̀RỌ̀-ÌPAMỌ́_TITUN_RẸ</code><br/>Wíwọlé sí ojúewé yìí nílò ìgbádùn olùdarí tí ó ṣiṣẹ́ (nípasẹ̀ kuki).<br/>Àwọn ètò kan (tí a fi àmì * sí) nílò kí a tún server bẹ̀rẹ̀ kí wọ́n tó lè ṣiṣẹ́.",
+    "mapWidth": {
+      "label": "Fífẹ̀ Mápù (px) *:",
+      "placeholder": "f.a. 4000"
+    },
+    "mapHeight": {
+      "label": "Gíga Mápù (px) *:",
+      "placeholder": "f.a. 4000"
+    },
+    "mapShape": {
+      "label": "Hình dạng Bản đồ *:",
+      "rectangle": "Onígun mẹ́rin",
+      "circle": "Roboto"
+    },
+    "aoiRadius": {
+      "label": "Radius Agbègbè Ifarabalẹ̀ (AoI) (px) *:",
+      "placeholder": "f.a. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Ìwọ̀n Gígùn Ejò (Àtìbẹ̀rẹ̀):",
+      "placeholder": "f.a. 1000"
+    },
+    "initialSize": {
+      "label": "Ìwọ̀n Ejò Àkọ́kọ́:",
+      "placeholder": "f.a. 50"
+    },
+    "speed": {
+      "label": "Iyara Ìpìlẹ̀:",
+      "placeholder": "f.a. 1"
+    },
+    "maxRotationRate": {
+      "label": "Ìwọ̀n Yíyí Púpọ̀jùlọ (rad/tick):",
+      "placeholder": "f.a. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Ìwọ̀n Kéréjùlọ fún Boost:",
+      "placeholder": "f.a. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Ìwọ̀n Lílo Boost:",
+      "placeholder": "f.a. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Àkókò Ìfarahàn Oúnjẹ (ms):",
+      "placeholder": "f.a. 5000"
+    },
+    "fps": {
+      "label": "FPS Server (àyíká/ìṣẹ́jú àáyá):",
+      "placeholder": "f.a. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Agbára Ìfà Oúnjẹ:",
+      "placeholder": "f.a. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Ijinna Kíkó Oúnjẹ:",
+      "placeholder": "f.a. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Ìpele Súnkì Àtìbẹ̀rẹ̀:",
+      "placeholder": "f.a. 1.0"
+    },
+    "securityMode": {
+      "label": "Ipo Ààbò *:",
+      "high": "Gíga (A dámọ̀ràn)",
+      "low": "Kekere (Oníbàárà + Fúyẹ́)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Ààlà Ìrúfin Teleport:",
+      "placeholder": "f.a. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Fáktọ̀ Ìfaradà Teleport:",
+      "placeholder": "f.a. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Mú Ipo Ọlọ́run ṣiṣẹ́ nígbàtí ó bá yọ:",
+      "yes": "Bẹ́ẹ̀ ni",
+      "no": "Bẹ́ẹ̀ kọ́"
+    },
+    "botsEnabled": {
+      "label": "Mú Bot ṣiṣẹ́:",
+      "yes": "Bẹ́ẹ̀ ni",
+      "no": "Bẹ́ẹ̀ kọ́"
+    },
+    "botMaxCount": {
+      "label": "Iye Bot Púpọ̀jùlọ:",
+      "placeholder": "f.a. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Àkókò Ìfarahàn Bot (ms):",
+      "placeholder": "f.a. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Àkókò Ìparí Bot (ms):",
+      "placeholder": "f.a. 120000"
+    },
+    "botDifficulty": {
+      "label": "Ìṣòro Bot:",
+      "easy": "Rọrùn",
+      "medium": "Àárín",
+      "hard": "Lile"
+    },
+    "adminMessageText": {
+      "label": "Ifiranṣẹ Olùdarí (fi sílẹ̀ ní òfo láti nu):",
+      "placeholder": "Ifiranṣẹ láti fi hàn sí gbogbo àwọn eléré"
+    },
+    "adminMessageDuration": {
+      "label": "Ìgbà Pípẹ́ Ifiranṣẹ (ìṣẹ́jú àáyá):",
+      "placeholder": "f.a. 10"
+    },
+    "updateButton": "Ṣe àtúnṣe Ètò"
+  },
+  "userManagement": {
+    "title": "Ìṣàkóso Olùlò",
+    "loading": "Ń ṣàtìlẹ́yìn...",
+    "noUsers": "Kò sí olùlò kankan tí a rí.",
+    "table": {
+      "headerUser": "Olùlò",
+      "headerStatus": "Ipò",
+      "headerLastLogin": "Wíwọlé Kẹ́yìn",
+      "headerCreated": "Ṣe Ní",
+      "headerActions": "Ìgbésẹ̀"
+    },
+    "status": {
+      "admin": "Olùdarí",
+      "suspended": "Dádúró",
+      "normal": "Déédéé",
+      "never": "Kò Rí",
+      "unknown": "Àìmọ̀"
+    },
+    "actions": {
+      "removeAdmin": "Yọ Olùdarí",
+      "makeAdmin": "Ṣe Olùdarí",
+      "unban": "Yọ Ìdádúró",
+      "suspend": "Dádúró",
+      "delete": "Paarẹ́"
+    },
+    "pruneButton": "Nu Àwọn Àpamọ́ Tí Kò Ṣiṣẹ́",
+    "confirmDelete": "Ṣé o dájú pé o fẹ́ pa olùlò \"{{username}}\" rẹ́ pátápátá? Ìgbésẹ̀ yìí kò ṣeé yí padà.",
+    "confirmPrune_one": "Ṣé o dájú pé o fẹ́ pa àpamọ́ {{count}} tí kò ṣiṣẹ́ (kò ṣiṣẹ́ >ọjọ́ 15 ÀTI àwọn ìṣirò kékeré púpọ̀)? Ìgbésẹ̀ yìí kò ṣeé yí padà.",
+    "confirmPrune_other": "Ṣé o dájú pé o fẹ́ pa àwọn àpamọ́ {{count}} tí kò ṣiṣẹ́ (kò ṣiṣẹ́ >ọjọ́ 15 ÀTI àwọn ìṣirò kékeré púpọ̀)? Ìgbésẹ̀ yìí kò ṣeé yí padà.",
+    "confirmPruneZero": "Kò sí àpamọ́ tí kò ṣiṣẹ́ tí a rí gẹ́gẹ́ bí àwọn àdéhùn ìsinsìnyí. Ṣé o ṣì fẹ́ ṣiṣẹ́ ìgbésẹ̀ náà (fún ìṣẹ̀lẹ̀ tó bá ṣẹlẹ̀)?",
+    "confirmPruneZeroConfirm": "Ṣe ìfọwọ́sí ìgbésẹ̀ nínú kódà bí a kò bá rí àpamọ́ kankan?",
+    "pruneCancelled": "Ìgbésẹ̀ nínú ti fagilee."
+  },
+  "currentConfig": {
+    "title": "Ìṣètò Server Lọ́wọ́lọ́wọ́",
+    "loading": "Ń ṣàtìlẹ́yìn ìṣètò...",
+    "loadError": "Kò le ṣàtìlẹ́yìn ìṣètò.",
+    "loadSuccess": "Ìṣètò lọ́wọ́lọ́wọ́ ti ṣàtìlẹ́yìn.",
+    "keys": {
+      "MAP_WIDTH": "Fífẹ̀ Mápù (px)",
+      "MAP_HEIGHT": "Gíga Mápù (px)",
+      "MAP_SHAPE": "Hình dạng Bản đồ",
+      "AOI_RADIUS": "Radius Agbègbè Ifarabalẹ̀ (AoI) (px)",
+      "SECURITY_MODE": "Ipo Ààbò",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Ìwọ̀n Gígùn Ejò (Àtìbẹ̀rẹ̀)",
+      "INITIAL_SIZE": "Ìwọ̀n Ejò Àkọ́kọ́",
+      "MIN_BOOST_SIZE": "Ìwọ̀n Kéréjùlọ fún Boost",
+      "SPEED": "Iyara Ìpìlẹ̀",
+      "MAX_ROTATION_RATE": "Ìwọ̀n Yíyí Púpọ̀jùlọ",
+      "BOOST_CONSUMPTION_RATE": "Lílo Boost (Ìwọ̀n/tick)",
+      "FPS": "FPS Server",
+      "FOOD_SPAWN_INTERVAL": "Àkókò Ìfarahàn Oúnjẹ (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Agbára Ìfà Oúnjẹ",
+      "FOOD_SNAP_DISTANCE": "Ijinna Kíkó Oúnjẹ",
+      "DEFAULT_ZOOM_LEVEL": "Ìpele Súnkì Àtìbẹ̀rẹ̀",
+      "TELEPORT_VIOLATION_THRESHOLD": "Ààlà Ìrúfin Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Fáktọ̀ Ìfaradà Teleport",
+      "BOTS_ENABLED": "Bot Ti Wà Ní Ṣíṣiṣẹ́",
+      "BOT_MAX_COUNT": "Iye Bot Púpọ̀jùlọ",
+      "BOT_SPAWN_INTERVAL_MS": "Àkókò Ìfarahàn Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Àkókò Ìparí Bot (ms)",
+      "BOT_DIFFICULTY": "Ìṣòro Bot"
+    },
+    "boolean": {
+      "yes": "Bẹ́ẹ̀ ni",
+      "no": "Bẹ́ẹ̀ kọ́"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Wíwọlé ti dí. Ń darí...",
+    "settingsUpdated": "Ètò ti ṣàtúnṣe pẹ̀lú àṣeyọrí.",
+    "settingsUpdatedWithRestart": "Ètò ti ṣàtúnṣe. Ìtúnbẹ̀rẹ̀ server nílò fún àwọn àtúnṣe mápù/ààbò.",
+    "settingsUpdatedFpsRestart": "Ètò ti ṣàtúnṣe. Àyíká eré ti tún bẹ̀rẹ̀ fún àtúnṣe FPS.",
+    "settingsUpdateError": "Àṣìṣe nígbà tí a ń ṣàtúnṣe ètò.",
+    "loadSettingsError": "Àṣìṣe nígbà tí a ń ṣàtìlẹ́yìn ètò: {{error}}",
+    "loadUsersError": "Àṣìṣe nígbà tí a ń ṣàtìlẹ́yìn àwọn olùlò.",
+    "networkError": "Àṣìṣe nẹ́tíwọ́kì tàbí server kò sí.",
+    "invalidResponse": "Ìdáhùn tí kò tọ́ láti ọ̀dọ̀ server (kìí ṣe JSON)",
+    "changes": "Àwọn Àtúnṣe:",
+    "restartRequired": "Ìtúnbẹ̀rẹ̀ server nílò láti lo àwọn àtúnṣe (Ìwọ̀n/Hình dạng Bản đồ, Ipo Ààbò, Radius AoI).",
+    "fpsRestart": "Àyíká eré ti tún bẹ̀rẹ̀ láti lo FPS titun.",
+    "noChanges": "Kò sí ètò kankan tí a yí padà.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Àṣìṣe nígbà àkọ́kọ́fihàn.",
+    "pruneError": "Àṣìṣe nígbà ìgbésẹ̀ nínú.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Jọ̀wọ́ yan fáilì MP3 kan.",
+      "loginRequired": "O gbọ́dọ̀ wọlé láti fi àwọn ohùn àdáni pamọ́.",
+      "saveError": "Àṣìṣe nígbà tí a ń fi ohùn pamọ́. Ibi ìpamọ́ àdúgbò lè ti kún.",
+      "readError": "Àṣìṣe nígbà tí a ń ka fáilì ohùn.",
+      "clearLoginRequired": "O gbọ́dọ̀ wọlé láti nu àwọn ohùn.",
+      "clearError": "Àṣìṣe kan ṣẹlẹ̀ nígbà tí a ń pa àwọn ohùn rẹ́."
+    },
+    "confirms": {
+      "clearAll": "Ṣé o dájú pé o fẹ́ pa gbogbo àwọn ohùn àdáni fún àpamọ́ yìí rẹ́?"
+    },
+    "statusTitles": {
+      "saveError": "Àṣìṣe Ìpamọ́",
+      "readError": "Àṣìṣe Kíkà",
+      "saved": "Ohùn ti wà ní ìpamọ́",
+      "savedWithName": "Ti wà ní ìpamọ́: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server Kò Sí - Ẹ̀dà Slither SIO",
+    "logoAlt": "Logo Server Kò Sí",
+    "mainHeader": "Server Kò Sí",
+    "explanation": "Server <span class=\"game-name\">Ẹ̀dà Slither SIO</span> dàbí pé ó wà ní offline fún ìgbà díẹ̀ tàbí kò ṣeé dé. A ń gbìyànjú láti tún ìsopọ̀ ṣe fún ọ.",
+    "snakeTitle": "Ní àkókò yìí, ṣe eré Ejò!",
+    "snakeScoreLabel": "Maki: 0",
+    "snakeControls": "Àwọn ọfà / ZQSD / WASD: Gbé | Tẹ: Bẹ̀rẹ̀/Tún Bẹ̀rẹ̀",
+    "status": {
+      "label": "Ipò:",
+      "searching": "Ń wá kiri...",
+      "checking": "Ń yẹ̀wò...",
+      "connected": "Ti sopọ̀!",
+      "nextAttemptLabel": "Ìgbìyànjú tókàn ní",
+      "secondsSuffix": "ìṣẹ́jú àáyá",
+      "attemptsLabel": "Ìgbìyànjú:"
+    },
+    "refreshButton": "Yẹ̀wò Nísinsìnyí",
+    "redirectInfo": "A ó darí rẹ láìfọwọ́sowọ́pọ̀ ní kété tí server bá padà wá online."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Maki: {{score}}"
+    },
+    "gameOver": {
+      "win": "O BORÍ!",
+      "lose": "O PÀDÁNÙ!",
+      "scoreLabel": "Maki: {{score}}",
+      "promptLine1": "Tẹ Enter",
+      "promptLine2": "Láti Tún Ṣeré"
+    },
+    "countdown": "BÍBẸ̀RẸ̀ NÍ {{count}}",
+    "startScreen": {
+      "title": "EJÒ",
+      "promptLine1": "Tẹ Enter",
+      "promptLine2": "Láti Ṣeré"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Àṣìṣe server inú ilé.",
+      "invalidAdminStatus": "Ipò 'isAdmin' tí kò tọ́.",
+      "userNotFound": "A kò rí olùlò.",
+      "invalidSuspendStatus": "Ipò 'isSuspended' tí kò tọ́.",
+      "cannotDeleteSelf": "O kò le paarẹ́ àpamọ́ olùdarí tìrẹ níbí.",
+      "prunePreviewError": "Àṣìṣe nígbà àkọ́kọ́fihàn nínú.",
+      "pruneError": "Àṣìṣe nígbà ìgbésẹ̀ nínú.",
+      "rateLimit": "Ìgbìyànjú dídá àpamọ́ ti pọ̀jù. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan síi ní nǹkan bíi ìṣẹ́jú {{minutes}}.",
+      "missingCredentials": "Orúkọ olùlò àti ọ̀rọ̀-ìpamọ́ nílò.",
+      "usernameTooLong": "Orúkọ olùlò kò gbọdọ̀ ju àwọn lẹ́tà {{maxLength}} lọ.",
+      "usernameTooShort": "Orúkọ olùlò gbọdọ̀ jẹ́ ó kéré tán àwọn lẹ́tà {{minLength}}.",
+      "passwordTooShort": "Ọ̀rọ̀-ìpamọ́ gbọdọ̀ jẹ́ ó kéré tán àwọn lẹ́tà {{minLength}}.",
+      "usernameTaken": "Orúkọ olùlò yìí ti wà ní lílò.",
+      "invalidCredentials": "Orúkọ olùlò tàbí ọ̀rọ̀-ìpamọ́ tí kò tọ́.",
+      "accountSuspended": "Àpamọ́ yìí wà ní dídádúró lọ́wọ́lọ́wọ́.",
+      "notAuthenticated": "Kò tíì fìdí rẹ múlẹ̀.",
+      "invalidHeadColor": "Àwọ̀ orí tí kò tọ́.",
+      "missingSkinData": "Dátà awọ ara ti sọnù tàbí kò tọ́.",
+      "invalidBodyType": "Irú ara tí kò tọ́.",
+      "invalidBodyColor": "Àwọ̀ ara tí kò tọ́ nínú dátà awọ ara.",
+      "invalidPatternColorsType": "Àwọn àwọ̀ àpẹẹrẹ gbọdọ̀ jẹ́ àkójọpọ̀.",
+      "tooManyPatternColors": "Àwọn àwọ̀ àpẹẹrẹ ti pọ̀jù (púpọ̀jùlọ {{max}}).",
+      "invalidPatternColorValue": "A rí àwọ̀ tí kò tọ́ nínú àpẹẹrẹ.",
+      "invalidTrailEffect": "Ipa ojú ọ̀nà tí kò tọ́.",
+      "adminCannotDeleteSelf": "Àwọn olùdarí kò le paarẹ́ àpamọ́ tiwọn nípasẹ̀ ojú-iṣẹ́ yìí.",
+      "deleteAccountError": "Àṣìṣe inú ilé nígbà tí a ń pa àpamọ́ rẹ́."
+    },
+    "success": {
+      "accountCreated": "Àpamọ́ ti ṣàṣeyọrí ní dídá àti wíwọlé.",
+      "login": "Wíwọlé ti ṣàṣeyọrí.",
+      "logout": "Jádejáde ti ṣàṣeyọrí.",
+      "skinUpdated": "Ìrísí ti ṣàtúnṣe pẹ̀lú àṣeyọrí.",
+      "accountDeleted": "Àpamọ́ rẹ ti paarẹ́ pẹ̀lú àṣeyọrí."
+    },
+    "admin": {
+      "adminStatusUpdated": "Ipò olùdarí fún {{username}} ti ṣàtúnṣe.",
+      "suspendStatusUpdated": "Ipò dídádúró fún {{username}} ti ṣàtúnṣe.",
+      "userDeleted": "Àpamọ́ {{username}} ti paarẹ́ pẹ̀lú àṣeyọrí.",
+      "pruneNoUsers": "Kò sí àpamọ́ tí kò ṣiṣẹ́ tí a rí láti nu.",
+      "pruneSuccess": "Àwọn àpamọ́ {{count}} tí kò ṣiṣẹ́ ti wà ní nínú."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Àpamọ́ rẹ wà ní dídádúró.",
+      "accountError": "Àṣìṣe àpamọ́. Jọ̀wọ́ wọlé lẹ́ẹ̀kan síi.",
+      "alreadyConnected": "Àpamọ́ yìí ti sopọ̀ mọ́ eré náà tẹ́lẹ̀.",
+      "deletedByAdmin": "Olùdarí kan ti pa àpamọ́ rẹ rẹ́.",
+      "accountDeleted": "Àpamọ́ rẹ ti paarẹ́."
+    },
+    "kickReason": "Ti jáde látọwọ́ {{admin}}",
+    "banReason": "Ti dí lọ́nà látọwọ́ {{admin}}",
+    "clearReason": "Ti nù látọwọ́ {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Ìgbésẹ̀ kò ní àṣẹ.",
+      "targetNotFound": "A kò rí eléré tí a fojú sí.",
+      "kickSuccess": "{{username}} ti jáde.",
+      "kickOfflineSuccess": "{{username}} (tí ó ti jáde tẹ́lẹ̀) ti yọ kúrò nínú eré.",
+      "kickError": "Kò le rí sokẹ́ẹ̀tì tàbí ipò fún {{username}}.",
+      "banSuccess": "{{username}} ti dí lọ́nà (àpamọ́ ti dádúró àti pé eléré ti jáde).",
+      "banAccountOnlySuccess": "Àpamọ́ {{username}} ti dádúró (eléré ti jáde tẹ́lẹ̀ tàbí ti yọ kúrò).",
+      "banError": "Kò le dí {{username}} lọ́nà (àpamọ́ ìgbà díẹ̀ tàbí tí kò sí).",
+      "freezeSuccess": "{{username}} ti di yinyin.",
+      "unfreezeSuccess": "{{username}} ti yọ́.",
+      "killSuccess": "{{username}} ti kú.",
+      "clearSuccess": "{{username}} ti nù (ti yọ kúrò láìfi oúnjẹ sílẹ̀).",
+      "clearError": "Kò le nu {{username}} (ṣé ó ti yọ kúrò tẹ́lẹ̀?).",
+      "unknownAction": "Ìgbésẹ̀ àìmọ̀."
+    },
+    "userConnected": "{{username}} ti darapọ̀ mọ́ eré náà.",
+    "userDisconnected": "{{username}} ti kúrò nínú eré náà.",
+    "disconnectReason": "Ti jáde: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Ìjànbá àìmọ̀",
+      "boundary": "O kọlu ààlà mápù.",
+      "teleport": "Ti jáde: Ìrìn àròyé.",
+      "selfCollision": "Anti-cheat: Ìjànbá ara ẹni.",
+      "inactivity": "Àìṣiṣẹ́.",
+      "killedByAdmin": "Ti pa látọwọ́ {{admin}}",
+      "botExpired": "Bot ti parí.",
+      "clientCollision": "Ìjànbá ara (oníbàárà)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Ìwọ̀n: {{size}}",
+    "positionLabel": "Ipò: {{x}}x{{y}}",
+    "ghostMode": "Ipo Ẹ̀mí",
+    "spectator": "Olùwòran"
+  },
+  "ghostMode": {
+    "selected": "Ti Yàn: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Àìmọ̀",
+    "controlsSelected": "<kbd>K</kbd>: Pa | <kbd>C</kbd>: Nu | <kbd>F</kbd>: Dì/Yọ́ | <kbd>Esc</kbd>: Yọ kúrò ní Yíyàn",
+    "controlsGeneral": "Tẹ Apá Òsì: Yan Ohun kan / Fa láti Gbé<br>Kẹ̀kẹ́: Súnkì | <kbd>Esc</kbd>: Yọ kúrò ní Yíyàn"
+  },
+  "mainPage": {
+    "title": "Ẹ̀dà Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Kaabọ sí <span class=\"blink\">Ẹ̀dà Slither SIO</span>",
+    "helpButtonTitle": "Ìrànlọ́wọ́ & Àwọn Olùkọ",
+    "adminLink": "Olùdarí",
+    "exitGhostButton": "Jáde kúrò ní Ipo Ẹ̀mí"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Ṣeré bí Àlejò",
+      "playAsUser": "Ṣeré bí {{username}}",
+      "login": "Wọlé",
+      "createAccount": "Ṣe Àpamọ́",
+      "customizeSkin": "Ṣe Àtúnṣe Ìrísí",
+      "customSounds": "Àwọn Ohùn Àdáni",
+      "showLeaderboard": "Fi Àtẹ Àwọn Aṣáájú Hàn",
+      "ghostMode": "Ipo Ẹ̀mí",
+      "deleteAccount": "Pa Àpamọ́ Mi Rẹ́",
+      "logout": "Jáde"
+    },
+    "alerts": {
+      "colorTooDark": "Àwọ̀ tí o yàn ṣókùnkùn jù, ó sì lè ṣòro láti rí. A dámọ̀ràn àwọ̀ tó fúyẹ́.",
+      "missingCredentials": "Jọ̀wọ́ kọ orúkọ olùlò àti ọ̀rọ̀-ìpamọ́.",
+      "usernameLength": "Orúkọ olùlò gbọ́dọ̀ wà láàrin àwọn lẹ́tà {{min}} sí {{max}}.",
+      "passwordLength": "Ọ̀rọ̀-ìpamọ́ gbọ́dọ̀ jẹ́ ó kéré tán àwọn lẹ́tà {{minLength}}.",
+      "maxPatternColors": "Iye àwọ̀ àpẹẹrẹ {{max}} ti dé.",
+      "canvasError": "Àṣìṣe Pàtàkì: Kò le rí èròjà canvas fún ìkọ̀wé lórí!",
+      "gameModuleError": "Àṣìṣe Pàtàkì: Kò le bẹ̀rẹ̀ ètò eré!",
+      "fetchAccountError": "Àṣìṣe nígbà tí a ń gba dátà àpamọ́.",
+      "loginError": "Àṣìṣe Wíwọlé: {{error}}",
+      "creationError": "Àṣìṣe Ìṣẹ̀dá: {{error}}",
+      "skinUpdateError": "Àṣìṣe nẹ́tíwọ́kì tàbí server nígbà tí a ń ṣàtúnṣe ìrísí: {{error}}",
+      "skinUpdatedTemp": "Ìrísí ti ṣàtúnṣe fún ìgbádùn ìgbà díẹ̀.",
+      "deleteAccountError": "Àṣìṣe nẹ́tíwọ́kì nígbà tí a ń pa àpamọ́ rẹ́."
+    },
+    "confirms": {
+      "enterGhostMode": "Wọ Ipo Ẹ̀mí (olùwòran)?",
+      "deleteAccount": "Ṣé o dájú pé o fẹ́ pa àpamọ́ rẹ \"{{username}}\" rẹ́ pátápátá? Ìgbésẹ̀ yìí kò ṣeé yí padà."
+    },
+    "welcomeMessage": "Pẹ̀lẹ o {{username}}!",
+    "welcomeMessage_admin": "Pẹ̀lẹ o {{username}} (Olùdarí)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Orúkọ olùlò:",
+      "passwordLabel": "Ọ̀rọ̀-ìpamọ́:",
+      "backButton": "Padà"
+    },
+    "guest": {
+      "title": "Ṣeré bí Àlejò",
+      "note": "Àwọn àwọ̀ àti awọ ara yóò wà ní ṣíṣètò nípasẹ̀ \"Ṣe Àtúnṣe Ìrísí\".",
+      "submitButton": "Bẹ̀rẹ̀ Eré"
+    },
+    "login": {
+      "title": "Wọlé",
+      "submitButton": "Wọlé"
+    },
+    "create": {
+      "title": "Ṣe Àpamọ́",
+      "initialHeadColorLabel": "Àwọ̀ Orí Àkọ́kọ́:",
+      "initialBodyColorLabel": "Àwọ̀ Ara Àkọ́kọ́:",
+      "submitButton": "Ṣe"
+    },
+    "skin": {
+      "title": "Ṣe Àtúnṣe Ìrísí",
+      "headColorLabel": "Àwọ̀ Orí:",
+      "bodyTypeLabel": "Irú Ara",
+      "bodyTypeSingle": "Àwọ̀ Kan",
+      "bodyTypePattern": "Àpẹẹrẹ Tí ó Ń Tún Ara Rẹ̀ Ṣe",
+      "bodyColorLabel": "Àwọ̀ Ara:",
+      "patternColorsLabel": "Àwọn Àwọ̀ Àpẹẹrẹ (púpọ̀jùlọ 8)",
+      "trailEffectLabel": "Ipa Ojú Ọ̀nà",
+      "trailEffect": {
+        "none": "Kò sí",
+        "sparkle": "Ìtànná",
+        "smoke": "Èéfín Aláwọ̀ Ewé",
+        "fire": "Iná",
+        "ice": "Àwọn Ègé Yinyin",
+        "electric": "Àwọn Iná Mọ̀nàmọ́ná",
+        "rainbow": "Òṣùmàrè",
+        "bubbles": "Àwọn Nkán",
+        "glitch": "Glitch",
+        "void": "Òfo / Òjìji",
+        "confetti": "Confetti"
+      },
+      "submitButton": "Fi Ìrísí Pamọ́"
+    },
+    "sound": {
+      "title": "Àwọn Ohùn Àdáni",
+      "info": "Ṣàtìlẹ́yìn àwọn fáilì MP3 (tí a fi pamọ́ sí àdúgbò) fún àwọn ìṣẹ̀lẹ̀.",
+      "deathLabel": "Ohùn Ikú:",
+      "killLabel": "Ohùn Pípa:",
+      "boostLabel": "Ohùn Boost:",
+      "clearButton": "Nu Àwọn Ohùn"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Tún Ṣeré",
+    "backToMenuButton": "Padà sí Menu",
+    "finalSizeLabel": "Ìwọ̀n rẹ ni: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Àtẹ Àwọn Aṣáájú",
+    "header": {
+      "name": "Orúkọ",
+      "status": "Ipò",
+      "size": "Ìwọ̀n",
+      "kills": "Pípa",
+      "deaths": "Ikú",
+      "kd": "K/D"
+    },
+    "noPlayers": "Kò sí eléré kankan tí a ti ṣètò sípò síbẹ̀.",
+    "status": {
+      "ingame": "Nínú Eré",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Kò Rí",
+      "na": "K/S",
+      "ingameTitle": "Lọ́wọ́lọ́wọ́ nínú eré"
+    },
+    "time": {
+      "secondsAgo_one": "ìṣẹ́jú àáyá {{count}} sẹ́yìn",
+      "secondsAgo_other": "ìṣẹ́jú àáyá {{count}} sẹ́yìn",
+      "minutesAgo_one": "ìṣẹ́jú {{count}} sẹ́yìn",
+      "minutesAgo_other": "ìṣẹ́jú {{count}} sẹ́yìn",
+      "hoursAgo_one": "wákàtí {{count}} sẹ́yìn",
+      "hoursAgo_other": "wákàtí {{count}} sẹ́yìn",
+      "daysAgo_one": "ọjọ́ {{count}} sẹ́yìn",
+      "daysAgo_other": "ọjọ́ {{count}} sẹ́yìn",
+      "yesterday": "Àná"
+    },
+    "lastLoginTitle": "Wíwọlé kẹ́yìn: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Àwọn Kọ́kọ́rọ́ Bọ́tìnnì (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Kọjá láàrin àwọn bọ́tìnnì",
+      "activate": "Enter: Mú bọ́tìnnì tí a yàn ṣiṣẹ́",
+      "close": "Esc: Pa panel yìí / Padà"
+    },
+    "gameKeysTitle": "Àwọn Kọ́kọ́rọ́ Bọ́tìnnì (Eré)",
+    "gameKeys": {
+      "mouse": "Mouse: Darí ejò",
+      "boost": "Tẹ Apá Òsì / Space: Boost",
+      "adminCheat": "P: Ìjẹ́ Olùdarí (bí ó bá jẹ́ olùdarí)"
+    },
+    "ghostKeysTitle": "Àwọn Kọ́kọ́rọ́ Bọ́tìnnì (Ẹ̀mí)",
+    "ghostKeys": {
+      "select": "Tẹ Apá Òsì (lórí eléré): Yan Eléré",
+      "pan": "Tẹ Apá Òsì + Fa (ibi tí kò sí nǹkan): Gbé Kamẹ́ra",
+      "zoom": "Kẹ̀kẹ́ Mouse: Súnkì Síwájú/Sẹ́yìn",
+      "kill": "K (bí a bá yan eléré): Pa Eléré",
+      "clear": "C (bí a bá yan eléré): Nu Eléré (láìsí oúnjẹ)",
+      "freeze": "F (bí a bá yan eléré): Dì/Yọ́ Eléré",
+      "deselect": "Esc: Yọ Eléré kúrò ní Yíyàn"
+    },
+    "creditsTitle": "Àwọn Olùkọ",
+    "creditsAuthor": "Olùkọ: Olùkọ Àìlórúkọ",
+    "creditsLicense": "Ìwé-ẹ̀rí: MIT",
+    "creditsGithub": "Iṣẹ́ Àkànṣe lórí GitHub"
+  },
+  "NEW_KEY_1": "Ọrọ orisun fun bọtini tuntun akọkọ.",
+  "NEW_KEY_2": "Ọrọ orisun fun bọtini tuntun keji."
+}

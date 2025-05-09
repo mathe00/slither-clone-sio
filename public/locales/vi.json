@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Quản trị - Bản sao Slither",
+  "backButtonTitle": "Quay lại trang chính",
+  "tabs": {
+    "settings": "Cài đặt Chung",
+    "users": "Quản lý Người dùng",
+    "currentConfig": "Cấu hình Hiện tại"
+  },
+  "settingsForm": {
+    "title": "Cài đặt Chung",
+    "passwordNote": "<strong>Lưu ý:</strong> Để đặt hoặc đặt lại mật khẩu quản trị viên, hãy dừng máy chủ và chạy bằng lệnh:<br/><code>node backend/server.js --set-new-password MẬT_KHẨU_MỚI_CỦA_BẠN</code><br/>Truy cập vào trang này yêu cầu một phiên quản trị viên đang hoạt động (qua cookie).<br/>Một số cài đặt (được đánh dấu *) yêu cầu khởi động lại máy chủ để áp dụng.",
+    "mapWidth": {
+      "label": "Chiều rộng Bản đồ (px) *:",
+      "placeholder": "ví dụ: 4000"
+    },
+    "mapHeight": {
+      "label": "Chiều cao Bản đồ (px) *:",
+      "placeholder": "ví dụ: 4000"
+    },
+    "mapShape": {
+      "label": "Hình dạng Bản đồ *:",
+      "rectangle": "Hình chữ nhật",
+      "circle": "Hình tròn"
+    },
+    "aoiRadius": {
+      "label": "Bán kính Khu vực Quan tâm (AoI) (px) *:",
+      "placeholder": "ví dụ: 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Giới hạn Kích thước Rắn (Mặc định):",
+      "placeholder": "ví dụ: 1000"
+    },
+    "initialSize": {
+      "label": "Kích thước Rắn Ban đầu:",
+      "placeholder": "ví dụ: 50"
+    },
+    "speed": {
+      "label": "Tốc độ Cơ bản:",
+      "placeholder": "ví dụ: 1"
+    },
+    "maxRotationRate": {
+      "label": "Tốc độ Xoay Tối đa (rad/tick):",
+      "placeholder": "ví dụ: 0.08"
+    },
+    "minBoostSize": {
+      "label": "Kích thước Tối thiểu để Tăng tốc:",
+      "placeholder": "ví dụ: 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Tỷ lệ Tiêu thụ Tăng tốc:",
+      "placeholder": "ví dụ: 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Khoảng thời gian Xuất hiện Thức ăn (ms):",
+      "placeholder": "ví dụ: 5000"
+    },
+    "fps": {
+      "label": "FPS Máy chủ (vòng/giây):",
+      "placeholder": "ví dụ: 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Sức hút Thức ăn:",
+      "placeholder": "ví dụ: 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Khoảng cách Bắt Thức ăn:",
+      "placeholder": "ví dụ: 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Mức Thu phóng Mặc định:",
+      "placeholder": "ví dụ: 1.0"
+    },
+    "securityMode": {
+      "label": "Chế độ Bảo mật *:",
+      "high": "Cao (Khuyến nghị)",
+      "low": "Thấp (Client + Nhẹ)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Ngưỡng Vi phạm Dịch chuyển:",
+      "placeholder": "ví dụ: 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Hệ số Dung sai Dịch chuyển:",
+      "placeholder": "ví dụ: 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Bật Chế độ Bất tử khi Xuất hiện:",
+      "yes": "Có",
+      "no": "Không"
+    },
+    "botsEnabled": {
+      "label": "Bật Bot:",
+      "yes": "Có",
+      "no": "Không"
+    },
+    "botMaxCount": {
+      "label": "Số lượng Bot Tối đa:",
+      "placeholder": "ví dụ: 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Khoảng thời gian Xuất hiện Bot (ms):",
+      "placeholder": "ví dụ: 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Thời gian Tồn tại của Bot (ms):",
+      "placeholder": "ví dụ: 120000"
+    },
+    "botDifficulty": {
+      "label": "Độ khó của Bot:",
+      "easy": "Dễ",
+      "medium": "Trung bình",
+      "hard": "Khó"
+    },
+    "adminMessageText": {
+      "label": "Tin nhắn Quản trị (để trống để xóa):",
+      "placeholder": "Tin nhắn hiển thị cho tất cả người chơi"
+    },
+    "adminMessageDuration": {
+      "label": "Thời lượng Tin nhắn (giây):",
+      "placeholder": "ví dụ: 10"
+    },
+    "updateButton": "Cập nhật Cài đặt"
+  },
+  "userManagement": {
+    "title": "Quản lý Người dùng",
+    "loading": "Đang tải...",
+    "noUsers": "Không tìm thấy người dùng nào.",
+    "table": {
+      "headerUser": "Người dùng",
+      "headerStatus": "Trạng thái",
+      "headerLastLogin": "Đăng nhập Lần cuối",
+      "headerCreated": "Đã tạo",
+      "headerActions": "Hành động"
+    },
+    "status": {
+      "admin": "Quản trị viên",
+      "suspended": "Bị đình chỉ",
+      "normal": "Bình thường",
+      "never": "Chưa bao giờ",
+      "unknown": "Không xác định"
+    },
+    "actions": {
+      "removeAdmin": "Xóa Quản trị viên",
+      "makeAdmin": "Đặt làm Quản trị viên",
+      "unban": "Bỏ đình chỉ",
+      "suspend": "Đình chỉ",
+      "delete": "Xóa"
+    },
+    "pruneButton": "Dọn dẹp Tài khoản Không hoạt động",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa vĩnh viễn người dùng \"{{username}}\" không? Hành động này không thể hoàn tác.",
+    "confirmPrune_one": "Bạn có chắc chắn muốn xóa {{count}} tài khoản không hoạt động (không hoạt động >15 ngày VÀ chỉ số rất thấp) không? Hành động này không thể hoàn tác.",
+    "confirmPrune_other": "Bạn có chắc chắn muốn xóa {{count}} tài khoản không hoạt động (không hoạt động >15 ngày VÀ chỉ số rất thấp) không? Hành động này không thể hoàn tác.",
+    "confirmPruneZero": "Không tìm thấy tài khoản không hoạt động nào dựa trên tiêu chí hiện tại. Bạn vẫn muốn chạy thao tác (phòng trường hợp)?",
+    "confirmPruneZeroConfirm": "Xác nhận thao tác dọn dẹp ngay cả khi phát hiện 0 tài khoản?",
+    "pruneCancelled": "Thao tác dọn dẹp đã bị hủy."
+  },
+  "currentConfig": {
+    "title": "Cấu hình Máy chủ Hiện tại",
+    "loading": "Đang tải cấu hình...",
+    "loadError": "Không thể tải cấu hình.",
+    "loadSuccess": "Đã tải cấu hình hiện tại.",
+    "keys": {
+      "MAP_WIDTH": "Chiều rộng Bản đồ (px)",
+      "MAP_HEIGHT": "Chiều cao Bản đồ (px)",
+      "MAP_SHAPE": "Hình dạng Bản đồ",
+      "AOI_RADIUS": "Bán kính Khu vực Quan tâm (AoI) (px)",
+      "SECURITY_MODE": "Chế độ Bảo mật",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Giới hạn Kích thước Rắn (Mặc định)",
+      "INITIAL_SIZE": "Kích thước Rắn Ban đầu",
+      "MIN_BOOST_SIZE": "Kích thước Tối thiểu để Tăng tốc",
+      "SPEED": "Tốc độ Cơ bản",
+      "MAX_ROTATION_RATE": "Tốc độ Xoay Tối đa",
+      "BOOST_CONSUMPTION_RATE": "Tiêu thụ Tăng tốc (Kích thước/tick)",
+      "FPS": "FPS Máy chủ",
+      "FOOD_SPAWN_INTERVAL": "Khoảng thời gian Xuất hiện Thức ăn (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Sức hút Thức ăn",
+      "FOOD_SNAP_DISTANCE": "Khoảng cách Bắt Thức ăn",
+      "DEFAULT_ZOOM_LEVEL": "Mức Thu phóng Mặc định",
+      "TELEPORT_VIOLATION_THRESHOLD": "Ngưỡng Vi phạm Dịch chuyển",
+      "TELEPORT_TOLERANCE_FACTOR": "Hệ số Dung sai Dịch chuyển",
+      "BOTS_ENABLED": "Bot được Bật",
+      "BOT_MAX_COUNT": "Số lượng Bot Tối đa",
+      "BOT_SPAWN_INTERVAL_MS": "Khoảng thời gian Xuất hiện Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Thời gian Tồn tại của Bot (ms)",
+      "BOT_DIFFICULTY": "Độ khó của Bot"
+    },
+    "boolean": {
+      "yes": "Có",
+      "no": "Không"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Truy cập bị từ chối. Đang chuyển hướng...",
+    "settingsUpdated": "Cài đặt đã được cập nhật thành công.",
+    "settingsUpdatedWithRestart": "Cài đặt đã được cập nhật. Yêu cầu khởi động lại máy chủ để áp dụng thay đổi bản đồ/bảo mật.",
+    "settingsUpdatedFpsRestart": "Cài đặt đã được cập nhật. Vòng lặp trò chơi đã được khởi động lại cho thay đổi FPS.",
+    "settingsUpdateError": "Lỗi khi cập nhật cài đặt.",
+    "loadSettingsError": "Lỗi khi tải cài đặt: {{error}}",
+    "loadUsersError": "Lỗi khi tải người dùng.",
+    "networkError": "Lỗi mạng hoặc máy chủ không khả dụng.",
+    "invalidResponse": "Phản hồi không hợp lệ từ máy chủ (không phải JSON)",
+    "changes": "Thay đổi:",
+    "restartRequired": "Yêu cầu khởi động lại máy chủ để áp dụng các thay đổi (Kích thước/Hình dạng Bản đồ, Chế độ Bảo mật, Bán kính AoI).",
+    "fpsRestart": "Vòng lặp trò chơi đã được khởi động lại để áp dụng FPS mới.",
+    "noChanges": "Không có cài đặt nào được sửa đổi.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Lỗi trong quá trình xem trước.",
+    "pruneError": "Lỗi trong quá trình dọn dẹp.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Vui lòng chọn một tệp MP3.",
+      "loginRequired": "Bạn phải đăng nhập để lưu âm thanh tùy chỉnh.",
+      "saveError": "Lỗi khi lưu âm thanh. Bộ nhớ cục bộ có thể đã đầy.",
+      "readError": "Lỗi khi đọc tệp âm thanh.",
+      "clearLoginRequired": "Bạn phải đăng nhập để xóa âm thanh.",
+      "clearError": "Đã xảy ra lỗi khi xóa âm thanh."
+    },
+    "confirms": {
+      "clearAll": "Bạn có chắc chắn muốn xóa tất cả âm thanh tùy chỉnh cho tài khoản này không?"
+    },
+    "statusTitles": {
+      "saveError": "Lỗi Lưu",
+      "readError": "Lỗi Đọc",
+      "saved": "Âm thanh đã lưu",
+      "savedWithName": "Đã lưu: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Máy chủ Không khả dụng - Bản sao Slither SIO",
+    "logoAlt": "Logo Máy chủ Không khả dụng",
+    "mainHeader": "Máy chủ Không khả dụng",
+    "explanation": "Máy chủ <span class=\"game-name\">Bản sao Slither SIO</span> dường như tạm thời ngoại tuyến hoặc không thể truy cập. Chúng tôi đang cố gắng thiết lập lại kết nối cho bạn.",
+    "snakeTitle": "Trong lúc chờ đợi, hãy chơi Rắn!",
+    "snakeScoreLabel": "Điểm: 0",
+    "snakeControls": "Mũi tên / ZQSD / WASD: Di chuyển | Enter: Bắt đầu/Khởi động lại",
+    "status": {
+      "label": "Trạng thái:",
+      "searching": "Đang tìm kiếm...",
+      "checking": "Đang kiểm tra...",
+      "connected": "Đã kết nối!",
+      "nextAttemptLabel": "Lần thử tiếp theo sau",
+      "secondsSuffix": "giây",
+      "attemptsLabel": "Số lần thử:"
+    },
+    "refreshButton": "Kiểm tra Ngay",
+    "redirectInfo": "Bạn sẽ được tự động chuyển hướng ngay khi máy chủ trực tuyến trở lại."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Điểm: {{score}}"
+    },
+    "gameOver": {
+      "win": "THẮNG!",
+      "lose": "THUA!",
+      "scoreLabel": "Điểm: {{score}}",
+      "promptLine1": "Nhấn Enter",
+      "promptLine2": "để Chơi Lại"
+    },
+    "countdown": "BẮT ĐẦU SAU {{count}}",
+    "startScreen": {
+      "title": "RẮN",
+      "promptLine1": "Nhấn Enter",
+      "promptLine2": "để Chơi"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Lỗi máy chủ nội bộ.",
+      "invalidAdminStatus": "Trạng thái 'isAdmin' không hợp lệ.",
+      "userNotFound": "Không tìm thấy người dùng.",
+      "invalidSuspendStatus": "Trạng thái 'isSuspended' không hợp lệ.",
+      "cannotDeleteSelf": "Bạn không thể xóa tài khoản quản trị của chính mình tại đây.",
+      "prunePreviewError": "Lỗi trong quá trình xem trước dọn dẹp.",
+      "pruneError": "Lỗi trong quá trình dọn dẹp.",
+      "rateLimit": "Quá nhiều lần thử tạo tài khoản. Vui lòng thử lại sau khoảng {{minutes}} phút.",
+      "missingCredentials": "Yêu cầu tên người dùng và mật khẩu.",
+      "usernameTooLong": "Tên người dùng không được vượt quá {{maxLength}} ký tự.",
+      "usernameTooShort": "Tên người dùng phải có ít nhất {{minLength}} ký tự.",
+      "passwordTooShort": "Mật khẩu phải có ít nhất {{minLength}} ký tự.",
+      "usernameTaken": "Tên người dùng này đã được sử dụng.",
+      "invalidCredentials": "Tên người dùng hoặc mật khẩu không hợp lệ.",
+      "accountSuspended": "Tài khoản này hiện đang bị đình chỉ.",
+      "notAuthenticated": "Chưa được xác thực.",
+      "invalidHeadColor": "Màu đầu không hợp lệ.",
+      "missingSkinData": "Dữ liệu skin bị thiếu hoặc không hợp lệ.",
+      "invalidBodyType": "Loại cơ thể không hợp lệ.",
+      "invalidBodyColor": "Màu cơ thể không hợp lệ trong dữ liệu skin.",
+      "invalidPatternColorsType": "Màu sắc mẫu phải là một mảng.",
+      "tooManyPatternColors": "Quá nhiều màu sắc mẫu (tối đa {{max}}).",
+      "invalidPatternColorValue": "Tìm thấy màu không hợp lệ trong mẫu.",
+      "invalidTrailEffect": "Hiệu ứng vệt không hợp lệ.",
+      "adminCannotDeleteSelf": "Quản trị viên không thể xóa tài khoản của chính họ qua giao diện này.",
+      "deleteAccountError": "Lỗi nội bộ trong quá trình xóa tài khoản."
+    },
+    "success": {
+      "accountCreated": "Tài khoản đã được tạo và đăng nhập thành công.",
+      "login": "Đăng nhập thành công.",
+      "logout": "Đăng xuất thành công.",
+      "skinUpdated": "Giao diện đã được cập nhật thành công.",
+      "accountDeleted": "Tài khoản của bạn đã được xóa thành công."
+    },
+    "admin": {
+      "adminStatusUpdated": "Trạng thái quản trị viên cho {{username}} đã được cập nhật.",
+      "suspendStatusUpdated": "Trạng thái đình chỉ cho {{username}} đã được cập nhật.",
+      "userDeleted": "Tài khoản {{username}} đã được xóa thành công.",
+      "pruneNoUsers": "Không tìm thấy tài khoản không hoạt động nào để dọn dẹp.",
+      "pruneSuccess": "{{count}} tài khoản không hoạt động đã được dọn dẹp."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Tài khoản của bạn bị đình chỉ.",
+      "accountError": "Lỗi tài khoản. Vui lòng đăng nhập lại.",
+      "alreadyConnected": "Tài khoản này đã được kết nối với trò chơi.",
+      "deletedByAdmin": "Tài khoản của bạn đã bị quản trị viên xóa.",
+      "accountDeleted": "Tài khoản của bạn đã bị xóa."
+    },
+    "kickReason": "Bị {{admin}} đuổi",
+    "banReason": "Bị {{admin}} cấm",
+    "clearReason": "Được {{admin}} dọn dẹp",
+    "adminFeedback": {
+      "unauthorized": "Hành động không được phép.",
+      "targetNotFound": "Không tìm thấy người chơi mục tiêu.",
+      "kickSuccess": "{{username}} đã bị đuổi.",
+      "kickOfflineSuccess": "{{username}} (đã ngắt kết nối) đã bị xóa khỏi trò chơi.",
+      "kickError": "Không thể tìm thấy socket hoặc trạng thái cho {{username}}.",
+      "banSuccess": "{{username}} đã bị cấm (tài khoản bị đình chỉ và người chơi bị đuổi).",
+      "banAccountOnlySuccess": "Tài khoản {{username}} bị đình chỉ (người chơi đã ngắt kết nối hoặc bị xóa).",
+      "banError": "Không thể cấm {{username}} (tài khoản tạm thời hoặc không tồn tại).",
+      "freezeSuccess": "{{username}} đã bị đóng băng.",
+      "unfreezeSuccess": "{{username}} đã được bỏ đóng băng.",
+      "killSuccess": "{{username}} đã bị giết.",
+      "clearSuccess": "{{username}} đã được dọn dẹp (xóa mà không rơi thức ăn).",
+      "clearError": "Không thể dọn dẹp {{username}} (đã bị xóa?).",
+      "unknownAction": "Hành động không xác định."
+    },
+    "userConnected": "{{username}} đã tham gia trò chơi.",
+    "userDisconnected": "{{username}} đã rời trò chơi.",
+    "disconnectReason": "Đã ngắt kết nối: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Va chạm không xác định",
+      "boundary": "Đã chạm vào biên giới bản đồ.",
+      "teleport": "Đã ngắt kết nối: Di chuyển đáng ngờ.",
+      "selfCollision": "Chống gian lận: Tự va chạm.",
+      "inactivity": "Không hoạt động.",
+      "killedByAdmin": "Bị {{admin}} giết",
+      "botExpired": "Bot đã hết hạn.",
+      "clientCollision": "Va chạm cơ thể (client)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Kích thước: {{size}}",
+    "positionLabel": "Vị trí: {{x}}x{{y}}",
+    "ghostMode": "Chế độ Ma",
+    "spectator": "Khán giả"
+  },
+  "ghostMode": {
+    "selected": "Đã chọn: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Không xác định",
+    "controlsSelected": "<kbd>K</kbd>: Giết | <kbd>C</kbd>: Dọn dẹp | <kbd>F</kbd>: Đóng băng/Bỏ đóng băng | <kbd>Esc</kbd>: Bỏ chọn",
+    "controlsGeneral": "Nhấp chuột trái: Chọn Thực thể / Kéo để Di chuyển<br>Con lăn: Thu phóng | <kbd>Esc</kbd>: Bỏ chọn"
+  },
+  "mainPage": {
+    "title": "Bản sao Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Chào mừng đến với <span class=\"blink\">Bản sao Slither SIO</span>",
+    "helpButtonTitle": "Trợ giúp & Ghi công",
+    "adminLink": "Quản trị",
+    "exitGhostButton": "Thoát Chế độ Ma"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Chơi với tư cách Khách",
+      "playAsUser": "Chơi với tư cách {{username}}",
+      "login": "Đăng nhập",
+      "createAccount": "Tạo Tài khoản",
+      "customizeSkin": "Tùy chỉnh Giao diện",
+      "customSounds": "Âm thanh Tùy chỉnh",
+      "showLeaderboard": "Hiển thị Bảng xếp hạng",
+      "ghostMode": "Chế độ Ma",
+      "deleteAccount": "Xóa Tài khoản của Tôi",
+      "logout": "Đăng xuất"
+    },
+    "alerts": {
+      "colorTooDark": "Màu đã chọn rất tối và có thể khó nhìn. Nên chọn màu sáng hơn.",
+      "missingCredentials": "Vui lòng nhập tên người dùng và mật khẩu.",
+      "usernameLength": "Tên người dùng phải có từ {{min}} đến {{max}} ký tự.",
+      "passwordLength": "Mật khẩu phải có ít nhất {{minLength}} ký tự.",
+      "maxPatternColors": "Đã đạt đến tối đa {{max}} màu sắc mẫu.",
+      "canvasError": "Lỗi nghiêm trọng: Không thể tìm thấy phần tử canvas lớp phủ văn bản!",
+      "gameModuleError": "Lỗi nghiêm trọng: Không thể khởi tạo mô-đun trò chơi!",
+      "fetchAccountError": "Lỗi khi tìm nạp dữ liệu tài khoản.",
+      "loginError": "Lỗi Đăng nhập: {{error}}",
+      "creationError": "Lỗi Tạo: {{error}}",
+      "skinUpdateError": "Lỗi mạng hoặc máy chủ khi cập nhật giao diện: {{error}}",
+      "skinUpdatedTemp": "Giao diện đã được cập nhật cho phiên tạm thời.",
+      "deleteAccountError": "Lỗi mạng trong quá trình xóa tài khoản."
+    },
+    "confirms": {
+      "enterGhostMode": "Vào Chế độ Ma (khán giả)?",
+      "deleteAccount": "Bạn có chắc chắn muốn xóa vĩnh viễn tài khoản \"{{username}}\" của mình không? Hành động này không thể hoàn tác."
+    },
+    "welcomeMessage": "Chào {{username}}!",
+    "welcomeMessage_admin": "Chào {{username}} (Quản trị viên)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Tên người dùng:",
+      "passwordLabel": "Mật khẩu:",
+      "backButton": "Quay lại"
+    },
+    "guest": {
+      "title": "Chơi với tư cách Khách",
+      "note": "Màu sắc và skin sẽ được đặt qua \"Tùy chỉnh Giao diện\".",
+      "submitButton": "Bắt đầu Trò chơi"
+    },
+    "login": {
+      "title": "Đăng nhập",
+      "submitButton": "Đăng nhập"
+    },
+    "create": {
+      "title": "Tạo Tài khoản",
+      "initialHeadColorLabel": "Màu Đầu Ban đầu:",
+      "initialBodyColorLabel": "Màu Cơ thể Ban đầu:",
+      "submitButton": "Tạo"
+    },
+    "skin": {
+      "title": "Tùy chỉnh Giao diện",
+      "headColorLabel": "Màu Đầu:",
+      "bodyTypeLabel": "Loại Cơ thể",
+      "bodyTypeSingle": "Một màu",
+      "bodyTypePattern": "Mẫu Lặp lại",
+      "bodyColorLabel": "Màu Cơ thể:",
+      "patternColorsLabel": "Màu sắc Mẫu (tối đa 8)",
+      "trailEffectLabel": "Hiệu ứng Vệt",
+      "trailEffect": {
+        "none": "Không có",
+        "sparkle": "Lấp lánh",
+        "smoke": "Khói Xanh",
+        "fire": "Lửa",
+        "ice": "Mảnh băng",
+        "electric": "Tia điện",
+        "rainbow": "Cầu vồng",
+        "bubbles": "Bong bóng",
+        "glitch": "Lỗi",
+        "void": "Hư không / Bóng tối",
+        "confetti": "Pháo giấy"
+      },
+      "submitButton": "Lưu Giao diện"
+    },
+    "sound": {
+      "title": "Âm thanh Tùy chỉnh",
+      "info": "Tải lên các tệp MP3 (lưu trữ cục bộ) cho các sự kiện.",
+      "deathLabel": "Âm thanh Chết:",
+      "killLabel": "Âm thanh Giết:",
+      "boostLabel": "Âm thanh Tăng tốc:",
+      "clearButton": "Xóa Âm thanh"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Chơi Lại",
+    "backToMenuButton": "Quay lại Menu",
+    "finalSizeLabel": "Kích thước của bạn là: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Bảng xếp hạng",
+    "header": {
+      "name": "Tên",
+      "status": "Trạng thái",
+      "size": "Kích thước",
+      "kills": "Số mạng",
+      "deaths": "Số lần chết",
+      "kd": "K/D"
+    },
+    "noPlayers": "Chưa có người chơi nào được xếp hạng.",
+    "status": {
+      "ingame": "Trong Trò chơi",
+      "online": "Trực tuyến",
+      "offline": "Ngoại tuyến",
+      "never": "Chưa bao giờ",
+      "na": "Không có",
+      "ingameTitle": "Hiện đang trong trò chơi"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} giây trước",
+      "secondsAgo_other": "{{count}} giây trước",
+      "minutesAgo_one": "{{count}} phút trước",
+      "minutesAgo_other": "{{count}} phút trước",
+      "hoursAgo_one": "{{count}} giờ trước",
+      "hoursAgo_other": "{{count}} giờ trước",
+      "daysAgo_one": "{{count}} ngày trước",
+      "daysAgo_other": "{{count}} ngày trước",
+      "yesterday": "Hôm qua"
+    },
+    "lastLoginTitle": "Đăng nhập lần cuối: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Phím tắt (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Điều hướng các nút",
+      "activate": "Enter: Kích hoạt nút đã chọn",
+      "close": "Esc: Đóng bảng này / Quay lại"
+    },
+    "gameKeysTitle": "Phím tắt (Trò chơi)",
+    "gameKeys": {
+      "mouse": "Chuột: Lái rắn",
+      "boost": "Nhấp chuột trái / Space: Tăng tốc",
+      "adminCheat": "P: Gian lận Quản trị (nếu là quản trị viên)"
+    },
+    "ghostKeysTitle": "Phím tắt (Ma)",
+    "ghostKeys": {
+      "select": "Nhấp chuột trái (vào người chơi): Chọn Người chơi",
+      "pan": "Nhấp chuột trái + Kéo (khoảng trống): Di chuyển Camera",
+      "zoom": "Con lăn chuột: Thu phóng",
+      "kill": "K (nếu người chơi được chọn): Giết Người chơi",
+      "clear": "C (nếu người chơi được chọn): Dọn dẹp Người chơi (không có thức ăn)",
+      "freeze": "F (nếu người chơi được chọn): Đóng băng/Bỏ đóng băng Người chơi",
+      "deselect": "Esc: Bỏ chọn Người chơi"
+    },
+    "creditsTitle": "Ghi công",
+    "creditsAuthor": "Tác giả: Tác giả Vô danh",
+    "creditsLicense": "Giấy phép: MIT",
+    "creditsGithub": "Dự án trên GitHub"
+  },
+  "NEW_KEY_1": "Văn bản nguồn cho khóa mới đầu tiên.",
+  "NEW_KEY_2": "Văn bản nguồn cho khóa mới thứ hai."
+}

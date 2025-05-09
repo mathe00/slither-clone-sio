@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Beheer - Slither Kloon",
+  "backButtonTitle": "Terug naar hoofdpagina",
+  "tabs": {
+    "settings": "Algemene Instellingen",
+    "users": "Gebruikersbeheer",
+    "currentConfig": "Huidige Configuratie"
+  },
+  "settingsForm": {
+    "title": "Algemene Instellingen",
+    "passwordNote": "<strong>Opmerking:</strong> Om het beheerderswachtwoord in te stellen of opnieuw in te stellen, stop de server en voer deze uit met het commando:<br/><code>node backend/server.js --set-new-password UW_NIEUWE_WACHTWOORD</code><br/>Toegang tot deze pagina vereist een actieve beheerderssessie (via cookie).<br/>Sommige instellingen (gemarkeerd met *) vereisen een herstart van de server om toegepast te worden.",
+    "mapWidth": {
+      "label": "Kaartbreedte (px) *:",
+      "placeholder": "bijv. 4000"
+    },
+    "mapHeight": {
+      "label": "Kaarthoogte (px) *:",
+      "placeholder": "bijv. 4000"
+    },
+    "mapShape": {
+      "label": "Kaartvorm *:",
+      "rectangle": "Rechthoek",
+      "circle": "Cirkel"
+    },
+    "aoiRadius": {
+      "label": "Radius Interessegebied (AoI) (px) *:",
+      "placeholder": "bijv. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Slangengrootte Limiet (Standaard):",
+      "placeholder": "bijv. 1000"
+    },
+    "initialSize": {
+      "label": "Initiële Slangengrootte:",
+      "placeholder": "bijv. 50"
+    },
+    "speed": {
+      "label": "Basissnelheid:",
+      "placeholder": "bijv. 1"
+    },
+    "maxRotationRate": {
+      "label": "Max Rotatiesnelheid (rad/tick):",
+      "placeholder": "bijv. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Grootte voor Boost:",
+      "placeholder": "bijv. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Boostverbruik Snelheid:",
+      "placeholder": "bijv. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Voedsel Spawn Interval (ms):",
+      "placeholder": "bijv. 5000"
+    },
+    "fps": {
+      "label": "Server FPS (loops/sec):",
+      "placeholder": "bijv. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Voedselaantrekkingskracht:",
+      "placeholder": "bijv. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Voedsel Snap Afstand:",
+      "placeholder": "bijv. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Standaard Zoomniveau:",
+      "placeholder": "bijv. 1.0"
+    },
+    "securityMode": {
+      "label": "Beveiligingsmodus *:",
+      "high": "Hoog (Aanbevolen)",
+      "low": "Laag (Client + Licht)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Teleport Overtredingsdrempel:",
+      "placeholder": "bijv. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Teleport Tolerantiefactor:",
+      "placeholder": "bijv. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "God Mode inschakelen bij Spawn:",
+      "yes": "Ja",
+      "no": "Nee"
+    },
+    "botsEnabled": {
+      "label": "Bots inschakelen:",
+      "yes": "Ja",
+      "no": "Nee"
+    },
+    "botMaxCount": {
+      "label": "Max Aantal Bots:",
+      "placeholder": "bijv. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Bot Spawn Interval (ms):",
+      "placeholder": "bijv. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Bot Levensduur (ms):",
+      "placeholder": "bijv. 120000"
+    },
+    "botDifficulty": {
+      "label": "Bot Moeilijkheidsgraad:",
+      "easy": "Makkelijk",
+      "medium": "Gemiddeld",
+      "hard": "Moeilijk"
+    },
+    "adminMessageText": {
+      "label": "Beheerdersbericht (leeg laten om te wissen):",
+      "placeholder": "Bericht om aan alle spelers te tonen"
+    },
+    "adminMessageDuration": {
+      "label": "Berichtduur (seconden):",
+      "placeholder": "bijv. 10"
+    },
+    "updateButton": "Instellingen Bijwerken"
+  },
+  "userManagement": {
+    "title": "Gebruikersbeheer",
+    "loading": "Laden...",
+    "noUsers": "Geen gebruikers gevonden.",
+    "table": {
+      "headerUser": "Gebruiker",
+      "headerStatus": "Status",
+      "headerLastLogin": "Laatste Login",
+      "headerCreated": "Aangemaakt",
+      "headerActions": "Acties"
+    },
+    "status": {
+      "admin": "Beheerder",
+      "suspended": "Geschorst",
+      "normal": "Normaal",
+      "never": "Nooit",
+      "unknown": "Onbekend"
+    },
+    "actions": {
+      "removeAdmin": "Beheerder Verwijderen",
+      "makeAdmin": "Beheerder Maken",
+      "unban": "Schorsing Opheffen",
+      "suspend": "Schorsen",
+      "delete": "Verwijderen"
+    },
+    "pruneButton": "Inactieve Accounts Opschonen",
+    "confirmDelete": "Weet u zeker dat u gebruiker \"{{username}}\" permanent wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "confirmPrune_one": "Weet u zeker dat u {{count}} inactief account (inactief >15 dagen EN zeer lage statistieken) wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "confirmPrune_other": "Weet u zeker dat u {{count}} inactieve accounts (inactief >15 dagen EN zeer lage statistieken) wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "confirmPruneZero": "Geen inactieve accounts gevonden op basis van huidige criteria. Wilt u de operatie toch uitvoeren (voor het geval dat)?",
+    "confirmPruneZeroConfirm": "Bevestig opschoonoperatie zelfs als 0 accounts zijn gedetecteerd?",
+    "pruneCancelled": "Opschoonoperatie geannuleerd."
+  },
+  "currentConfig": {
+    "title": "Huidige Serverconfiguratie",
+    "loading": "Configuratie laden...",
+    "loadError": "Kon configuratie niet laden.",
+    "loadSuccess": "Huidige configuratie geladen.",
+    "keys": {
+      "MAP_WIDTH": "Kaartbreedte (px)",
+      "MAP_HEIGHT": "Kaarthoogte (px)",
+      "MAP_SHAPE": "Kaartvorm",
+      "AOI_RADIUS": "Radius Interessegebied (AoI) (px)",
+      "SECURITY_MODE": "Beveiligingsmodus",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Slangengrootte Limiet (Standaard)",
+      "INITIAL_SIZE": "Initiële Slangengrootte",
+      "MIN_BOOST_SIZE": "Min. Grootte voor Boost",
+      "SPEED": "Basissnelheid",
+      "MAX_ROTATION_RATE": "Max Rotatiesnelheid",
+      "BOOST_CONSUMPTION_RATE": "Boostverbruik (Grootte/tick)",
+      "FPS": "Server FPS",
+      "FOOD_SPAWN_INTERVAL": "Voedsel Spawn Interval (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Voedselaantrekkingskracht",
+      "FOOD_SNAP_DISTANCE": "Voedsel Snap Afstand",
+      "DEFAULT_ZOOM_LEVEL": "Standaard Zoomniveau",
+      "TELEPORT_VIOLATION_THRESHOLD": "Teleport Overtredingsdrempel",
+      "TELEPORT_TOLERANCE_FACTOR": "Teleport Tolerantiefactor",
+      "BOTS_ENABLED": "Bots Ingeschakeld",
+      "BOT_MAX_COUNT": "Max Aantal Bots",
+      "BOT_SPAWN_INTERVAL_MS": "Bot Spawn Interval (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Bot Levensduur (ms)",
+      "BOT_DIFFICULTY": "Bot Moeilijkheidsgraad"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nee"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Toegang geweigerd. Doorverwijzen...",
+    "settingsUpdated": "Instellingen succesvol bijgewerkt.",
+    "settingsUpdatedWithRestart": "Instellingen bijgewerkt. Serverherstart vereist voor kaart/beveiligingswijzigingen.",
+    "settingsUpdatedFpsRestart": "Instellingen bijgewerkt. Game loop herstart voor FPS-wijziging.",
+    "settingsUpdateError": "Fout bij het bijwerken van instellingen.",
+    "loadSettingsError": "Fout bij het laden van instellingen: {{error}}",
+    "loadUsersError": "Fout bij het laden van gebruikers.",
+    "networkError": "Netwerkfout of server niet beschikbaar.",
+    "invalidResponse": "Ongeldige respons van server (geen JSON)",
+    "changes": "Wijzigingen:",
+    "restartRequired": "Een serverherstart is vereist om wijzigingen toe te passen (Kaartgrootte/-vorm, Beveiligingsmodus, AoI Radius).",
+    "fpsRestart": "De game loop is herstart om de nieuwe FPS toe te passen.",
+    "noChanges": "Geen instellingen gewijzigd.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Fout tijdens preview.",
+    "pruneError": "Fout tijdens opschoonoperatie.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Selecteer een MP3-bestand.",
+      "loginRequired": "U moet ingelogd zijn om aangepaste geluiden op te slaan.",
+      "saveError": "Fout bij het opslaan van geluid. Lokale opslag is mogelijk vol.",
+      "readError": "Fout bij het lezen van geluidsbestand.",
+      "clearLoginRequired": "U moet ingelogd zijn om geluiden te wissen.",
+      "clearError": "Er is een fout opgetreden bij het verwijderen van geluiden."
+    },
+    "confirms": {
+      "clearAll": "Weet u zeker dat u alle aangepaste geluiden voor dit account wilt verwijderen?"
+    },
+    "statusTitles": {
+      "saveError": "Opslagfout",
+      "readError": "Leesfout",
+      "saved": "Geluid opgeslagen",
+      "savedWithName": "Opgeslagen: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server Niet Beschikbaar - Slither Kloon SIO",
+    "logoAlt": "Server Niet Beschikbaar Logo",
+    "mainHeader": "Server Niet Beschikbaar",
+    "explanation": "De <span class=\"game-name\">Slither Kloon SIO</span> server lijkt tijdelijk offline of onbereikbaar. We proberen de verbinding voor u te herstellen.",
+    "snakeTitle": "Speel ondertussen Snake!",
+    "snakeScoreLabel": "Score: 0",
+    "snakeControls": "Pijltjes / ZQSD / WASD: Bewegen | Enter: Start/Herstart",
+    "status": {
+      "label": "Status:",
+      "searching": "Zoeken...",
+      "checking": "Controleren...",
+      "connected": "Verbonden!",
+      "nextAttemptLabel": "Volgende poging over",
+      "secondsSuffix": "sec",
+      "attemptsLabel": "Pogingen:"
+    },
+    "refreshButton": "Nu Controleren",
+    "redirectInfo": "U wordt automatisch doorgestuurd zodra de server weer online is."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Score: {{score}}"
+    },
+    "gameOver": {
+      "win": "GEWONNEN!",
+      "lose": "VERLOREN!",
+      "scoreLabel": "Score: {{score}}",
+      "promptLine1": "Druk op Enter",
+      "promptLine2": "om Opnieuw te Spelen"
+    },
+    "countdown": "START OVER {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Druk op Enter",
+      "promptLine2": "om te Spelen"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Interne serverfout.",
+      "invalidAdminStatus": "Ongeldige 'isAdmin' status.",
+      "userNotFound": "Gebruiker niet gevonden.",
+      "invalidSuspendStatus": "Ongeldige 'isSuspended' status.",
+      "cannotDeleteSelf": "U kunt hier uw eigen beheerdersaccount niet verwijderen.",
+      "prunePreviewError": "Fout tijdens preview van opschonen.",
+      "pruneError": "Fout tijdens opschoonoperatie.",
+      "rateLimit": "Te veel pogingen om een account aan te maken. Probeer het over ongeveer {{minutes}} minuut opnieuw.",
+      "missingCredentials": "Gebruikersnaam en wachtwoord vereist.",
+      "usernameTooLong": "Gebruikersnaam mag niet langer zijn dan {{maxLength}} tekens.",
+      "usernameTooShort": "Gebruikersnaam moet minimaal {{minLength}} tekens lang zijn.",
+      "passwordTooShort": "Wachtwoord moet minimaal {{minLength}} tekens lang zijn.",
+      "usernameTaken": "Deze gebruikersnaam is al in gebruik.",
+      "invalidCredentials": "Ongeldige gebruikersnaam of wachtwoord.",
+      "accountSuspended": "Dit account is momenteel geschorst.",
+      "notAuthenticated": "Niet geauthenticeerd.",
+      "invalidHeadColor": "Ongeldige hoofdkleur.",
+      "missingSkinData": "Huiddata ontbreekt of is ongeldig.",
+      "invalidBodyType": "Ongeldig lichaamstype.",
+      "invalidBodyColor": "Ongeldige lichaamskleur in huiddata.",
+      "invalidPatternColorsType": "Patroonkleuren moeten een array zijn.",
+      "tooManyPatternColors": "Te veel patroonkleuren (max {{max}}).",
+      "invalidPatternColorValue": "Ongeldige kleur gevonden in patroon.",
+      "invalidTrailEffect": "Ongeldig spoor-effect.",
+      "adminCannotDeleteSelf": "Beheerders kunnen hun eigen account niet via deze interface verwijderen.",
+      "deleteAccountError": "Interne fout tijdens het verwijderen van account."
+    },
+    "success": {
+      "accountCreated": "Account succesvol aangemaakt en ingelogd.",
+      "login": "Login succesvol.",
+      "logout": "Logout succesvol.",
+      "skinUpdated": "Uiterlijk succesvol bijgewerkt.",
+      "accountDeleted": "Uw account is succesvol verwijderd."
+    },
+    "admin": {
+      "adminStatusUpdated": "Beheerdersstatus voor {{username}} bijgewerkt.",
+      "suspendStatusUpdated": "Schorsingsstatus voor {{username}} bijgewerkt.",
+      "userDeleted": "Account {{username}} succesvol verwijderd.",
+      "pruneNoUsers": "Geen inactieve accounts gevonden om op te schonen.",
+      "pruneSuccess": "{{count}} inactieve account(s) opgeschoond."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Uw account is geschorst.",
+      "accountError": "Accountfout. Log opnieuw in.",
+      "alreadyConnected": "Dit account is al verbonden met het spel.",
+      "deletedByAdmin": "Uw account is verwijderd door een beheerder.",
+      "accountDeleted": "Uw account is verwijderd."
+    },
+    "kickReason": "Verwijderd door {{admin}}",
+    "banReason": "Verbannen door {{admin}}",
+    "clearReason": "Gewist door {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Actie niet geautoriseerd.",
+      "targetNotFound": "Doelspeler niet gevonden.",
+      "kickSuccess": "{{username}} is verwijderd.",
+      "kickOfflineSuccess": "{{username}} (reeds losgekoppeld) verwijderd uit het spel.",
+      "kickError": "Kon socket of status voor {{username}} niet vinden.",
+      "banSuccess": "{{username}} is verbannen (account geschorst en speler verwijderd).",
+      "banAccountOnlySuccess": "Account {{username}} geschorst (speler reeds losgekoppeld of verwijderd).",
+      "banError": "Kan {{username}} niet verbannen (tijdelijk of niet-bestaand account).",
+      "freezeSuccess": "{{username}} is bevroren.",
+      "unfreezeSuccess": "{{username}} is ontdooid.",
+      "killSuccess": "{{username}} is gedood.",
+      "clearSuccess": "{{username}} is gewist (verwijderd zonder voedsel achter te laten).",
+      "clearError": "Kon {{username}} niet wissen (reeds verwijderd?).",
+      "unknownAction": "Onbekende actie."
+    },
+    "userConnected": "{{username}} is lid geworden van het spel.",
+    "userDisconnected": "{{username}} heeft het spel verlaten.",
+    "disconnectReason": "Verbinding verbroken: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Onbekende botsing",
+      "boundary": "De kaartgrens geraakt.",
+      "teleport": "Verbinding verbroken: Verdachte beweging.",
+      "selfCollision": "Anti-cheat: Zelfbotsing.",
+      "inactivity": "Inactiviteit.",
+      "killedByAdmin": "Gedood door {{admin}}",
+      "botExpired": "Bot verlopen.",
+      "clientCollision": "Lichaamsbotsing (client)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Grootte: {{size}}",
+    "positionLabel": "Positie: {{x}}x{{y}}",
+    "ghostMode": "Spookmodus",
+    "spectator": "Toeschouwer"
+  },
+  "ghostMode": {
+    "selected": "Geselecteerd: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Onbekend",
+    "controlsSelected": "<kbd>K</kbd>: Doden | <kbd>C</kbd>: Wissen | <kbd>F</kbd>: Bevriezen/Ontdooien | <kbd>Esc</kbd>: Deselecteren",
+    "controlsGeneral": "Linkerklik: Entiteit Selecteren / Slepen om te Pannen<br>Wiel: Zoomen | <kbd>Esc</kbd>: Deselecteren"
+  },
+  "mainPage": {
+    "title": "Slither Kloon SIO"
+  },
+  "mainMenu": {
+    "title": "Welkom bij <span class=\"blink\">Slither Kloon SIO</span>",
+    "helpButtonTitle": "Help & Credits",
+    "adminLink": "Beheer",
+    "exitGhostButton": "Spookmodus Verlaten"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Speel als Gast",
+      "playAsUser": "Speel als {{username}}",
+      "login": "Inloggen",
+      "createAccount": "Account Aanmaken",
+      "customizeSkin": "Uiterlijk Aanpassen",
+      "customSounds": "Aangepaste Geluiden",
+      "showLeaderboard": "Scorebord Tonen",
+      "ghostMode": "Spookmodus",
+      "deleteAccount": "Mijn Account Verwijderen",
+      "logout": "Uitloggen"
+    },
+    "alerts": {
+      "colorTooDark": "De gekozen kleur is erg donker en mogelijk moeilijk te zien. Een lichtere kleur wordt aanbevolen.",
+      "missingCredentials": "Voer een gebruikersnaam en wachtwoord in.",
+      "usernameLength": "Gebruikersnaam moet tussen {{min}} en {{max}} tekens lang zijn.",
+      "passwordLength": "Wachtwoord moet minimaal {{minLength}} tekens lang zijn.",
+      "maxPatternColors": "Maximum van {{max}} patroonkleuren bereikt.",
+      "canvasError": "Kritieke Fout: Kon tekstoverlay canvas element niet vinden!",
+      "gameModuleError": "Kritieke Fout: Kon game module niet initialiseren!",
+      "fetchAccountError": "Fout bij het ophalen van accountgegevens.",
+      "loginError": "Inlogfout: {{error}}",
+      "creationError": "Aanmaakfout: {{error}}",
+      "skinUpdateError": "Netwerk- of serverfout bij het bijwerken van uiterlijk: {{error}}",
+      "skinUpdatedTemp": "Uiterlijk bijgewerkt voor tijdelijke sessie.",
+      "deleteAccountError": "Netwerkfout tijdens het verwijderen van account."
+    },
+    "confirms": {
+      "enterGhostMode": "Spookmodus (toeschouwer) betreden?",
+      "deleteAccount": "Weet u zeker dat u uw account \"{{username}}\" permanent wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+    },
+    "welcomeMessage": "Hallo {{username}}!",
+    "welcomeMessage_admin": "Hallo {{username}} (Beheerder)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Gebruikersnaam:",
+      "passwordLabel": "Wachtwoord:",
+      "backButton": "Terug"
+    },
+    "guest": {
+      "title": "Speel als Gast",
+      "note": "Kleuren en huid worden ingesteld via \"Uiterlijk Aanpassen\".",
+      "submitButton": "Spel Starten"
+    },
+    "login": {
+      "title": "Inloggen",
+      "submitButton": "Inloggen"
+    },
+    "create": {
+      "title": "Account Aanmaken",
+      "initialHeadColorLabel": "Initiële Hoofdkleur:",
+      "initialBodyColorLabel": "Initiële Lichaamskleur:",
+      "submitButton": "Aanmaken"
+    },
+    "skin": {
+      "title": "Uiterlijk Aanpassen",
+      "headColorLabel": "Hoofdkleur:",
+      "bodyTypeLabel": "Lichaamstype",
+      "bodyTypeSingle": "Eén Kleur",
+      "bodyTypePattern": "Herhalend Patroon",
+      "bodyColorLabel": "Lichaamskleur:",
+      "patternColorsLabel": "Patroonkleuren (max 8)",
+      "trailEffectLabel": "Spoor-effect",
+      "trailEffect": {
+        "none": "Geen",
+        "sparkle": "Glinstering",
+        "smoke": "Groene Rook",
+        "fire": "Vuur",
+        "ice": "IJsscherven",
+        "electric": "Elektrische Vonken",
+        "rainbow": "Regenboog",
+        "bubbles": "Bellen",
+        "glitch": "Glitch",
+        "void": "Leegte / Schaduw",
+        "confetti": "Confetti"
+      },
+      "submitButton": "Uiterlijk Opslaan"
+    },
+    "sound": {
+      "title": "Aangepaste Geluiden",
+      "info": "Upload MP3-bestanden (lokaal opgeslagen) voor gebeurtenissen.",
+      "deathLabel": "Doodsgeluid:",
+      "killLabel": "Kill-geluid:",
+      "boostLabel": "Boost-geluid:",
+      "clearButton": "Geluiden Wissen"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Opnieuw Spelen",
+    "backToMenuButton": "Terug naar Menu",
+    "finalSizeLabel": "Uw grootte was: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Scorebord",
+    "header": {
+      "name": "Naam",
+      "status": "Status",
+      "size": "Grootte",
+      "kills": "Kills",
+      "deaths": "Doden",
+      "kd": "K/D"
+    },
+    "noPlayers": "Nog geen spelers gerangschikt.",
+    "status": {
+      "ingame": "In Spel",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Nooit",
+      "na": "N.v.t.",
+      "ingameTitle": "Momenteel in spel"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} sec geleden",
+      "secondsAgo_other": "{{count}} sec geleden",
+      "minutesAgo_one": "{{count}} min geleden",
+      "minutesAgo_other": "{{count}} min geleden",
+      "hoursAgo_one": "{{count}} uur geleden",
+      "hoursAgo_other": "{{count}} uur geleden",
+      "daysAgo_one": "{{count}} dag geleden",
+      "daysAgo_other": "{{count}} dagen geleden",
+      "yesterday": "Gisteren"
+    },
+    "lastLoginTitle": "Laatste login: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Sneltoetsen (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigeer knoppen",
+      "activate": "Enter: Activeer geselecteerde knop",
+      "close": "Esc: Sluit dit paneel / Terug"
+    },
+    "gameKeysTitle": "Sneltoetsen (Spel)",
+    "gameKeys": {
+      "mouse": "Muis: Stuur slang",
+      "boost": "Linkerklik / Spatie: Boost",
+      "adminCheat": "P: Beheerderscheat (indien beheerder)"
+    },
+    "ghostKeysTitle": "Sneltoetsen (Spook)",
+    "ghostKeys": {
+      "select": "Linkerklik (op speler): Selecteer Speler",
+      "pan": "Linkerklik + Slepen (lege ruimte): Pan Camera",
+      "zoom": "Muiswiel: Zoom In/Uit",
+      "kill": "K (indien speler geselecteerd): Dood Speler",
+      "clear": "C (indien speler geselecteerd): Wis Speler (geen voedsel)",
+      "freeze": "F (indien speler geselecteerd): Bevries/Ontdooi Speler",
+      "deselect": "Esc: Deselecteer Speler"
+    },
+    "creditsTitle": "Credits",
+    "creditsAuthor": "Auteur: Anonieme Auteur",
+    "creditsLicense": "Licentie: MIT",
+    "creditsGithub": "Project op GitHub"
+  },
+  "NEW_KEY_1": "Brontekst voor de eerste nieuwe sleutel.",
+  "NEW_KEY_2": "Brontekst voor de tweede nieuwe sleutel."
+}

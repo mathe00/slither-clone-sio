@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Διαχειριστής - Κλώνος Slither",
+  "backButtonTitle": "Επιστροφή στην κύρια σελίδα",
+  "tabs": {
+    "settings": "Γενικές Ρυθμίσεις",
+    "users": "Διαχείριση Χρηστών",
+    "currentConfig": "Τρέχουσα Διαμόρφωση"
+  },
+  "settingsForm": {
+    "title": "Γενικές Ρυθμίσεις",
+    "passwordNote": "<strong>Σημείωση:</strong> Για να ορίσετε ή να επαναφέρετε τον κωδικό πρόσβασης διαχειριστή, σταματήστε τον διακομιστή και εκτελέστε τον με την εντολή:<br/><code>node backend/server.js --set-new-password Ο_ΝΕΟΣ_ΣΑΣ_ΚΩΔΙΚΟΣ</code><br/>Η πρόσβαση σε αυτή τη σελίδα απαιτεί ενεργή συνεδρία διαχειριστή (μέσω cookie).<br/>Ορισμένες ρυθμίσεις (με σήμανση *) απαιτούν επανεκκίνηση του διακομιστή για να εφαρμοστούν.",
+    "mapWidth": {
+      "label": "Πλάτος Χάρτη (px) *:",
+      "placeholder": "π.χ. 4000"
+    },
+    "mapHeight": {
+      "label": "Ύψος Χάρτη (px) *:",
+      "placeholder": "π.χ. 4000"
+    },
+    "mapShape": {
+      "label": "Σχήμα Χάρτη *:",
+      "rectangle": "Ορθογώνιο",
+      "circle": "Κύκλος"
+    },
+    "aoiRadius": {
+      "label": "Ακτίνα Περιοχής Ενδιαφέροντος (AoI) (px) *:",
+      "placeholder": "π.χ. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Όριο Μεγέθους Φιδιού (Προεπιλογή):",
+      "placeholder": "π.χ. 1000"
+    },
+    "initialSize": {
+      "label": "Αρχικό Μέγεθος Φιδιού:",
+      "placeholder": "π.χ. 50"
+    },
+    "speed": {
+      "label": "Βασική Ταχύτητα:",
+      "placeholder": "π.χ. 1"
+    },
+    "maxRotationRate": {
+      "label": "Μέγ. Ρυθμός Περιστροφής (rad/tick):",
+      "placeholder": "π.χ. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Ελάχ. Μέγεθος για Boost:",
+      "placeholder": "π.χ. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Ρυθμός Κατανάλωσης Boost:",
+      "placeholder": "π.χ. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Διάστημα Εμφάνισης Τροφής (ms):",
+      "placeholder": "π.χ. 5000"
+    },
+    "fps": {
+      "label": "FPS Διακομιστή (βρόχοι/δευτ):",
+      "placeholder": "π.χ. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Δύναμη Έλξης Τροφής:",
+      "placeholder": "π.χ. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Απόσταση Προσκόλλησης Τροφής:",
+      "placeholder": "π.χ. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Προεπιλεγμένο Επίπεδο Ζουμ:",
+      "placeholder": "π.χ. 1.0"
+    },
+    "securityMode": {
+      "label": "Λειτουργία Ασφαλείας *:",
+      "high": "Υψηλή (Συνιστάται)",
+      "low": "Χαμηλή (Πελάτης + Ελαφριά)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Όριο Παραβίασης Τηλεμεταφοράς:",
+      "placeholder": "π.χ. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Συντελεστής Ανοχής Τηλεμεταφοράς:",
+      "placeholder": "π.χ. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Ενεργοποίηση God Mode κατά την Εμφάνιση:",
+      "yes": "Ναι",
+      "no": "Όχι"
+    },
+    "botsEnabled": {
+      "label": "Ενεργοποίηση Bot:",
+      "yes": "Ναι",
+      "no": "Όχι"
+    },
+    "botMaxCount": {
+      "label": "Μέγ. Αριθμός Bot:",
+      "placeholder": "π.χ. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Διάστημα Εμφάνισης Bot (ms):",
+      "placeholder": "π.χ. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Διάρκεια Ζωής Bot (ms):",
+      "placeholder": "π.χ. 120000"
+    },
+    "botDifficulty": {
+      "label": "Δυσκολία Bot:",
+      "easy": "Εύκολο",
+      "medium": "Μέτριο",
+      "hard": "Δύσκολο"
+    },
+    "adminMessageText": {
+      "label": "Μήνυμα Διαχειριστή (αφήστε κενό για εκκαθάριση):",
+      "placeholder": "Μήνυμα για εμφάνιση σε όλους τους παίκτες"
+    },
+    "adminMessageDuration": {
+      "label": "Διάρκεια Μηνύματος (δευτερόλεπτα):",
+      "placeholder": "π.χ. 10"
+    },
+    "updateButton": "Ενημέρωση Ρυθμίσεων"
+  },
+  "userManagement": {
+    "title": "Διαχείριση Χρηστών",
+    "loading": "Φόρτωση...",
+    "noUsers": "Δεν βρέθηκαν χρήστες.",
+    "table": {
+      "headerUser": "Χρήστης",
+      "headerStatus": "Κατάσταση",
+      "headerLastLogin": "Τελευταία Σύνδεση",
+      "headerCreated": "Δημιουργήθηκε",
+      "headerActions": "Ενέργειες"
+    },
+    "status": {
+      "admin": "Διαχειριστής",
+      "suspended": "Σε αναστολή",
+      "normal": "Κανονικός",
+      "never": "Ποτέ",
+      "unknown": "Άγνωστο"
+    },
+    "actions": {
+      "removeAdmin": "Αφαίρεση Διαχειριστή",
+      "makeAdmin": "Ορισμός ως Διαχειριστή",
+      "unban": "Άρση Αναστολής",
+      "suspend": "Αναστολή",
+      "delete": "Διαγραφή"
+    },
+    "pruneButton": "Εκκαθάριση Ανενεργών Λογαριασμών",
+    "confirmDelete": "Είστε βέβαιοι ότι θέλετε να διαγράψετε οριστικά τον χρήστη \"{{username}}\"; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+    "confirmPrune_one": "Είστε βέβαιοι ότι θέλετε να διαγράψετε {{count}} ανενεργό λογαριασμό (ανενεργός >15 ημέρες ΚΑΙ πολύ χαμηλά στατιστικά); Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+    "confirmPrune_other": "Είστε βέβαιοι ότι θέλετε να διαγράψετε {{count}} ανενεργούς λογαριασμούς (ανενεργοί >15 ημέρες ΚΑΙ πολύ χαμηλά στατιστικά); Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+    "confirmPruneZero": "Δεν βρέθηκαν ανενεργοί λογαριασμοί βάσει των τρεχόντων κριτηρίων. Θέλετε ακόμα να εκτελέσετε τη λειτουργία (για κάθε ενδεχόμενο);",
+    "confirmPruneZeroConfirm": "Επιβεβαίωση λειτουργίας εκκαθάρισης ακόμα κι αν εντοπίστηκαν 0 λογαριασμοί;",
+    "pruneCancelled": "Η λειτουργία εκκαθάρισης ακυρώθηκε."
+  },
+  "currentConfig": {
+    "title": "Τρέχουσα Διαμόρφωση Διακομιστή",
+    "loading": "Φόρτωση διαμόρφωσης...",
+    "loadError": "Δεν ήταν δυνατή η φόρτωση της διαμόρφωσης.",
+    "loadSuccess": "Η τρέχουσα διαμόρφωση φορτώθηκε.",
+    "keys": {
+      "MAP_WIDTH": "Πλάτος Χάρτη (px)",
+      "MAP_HEIGHT": "Ύψος Χάρτη (px)",
+      "MAP_SHAPE": "Σχήμα Χάρτη",
+      "AOI_RADIUS": "Ακτίνα Περιοχής Ενδιαφέροντος (AoI) (px)",
+      "SECURITY_MODE": "Λειτουργία Ασφαλείας",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Όριο Μεγέθους Φιδιού (Προεπιλογή)",
+      "INITIAL_SIZE": "Αρχικό Μέγεθος Φιδιού",
+      "MIN_BOOST_SIZE": "Ελάχ. Μέγεθος για Boost",
+      "SPEED": "Βασική Ταχύτητα",
+      "MAX_ROTATION_RATE": "Μέγ. Ρυθμός Περιστροφής",
+      "BOOST_CONSUMPTION_RATE": "Κατανάλωση Boost (Μέγεθος/tick)",
+      "FPS": "FPS Διακομιστή",
+      "FOOD_SPAWN_INTERVAL": "Διάστημα Εμφάνισης Τροφής (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Δύναμη Έλξης Τροφής",
+      "FOOD_SNAP_DISTANCE": "Απόσταση Προσκόλλησης Τροφής",
+      "DEFAULT_ZOOM_LEVEL": "Προεπιλεγμένο Επίπεδο Ζουμ",
+      "TELEPORT_VIOLATION_THRESHOLD": "Όριο Παραβίασης Τηλεμεταφοράς",
+      "TELEPORT_TOLERANCE_FACTOR": "Συντελεστής Ανοχής Τηλεμεταφοράς",
+      "BOTS_ENABLED": "Bot Ενεργοποιημένα",
+      "BOT_MAX_COUNT": "Μέγ. Αριθμός Bot",
+      "BOT_SPAWN_INTERVAL_MS": "Διάστημα Εμφάνισης Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Διάρκεια Ζωής Bot (ms)",
+      "BOT_DIFFICULTY": "Δυσκολία Bot"
+    },
+    "boolean": {
+      "yes": "Ναι",
+      "no": "Όχι"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Η πρόσβαση απορρίφθηκε. Ανακατεύθυνση...",
+    "settingsUpdated": "Οι ρυθμίσεις ενημερώθηκαν επιτυχώς.",
+    "settingsUpdatedWithRestart": "Οι ρυθμίσεις ενημερώθηκαν. Απαιτείται επανεκκίνηση του διακομιστή για αλλαγές χάρτη/ασφάλειας.",
+    "settingsUpdatedFpsRestart": "Οι ρυθμίσεις ενημερώθηκαν. Ο βρόχος παιχνιδιού επανεκκινήθηκε για αλλαγή FPS.",
+    "settingsUpdateError": "Σφάλμα κατά την ενημέρωση των ρυθμίσεων.",
+    "loadSettingsError": "Σφάλμα κατά τη φόρτωση των ρυθμίσεων: {{error}}",
+    "loadUsersError": "Σφάλμα κατά τη φόρτωση των χρηστών.",
+    "networkError": "Σφάλμα δικτύου ή ο διακομιστής δεν είναι διαθέσιμος.",
+    "invalidResponse": "Μη έγκυρη απάντηση από τον διακομιστή (όχι JSON)",
+    "changes": "Αλλαγές:",
+    "restartRequired": "Απαιτείται επανεκκίνηση του διακομιστή για την εφαρμογή των αλλαγών (Μέγεθος/Σχήμα Χάρτη, Λειτουργία Ασφαλείας, Ακτίνα AoI).",
+    "fpsRestart": "Ο βρόχος παιχνιδιού επανεκκινήθηκε για την εφαρμογή του νέου FPS.",
+    "noChanges": "Δεν τροποποιήθηκαν ρυθμίσεις.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Σφάλμα κατά την προεπισκόπηση.",
+    "pruneError": "Σφάλμα κατά τη λειτουργία εκκαθάρισης.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Παρακαλώ επιλέξτε ένα αρχείο MP3.",
+      "loginRequired": "Πρέπει να είστε συνδεδεμένοι για να αποθηκεύσετε προσαρμοσμένους ήχους.",
+      "saveError": "Σφάλμα κατά την αποθήκευση του ήχου. Ο τοπικός χώρος αποθήκευσης μπορεί να είναι γεμάτος.",
+      "readError": "Σφάλμα κατά την ανάγνωση του αρχείου ήχου.",
+      "clearLoginRequired": "Πρέπει να είστε συνδεδεμένοι για να διαγράψετε ήχους.",
+      "clearError": "Παρουσιάστηκε σφάλμα κατά τη διαγραφή των ήχων."
+    },
+    "confirms": {
+      "clearAll": "Είστε βέβαιοι ότι θέλετε να διαγράψετε όλους τους προσαρμοσμένους ήχους για αυτόν τον λογαριασμό;"
+    },
+    "statusTitles": {
+      "saveError": "Σφάλμα Αποθήκευσης",
+      "readError": "Σφάλμα Ανάγνωσης",
+      "saved": "Ο ήχος αποθηκεύτηκε",
+      "savedWithName": "Αποθηκεύτηκε: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Ο Διακομιστής δεν είναι Διαθέσιμος - Κλώνος Slither SIO",
+    "logoAlt": "Λογότυπο 'Ο Διακομιστής δεν είναι Διαθέσιμος'",
+    "mainHeader": "Ο Διακομιστής δεν είναι Διαθέσιμος",
+    "explanation": "Ο διακομιστής <span class=\"game-name\">Κλώνος Slither SIO</span> φαίνεται να είναι προσωρινά εκτός σύνδεσης ή μη προσβάσιμος. Προσπαθούμε να αποκαταστήσουμε τη σύνδεση για εσάς.",
+    "snakeTitle": "Στο μεταξύ, παίξτε Φιδάκι!",
+    "snakeScoreLabel": "Σκορ: 0",
+    "snakeControls": "Βέλη / ZQSD / WASD: Κίνηση | Enter: Έναρξη/Επανεκκίνηση",
+    "status": {
+      "label": "Κατάσταση:",
+      "searching": "Αναζήτηση...",
+      "checking": "Έλεγχος...",
+      "connected": "Συνδέθηκε!",
+      "nextAttemptLabel": "Επόμενη προσπάθεια σε",
+      "secondsSuffix": "δευτ.",
+      "attemptsLabel": "Προσπάθειες:"
+    },
+    "refreshButton": "Έλεγχος Τώρα",
+    "redirectInfo": "Θα ανακατευθυνθείτε αυτόματα μόλις ο διακομιστής είναι ξανά συνδεδεμένος."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Σκορ: {{score}}"
+    },
+    "gameOver": {
+      "win": "ΝΙΚΗΣΕΣ!",
+      "lose": "ΕΧΑΣΕΣ!",
+      "scoreLabel": "Σκορ: {{score}}",
+      "promptLine1": "Πάτα Enter",
+      "promptLine2": "για να Παίξεις Ξανά"
+    },
+    "countdown": "ΕΝΑΡΞΗ ΣΕ {{count}}",
+    "startScreen": {
+      "title": "ΦΙΔΑΚΙ",
+      "promptLine1": "Πάτα Enter",
+      "promptLine2": "για να Παίξεις"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Εσωτερικό σφάλμα διακομιστή.",
+      "invalidAdminStatus": "Μη έγκυρη κατάσταση 'isAdmin'.",
+      "userNotFound": "Ο χρήστης δεν βρέθηκε.",
+      "invalidSuspendStatus": "Μη έγκυρη κατάσταση 'isSuspended'.",
+      "cannotDeleteSelf": "Δεν μπορείτε να διαγράψετε τον δικό σας λογαριασμό διαχειριστή εδώ.",
+      "prunePreviewError": "Σφάλμα κατά την προεπισκόπηση εκκαθάρισης.",
+      "pruneError": "Σφάλμα κατά τη λειτουργία εκκαθάρισης.",
+      "rateLimit": "Πάρα πολλές προσπάθειες δημιουργίας λογαριασμού. Παρακαλώ προσπαθήστε ξανά σε περίπου {{minutes}} λεπτά.",
+      "missingCredentials": "Απαιτούνται όνομα χρήστη και κωδικός πρόσβασης.",
+      "usernameTooLong": "Το όνομα χρήστη δεν μπορεί να υπερβαίνει τους {{maxLength}} χαρακτήρες.",
+      "usernameTooShort": "Το όνομα χρήστη πρέπει να έχει τουλάχιστον {{minLength}} χαρακτήρες.",
+      "passwordTooShort": "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον {{minLength}} χαρακτήρες.",
+      "usernameTaken": "Αυτό το όνομα χρήστη χρησιμοποιείται ήδη.",
+      "invalidCredentials": "Μη έγκυρο όνομα χρήστη ή κωδικός πρόσβασης.",
+      "accountSuspended": "Αυτός ο λογαριασμός είναι προς το παρόν σε αναστολή.",
+      "notAuthenticated": "Δεν έχει γίνει έλεγχος ταυτότητας.",
+      "invalidHeadColor": "Μη έγκυρο χρώμα κεφαλής.",
+      "missingSkinData": "Τα δεδομένα εμφάνισης λείπουν ή είναι μη έγκυρα.",
+      "invalidBodyType": "Μη έγκυρος τύπος σώματος.",
+      "invalidBodyColor": "Μη έγκυρο χρώμα σώματος στα δεδομένα εμφάνισης.",
+      "invalidPatternColorsType": "Τα χρώματα μοτίβου πρέπει να είναι ένας πίνακας.",
+      "tooManyPatternColors": "Πάρα πολλά χρώματα μοτίβου (μέγ. {{max}}).",
+      "invalidPatternColorValue": "Βρέθηκε μη έγκυρο χρώμα στο μοτίβο.",
+      "invalidTrailEffect": "Μη έγκυρο εφέ μονοπατιού.",
+      "adminCannotDeleteSelf": "Οι διαχειριστές δεν μπορούν να διαγράψουν τον δικό τους λογαριασμό μέσω αυτής της διεπαφής.",
+      "deleteAccountError": "Εσωτερικό σφάλμα κατά τη διαγραφή λογαριασμού."
+    },
+    "success": {
+      "accountCreated": "Ο λογαριασμός δημιουργήθηκε και συνδεθήκατε επιτυχώς.",
+      "login": "Η σύνδεση ήταν επιτυχής.",
+      "logout": "Η αποσύνδεση ήταν επιτυχής.",
+      "skinUpdated": "Η εμφάνιση ενημερώθηκε επιτυχώς.",
+      "accountDeleted": "Ο λογαριασμός σας διαγράφηκε επιτυχώς."
+    },
+    "admin": {
+      "adminStatusUpdated": "Η κατάσταση διαχειριστή για τον {{username}} ενημερώθηκε.",
+      "suspendStatusUpdated": "Η κατάσταση αναστολής για τον {{username}} ενημερώθηκε.",
+      "userDeleted": "Ο λογαριασμός {{username}} διαγράφηκε επιτυχώς.",
+      "pruneNoUsers": "Δεν βρέθηκαν ανενεργοί λογαριασμοί για εκκαθάριση.",
+      "pruneSuccess": "{{count}} ανενεργοί λογαριασμοί εκκαθαρίστηκαν."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Ο λογαριασμός σας είναι σε αναστολή.",
+      "accountError": "Σφάλμα λογαριασμού. Παρακαλώ συνδεθείτε ξανά.",
+      "alreadyConnected": "Αυτός ο λογαριασμός είναι ήδη συνδεδεμένος στο παιχνίδι.",
+      "deletedByAdmin": "Ο λογαριασμός σας διαγράφηκε από διαχειριστή.",
+      "accountDeleted": "Ο λογαριασμός σας έχει διαγραφεί."
+    },
+    "kickReason": "Αποβληθήκατε από τον {{admin}}",
+    "banReason": "Αποκλειστήκατε από τον {{admin}}",
+    "clearReason": "Εκκαθαριστήκατε από τον {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Η ενέργεια δεν είναι εξουσιοδοτημένη.",
+      "targetNotFound": "Ο παίκτης-στόχος δεν βρέθηκε.",
+      "kickSuccess": "Ο {{username}} αποβλήθηκε.",
+      "kickOfflineSuccess": "Ο {{username}} (ήδη αποσυνδεδεμένος) αφαιρέθηκε από το παιχνίδι.",
+      "kickError": "Δεν ήταν δυνατή η εύρεση του socket ή της κατάστασης για τον {{username}}.",
+      "banSuccess": "Ο {{username}} αποκλείστηκε (ο λογαριασμός τέθηκε σε αναστολή και ο παίκτης αποβλήθηκε).",
+      "banAccountOnlySuccess": "Ο λογαριασμός {{username}} τέθηκε σε αναστολή (ο παίκτης ήταν ήδη αποσυνδεδεμένος ή είχε αφαιρεθεί).",
+      "banError": "Δεν είναι δυνατός ο αποκλεισμός του {{username}} (προσωρινός ή ανύπαρκτος λογαριασμός).",
+      "freezeSuccess": "Ο {{username}} πάγωσε.",
+      "unfreezeSuccess": "Ο {{username}} ξεπάγωσε.",
+      "killSuccess": "Ο {{username}} σκοτώθηκε.",
+      "clearSuccess": "Ο {{username}} εκκαθαρίστηκε (αφαιρέθηκε χωρίς να αφήσει φαγητό).",
+      "clearError": "Δεν ήταν δυνατή η εκκαθάριση του {{username}} (έχει ήδη αφαιρεθεί;).",
+      "unknownAction": "Άγνωστη ενέργεια."
+    },
+    "userConnected": "Ο {{username}} μπήκε στο παιχνίδι.",
+    "userDisconnected": "Ο {{username}} έφυγε από το παιχνίδι.",
+    "disconnectReason": "Αποσυνδέθηκε: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Άγνωστη σύγκρουση",
+      "boundary": "Χτύπησες το όριο του χάρτη.",
+      "teleport": "Αποσυνδέθηκε: Ύποπτη κίνηση.",
+      "selfCollision": "Κατά της απάτης: Αυτοσύγκρουση.",
+      "inactivity": "Αδράνεια.",
+      "killedByAdmin": "Σκοτωθήκατε από τον {{admin}}",
+      "botExpired": "Το bot έληξε.",
+      "clientCollision": "Σύγκρουση σώματος (πελάτης)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Μέγεθος: {{size}}",
+    "positionLabel": "Θέση: {{x}}x{{y}}",
+    "ghostMode": "Λειτουργία Φαντάσματος",
+    "spectator": "Θεατής"
+  },
+  "ghostMode": {
+    "selected": "Επιλεγμένο: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Άγνωστος",
+    "controlsSelected": "<kbd>K</kbd>: Σκότωσε | <kbd>C</kbd>: Εκκαθάρισε | <kbd>F</kbd>: Πάγωσε/Ξεπάγωσε | <kbd>Esc</kbd>: Αποεπιλογή",
+    "controlsGeneral": "Αριστερό Κλικ: Επιλογή Οντότητας / Σύρε για Μετακίνηση<br>Ροδέλα: Ζουμ | <kbd>Esc</kbd>: Αποεπιλογή"
+  },
+  "mainPage": {
+    "title": "Κλώνος Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Καλώς ήρθατε στο <span class=\"blink\">Κλώνος Slither SIO</span>",
+    "helpButtonTitle": "Βοήθεια & Συντελεστές",
+    "adminLink": "Διαχειριστής",
+    "exitGhostButton": "Έξοδος από Λειτουργία Φαντάσματος"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Παίξτε ως Επισκέπτης",
+      "playAsUser": "Παίξτε ως {{username}}",
+      "login": "Σύνδεση",
+      "createAccount": "Δημιουργία Λογαριασμού",
+      "customizeSkin": "Προσαρμογή Εμφάνισης",
+      "customSounds": "Προσαρμοσμένοι Ήχοι",
+      "showLeaderboard": "Εμφάνιση Πίνακα Κατάταξης",
+      "ghostMode": "Λειτουργία Φαντάσματος",
+      "deleteAccount": "Διαγραφή του Λογαριασμού μου",
+      "logout": "Αποσύνδεση"
+    },
+    "alerts": {
+      "colorTooDark": "Το επιλεγμένο χρώμα είναι πολύ σκούρο και μπορεί να είναι δύσκολο να φανεί. Συνιστάται ένα πιο ανοιχτό χρώμα.",
+      "missingCredentials": "Παρακαλώ εισάγετε όνομα χρήστη και κωδικό πρόσβασης.",
+      "usernameLength": "Το όνομα χρήστη πρέπει να είναι μεταξύ {{min}} και {{max}} χαρακτήρων.",
+      "passwordLength": "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον {{minLength}} χαρακτήρες.",
+      "maxPatternColors": "Έφτασε το μέγιστο όριο των {{max}} χρωμάτων μοτίβου.",
+      "canvasError": "Κρίσιμο Σφάλμα: Δεν ήταν δυνατή η εύρεση του στοιχείου καμβά επικάλυψης κειμένου!",
+      "gameModuleError": "Κρίσιμο Σφάλμα: Δεν ήταν δυνατή η αρχικοποίηση της ενότητας παιχνιδιού!",
+      "fetchAccountError": "Σφάλμα κατά την ανάκτηση δεδομένων λογαριασμού.",
+      "loginError": "Σφάλμα Σύνδεσης: {{error}}",
+      "creationError": "Σφάλμα Δημιουργίας: {{error}}",
+      "skinUpdateError": "Σφάλμα δικτύου ή διακομιστή κατά την ενημέρωση της εμφάνισης: {{error}}",
+      "skinUpdatedTemp": "Η εμφάνιση ενημερώθηκε για προσωρινή συνεδρία.",
+      "deleteAccountError": "Σφάλμα δικτύου κατά τη διαγραφή λογαριασμού."
+    },
+    "confirms": {
+      "enterGhostMode": "Είσοδος σε Λειτουργία Φαντάσματος (θεατής);",
+      "deleteAccount": "Είστε βέβαιοι ότι θέλετε να διαγράψετε οριστικά τον λογαριασμό σας \"{{username}}\"; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
+    },
+    "welcomeMessage": "Γεια σου {{username}}!",
+    "welcomeMessage_admin": "Γεια σου {{username}} (Διαχειριστής)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Όνομα χρήστη:",
+      "passwordLabel": "Κωδικός πρόσβασης:",
+      "backButton": "Πίσω"
+    },
+    "guest": {
+      "title": "Παίξτε ως Επισκέπτης",
+      "note": "Τα χρώματα και η εμφάνιση θα οριστούν μέσω της \"Προσαρμογής Εμφάνισης\".",
+      "submitButton": "Έναρξη Παιχνιδιού"
+    },
+    "login": {
+      "title": "Σύνδεση",
+      "submitButton": "Σύνδεση"
+    },
+    "create": {
+      "title": "Δημιουργία Λογαριασμού",
+      "initialHeadColorLabel": "Αρχικό Χρώμα Κεφαλής:",
+      "initialBodyColorLabel": "Αρχικό Χρώμα Σώματος:",
+      "submitButton": "Δημιουργία"
+    },
+    "skin": {
+      "title": "Προσαρμογή Εμφάνισης",
+      "headColorLabel": "Χρώμα Κεφαλής:",
+      "bodyTypeLabel": "Τύπος Σώματος",
+      "bodyTypeSingle": "Ένα Χρώμα",
+      "bodyTypePattern": "Επαναλαμβανόμενο Μοτίβο",
+      "bodyColorLabel": "Χρώμα Σώματος:",
+      "patternColorsLabel": "Χρώματα Μοτίβου (μέγ. 8)",
+      "trailEffectLabel": "Εφέ Μονοπατιού",
+      "trailEffect": {
+        "none": "Κανένα",
+        "sparkle": "Σπίθες",
+        "smoke": "Πράσινος Καπνός",
+        "fire": "Φωτιά",
+        "ice": "Θραύσματα Πάγου",
+        "electric": "Ηλεκτρικές Σπίθες",
+        "rainbow": "Ουράνιο Τόξο",
+        "bubbles": "Φυσαλίδες",
+        "glitch": "Glitch",
+        "void": "Κενό / Σκιά",
+        "confetti": "Κομφετί"
+      },
+      "submitButton": "Αποθήκευση Εμφάνισης"
+    },
+    "sound": {
+      "title": "Προσαρμοσμένοι Ήχοι",
+      "info": "Ανεβάστε αρχεία MP3 (αποθηκευμένα τοπικά) για συμβάντα.",
+      "deathLabel": "Ήχος Θανάτου:",
+      "killLabel": "Ήχος Εξόντωσης:",
+      "boostLabel": "Ήχος Boost:",
+      "clearButton": "Εκκαθάριση Ήχων"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Παίξτε Ξανά",
+    "backToMenuButton": "Επιστροφή στο Μενού",
+    "finalSizeLabel": "Το μέγεθός σας ήταν: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Πίνακας Κατάταξης",
+    "header": {
+      "name": "Όνομα",
+      "status": "Κατάσταση",
+      "size": "Μέγεθος",
+      "kills": "Εξοντώσεις",
+      "deaths": "Θάνατοι",
+      "kd": "K/D"
+    },
+    "noPlayers": "Δεν υπάρχουν ακόμη παίκτες στην κατάταξη.",
+    "status": {
+      "ingame": "Στο Παιχνίδι",
+      "online": "Συνδεδεμένος",
+      "offline": "Εκτός Σύνδεσης",
+      "never": "Ποτέ",
+      "na": "Δ/Υ",
+      "ingameTitle": "Αυτή τη στιγμή στο παιχνίδι"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} δευτ. πριν",
+      "secondsAgo_other": "{{count}} δευτ. πριν",
+      "minutesAgo_one": "{{count}} λεπ. πριν",
+      "minutesAgo_other": "{{count}} λεπ. πριν",
+      "hoursAgo_one": "{{count}} ώρα πριν",
+      "hoursAgo_other": "{{count}} ώρες πριν",
+      "daysAgo_one": "{{count}} ημέρα πριν",
+      "daysAgo_other": "{{count}} ημέρες πριν",
+      "yesterday": "Χθες"
+    },
+    "lastLoginTitle": "Τελευταία σύνδεση: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Συντομεύσεις Πληκτρολογίου (Μενού)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Πλοήγηση κουμπιών",
+      "activate": "Enter: Ενεργοποίηση επιλεγμένου κουμπιού",
+      "close": "Esc: Κλείσιμο αυτού του πίνακα / Πίσω"
+    },
+    "gameKeysTitle": "Συντομεύσεις Πληκτρολογίου (Παιχνίδι)",
+    "gameKeys": {
+      "mouse": "Ποντίκι: Κατεύθυνση φιδιού",
+      "boost": "Αριστερό Κλικ / Space: Boost",
+      "adminCheat": "P: Κόλπο Διαχειριστή (αν είστε διαχειριστής)"
+    },
+    "ghostKeysTitle": "Συντομεύσεις Πληκτρολογίου (Φάντασμα)",
+    "ghostKeys": {
+      "select": "Αριστερό Κλικ (στον παίκτη): Επιλογή Παίκτη",
+      "pan": "Αριστερό Κλικ + Σύρσιμο (κενός χώρος): Μετακίνηση Κάμερας",
+      "zoom": "Ροδέλα Ποντικιού: Ζουμ Εντός/Εκτός",
+      "kill": "K (αν έχει επιλεγεί παίκτης): Σκότωσε Παίκτη",
+      "clear": "C (αν έχει επιλεγεί παίκτης): Εκκαθάρισε Παίκτη (χωρίς φαγητό)",
+      "freeze": "F (αν έχει επιλεγεί παίκτης): Πάγωσε/Ξεπάγωσε Παίκτη",
+      "deselect": "Esc: Αποεπιλογή Παίκτη"
+    },
+    "creditsTitle": "Συντελεστές",
+    "creditsAuthor": "Συγγραφέας: Ανώνυμος Συγγραφέας",
+    "creditsLicense": "Άδεια: MIT",
+    "creditsGithub": "Έργο στο GitHub"
+  },
+  "NEW_KEY_1": "Κείμενο προέλευσης για το πρώτο νέο κλειδί.",
+  "NEW_KEY_2": "Κείμενο προέλευσης για το δεύτερο νέο κλειδί."
+}

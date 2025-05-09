@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Klon Slither",
+  "backButtonTitle": "Kembali ke halaman utama",
+  "tabs": {
+    "settings": "Tetapan Umum",
+    "users": "Pengurusan Pengguna",
+    "currentConfig": "Konfigurasi Semasa"
+  },
+  "settingsForm": {
+    "title": "Tetapan Umum",
+    "passwordNote": "<strong>Nota:</strong> Untuk menetapkan atau menetapkan semula kata laluan admin, hentikan pelayan dan jalankannya dengan arahan:<br/><code>node backend/server.js --set-new-password KATA_LALUAN_BARU_ANDA</code><br/>Akses ke halaman ini memerlukan sesi admin yang aktif (melalui kuki).<br/>Sesetengah tetapan (ditanda *) memerlukan pelayan dimulakan semula untuk dilaksanakan.",
+    "mapWidth": {
+      "label": "Lebar Peta (px) *:",
+      "placeholder": "cth. 4000"
+    },
+    "mapHeight": {
+      "label": "Tinggi Peta (px) *:",
+      "placeholder": "cth. 4000"
+    },
+    "mapShape": {
+      "label": "Bentuk Peta *:",
+      "rectangle": "Segi Empat Tepat",
+      "circle": "Bulatan"
+    },
+    "aoiRadius": {
+      "label": "Radius Kawasan Minat (AoI) (px) *:",
+      "placeholder": "cth. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Had Saiz Ular (Lalai):",
+      "placeholder": "cth. 1000"
+    },
+    "initialSize": {
+      "label": "Saiz Ular Permulaan:",
+      "placeholder": "cth. 50"
+    },
+    "speed": {
+      "label": "Kelajuan Asas:",
+      "placeholder": "cth. 1"
+    },
+    "maxRotationRate": {
+      "label": "Kadar Putaran Maks (rad/tick):",
+      "placeholder": "cth. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Saiz Min. untuk Boost:",
+      "placeholder": "cth. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Kadar Penggunaan Boost:",
+      "placeholder": "cth. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Selang Kemunculan Makanan (ms):",
+      "placeholder": "cth. 5000"
+    },
+    "fps": {
+      "label": "FPS Pelayan (gelung/saat):",
+      "placeholder": "cth. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Kekuatan Tarikan Makanan:",
+      "placeholder": "cth. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Jarak Snap Makanan:",
+      "placeholder": "cth. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Tahap Zum Lalai:",
+      "placeholder": "cth. 1.0"
+    },
+    "securityMode": {
+      "label": "Mod Keselamatan *:",
+      "high": "Tinggi (Disyorkan)",
+      "low": "Rendah (Pelanggan + Ringan)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Ambang Pelanggaran Teleport:",
+      "placeholder": "cth. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Faktor Toleransi Teleport:",
+      "placeholder": "cth. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Dayakan Mod Tuhan semasa Muncul:",
+      "yes": "Ya",
+      "no": "Tidak"
+    },
+    "botsEnabled": {
+      "label": "Dayakan Bot:",
+      "yes": "Ya",
+      "no": "Tidak"
+    },
+    "botMaxCount": {
+      "label": "Bilangan Bot Maks:",
+      "placeholder": "cth. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Selang Kemunculan Bot (ms):",
+      "placeholder": "cth. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Tempoh Hayat Bot (ms):",
+      "placeholder": "cth. 120000"
+    },
+    "botDifficulty": {
+      "label": "Kesukaran Bot:",
+      "easy": "Mudah",
+      "medium": "Sederhana",
+      "hard": "Sukar"
+    },
+    "adminMessageText": {
+      "label": "Mesej Admin (biarkan kosong untuk membersihkan):",
+      "placeholder": "Mesej untuk dipaparkan kepada semua pemain"
+    },
+    "adminMessageDuration": {
+      "label": "Tempoh Mesej (saat):",
+      "placeholder": "cth. 10"
+    },
+    "updateButton": "Kemas Kini Tetapan"
+  },
+  "userManagement": {
+    "title": "Pengurusan Pengguna",
+    "loading": "Memuatkan...",
+    "noUsers": "Tiada pengguna ditemui.",
+    "table": {
+      "headerUser": "Pengguna",
+      "headerStatus": "Status",
+      "headerLastLogin": "Log Masuk Terakhir",
+      "headerCreated": "Dicipta",
+      "headerActions": "Tindakan"
+    },
+    "status": {
+      "admin": "Admin",
+      "suspended": "Digantung",
+      "normal": "Biasa",
+      "never": "Tidak Pernah",
+      "unknown": "Tidak Diketahui"
+    },
+    "actions": {
+      "removeAdmin": "Buang Admin",
+      "makeAdmin": "Jadikan Admin",
+      "unban": "Nyahgantung",
+      "suspend": "Gantung",
+      "delete": "Padam"
+    },
+    "pruneButton": "Padam Akaun Tidak Aktif",
+    "confirmDelete": "Adakah anda pasti mahu memadamkan pengguna \"{{username}}\" secara kekal? Tindakan ini tidak boleh diterbalikkan.",
+    "confirmPrune_one": "Adakah anda pasti mahu memadamkan {{count}} akaun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak boleh diterbalikkan.",
+    "confirmPrune_other": "Adakah anda pasti mahu memadamkan {{count}} akaun tidak aktif (tidak aktif >15 hari DAN statistik sangat rendah)? Tindakan ini tidak boleh diterbalikkan.",
+    "confirmPruneZero": "Tiada akaun tidak aktif ditemui berdasarkan kriteria semasa. Adakah anda masih mahu menjalankan operasi (sekiranya ada)?",
+    "confirmPruneZeroConfirm": "Sahkan operasi pemadaman walaupun 0 akaun dikesan?",
+    "pruneCancelled": "Operasi pemadaman dibatalkan."
+  },
+  "currentConfig": {
+    "title": "Konfigurasi Pelayan Semasa",
+    "loading": "Memuatkan konfigurasi...",
+    "loadError": "Tidak dapat memuatkan konfigurasi.",
+    "loadSuccess": "Konfigurasi semasa dimuatkan.",
+    "keys": {
+      "MAP_WIDTH": "Lebar Peta (px)",
+      "MAP_HEIGHT": "Tinggi Peta (px)",
+      "MAP_SHAPE": "Bentuk Peta",
+      "AOI_RADIUS": "Radius Kawasan Minat (AoI) (px)",
+      "SECURITY_MODE": "Mod Keselamatan",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Had Saiz Ular (Lalai)",
+      "INITIAL_SIZE": "Saiz Ular Permulaan",
+      "MIN_BOOST_SIZE": "Saiz Min. untuk Boost",
+      "SPEED": "Kelajuan Asas",
+      "MAX_ROTATION_RATE": "Kadar Putaran Maks",
+      "BOOST_CONSUMPTION_RATE": "Penggunaan Boost (Saiz/tick)",
+      "FPS": "FPS Pelayan",
+      "FOOD_SPAWN_INTERVAL": "Selang Kemunculan Makanan (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Kekuatan Tarikan Makanan",
+      "FOOD_SNAP_DISTANCE": "Jarak Snap Makanan",
+      "DEFAULT_ZOOM_LEVEL": "Tahap Zum Lalai",
+      "TELEPORT_VIOLATION_THRESHOLD": "Ambang Pelanggaran Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Faktor Toleransi Teleport",
+      "BOTS_ENABLED": "Bot Didayakan",
+      "BOT_MAX_COUNT": "Bilangan Bot Maks",
+      "BOT_SPAWN_INTERVAL_MS": "Selang Kemunculan Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Tempoh Hayat Bot (ms)",
+      "BOT_DIFFICULTY": "Kesukaran Bot"
+    },
+    "boolean": {
+      "yes": "Ya",
+      "no": "Tidak"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Akses ditolak. Mengalihkan...",
+    "settingsUpdated": "Tetapan berjaya dikemas kini.",
+    "settingsUpdatedWithRestart": "Tetapan dikemas kini. Pelayan perlu dimulakan semula untuk perubahan peta/keselamatan.",
+    "settingsUpdatedFpsRestart": "Tetapan dikemas kini. Gelung permainan dimulakan semula untuk perubahan FPS.",
+    "settingsUpdateError": "Ralat semasa mengemas kini tetapan.",
+    "loadSettingsError": "Ralat semasa memuatkan tetapan: {{error}}",
+    "loadUsersError": "Ralat semasa memuatkan pengguna.",
+    "networkError": "Ralat rangkaian atau pelayan tidak tersedia.",
+    "invalidResponse": "Respons tidak sah daripada pelayan (bukan JSON)",
+    "changes": "Perubahan:",
+    "restartRequired": "Pelayan perlu dimulakan semula untuk melaksanakan perubahan (Saiz/Bentuk Peta, Mod Keselamatan, Radius AoI).",
+    "fpsRestart": "Gelung permainan telah dimulakan semula untuk melaksanakan FPS baharu.",
+    "noChanges": "Tiada tetapan diubah suai.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Ralat semasa pratonton.",
+    "pruneError": "Ralat semasa operasi pemadaman.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Sila pilih fail MP3.",
+      "loginRequired": "Anda mesti log masuk untuk menyimpan bunyi tersuai.",
+      "saveError": "Ralat semasa menyimpan bunyi. Storan tempatan mungkin penuh.",
+      "readError": "Ralat semasa membaca fail bunyi.",
+      "clearLoginRequired": "Anda mesti log masuk untuk membersihkan bunyi.",
+      "clearError": "Ralat berlaku semasa memadamkan bunyi."
+    },
+    "confirms": {
+      "clearAll": "Adakah anda pasti mahu memadamkan semua bunyi tersuai untuk akaun ini?"
+    },
+    "statusTitles": {
+      "saveError": "Ralat Simpan",
+      "readError": "Ralat Baca",
+      "saved": "Bunyi disimpan",
+      "savedWithName": "Disimpan: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Pelayan Tidak Tersedia - Klon Slither SIO",
+    "logoAlt": "Logo Pelayan Tidak Tersedia",
+    "mainHeader": "Pelayan Tidak Tersedia",
+    "explanation": "Pelayan <span class=\"game-name\">Klon Slither SIO</span> nampaknya di luar talian buat sementara waktu atau tidak dapat dihubungi. Kami sedang cuba mewujudkan semula sambungan untuk anda.",
+    "snakeTitle": "Sementara itu, main Ular!",
+    "snakeScoreLabel": "Skor: 0",
+    "snakeControls": "Anak Panah / ZQSD / WASD: Bergerak | Enter: Mula/Mula Semula",
+    "status": {
+      "label": "Status:",
+      "searching": "Mencari...",
+      "checking": "Menyemak...",
+      "connected": "Bersambung!",
+      "nextAttemptLabel": "Percubaan seterusnya dalam",
+      "secondsSuffix": "saat",
+      "attemptsLabel": "Percubaan:"
+    },
+    "refreshButton": "Semak Sekarang",
+    "redirectInfo": "Anda akan dialihkan secara automatik sebaik sahaja pelayan kembali dalam talian."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Skor: {{score}}"
+    },
+    "gameOver": {
+      "win": "MENANG!",
+      "lose": "KALAH!",
+      "scoreLabel": "Skor: {{score}}",
+      "promptLine1": "Tekan Enter",
+      "promptLine2": "untuk Main Semula"
+    },
+    "countdown": "BERMULA DALAM {{count}}",
+    "startScreen": {
+      "title": "ULAR",
+      "promptLine1": "Tekan Enter",
+      "promptLine2": "untuk Main"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Ralat pelayan dalaman.",
+      "invalidAdminStatus": "Status 'isAdmin' tidak sah.",
+      "userNotFound": "Pengguna tidak ditemui.",
+      "invalidSuspendStatus": "Status 'isSuspended' tidak sah.",
+      "cannotDeleteSelf": "Anda tidak boleh memadamkan akaun admin anda sendiri di sini.",
+      "prunePreviewError": "Ralat semasa pratonton pemadaman.",
+      "pruneError": "Ralat semasa operasi pemadaman.",
+      "rateLimit": "Terlalu banyak percubaan membuat akaun. Sila cuba lagi dalam masa kira-kira {{minutes}} minit.",
+      "missingCredentials": "Nama pengguna dan kata laluan diperlukan.",
+      "usernameTooLong": "Nama pengguna tidak boleh melebihi {{maxLength}} aksara.",
+      "usernameTooShort": "Nama pengguna mestilah sekurang-kurangnya {{minLength}} aksara panjang.",
+      "passwordTooShort": "Kata laluan mestilah sekurang-kurangnya {{minLength}} aksara panjang.",
+      "usernameTaken": "Nama pengguna ini telah digunakan.",
+      "invalidCredentials": "Nama pengguna atau kata laluan tidak sah.",
+      "accountSuspended": "Akaun ini sedang digantung.",
+      "notAuthenticated": "Tidak disahkan.",
+      "invalidHeadColor": "Warna kepala tidak sah.",
+      "missingSkinData": "Data kulit hilang atau tidak sah.",
+      "invalidBodyType": "Jenis badan tidak sah.",
+      "invalidBodyColor": "Warna badan dalam data kulit tidak sah.",
+      "invalidPatternColorsType": "Warna corak mestilah tatasusunan.",
+      "tooManyPatternColors": "Terlalu banyak warna corak (maks {{max}}).",
+      "invalidPatternColorValue": "Warna tidak sah ditemui dalam corak.",
+      "invalidTrailEffect": "Kesan jejak tidak sah.",
+      "adminCannotDeleteSelf": "Pentadbir tidak boleh memadamkan akaun mereka sendiri melalui antara muka ini.",
+      "deleteAccountError": "Ralat dalaman semasa pemadaman akaun."
+    },
+    "success": {
+      "accountCreated": "Akaun berjaya dicipta dan dilog masuk.",
+      "login": "Log masuk berjaya.",
+      "logout": "Log keluar berjaya.",
+      "skinUpdated": "Penampilan berjaya dikemas kini.",
+      "accountDeleted": "Akaun anda telah berjaya dipadamkan."
+    },
+    "admin": {
+      "adminStatusUpdated": "Status admin untuk {{username}} dikemas kini.",
+      "suspendStatusUpdated": "Status penggantungan untuk {{username}} dikemas kini.",
+      "userDeleted": "Akaun {{username}} berjaya dipadamkan.",
+      "pruneNoUsers": "Tiada akaun tidak aktif ditemui untuk dipadamkan.",
+      "pruneSuccess": "{{count}} akaun tidak aktif dipadamkan."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Akaun anda digantung.",
+      "accountError": "Ralat akaun. Sila log masuk semula.",
+      "alreadyConnected": "Akaun ini sudah bersambung dengan permainan.",
+      "deletedByAdmin": "Akaun anda telah dipadamkan oleh pentadbir.",
+      "accountDeleted": "Akaun anda telah dipadamkan."
+    },
+    "kickReason": "Dikeluarkan oleh {{admin}}",
+    "banReason": "Diharamkan oleh {{admin}}",
+    "clearReason": "Dibersihkan oleh {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Tindakan tidak dibenarkan.",
+      "targetNotFound": "Pemain sasaran tidak ditemui.",
+      "kickSuccess": "{{username}} telah dikeluarkan.",
+      "kickOfflineSuccess": "{{username}} (sudah terputus sambungan) dikeluarkan daripada permainan.",
+      "kickError": "Tidak dapat mencari soket atau status untuk {{username}}.",
+      "banSuccess": "{{username}} telah diharamkan (akaun digantung dan pemain dikeluarkan).",
+      "banAccountOnlySuccess": "Akaun {{username}} digantung (pemain sudah terputus sambungan atau dikeluarkan).",
+      "banError": "Tidak boleh mengharamkan {{username}} (akaun sementara atau tidak wujud).",
+      "freezeSuccess": "{{username}} telah dibekukan.",
+      "unfreezeSuccess": "{{username}} telah dinyahbekukan.",
+      "killSuccess": "{{username}} telah dibunuh.",
+      "clearSuccess": "{{username}} telah dibersihkan (dikeluarkan tanpa menjatuhkan makanan).",
+      "clearError": "Tidak dapat membersihkan {{username}} (sudah dikeluarkan?).",
+      "unknownAction": "Tindakan tidak diketahui."
+    },
+    "userConnected": "{{username}} telah menyertai permainan.",
+    "userDisconnected": "{{username}} telah meninggalkan permainan.",
+    "disconnectReason": "Terputus sambungan: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Perlanggaran tidak diketahui",
+      "boundary": "Melanggar sempadan peta.",
+      "teleport": "Terputus sambungan: Pergerakan mencurigakan.",
+      "selfCollision": "Anti-penipuan: Perlanggaran sendiri.",
+      "inactivity": "Tidak aktif.",
+      "killedByAdmin": "Dibunuh oleh {{admin}}",
+      "botExpired": "Bot tamat tempoh.",
+      "clientCollision": "Perlanggaran badan (pelanggan)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Saiz: {{size}}",
+    "positionLabel": "Kedudukan: {{x}}x{{y}}",
+    "ghostMode": "Mod Hantu",
+    "spectator": "Penonton"
+  },
+  "ghostMode": {
+    "selected": "Dipilih: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Tidak Diketahui",
+    "controlsSelected": "<kbd>K</kbd>: Bunuh | <kbd>C</kbd>: Bersihkan | <kbd>F</kbd>: Bekukan/Nyahbekukan | <kbd>Esc</kbd>: Nyahpilih",
+    "controlsGeneral": "Klik Kiri: Pilih Entiti / Seret untuk Pan<br>Roda: Zum | <kbd>Esc</kbd>: Nyahpilih"
+  },
+  "mainPage": {
+    "title": "Klon Slither SIO"
+  },
+  "mainMenu": {
+    "title": "Selamat datang ke <span class=\"blink\">Klon Slither SIO</span>",
+    "helpButtonTitle": "Bantuan & Kredit",
+    "adminLink": "Admin",
+    "exitGhostButton": "Keluar Mod Hantu"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Main sebagai Tetamu",
+      "playAsUser": "Main sebagai {{username}}",
+      "login": "Log Masuk",
+      "createAccount": "Cipta Akaun",
+      "customizeSkin": "Sesuaikan Penampilan",
+      "customSounds": "Bunyi Tersuai",
+      "showLeaderboard": "Tunjukkan Papan Pendahulu",
+      "ghostMode": "Mod Hantu",
+      "deleteAccount": "Padam Akaun Saya",
+      "logout": "Log Keluar"
+    },
+    "alerts": {
+      "colorTooDark": "Warna yang dipilih terlalu gelap dan mungkin sukar dilihat. Warna yang lebih cerah disyorkan.",
+      "missingCredentials": "Sila masukkan nama pengguna dan kata laluan.",
+      "usernameLength": "Nama pengguna mestilah antara {{min}} dan {{max}} aksara.",
+      "passwordLength": "Kata laluan mestilah sekurang-kurangnya {{minLength}} aksara panjang.",
+      "maxPatternColors": "Had maksimum {{max}} warna corak dicapai.",
+      "canvasError": "Ralat Kritikal: Tidak dapat mencari elemen kanvas tindanan teks!",
+      "gameModuleError": "Ralat Kritikal: Tidak dapat memulakan modul permainan!",
+      "fetchAccountError": "Ralat semasa mendapatkan data akaun.",
+      "loginError": "Ralat Log Masuk: {{error}}",
+      "creationError": "Ralat Penciptaan: {{error}}",
+      "skinUpdateError": "Ralat rangkaian atau pelayan semasa mengemas kini penampilan: {{error}}",
+      "skinUpdatedTemp": "Penampilan dikemas kini untuk sesi sementara.",
+      "deleteAccountError": "Ralat rangkaian semasa pemadaman akaun."
+    },
+    "confirms": {
+      "enterGhostMode": "Masuk Mod Hantu (penonton)?",
+      "deleteAccount": "Adakah anda pasti mahu memadamkan akaun \"{{username}}\" anda secara kekal? Tindakan ini tidak boleh diterbalikkan."
+    },
+    "welcomeMessage": "Helo {{username}}!",
+    "welcomeMessage_admin": "Helo {{username}} (Admin)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Nama Pengguna:",
+      "passwordLabel": "Kata Laluan:",
+      "backButton": "Kembali"
+    },
+    "guest": {
+      "title": "Main sebagai Tetamu",
+      "note": "Warna dan kulit akan ditetapkan melalui \"Sesuaikan Penampilan\".",
+      "submitButton": "Mula Permainan"
+    },
+    "login": {
+      "title": "Log Masuk",
+      "submitButton": "Log Masuk"
+    },
+    "create": {
+      "title": "Cipta Akaun",
+      "initialHeadColorLabel": "Warna Kepala Permulaan:",
+      "initialBodyColorLabel": "Warna Badan Permulaan:",
+      "submitButton": "Cipta"
+    },
+    "skin": {
+      "title": "Sesuaikan Penampilan",
+      "headColorLabel": "Warna Kepala:",
+      "bodyTypeLabel": "Jenis Badan",
+      "bodyTypeSingle": "Satu Warna",
+      "bodyTypePattern": "Corak Berulang",
+      "bodyColorLabel": "Warna Badan:",
+      "patternColorsLabel": "Warna Corak (maks 8)",
+      "trailEffectLabel": "Kesan Jejak",
+      "trailEffect": {
+        "none": "Tiada",
+        "sparkle": "Kilauan",
+        "smoke": "Asap Hijau",
+        "fire": "Api",
+        "ice": "Serpihan Ais",
+        "electric": "Percikan Elektrik",
+        "rainbow": "Pelangi",
+        "bubbles": "Buih",
+        "glitch": "Glitch",
+        "void": "Kekosongan / Bayang",
+        "confetti": "Konfeti"
+      },
+      "submitButton": "Simpan Penampilan"
+    },
+    "sound": {
+      "title": "Bunyi Tersuai",
+      "info": "Muat naik fail MP3 (disimpan secara tempatan) untuk acara.",
+      "deathLabel": "Bunyi Kematian:",
+      "killLabel": "Bunyi Bunuh:",
+      "boostLabel": "Bunyi Boost:",
+      "clearButton": "Bersihkan Bunyi"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Main Semula",
+    "backToMenuButton": "Kembali ke Menu",
+    "finalSizeLabel": "Saiz anda ialah: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Papan Pendahulu",
+    "header": {
+      "name": "Nama",
+      "status": "Status",
+      "size": "Saiz",
+      "kills": "Bunuh",
+      "deaths": "Mati",
+      "kd": "K/D"
+    },
+    "noPlayers": "Belum ada pemain yang disenaraikan.",
+    "status": {
+      "ingame": "Dalam Permainan",
+      "online": "Dalam Talian",
+      "offline": "Luar Talian",
+      "never": "Tidak Pernah",
+      "na": "T/A",
+      "ingameTitle": "Sedang dalam permainan"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} saat lalu",
+      "secondsAgo_other": "{{count}} saat lalu",
+      "minutesAgo_one": "{{count}} minit lalu",
+      "minutesAgo_other": "{{count}} minit lalu",
+      "hoursAgo_one": "{{count}} jam lalu",
+      "hoursAgo_other": "{{count}} jam lalu",
+      "daysAgo_one": "{{count}} hari lalu",
+      "daysAgo_other": "{{count}} hari lalu",
+      "yesterday": "Semalam"
+    },
+    "lastLoginTitle": "Log masuk terakhir: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Pintasan Papan Kekunci (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigasi butang",
+      "activate": "Enter: Aktifkan butang yang dipilih",
+      "close": "Esc: Tutup panel ini / Kembali"
+    },
+    "gameKeysTitle": "Pintasan Papan Kekunci (Permainan)",
+    "gameKeys": {
+      "mouse": "Tetikus: Pandu ular",
+      "boost": "Klik Kiri / Space: Boost",
+      "adminCheat": "P: Penipuan Admin (jika admin)"
+    },
+    "ghostKeysTitle": "Pintasan Papan Kekunci (Hantu)",
+    "ghostKeys": {
+      "select": "Klik Kiri (pada pemain): Pilih Pemain",
+      "pan": "Klik Kiri + Seret (ruang kosong): Pan Kamera",
+      "zoom": "Roda Tetikus: Zum Masuk/Keluar",
+      "kill": "K (jika pemain dipilih): Bunuh Pemain",
+      "clear": "C (jika pemain dipilih): Bersihkan Pemain (tiada makanan)",
+      "freeze": "F (jika pemain dipilih): Bekukan/Nyahbekukan Pemain",
+      "deselect": "Esc: Nyahpilih Pemain"
+    },
+    "creditsTitle": "Kredit",
+    "creditsAuthor": "Pengarang: Pengarang Tanpa Nama",
+    "creditsLicense": "Lesen: MIT",
+    "creditsGithub": "Projek di GitHub"
+  },
+  "NEW_KEY_1": "Teks sumber untuk kunci baharu yang pertama.",
+  "NEW_KEY_2": "Teks sumber untuk kunci baharu yang kedua."
+}

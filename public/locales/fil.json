@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Slither Clone",
+  "backButtonTitle": "Bumalik sa pangunahing pahina",
+  "tabs": {
+    "settings": "Pangkalahatang Setting",
+    "users": "Pamamahala ng User",
+    "currentConfig": "Kasalukuyang Configuration"
+  },
+  "settingsForm": {
+    "title": "Pangkalahatang Setting",
+    "passwordNote": "<strong>Tandaan:</strong> Upang itakda o i-reset ang admin password, itigil ang server at patakbuhin ito gamit ang command:<br/><code>node backend/server.js --set-new-password IYONG_BAGONG_PASSWORD</code><br/>Ang access sa pahinang ito ay nangangailangan ng aktibong admin session (sa pamamagitan ng cookie).<br/>Ang ilang setting (minarkahan ng *) ay nangangailangan ng pag-restart ng server upang mailapat.",
+    "mapWidth": {
+      "label": "Lapad ng Mapa (px) *:",
+      "placeholder": "hal. 4000"
+    },
+    "mapHeight": {
+      "label": "Taas ng Mapa (px) *:",
+      "placeholder": "hal. 4000"
+    },
+    "mapShape": {
+      "label": "Hugis ng Mapa *:",
+      "rectangle": "Parihaba",
+      "circle": "Bilog"
+    },
+    "aoiRadius": {
+      "label": "Radius ng Area of Interest (AoI) (px) *:",
+      "placeholder": "hal. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Limitasyon sa Laki ng Ahas (Default):",
+      "placeholder": "hal. 1000"
+    },
+    "initialSize": {
+      "label": "Paunang Laki ng Ahas:",
+      "placeholder": "hal. 50"
+    },
+    "speed": {
+      "label": "Batayang Bilis:",
+      "placeholder": "hal. 1"
+    },
+    "maxRotationRate": {
+      "label": "Pinakamataas na Rate ng Pag-ikot (rad/tick):",
+      "placeholder": "hal. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Laki para sa Boost:",
+      "placeholder": "hal. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Rate ng Pagkonsumo ng Boost:",
+      "placeholder": "hal. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Interval ng Paglitaw ng Pagkain (ms):",
+      "placeholder": "hal. 5000"
+    },
+    "fps": {
+      "label": "Server FPS (loops/sec):",
+      "placeholder": "hal. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Lakas ng Atraksyon ng Pagkain:",
+      "placeholder": "hal. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Distansya ng Pag-snap ng Pagkain:",
+      "placeholder": "hal. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Default na Antas ng Zoom:",
+      "placeholder": "hal. 1.0"
+    },
+    "securityMode": {
+      "label": "Mode ng Seguridad *:",
+      "high": "Mataas (Inirerekomenda)",
+      "low": "Mababa (Client + Magaan)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Threshold ng Paglabag sa Teleport:",
+      "placeholder": "hal. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Factor ng Toleransya sa Teleport:",
+      "placeholder": "hal. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "Paganahin ang God Mode sa Spawn:",
+      "yes": "Oo",
+      "no": "Hindi"
+    },
+    "botsEnabled": {
+      "label": "Paganahin ang mga Bot:",
+      "yes": "Oo",
+      "no": "Hindi"
+    },
+    "botMaxCount": {
+      "label": "Pinakamataas na Bilang ng Bot:",
+      "placeholder": "hal. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Interval ng Paglitaw ng Bot (ms):",
+      "placeholder": "hal. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Tagal ng Buhay ng Bot (ms):",
+      "placeholder": "hal. 120000"
+    },
+    "botDifficulty": {
+      "label": "Hirap ng Bot:",
+      "easy": "Madali",
+      "medium": "Katamtaman",
+      "hard": "Mahirap"
+    },
+    "adminMessageText": {
+      "label": "Mensahe ng Admin (iwanang blangko para burahin):",
+      "placeholder": "Mensahe na ipapakita sa lahat ng manlalaro"
+    },
+    "adminMessageDuration": {
+      "label": "Tagal ng Mensahe (segundo):",
+      "placeholder": "hal. 10"
+    },
+    "updateButton": "I-update ang mga Setting"
+  },
+  "userManagement": {
+    "title": "Pamamahala ng User",
+    "loading": "Naglo-load...",
+    "noUsers": "Walang nahanap na user.",
+    "table": {
+      "headerUser": "User",
+      "headerStatus": "Katayuan",
+      "headerLastLogin": "Huling Pag-login",
+      "headerCreated": "Nilikha",
+      "headerActions": "Mga Aksyon"
+    },
+    "status": {
+      "admin": "Admin",
+      "suspended": "Suspendido",
+      "normal": "Normal",
+      "never": "Hindi kailanman",
+      "unknown": "Hindi alam"
+    },
+    "actions": {
+      "removeAdmin": "Alisin ang Admin",
+      "makeAdmin": "Gawing Admin",
+      "unban": "Alisin ang Suspensyon",
+      "suspend": "Suspendihin",
+      "delete": "Burahin"
+    },
+    "pruneButton": "Linisin ang mga Hindi Aktibong Account",
+    "confirmDelete": "Sigurado ka bang gusto mong permanenteng burahin ang user na \"{{username}}\"? Ang aksyon na ito ay hindi na mababawi.",
+    "confirmPrune_one": "Sigurado ka bang gusto mong burahin ang {{count}} hindi aktibong account (hindi aktibo >15 araw AT napakababang stats)? Ang aksyon na ito ay hindi na mababawi.",
+    "confirmPrune_other": "Sigurado ka bang gusto mong burahin ang {{count}} hindi aktibong account (hindi aktibo >15 araw AT napakababang stats)? Ang aksyon na ito ay hindi na mababawi.",
+    "confirmPruneZero": "Walang nahanap na hindi aktibong account batay sa kasalukuyang pamantayan. Gusto mo pa ring patakbuhin ang operasyon (kung sakali)?",
+    "confirmPruneZeroConfirm": "Kumpirmahin ang operasyon ng paglilinis kahit na 0 account ang natukoy?",
+    "pruneCancelled": "Kinansela ang operasyon ng paglilinis."
+  },
+  "currentConfig": {
+    "title": "Kasalukuyang Configuration ng Server",
+    "loading": "Naglo-load ng configuration...",
+    "loadError": "Hindi ma-load ang configuration.",
+    "loadSuccess": "Nai-load ang kasalukuyang configuration.",
+    "keys": {
+      "MAP_WIDTH": "Lapad ng Mapa (px)",
+      "MAP_HEIGHT": "Taas ng Mapa (px)",
+      "MAP_SHAPE": "Hugis ng Mapa",
+      "AOI_RADIUS": "Radius ng Area of Interest (AoI) (px)",
+      "SECURITY_MODE": "Mode ng Seguridad",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Limitasyon sa Laki ng Ahas (Default)",
+      "INITIAL_SIZE": "Paunang Laki ng Ahas",
+      "MIN_BOOST_SIZE": "Min. Laki para sa Boost",
+      "SPEED": "Batayang Bilis",
+      "MAX_ROTATION_RATE": "Pinakamataas na Rate ng Pag-ikot",
+      "BOOST_CONSUMPTION_RATE": "Pagkonsumo ng Boost (Laki/tick)",
+      "FPS": "Server FPS",
+      "FOOD_SPAWN_INTERVAL": "Interval ng Paglitaw ng Pagkain (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Lakas ng Atraksyon ng Pagkain",
+      "FOOD_SNAP_DISTANCE": "Distansya ng Pag-snap ng Pagkain",
+      "DEFAULT_ZOOM_LEVEL": "Default na Antas ng Zoom",
+      "TELEPORT_VIOLATION_THRESHOLD": "Threshold ng Paglabag sa Teleport",
+      "TELEPORT_TOLERANCE_FACTOR": "Factor ng Toleransya sa Teleport",
+      "BOTS_ENABLED": "Mga Bot Pinagana",
+      "BOT_MAX_COUNT": "Pinakamataas na Bilang ng Bot",
+      "BOT_SPAWN_INTERVAL_MS": "Interval ng Paglitaw ng Bot (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Tagal ng Buhay ng Bot (ms)",
+      "BOT_DIFFICULTY": "Hirap ng Bot"
+    },
+    "boolean": {
+      "yes": "Oo",
+      "no": "Hindi"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Access denied. Nagre-redirect...",
+    "settingsUpdated": "Matagumpay na na-update ang mga setting.",
+    "settingsUpdatedWithRestart": "Na-update ang mga setting. Kinakailangan ang pag-restart ng server para sa mga pagbabago sa mapa/seguridad.",
+    "settingsUpdatedFpsRestart": "Na-update ang mga setting. Ni-restart ang game loop para sa pagbabago ng FPS.",
+    "settingsUpdateError": "Error sa pag-update ng mga setting.",
+    "loadSettingsError": "Error sa pag-load ng mga setting: {{error}}",
+    "loadUsersError": "Error sa pag-load ng mga user.",
+    "networkError": "Error sa network o hindi available ang server.",
+    "invalidResponse": "Hindi valid na tugon mula sa server (hindi JSON)",
+    "changes": "Mga Pagbabago:",
+    "restartRequired": "Kinakailangan ang pag-restart ng server upang mailapat ang mga pagbabago (Laki/Hugis ng Mapa, Mode ng Seguridad, Radius ng AoI).",
+    "fpsRestart": "Ni-restart ang game loop upang mailapat ang bagong FPS.",
+    "noChanges": "Walang binagong setting.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Error habang nagpi-preview.",
+    "pruneError": "Error habang naglilinis.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Mangyaring pumili ng MP3 file.",
+      "loginRequired": "Dapat kang naka-login upang makapag-save ng mga custom na tunog.",
+      "saveError": "Error sa pag-save ng tunog. Maaaring puno na ang local storage.",
+      "readError": "Error sa pagbasa ng sound file.",
+      "clearLoginRequired": "Dapat kang naka-login upang makapag-clear ng mga tunog.",
+      "clearError": "Nagkaroon ng error habang binubura ang mga tunog."
+    },
+    "confirms": {
+      "clearAll": "Sigurado ka bang gusto mong burahin ang lahat ng custom na tunog para sa account na ito?"
+    },
+    "statusTitles": {
+      "saveError": "Error sa Pag-save",
+      "readError": "Error sa Pagbasa",
+      "saved": "Nai-save ang tunog",
+      "savedWithName": "Nai-save: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Hindi Available ang Server - Slither Clone SIO",
+    "logoAlt": "Logo ng Hindi Available na Server",
+    "mainHeader": "Hindi Available ang Server",
+    "explanation": "Ang <span class=\"game-name\">Slither Clone SIO</span> server ay tila pansamantalang offline o hindi maabot. Sinusubukan naming muling itatag ang koneksyon para sa iyo.",
+    "snakeTitle": "Samantala, maglaro ng Snake!",
+    "snakeScoreLabel": "Iskor: 0",
+    "snakeControls": "Mga Arrow / ZQSD / WASD: Galaw | Enter: Simula/Ulitin",
+    "status": {
+      "label": "Katayuan:",
+      "searching": "Naghahanap...",
+      "checking": "Sinusuri...",
+      "connected": "Konektado!",
+      "nextAttemptLabel": "Susunod na pagsubok sa loob ng",
+      "secondsSuffix": "seg",
+      "attemptsLabel": "Mga Pagsubok:"
+    },
+    "refreshButton": "Suriin Ngayon",
+    "redirectInfo": "Awtomatiko kang ire-redirect sa sandaling bumalik online ang server."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Iskor: {{score}}"
+    },
+    "gameOver": {
+      "win": "PANALO!",
+      "lose": "TALO!",
+      "scoreLabel": "Iskor: {{score}}",
+      "promptLine1": "Pindutin ang Enter",
+      "promptLine2": "upang Maglaro Ulit"
+    },
+    "countdown": "MAGSISIMULA SA {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Pindutin ang Enter",
+      "promptLine2": "upang Maglaro"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Internal na error sa server.",
+      "invalidAdminStatus": "Hindi valid na katayuang 'isAdmin'.",
+      "userNotFound": "Hindi nahanap ang user.",
+      "invalidSuspendStatus": "Hindi valid na katayuang 'isSuspended'.",
+      "cannotDeleteSelf": "Hindi mo maaaring burahin ang sarili mong admin account dito.",
+      "prunePreviewError": "Error habang nagpi-preview ng paglilinis.",
+      "pruneError": "Error habang naglilinis.",
+      "rateLimit": "Masyadong maraming pagsubok sa paggawa ng account. Mangyaring subukang muli sa loob ng humigit-kumulang {{minutes}} minuto.",
+      "missingCredentials": "Kinakailangan ang username at password.",
+      "usernameTooLong": "Hindi maaaring lumampas sa {{maxLength}} karakter ang username.",
+      "usernameTooShort": "Dapat hindi bababa sa {{minLength}} karakter ang haba ng username.",
+      "passwordTooShort": "Dapat hindi bababa sa {{minLength}} karakter ang haba ng password.",
+      "usernameTaken": "Ang username na ito ay ginagamit na.",
+      "invalidCredentials": "Hindi valid na username o password.",
+      "accountSuspended": "Ang account na ito ay kasalukuyang suspendido.",
+      "notAuthenticated": "Hindi authenticated.",
+      "invalidHeadColor": "Hindi valid na kulay ng ulo.",
+      "missingSkinData": "Nawawala o hindi valid ang data ng skin.",
+      "invalidBodyType": "Hindi valid na uri ng katawan.",
+      "invalidBodyColor": "Hindi valid na kulay ng katawan sa data ng skin.",
+      "invalidPatternColorsType": "Dapat isang array ang mga kulay ng pattern.",
+      "tooManyPatternColors": "Masyadong maraming kulay ng pattern (max {{max}}).",
+      "invalidPatternColorValue": "May nahanap na hindi valid na kulay sa pattern.",
+      "invalidTrailEffect": "Hindi valid na epekto ng trail.",
+      "adminCannotDeleteSelf": "Hindi maaaring burahin ng mga administrator ang sarili nilang account sa pamamagitan ng interface na ito.",
+      "deleteAccountError": "Internal na error habang binubura ang account."
+    },
+    "success": {
+      "accountCreated": "Matagumpay na nagawa at naka-login ang account.",
+      "login": "Matagumpay ang pag-login.",
+      "logout": "Matagumpay ang pag-logout.",
+      "skinUpdated": "Matagumpay na na-update ang hitsura.",
+      "accountDeleted": "Matagumpay na nabura ang iyong account."
+    },
+    "admin": {
+      "adminStatusUpdated": "Na-update ang katayuang admin para kay {{username}}.",
+      "suspendStatusUpdated": "Na-update ang katayuan ng suspensyon para kay {{username}}.",
+      "userDeleted": "Matagumpay na nabura ang account na {{username}}.",
+      "pruneNoUsers": "Walang nahanap na hindi aktibong account na lilinisin.",
+      "pruneSuccess": "Nalinis ang {{count}} hindi aktibong account."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Suspendido ang iyong account.",
+      "accountError": "Error sa account. Mangyaring mag-login muli.",
+      "alreadyConnected": "Ang account na ito ay konektado na sa laro.",
+      "deletedByAdmin": "Binura ng administrator ang iyong account.",
+      "accountDeleted": "Nabura na ang iyong account."
+    },
+    "kickReason": "Sinipa ni {{admin}}",
+    "banReason": "Pinagbawalan ni {{admin}}",
+    "clearReason": "Nilinis ni {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Hindi awtorisado ang aksyon.",
+      "targetNotFound": "Hindi nahanap ang target na manlalaro.",
+      "kickSuccess": "Sinipa si {{username}}.",
+      "kickOfflineSuccess": "Si {{username}} (naka-disconnect na) ay inalis sa laro.",
+      "kickError": "Hindi mahanap ang socket o estado para kay {{username}}.",
+      "banSuccess": "Pinagbawalan si {{username}} (nasuspinde ang account at sinipa ang manlalaro).",
+      "banAccountOnlySuccess": "Nasuspinde ang account na {{username}} (naka-disconnect o naalis na ang manlalaro).",
+      "banError": "Hindi maaaring pagbawalan si {{username}} (pansamantala o hindi umiiral na account).",
+      "freezeSuccess": "Na-freeze si {{username}}.",
+      "unfreezeSuccess": "Na-unfreeze si {{username}}.",
+      "killSuccess": "Napatay si {{username}}.",
+      "clearSuccess": "Nilinis si {{username}} (inalis nang walang pagkain).",
+      "clearError": "Hindi malinis si {{username}} (naalis na?).",
+      "unknownAction": "Hindi kilalang aksyon."
+    },
+    "userConnected": "Sumali si {{username}} sa laro.",
+    "userDisconnected": "Umalis si {{username}} sa laro.",
+    "disconnectReason": "Na-disconnect: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Hindi kilalang banggaan",
+      "boundary": "Tumama sa hangganan ng mapa.",
+      "teleport": "Na-disconnect: Kahina-hinalang galaw.",
+      "selfCollision": "Anti-cheat: Sariling banggaan.",
+      "inactivity": "Walang aktibidad.",
+      "killedByAdmin": "Pinatay ni {{admin}}",
+      "botExpired": "Nag-expire ang bot.",
+      "clientCollision": "Banggaan ng katawan (client)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Laki: {{size}}",
+    "positionLabel": "Posisyon: {{x}}x{{y}}",
+    "ghostMode": "Ghost Mode",
+    "spectator": "Manonood"
+  },
+  "ghostMode": {
+    "selected": "Napili: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Hindi kilala",
+    "controlsSelected": "<kbd>K</kbd>: Patayin | <kbd>C</kbd>: Linisin | <kbd>F</kbd>: I-freeze/I-unfreeze | <kbd>Esc</kbd>: Alisin sa Pagkakapili",
+    "controlsGeneral": "Kaliwang Click: Pumili ng Entidad / I-drag para Mag-pan<br>Wheel: Zoom | <kbd>Esc</kbd>: Alisin sa Pagkakapili"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "Maligayang pagdating sa <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "Tulong at Mga Kredito",
+    "adminLink": "Admin",
+    "exitGhostButton": "Lumabas sa Ghost Mode"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Maglaro bilang Bisita",
+      "playAsUser": "Maglaro bilang {{username}}",
+      "login": "Mag-login",
+      "createAccount": "Gumawa ng Account",
+      "customizeSkin": "I-customize ang Hitsura",
+      "customSounds": "Mga Custom na Tunog",
+      "showLeaderboard": "Ipakita ang Leaderboard",
+      "ghostMode": "Ghost Mode",
+      "deleteAccount": "Burahin ang Aking Account",
+      "logout": "Mag-logout"
+    },
+    "alerts": {
+      "colorTooDark": "Masyadong madilim ang napiling kulay at maaaring mahirap makita. Inirerekomenda ang mas matingkad na kulay.",
+      "missingCredentials": "Mangyaring ilagay ang username at password.",
+      "usernameLength": "Dapat nasa pagitan ng {{min}} at {{max}} karakter ang haba ng username.",
+      "passwordLength": "Dapat hindi bababa sa {{minLength}} karakter ang haba ng password.",
+      "maxPatternColors": "Naabot na ang maximum na {{max}} kulay ng pattern.",
+      "canvasError": "Kritikal na Error: Hindi mahanap ang text overlay canvas element!",
+      "gameModuleError": "Kritikal na Error: Hindi ma-initialize ang game module!",
+      "fetchAccountError": "Error sa pagkuha ng data ng account.",
+      "loginError": "Error sa Pag-login: {{error}}",
+      "creationError": "Error sa Paglikha: {{error}}",
+      "skinUpdateError": "Error sa network o server habang ina-update ang hitsura: {{error}}",
+      "skinUpdatedTemp": "Na-update ang hitsura para sa pansamantalang session.",
+      "deleteAccountError": "Error sa network habang binubura ang account."
+    },
+    "confirms": {
+      "enterGhostMode": "Pumasok sa Ghost Mode (manonood)?",
+      "deleteAccount": "Sigurado ka bang gusto mong permanenteng burahin ang iyong account na \"{{username}}\"? Ang aksyon na ito ay hindi na mababawi."
+    },
+    "welcomeMessage": "Hello {{username}}!",
+    "welcomeMessage_admin": "Hello {{username}} (Admin)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Username:",
+      "passwordLabel": "Password:",
+      "backButton": "Bumalik"
+    },
+    "guest": {
+      "title": "Maglaro bilang Bisita",
+      "note": "Itatakda ang mga kulay at skin sa pamamagitan ng \"I-customize ang Hitsura\".",
+      "submitButton": "Simulan ang Laro"
+    },
+    "login": {
+      "title": "Mag-login",
+      "submitButton": "Mag-login"
+    },
+    "create": {
+      "title": "Gumawa ng Account",
+      "initialHeadColorLabel": "Paunang Kulay ng Ulo:",
+      "initialBodyColorLabel": "Paunang Kulay ng Katawan:",
+      "submitButton": "Gumawa"
+    },
+    "skin": {
+      "title": "I-customize ang Hitsura",
+      "headColorLabel": "Kulay ng Ulo:",
+      "bodyTypeLabel": "Uri ng Katawan",
+      "bodyTypeSingle": "Isang Kulay",
+      "bodyTypePattern": "Paulit-ulit na Pattern",
+      "bodyColorLabel": "Kulay ng Katawan:",
+      "patternColorsLabel": "Mga Kulay ng Pattern (max 8)",
+      "trailEffectLabel": "Epekto ng Trail",
+      "trailEffect": {
+        "none": "Wala",
+        "sparkle": "Kislap",
+        "smoke": "Berdeng Usok",
+        "fire": "Apoy",
+        "ice": "Mga Tipak ng Yelo",
+        "electric": "Mga Kislap ng Kuryente",
+        "rainbow": "Bahaghari",
+        "bubbles": "Mga Bula",
+        "glitch": "Glitch",
+        "void": "Kawalan / Anino",
+        "confetti": "Confetti"
+      },
+      "submitButton": "I-save ang Hitsura"
+    },
+    "sound": {
+      "title": "Mga Custom na Tunog",
+      "info": "Mag-upload ng mga MP3 file (naka-save nang lokal) para sa mga event.",
+      "deathLabel": "Tunog ng Kamatayan:",
+      "killLabel": "Tunog ng Pagpatay:",
+      "boostLabel": "Tunog ng Boost:",
+      "clearButton": "Burahin ang mga Tunog"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Maglaro Ulit",
+    "backToMenuButton": "Bumalik sa Menu",
+    "finalSizeLabel": "Ang iyong laki ay: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "header": {
+      "name": "Pangalan",
+      "status": "Katayuan",
+      "size": "Laki",
+      "kills": "Mga Napatay",
+      "deaths": "Mga Pagkamatay",
+      "kd": "K/D"
+    },
+    "noPlayers": "Wala pang manlalarong naka-rank.",
+    "status": {
+      "ingame": "Nasa Laro",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Hindi kailanman",
+      "na": "N/A",
+      "ingameTitle": "Kasalukuyang nasa laro"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} seg nakalipas",
+      "secondsAgo_other": "{{count}} seg nakalipas",
+      "minutesAgo_one": "{{count}} min nakalipas",
+      "minutesAgo_other": "{{count}} min nakalipas",
+      "hoursAgo_one": "{{count}} oras nakalipas",
+      "hoursAgo_other": "{{count}} oras nakalipas",
+      "daysAgo_one": "{{count}} araw nakalipas",
+      "daysAgo_other": "{{count}} araw nakalipas",
+      "yesterday": "Kahapon"
+    },
+    "lastLoginTitle": "Huling pag-login: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Mga Keyboard Shortcut (Menu)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Mag-navigate sa mga button",
+      "activate": "Enter: I-activate ang napiling button",
+      "close": "Esc: Isara ang panel na ito / Bumalik"
+    },
+    "gameKeysTitle": "Mga Keyboard Shortcut (Laro)",
+    "gameKeys": {
+      "mouse": "Mouse: Patnubayan ang ahas",
+      "boost": "Kaliwang Click / Space: Boost",
+      "adminCheat": "P: Admin Cheat (kung admin)"
+    },
+    "ghostKeysTitle": "Mga Keyboard Shortcut (Ghost)",
+    "ghostKeys": {
+      "select": "Kaliwang Click (sa manlalaro): Pumili ng Manlalaro",
+      "pan": "Kaliwang Click + I-drag (bakanteng espasyo): I-pan ang Camera",
+      "zoom": "Mouse Wheel: Mag-zoom In/Out",
+      "kill": "K (kung napili ang manlalaro): Patayin ang Manlalaro",
+      "clear": "C (kung napili ang manlalaro): Linisin ang Manlalaro (walang pagkain)",
+      "freeze": "F (kung napili ang manlalaro): I-freeze/I-unfreeze ang Manlalaro",
+      "deselect": "Esc: Alisin sa Pagkakapili ang Manlalaro"
+    },
+    "creditsTitle": "Mga Kredito",
+    "creditsAuthor": "May-akda: Anonimong May-akda",
+    "creditsLicense": "Lisensya: MIT",
+    "creditsGithub": "Proyekto sa GitHub"
+  },
+  "NEW_KEY_1": "Pinagmulang teksto para sa unang bagong susi.",
+  "NEW_KEY_2": "Pinagmulang teksto para sa pangalawang bagong susi."
+}

@@ -1,0 +1,533 @@
+{
+  "pageTitle": "Admin - Slither Klón",
+  "backButtonTitle": "Vissza a főoldalra",
+  "tabs": {
+    "settings": "Általános Beállítások",
+    "users": "Felhasználókezelés",
+    "currentConfig": "Jelenlegi Konfiguráció"
+  },
+  "settingsForm": {
+    "title": "Általános Beállítások",
+    "passwordNote": "<strong>Megjegyzés:</strong> Az adminisztrátori jelszó beállításához vagy visszaállításához állítsa le a szervert, és futtassa a következő paranccsal:<br/><code>node backend/server.js --set-new-password AZ_ÖN_ÚJ_JELSZAVA</code><br/>Az oldalhoz való hozzáférés aktív adminisztrátori munkamenetet igényel (sütin keresztül).<br/>Néhány beállítás (csillaggal jelölve) alkalmazásához újra kell indítani a szervert.",
+    "mapWidth": {
+      "label": "Térkép Szélessége (px) *:",
+      "placeholder": "pl. 4000"
+    },
+    "mapHeight": {
+      "label": "Térkép Magassága (px) *:",
+      "placeholder": "pl. 4000"
+    },
+    "mapShape": {
+      "label": "Térkép Alakja *:",
+      "rectangle": "Téglalap",
+      "circle": "Kör"
+    },
+    "aoiRadius": {
+      "label": "Érdeklődési Terület Sugara (AoI) (px) *:",
+      "placeholder": "pl. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Kígyó Méretkorlátja (Alapértelmezett):",
+      "placeholder": "pl. 1000"
+    },
+    "initialSize": {
+      "label": "Kígyó Kezdeti Mérete:",
+      "placeholder": "pl. 50"
+    },
+    "speed": {
+      "label": "Alapsebesség:",
+      "placeholder": "pl. 1"
+    },
+    "maxRotationRate": {
+      "label": "Max. Forgási Sebesség (rad/tick):",
+      "placeholder": "pl. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Méret a Boosthoz:",
+      "placeholder": "pl. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Boost Fogyasztási Arány:",
+      "placeholder": "pl. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Étel Megjelenési Intervalluma (ms):",
+      "placeholder": "pl. 5000"
+    },
+    "fps": {
+      "label": "Szerver FPS (ciklus/mp):",
+      "placeholder": "pl. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Étel Vonzóereje:",
+      "placeholder": "pl. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Étel Rögzítési Távolsága:",
+      "placeholder": "pl. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Alapértelmezett Nagyítási Szint:",
+      "placeholder": "pl. 1.0"
+    },
+    "securityMode": {
+      "label": "Biztonsági Mód *:",
+      "high": "Magas (Ajánlott)",
+      "low": "Alacsony (Kliens + Könnyű)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Teleportálási Szabálysértési Küszöb:",
+      "placeholder": "pl. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Teleportálási Tolerancia Faktor:",
+      "placeholder": "pl. 1.5"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "God Mode engedélyezése spawnoláskor:",
+      "yes": "Igen",
+      "no": "Nem"
+    },
+    "botsEnabled": {
+      "label": "Botok Engedélyezése:",
+      "yes": "Igen",
+      "no": "Nem"
+    },
+    "botMaxCount": {
+      "label": "Botok Max. Száma:",
+      "placeholder": "pl. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Bot Megjelenési Intervalluma (ms):",
+      "placeholder": "pl. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Bot Élettartama (ms):",
+      "placeholder": "pl. 120000"
+    },
+    "botDifficulty": {
+      "label": "Bot Nehézsége:",
+      "easy": "Könnyű",
+      "medium": "Közepes",
+      "hard": "Nehéz"
+    },
+    "adminMessageText": {
+      "label": "Adminisztrátori Üzenet (törléshez hagyja üresen):",
+      "placeholder": "Minden játékosnak megjelenítendő üzenet"
+    },
+    "adminMessageDuration": {
+      "label": "Üzenet Időtartama (másodperc):",
+      "placeholder": "pl. 10"
+    },
+    "updateButton": "Beállítások Frissítése"
+  },
+  "userManagement": {
+    "title": "Felhasználókezelés",
+    "loading": "Betöltés...",
+    "noUsers": "Nincsenek felhasználók.",
+    "table": {
+      "headerUser": "Felhasználó",
+      "headerStatus": "Állapot",
+      "headerLastLogin": "Utolsó Bejelentkezés",
+      "headerCreated": "Létrehozva",
+      "headerActions": "Műveletek"
+    },
+    "status": {
+      "admin": "Adminisztrátor",
+      "suspended": "Felfüggesztve",
+      "normal": "Normál",
+      "never": "Soha",
+      "unknown": "Ismeretlen"
+    },
+    "actions": {
+      "removeAdmin": "Admin Eltávolítása",
+      "makeAdmin": "Adminná Tétel",
+      "unban": "Felfüggesztés Feloldása",
+      "suspend": "Felfüggesztés",
+      "delete": "Törlés"
+    },
+    "pruneButton": "Inaktív Fiókok Tisztítása",
+    "confirmDelete": "Biztosan véglegesen törölni szeretné a(z) \"{{username}}\" felhasználót? Ez a művelet nem vonható vissza.",
+    "confirmPrune_one": "Biztosan törölni szeretné a(z) {{count}} inaktív fiókot (inaktív >15 nap ÉS nagyon alacsony statisztikák)? Ez a művelet nem vonható vissza.",
+    "confirmPrune_other": "Biztosan törölni szeretné a(z) {{count}} inaktív fiókot (inaktívak >15 nap ÉS nagyon alacsony statisztikák)? Ez a művelet nem vonható vissza.",
+    "confirmPruneZero": "Nem található inaktív fiók a jelenlegi kritériumok alapján. Mégis futtatni szeretné a műveletet (minden eshetőségre)?",
+    "confirmPruneZeroConfirm": "Megerősíti a tisztítási műveletet, még ha 0 fiókot is észlelt?",
+    "pruneCancelled": "Tisztítási művelet megszakítva."
+  },
+  "currentConfig": {
+    "title": "Jelenlegi Szerverkonfiguráció",
+    "loading": "Konfiguráció betöltése...",
+    "loadError": "Nem sikerült betölteni a konfigurációt.",
+    "loadSuccess": "Jelenlegi konfiguráció betöltve.",
+    "keys": {
+      "MAP_WIDTH": "Térkép Szélessége (px)",
+      "MAP_HEIGHT": "Térkép Magassága (px)",
+      "MAP_SHAPE": "Térkép Alakja",
+      "AOI_RADIUS": "Érdeklődési Terület Sugara (AoI) (px)",
+      "SECURITY_MODE": "Biztonsági Mód",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Kígyó Méretkorlátja (Alapértelmezett)",
+      "INITIAL_SIZE": "Kígyó Kezdeti Mérete",
+      "MIN_BOOST_SIZE": "Min. Méret a Boosthoz",
+      "SPEED": "Alapsebesség",
+      "MAX_ROTATION_RATE": "Max. Forgási Sebesség",
+      "BOOST_CONSUMPTION_RATE": "Boost Fogyasztás (Méret/tick)",
+      "FPS": "Szerver FPS",
+      "FOOD_SPAWN_INTERVAL": "Étel Megjelenési Intervalluma (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Étel Vonzóereje",
+      "FOOD_SNAP_DISTANCE": "Étel Rögzítési Távolsága",
+      "DEFAULT_ZOOM_LEVEL": "Alapértelmezett Nagyítási Szint",
+      "TELEPORT_VIOLATION_THRESHOLD": "Teleportálási Szabálysértési Küszöb",
+      "TELEPORT_TOLERANCE_FACTOR": "Teleportálási Tolerancia Faktor",
+      "BOTS_ENABLED": "Botok Engedélyezve",
+      "BOT_MAX_COUNT": "Botok Max. Száma",
+      "BOT_SPAWN_INTERVAL_MS": "Bot Megjelenési Intervalluma (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Bot Élettartama (ms)",
+      "BOT_DIFFICULTY": "Bot Nehézsége"
+    },
+    "boolean": {
+      "yes": "Igen",
+      "no": "Nem"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Hozzáférés megtagadva. Átirányítás...",
+    "settingsUpdated": "Beállítások sikeresen frissítve.",
+    "settingsUpdatedWithRestart": "Beállítások frissítve. A térkép/biztonsági változásokhoz újra kell indítani a szervert.",
+    "settingsUpdatedFpsRestart": "Beállítások frissítve. A játékciklus újraindítva az FPS változás miatt.",
+    "settingsUpdateError": "Hiba a beállítások frissítésekor.",
+    "loadSettingsError": "Hiba a beállítások betöltésekor: {{error}}",
+    "loadUsersError": "Hiba a felhasználók betöltésekor.",
+    "networkError": "Hálózati hiba vagy a szerver nem elérhető.",
+    "invalidResponse": "Érvénytelen válasz a szerverről (nem JSON)",
+    "changes": "Változások:",
+    "restartRequired": "A változások (Térkép Mérete/Alakja, Biztonsági Mód, AoI Sugár) alkalmazásához újra kell indítani a szervert.",
+    "fpsRestart": "A játékciklus újraindult az új FPS alkalmazásához.",
+    "noChanges": "Nem módosultak beállítások.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Hiba az előnézet során.",
+    "pruneError": "Hiba a tisztítási művelet során.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Kérjük, válasszon egy MP3 fájlt.",
+      "loginRequired": "Egyéni hangok mentéséhez be kell jelentkeznie.",
+      "saveError": "Hiba a hang mentésekor. A helyi tárhely megtelhetett.",
+      "readError": "Hiba a hangfájl olvasásakor.",
+      "clearLoginRequired": "Hangok törléséhez be kell jelentkeznie.",
+      "clearError": "Hiba történt a hangok törlésekor."
+    },
+    "confirms": {
+      "clearAll": "Biztosan törölni szeretné az összes egyéni hangot ehhez a fiókhoz?"
+    },
+    "statusTitles": {
+      "saveError": "Mentési Hiba",
+      "readError": "Olvasási Hiba",
+      "saved": "Hang mentve",
+      "savedWithName": "Mentve: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Szerver Nem Elérhető - Slither Klón SIO",
+    "logoAlt": "Szerver Nem Elérhető Logó",
+    "mainHeader": "Szerver Nem Elérhető",
+    "explanation": "A <span class=\"game-name\">Slither Klón SIO</span> szerver átmenetileg offline vagy elérhetetlennek tűnik. Megpróbáljuk helyreállítani a kapcsolatot Önnek.",
+    "snakeTitle": "Addig is, játsszon Kígyót!",
+    "snakeScoreLabel": "Pontszám: 0",
+    "snakeControls": "Nyilak / ZQSD / WASD: Mozgás | Enter: Start/Újraindítás",
+    "status": {
+      "label": "Állapot:",
+      "searching": "Keresés...",
+      "checking": "Ellenőrzés...",
+      "connected": "Csatlakozva!",
+      "nextAttemptLabel": "Következő próbálkozás",
+      "secondsSuffix": "másodperc múlva",
+      "attemptsLabel": "Próbálkozások:"
+    },
+    "refreshButton": "Ellenőrzés Most",
+    "redirectInfo": "Automatikusan átirányítjuk, amint a szerver újra online lesz."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Pontszám: {{score}}"
+    },
+    "gameOver": {
+      "win": "GYŐZELEM!",
+      "lose": "VERESÉG!",
+      "scoreLabel": "Pontszám: {{score}}",
+      "promptLine1": "Nyomja meg az Entert",
+      "promptLine2": "az Újrajátszáshoz"
+    },
+    "countdown": "INDULÁS {{count}}",
+    "startScreen": {
+      "title": "KÍGYÓ",
+      "promptLine1": "Nyomja meg az Entert",
+      "promptLine2": "a Játékhoz"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Belső szerverhiba.",
+      "invalidAdminStatus": "Érvénytelen 'isAdmin' állapot.",
+      "userNotFound": "Felhasználó nem található.",
+      "invalidSuspendStatus": "Érvénytelen 'isSuspended' állapot.",
+      "cannotDeleteSelf": "Itt nem törölheti saját adminisztrátori fiókját.",
+      "prunePreviewError": "Hiba a tisztítási előnézet során.",
+      "pruneError": "Hiba a tisztítási művelet során.",
+      "rateLimit": "Túl sok fióklétrehozási kísérlet. Kérjük, próbálja újra körülbelül {{minutes}} perc múlva.",
+      "missingCredentials": "Felhasználónév és jelszó szükséges.",
+      "usernameTooLong": "A felhasználónév nem haladhatja meg a {{maxLength}} karaktert.",
+      "usernameTooShort": "A felhasználónévnek legalább {{minLength}} karakter hosszúnak kell lennie.",
+      "passwordTooShort": "A jelszónak legalább {{minLength}} karakter hosszúnak kell lennie.",
+      "usernameTaken": "Ez a felhasználónév már foglalt.",
+      "invalidCredentials": "Érvénytelen felhasználónév vagy jelszó.",
+      "accountSuspended": "Ez a fiók jelenleg fel van függesztve.",
+      "notAuthenticated": "Nincs hitelesítve.",
+      "invalidHeadColor": "Érvénytelen fejszín.",
+      "missingSkinData": "A skin adatok hiányoznak vagy érvénytelenek.",
+      "invalidBodyType": "Érvénytelen testtípus.",
+      "invalidBodyColor": "Érvénytelen testszín a skin adatokban.",
+      "invalidPatternColorsType": "A mintaszíneknek tömbnek kell lenniük.",
+      "tooManyPatternColors": "Túl sok mintaszín (max. {{max}}).",
+      "invalidPatternColorValue": "Érvénytelen szín található a mintában.",
+      "invalidTrailEffect": "Érvénytelen csóvaeffektus.",
+      "adminCannotDeleteSelf": "Az adminisztrátorok nem törölhetik saját fiókjukat ezen a felületen keresztül.",
+      "deleteAccountError": "Belső hiba a fiók törlésekor."
+    },
+    "success": {
+      "accountCreated": "Fiók sikeresen létrehozva és bejelentkezve.",
+      "login": "Sikeres bejelentkezés.",
+      "logout": "Sikeres kijelentkezés.",
+      "skinUpdated": "Megjelenés sikeresen frissítve.",
+      "accountDeleted": "Fiókja sikeresen törölve."
+    },
+    "admin": {
+      "adminStatusUpdated": "Adminisztrátori állapot frissítve {{username}} számára.",
+      "suspendStatusUpdated": "Felfüggesztési állapot frissítve {{username}} számára.",
+      "userDeleted": "Fiók {{username}} sikeresen törölve.",
+      "pruneNoUsers": "Nem található inaktív fiók a tisztításhoz.",
+      "pruneSuccess": "{{count}} inaktív fiók tisztítva."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Fiókja fel van függesztve.",
+      "accountError": "Fiókhiba. Kérjük, jelentkezzen be újra.",
+      "alreadyConnected": "Ez a fiók már csatlakozva van a játékhoz.",
+      "deletedByAdmin": "Fiókját egy adminisztrátor törölte.",
+      "accountDeleted": "Fiókja törölve lett."
+    },
+    "kickReason": "Kirúgta: {{admin}}",
+    "banReason": "Kitiltotta: {{admin}}",
+    "clearReason": "Megtisztította: {{admin}}",
+    "adminFeedback": {
+      "unauthorized": "Művelet nem engedélyezett.",
+      "targetNotFound": "Céljátékos nem található.",
+      "kickSuccess": "{{username}} kirúgva.",
+      "kickOfflineSuccess": "{{username}} (már offline) eltávolítva a játékból.",
+      "kickError": "Nem található socket vagy állapot {{username}} számára.",
+      "banSuccess": "{{username}} kitiltva (fiók felfüggesztve és játékos kirúgva).",
+      "banAccountOnlySuccess": "Fiók {{username}} felfüggesztve (játékos már offline vagy eltávolítva).",
+      "banError": "Nem lehet kitiltani {{username}}-t (ideiglenes vagy nem létező fiók).",
+      "freezeSuccess": "{{username}} lefagyasztva.",
+      "unfreezeSuccess": "{{username}} feloldva.",
+      "killSuccess": "{{username}} megölve.",
+      "clearSuccess": "{{username}} megtisztítva (eltávolítva étel nélkül).",
+      "clearError": "Nem sikerült megtisztítani {{username}}-t (már eltávolítva?).",
+      "unknownAction": "Ismeretlen művelet."
+    },
+    "userConnected": "{{username}} csatlakozott a játékhoz.",
+    "userDisconnected": "{{username}} elhagyta a játékot.",
+    "disconnectReason": "Kapcsolat bontva: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Ismeretlen ütközés",
+      "boundary": "Nekiment a térkép szélének.",
+      "teleport": "Kapcsolat bontva: Gyanús mozgás.",
+      "selfCollision": "Csalás elleni védelem: Önütközés.",
+      "inactivity": "Inaktivitás.",
+      "killedByAdmin": "Megölte: {{admin}}",
+      "botExpired": "Bot lejárt.",
+      "clientCollision": "Testütközés (kliens)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Méret: {{size}}",
+    "positionLabel": "Pozíció: {{x}}x{{y}}",
+    "ghostMode": "Szellem Mód",
+    "spectator": "Néző"
+  },
+  "ghostMode": {
+    "selected": "Kiválasztva: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Ismeretlen",
+    "controlsSelected": "<kbd>K</kbd>: Megöl | <kbd>C</kbd>: Tisztít | <kbd>F</kbd>: Fagyaszt/Felold | <kbd>Esc</kbd>: Kijelölés Törlése",
+    "controlsGeneral": "Bal klikk: Entitás Kiválasztása / Húzás a Pásztázáshoz<br>Görgő: Nagyítás | <kbd>Esc</kbd>: Kijelölés Törlése"
+  },
+  "mainPage": {
+    "title": "Slither Klón SIO"
+  },
+  "mainMenu": {
+    "title": "Üdvözöljük a <span class=\"blink\">Slither Klón SIO</span> játékban",
+    "helpButtonTitle": "Súgó & Készítők",
+    "adminLink": "Admin",
+    "exitGhostButton": "Kilépés a Szellem Módból"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Játék Vendégként",
+      "playAsUser": "Játék mint {{username}}",
+      "login": "Bejelentkezés",
+      "createAccount": "Fiók Létrehozása",
+      "customizeSkin": "Megjelenés Testreszabása",
+      "customSounds": "Egyéni Hangok",
+      "showLeaderboard": "Ranglista Megjelenítése",
+      "ghostMode": "Szellem Mód",
+      "deleteAccount": "Fiókom Törlése",
+      "logout": "Kijelentkezés"
+    },
+    "alerts": {
+      "colorTooDark": "A választott szín nagyon sötét, és nehezen látható lehet. Világosabb szín ajánlott.",
+      "missingCredentials": "Kérjük, adja meg a felhasználónevet és a jelszót.",
+      "usernameLength": "A felhasználónévnek {{min}} és {{max}} karakter között kell lennie.",
+      "passwordLength": "A jelszónak legalább {{minLength}} karakter hosszúnak kell lennie.",
+      "maxPatternColors": "Elérte a(z) {{max}} mintaszín maximumát.",
+      "canvasError": "Kritikus Hiba: Nem található a szövegfedvény vászoneleme!",
+      "gameModuleError": "Kritikus Hiba: Nem sikerült inicializálni a játékmodult!",
+      "fetchAccountError": "Hiba a fiókadatok lekérésekor.",
+      "loginError": "Bejelentkezési Hiba: {{error}}",
+      "creationError": "Létrehozási Hiba: {{error}}",
+      "skinUpdateError": "Hálózati vagy szerverhiba a megjelenés frissítésekor: {{error}}",
+      "skinUpdatedTemp": "Megjelenés frissítve az ideiglenes munkamenethez.",
+      "deleteAccountError": "Hálózati hiba a fiók törlésekor."
+    },
+    "confirms": {
+      "enterGhostMode": "Belépés Szellem Módba (néző)?",
+      "deleteAccount": "Biztosan véglegesen törölni szeretné a(z) \"{{username}}\" fiókját? Ez a művelet nem vonható vissza."
+    },
+    "welcomeMessage": "Szia {{username}}!",
+    "welcomeMessage_admin": "Szia {{username}} (Adminisztrátor)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Felhasználónév:",
+      "passwordLabel": "Jelszó:",
+      "backButton": "Vissza"
+    },
+    "guest": {
+      "title": "Játék Vendégként",
+      "note": "A színek és a skin a \"Megjelenés Testreszabása\" menüpontban állíthatók be.",
+      "submitButton": "Játék Indítása"
+    },
+    "login": {
+      "title": "Bejelentkezés",
+      "submitButton": "Bejelentkezés"
+    },
+    "create": {
+      "title": "Fiók Létrehozása",
+      "initialHeadColorLabel": "Kezdeti Fejszín:",
+      "initialBodyColorLabel": "Kezdeti Testszín:",
+      "submitButton": "Létrehozás"
+    },
+    "skin": {
+      "title": "Megjelenés Testreszabása",
+      "headColorLabel": "Fejszín:",
+      "bodyTypeLabel": "Testtípus",
+      "bodyTypeSingle": "Egyszínű",
+      "bodyTypePattern": "Ismétlődő Minta",
+      "bodyColorLabel": "Testszín:",
+      "patternColorsLabel": "Mintaszínek (max. 8)",
+      "trailEffectLabel": "Csóvaeffektus",
+      "trailEffect": {
+        "none": "Nincs",
+        "sparkle": "Szikra",
+        "smoke": "Zöld Füst",
+        "fire": "Tűz",
+        "ice": "Jégszilánkok",
+        "electric": "Elektromos Szikrák",
+        "rainbow": "Szivárvány",
+        "bubbles": "Buborékok",
+        "glitch": "Glitch",
+        "void": "Üresség / Árnyék",
+        "confetti": "Konfetti"
+      },
+      "submitButton": "Megjelenés Mentése"
+    },
+    "sound": {
+      "title": "Egyéni Hangok",
+      "info": "Töltsön fel MP3 fájlokat (helyileg tárolva) eseményekhez.",
+      "deathLabel": "Halál Hangja:",
+      "killLabel": "Ölés Hangja:",
+      "boostLabel": "Boost Hangja:",
+      "clearButton": "Hangok Törlése"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Újrajátszás",
+    "backToMenuButton": "Vissza a Menübe",
+    "finalSizeLabel": "A méreted: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Ranglista",
+    "header": {
+      "name": "Név",
+      "status": "Állapot",
+      "size": "Méret",
+      "kills": "Ölések",
+      "deaths": "Halálok",
+      "kd": "K/D"
+    },
+    "noPlayers": "Még nincsenek rangsorolt játékosok.",
+    "status": {
+      "ingame": "Játékban",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Soha",
+      "na": "N/A",
+      "ingameTitle": "Jelenleg játékban"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} másodperce",
+      "secondsAgo_other": "{{count}} másodperce",
+      "minutesAgo_one": "{{count}} perce",
+      "minutesAgo_other": "{{count}} perce",
+      "hoursAgo_one": "{{count}} órája",
+      "hoursAgo_other": "{{count}} órája",
+      "daysAgo_one": "{{count}} napja",
+      "daysAgo_other": "{{count}} napja",
+      "yesterday": "Tegnap"
+    },
+    "lastLoginTitle": "Utolsó bejelentkezés: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Billentyűparancsok (Menü)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Gombok közötti navigálás",
+      "activate": "Enter: Kiválasztott gomb aktiválása",
+      "close": "Esc: Panel bezárása / Vissza"
+    },
+    "gameKeysTitle": "Billentyűparancsok (Játék)",
+    "gameKeys": {
+      "mouse": "Egér: Kígyó irányítása",
+      "boost": "Bal klikk / Szóköz: Boost",
+      "adminCheat": "P: Adminisztrátori Csalás (ha adminisztrátor)"
+    },
+    "ghostKeysTitle": "Billentyűparancsok (Szellem)",
+    "ghostKeys": {
+      "select": "Bal klikk (játékoson): Játékos Kiválasztása",
+      "pan": "Bal klikk + Húzás (üres terület): Kamera Pásztázása",
+      "zoom": "Egérgörgő: Nagyítás/Kicsinyítés",
+      "kill": "K (ha játékos kiválasztva): Játékos Megölése",
+      "clear": "C (ha játékos kiválasztva): Játékos Tisztítása (étel nélkül)",
+      "freeze": "F (ha játékos kiválasztva): Játékos Fagyasztása/Feloldása",
+      "deselect": "Esc: Játékos Kijelölésének Törlése"
+    },
+    "creditsTitle": "Készítők",
+    "creditsAuthor": "Szerző: Névtelen Szerző",
+    "creditsLicense": "Licenc: MIT",
+    "creditsGithub": "Projekt a GitHubon"
+  },
+  "NEW_KEY_1": "Forrásszöveg az első új kulcshoz.",
+  "NEW_KEY_2": "Forrásszöveg a második új kulcshoz."
+}

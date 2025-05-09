@@ -1,0 +1,533 @@
+{
+  "pageTitle": "অ্যাডমিন - স্লিদার ক্লোন",
+  "backButtonTitle": "প্রধান পৃষ্ঠায় ফিরে যান",
+  "tabs": {
+    "settings": "সাধারণ সেটিংস",
+    "users": "ব্যবহারকারী ব্যবস্থাপনা",
+    "currentConfig": "বর্তমান কনফিগারেশন"
+  },
+  "settingsForm": {
+    "title": "সাধারণ সেটিংস",
+    "passwordNote": "<strong>দ্রষ্টব্য:</strong> অ্যাডমিন পাসওয়ার্ড সেট বা রিসেট করতে, সার্ভার বন্ধ করুন এবং কমান্ডটি দিয়ে চালান:<br/><code>node backend/server.js --set-new-password আপনার_নতুন_পাসওয়ার্ড</code><br/>এই পৃষ্ঠায় অ্যাক্সেসের জন্য একটি সক্রিয় অ্যাডমিন সেশন (কুকির মাধ্যমে) প্রয়োজন।<br/>কিছু সেটিংস ( * চিহ্নিত) প্রয়োগ করার জন্য সার্ভার পুনরায় চালু করতে হবে।",
+    "mapWidth": {
+      "label": "মানচিত্রের প্রস্থ (px) *:",
+      "placeholder": "যেমন ৪০০০"
+    },
+    "mapHeight": {
+      "label": "মানচিত্রের উচ্চতা (px) *:",
+      "placeholder": "যেমন ৪০০০"
+    },
+    "mapShape": {
+      "label": "মানচিত্রের আকৃতি *:",
+      "rectangle": "আয়তক্ষেত্র",
+      "circle": "বৃত্ত"
+    },
+    "aoiRadius": {
+      "label": "আগ্রহের এলাকা (AoI) ব্যাসার্ধ (px) *:",
+      "placeholder": "যেমন ২০০০"
+    },
+    "maxTrailLengthDefault": {
+      "label": "সাপের আকারের সীমা (ডিফল্ট):",
+      "placeholder": "যেমন ১০০০"
+    },
+    "initialSize": {
+      "label": "সাপের প্রাথমিক আকার:",
+      "placeholder": "যেমন ৫০"
+    },
+    "speed": {
+      "label": "বেস গতি:",
+      "placeholder": "যেমন ১"
+    },
+    "maxRotationRate": {
+      "label": "সর্বোচ্চ ঘূর্ণন হার (rad/tick):",
+      "placeholder": "যেমন ০.০৮"
+    },
+    "minBoostSize": {
+      "label": "বুস্টের জন্য সর্বনিম্ন আকার:",
+      "placeholder": "যেমন ৫০"
+    },
+    "boostConsumptionRate": {
+      "label": "বুস্ট ব্যবহারের হার:",
+      "placeholder": "যেমন ১"
+    },
+    "foodSpawnInterval": {
+      "label": "খাবার তৈরির ব্যবধান (ms):",
+      "placeholder": " যেমন ৫০০০"
+    },
+    "fps": {
+      "label": "সার্ভার FPS (loops/sec):",
+      "placeholder": "যেমন ৪৫"
+    },
+    "foodAttractionStrength": {
+      "label": "খাবার আকর্ষণের শক্তি:",
+      "placeholder": "যেমন ০.১"
+    },
+    "foodSnapDistance": {
+      "label": "খাবার স্ন্যাপ দূরত্ব:",
+      "placeholder": "যেমন ৫"
+    },
+    "defaultZoomLevel": {
+      "label": "ডিফল্ট জুম স্তর:",
+      "placeholder": "যেমন ১.০"
+    },
+    "securityMode": {
+      "label": "নিরাপত্তা মোড *:",
+      "high": "উচ্চ (প্রস্তাবিত)",
+      "low": "নিম্ন (ক্লায়েন্ট + হালকা)"
+    },
+    "teleportViolationThreshold": {
+      "label": "টেলিপোর্ট লঙ্ঘনের থ্রেশহোল্ড:",
+      "placeholder": "যেমন ৫"
+    },
+    "teleportToleranceFactor": {
+      "label": "টেলিপোর্ট সহনশীলতা ফ্যাক্টর:",
+      "placeholder": "যেমন ১.৫"
+    },
+    "godmodeOnSpawnEnabled": {
+      "label": "স্পনে গড মোড সক্রিয় করুন:",
+      "yes": "হ্যাঁ",
+      "no": "না"
+    },
+    "botsEnabled": {
+      "label": "বট সক্রিয় করুন:",
+      "yes": "হ্যাঁ",
+      "no": "না"
+    },
+    "botMaxCount": {
+      "label": "সর্বোচ্চ বট সংখ্যা:",
+      "placeholder": "যেমন ১০"
+    },
+    "botSpawnIntervalMs": {
+      "label": "বট তৈরির ব্যবধান (ms):",
+      "placeholder": "যেমন ৫০০০"
+    },
+    "botExpirationTimeMs": {
+      "label": "বটের জীবনকাল (ms):",
+      "placeholder": "যেমন ১২০০০০"
+    },
+    "botDifficulty": {
+      "label": "বটের অসুবিধা:",
+      "easy": "সহজ",
+      "medium": "মাঝারি",
+      "hard": "কঠিন"
+    },
+    "adminMessageText": {
+      "label": "অ্যাডমিন বার্তা (মুছে ফেলার জন্য খালি রাখুন):",
+      "placeholder": "সকল খেলোয়াড়দের দেখানোর জন্য বার্তা"
+    },
+    "adminMessageDuration": {
+      "label": "বার্তার সময়কাল (সেকেন্ড):",
+      "placeholder": "যেমন ১০"
+    },
+    "updateButton": "সেটিংস আপডেট করুন"
+  },
+  "userManagement": {
+    "title": "ব্যবহারকারী ব্যবস্থাপনা",
+    "loading": "লোড হচ্ছে...",
+    "noUsers": "কোনো ব্যবহারকারী পাওয়া যায়নি।",
+    "table": {
+      "headerUser": "ব্যবহারকারী",
+      "headerStatus": "অবস্থা",
+      "headerLastLogin": "শেষ লগইন",
+      "headerCreated": "তৈরি হয়েছে",
+      "headerActions": "ক্রিয়াকলাপ"
+    },
+    "status": {
+      "admin": "অ্যাডমিন",
+      "suspended": "স্থগিত",
+      "normal": "সাধারণ",
+      "never": "কখনো না",
+      "unknown": "অজানা"
+    },
+    "actions": {
+      "removeAdmin": "অ্যাডমিন সরান",
+      "makeAdmin": "অ্যাডমিন বানান",
+      "unban": "স্থগিতাদেশ প্রত্যাহার করুন",
+      "suspend": "স্থগিত করুন",
+      "delete": "মুছে ফেলুন"
+    },
+    "pruneButton": "নিষ্ক্রিয় অ্যাকাউন্টগুলি ছাঁটাই করুন",
+    "confirmDelete": "আপনি কি \"{{username}}\" ব্যবহারকারীকে স্থায়ীভাবে মুছে ফেলতে চান? এই ক্রিয়াটি অপরিবর্তনীয়।",
+    "confirmPrune_one": "আপনি কি {{count}}টি নিষ্ক্রিয় অ্যাকাউন্ট (১৫ দিনের বেশি নিষ্ক্রিয় এবং খুব কম পরিসংখ্যান) মুছে ফেলতে চান? এই ক্রিয়াটি অপরিবর্তনীয়।",
+    "confirmPrune_other": "আপনি কি {{count}}টি নিষ্ক্রিয় অ্যাকাউন্ট (১৫ দিনের বেশি নিষ্ক্রিয় এবং খুব কম পরিসংখ্যান) মুছে ফেলতে চান? এই ক্রিয়াটি অপরিবর্তনীয়।",
+    "confirmPruneZero": "বর্তমান মানদণ্ডের উপর ভিত্তি করে কোনো নিষ্ক্রিয় অ্যাকাউন্ট পাওয়া যায়নি। আপনি কি এখনও অপারেশন চালাতে চান (যদি কিছু থাকে)?",
+    "confirmPruneZeroConfirm": "০টি অ্যাকাউন্ট সনাক্ত করা হলেও ছাঁটাই অপারেশন নিশ্চিত করবেন?",
+    "pruneCancelled": "ছাঁটাই অপারেশন বাতিল করা হয়েছে।"
+  },
+  "currentConfig": {
+    "title": "বর্তমান সার্ভার কনফিগারেশন",
+    "loading": "কনফিগারেশন লোড হচ্ছে...",
+    "loadError": "কনফিগারেশন লোড করা যায়নি।",
+    "loadSuccess": "বর্তমান কনফিগারেশন লোড হয়েছে।",
+    "keys": {
+      "MAP_WIDTH": "মানচিত্রের প্রস্থ (px)",
+      "MAP_HEIGHT": "মানচিত্রের উচ্চতা (px)",
+      "MAP_SHAPE": "মানচিত্রের আকৃতি",
+      "AOI_RADIUS": "আগ্রহের এলাকা (AoI) ব্যাসার্ধ (px)",
+      "SECURITY_MODE": "নিরাপত্তা মোড",
+      "MAX_TRAIL_LENGTH_DEFAULT": "সাপের আকারের সীমা (ডিফল্ট)",
+      "INITIAL_SIZE": "সাপের প্রাথমিক আকার",
+      "MIN_BOOST_SIZE": "বুস্টের জন্য সর্বনিম্ন আকার",
+      "SPEED": "বেস গতি",
+      "MAX_ROTATION_RATE": "সর্বোচ্চ ঘূর্ণন হার",
+      "BOOST_CONSUMPTION_RATE": "বুস্ট ব্যবহার (আকার/টিক)",
+      "FPS": "সার্ভার FPS",
+      "FOOD_SPAWN_INTERVAL": "খাবার তৈরির ব্যবধান (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "খাবার আকর্ষণের শক্তি",
+      "FOOD_SNAP_DISTANCE": "খাবার স্ন্যাপ দূরত্ব",
+      "DEFAULT_ZOOM_LEVEL": "ডিফল্ট জুম স্তর",
+      "TELEPORT_VIOLATION_THRESHOLD": "টেলিপোর্ট লঙ্ঘনের থ্রেশহোল্ড",
+      "TELEPORT_TOLERANCE_FACTOR": "টেলিপোর্ট সহনশীলতা ফ্যাক্টর",
+      "BOTS_ENABLED": "বট সক্রিয়",
+      "BOT_MAX_COUNT": "সর্বোচ্চ বট সংখ্যা",
+      "BOT_SPAWN_INTERVAL_MS": "বট তৈরির ব্যবধান (ms)",
+      "BOT_EXPIRATION_TIME_MS": "বটের জীবনকাল (ms)",
+      "BOT_DIFFICULTY": "বটের অসুবিধা"
+    },
+    "boolean": {
+      "yes": "হ্যাঁ",
+      "no": "না"
+    }
+  },
+  "feedback": {
+    "accessDenied": "অ্যাক্সেস অস্বীকৃত। পুনঃনির্দেশিত করা হচ্ছে...",
+    "settingsUpdated": "সেটিংস সফলভাবে আপডেট করা হয়েছে।",
+    "settingsUpdatedWithRestart": "সেটিংস আপডেট করা হয়েছে। মানচিত্র/নিরাপত্তা পরিবর্তনের জন্য সার্ভার পুনরায় চালু করতে হবে।",
+    "settingsUpdatedFpsRestart": "সেটিংস আপডেট করা হয়েছে। FPS পরিবর্তনের জন্য গেম লুপ পুনরায় চালু করা হয়েছে।",
+    "settingsUpdateError": "সেটিংস আপডেট করতে ত্রুটি।",
+    "loadSettingsError": "সেটিংস লোড করতে ত্রুটি: {{error}}",
+    "loadUsersError": "ব্যবহারকারীদের লোড করতে ত্রুটি।",
+    "networkError": "নেটওয়ার্ক ত্রুটি বা সার্ভার अनुपलब्ध।",
+    "invalidResponse": "সার্ভার থেকে অবৈধ প্রতিক্রিয়া (JSON নয়)",
+    "changes": "পরিবর্তন:",
+    "restartRequired": "পরিবর্তনগুলি (মানচিত্রের আকার/আকৃতি, নিরাপত্তা মোড, AoI ব্যাসার্ধ) প্রয়োগ করার জন্য একটি সার্ভার পুনরায় চালু করতে হবে।",
+    "fpsRestart": "নতুন FPS প্রয়োগ করার জন্য গেম লুপ পুনরায় চালু করা হয়েছে।",
+    "noChanges": "কোনো সেটিংস পরিবর্তন করা হয়নি।",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "প্রিভিউয়ের সময় ত্রুটি।",
+    "pruneError": "ছাঁটাই অপারেশনের সময় ত্রুটি।",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "অনুগ্রহ করে একটি MP3 ফাইল নির্বাচন করুন।",
+      "loginRequired": "কাস্টম শব্দ সংরক্ষণ করতে আপনাকে অবশ্যই লগইন করতে হবে।",
+      "saveError": "শব্দ সংরক্ষণ করতে ত্রুটি। স্থানীয় স্টোরেজ পূর্ণ হতে পারে।",
+      "readError": "শব্দ ফাইল পড়তে ত্রুটি।",
+      "clearLoginRequired": "শব্দ মুছে ফেলার জন্য আপনাকে অবশ্যই লগইন করতে হবে।",
+      "clearError": "শব্দ মুছে ফেলার সময় একটি ত্রুটি ঘটেছে।"
+    },
+    "confirms": {
+      "clearAll": "আপনি কি এই অ্যাকাউন্টের জন্য সমস্ত কাস্টম শব্দ মুছে ফেলতে চান?"
+    },
+    "statusTitles": {
+      "saveError": "সংরক্ষণ ত্রুটি",
+      "readError": "পড়ার ত্রুটি",
+      "saved": "শব্দ সংরক্ষিত",
+      "savedWithName": "সংরক্ষিত: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "সার্ভার अनुपलब्ध - স্লিদার ক্লোন SIO",
+    "logoAlt": "সার্ভার अनुपलब्ध লোগো",
+    "mainHeader": "সার্ভার अनुपलब्ध",
+    "explanation": "<span class=\"game-name\">স্লিদার ক্লোন SIO</span> সার্ভারটি সাময়িকভাবে অফলাইন বা অপ্রাপ্য বলে মনে হচ্ছে। আমরা আপনার জন্য সংযোগ পুনঃস্থাপন করার চেষ্টা করছি।",
+    "snakeTitle": "এর মধ্যে, স্নেক খেলুন!",
+    "snakeScoreLabel": "স্কোর: ০",
+    "snakeControls": "তীর / ZQSD / WASD: সরান | Enter: শুরু/পুনরায় শুরু করুন",
+    "status": {
+      "label": "অবস্থা:",
+      "searching": "অনুসন্ধান করা হচ্ছে...",
+      "checking": "পরীক্ষা করা হচ্ছে...",
+      "connected": "সংযুক্ত!",
+      "nextAttemptLabel": "পরবর্তী প্রচেষ্টা",
+      "secondsSuffix": "সেকেন্ডে",
+      "attemptsLabel": "প্রচেষ্টা:"
+    },
+    "refreshButton": "এখনই পরীক্ষা করুন",
+    "redirectInfo": "সার্ভার অনলাইনে ফিরে আসার সাথে সাথে আপনাকে স্বয়ংক্রিয়ভাবে পুনঃনির্দেশিত করা হবে।"
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "স্কোর: {{score}}"
+    },
+    "gameOver": {
+      "win": "জয়!",
+      "lose": "হার!",
+      "scoreLabel": "স্কোর: {{score}}",
+      "promptLine1": "Enter চাপুন",
+      "promptLine2": "আবার খেলতে"
+    },
+    "countdown": "{{count}} সেকেন্ডে শুরু হচ্ছে",
+    "startScreen": {
+      "title": "স্নেক",
+      "promptLine1": "Enter চাপুন",
+      "promptLine2": "খেলতে"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "অভ্যন্তরীণ সার্ভার ত্রুটি।",
+      "invalidAdminStatus": "অবৈধ 'isAdmin' অবস্থা।",
+      "userNotFound": "ব্যবহারকারী পাওয়া যায়নি।",
+      "invalidSuspendStatus": "অবৈধ 'isSuspended' অবস্থা।",
+      "cannotDeleteSelf": "আপনি এখানে নিজের অ্যাডমিন অ্যাকাউন্ট মুছতে পারবেন না।",
+      "prunePreviewError": "ছাঁটাই প্রিভিউয়ের সময় ত্রুটি।",
+      "pruneError": "ছাঁটাই অপারেশনের সময় ত্রুটি।",
+      "rateLimit": "অ্যাকাউন্ট তৈরির অনেক বেশি প্রচেষ্টা। অনুগ্রহ করে প্রায় {{minutes}} মিনিট পরে আবার চেষ্টা করুন।",
+      "missingCredentials": "ব্যবহারকারীর নাম এবং পাসওয়ার্ড প্রয়োজন।",
+      "usernameTooLong": "ব্যবহারকারীর নাম {{maxLength}} অক্ষরের বেশি হতে পারবে না।",
+      "usernameTooShort": "ব্যবহারকারীর নাম কমপক্ষে {{minLength}} অক্ষর দীর্ঘ হতে হবে।",
+      "passwordTooShort": "পাসওয়ার্ড কমপক্ষে {{minLength}} অক্ষর দীর্ঘ হতে হবে।",
+      "usernameTaken": "এই ব্যবহারকারীর নামটি ইতিমধ্যে নেওয়া হয়েছে।",
+      "invalidCredentials": "অবৈধ ব্যবহারকারীর নাম বা পাসওয়ার্ড।",
+      "accountSuspended": "এই অ্যাকাউন্টটি বর্তমানে স্থগিত করা হয়েছে।",
+      "notAuthenticated": "প্রমাণিত নয়।",
+      "invalidHeadColor": "অবৈধ মাথার রঙ।",
+      "missingSkinData": "স্কিনের ডেটা অনুপস্থিত বা অবৈধ।",
+      "invalidBodyType": "অবৈধ শরীরের প্রকার।",
+      "invalidBodyColor": "স্কিনের ডেটাতে অবৈধ শরীরের রঙ।",
+      "invalidPatternColorsType": "প্যাটার্নের রঙগুলি একটি অ্যারে হতে হবে।",
+      "tooManyPatternColors": "অনেক বেশি প্যাটার্নের রঙ (সর্বোচ্চ {{max}})।",
+      "invalidPatternColorValue": "প্যাটার্নে অবৈধ রঙ পাওয়া গেছে।",
+      "invalidTrailEffect": "অবৈধ ট্রেইল প্রভাব।",
+      "adminCannotDeleteSelf": "অ্যাডমিনিস্ট্রেটররা এই ইন্টারফেসের মাধ্যমে তাদের নিজস্ব অ্যাকাউন্ট মুছতে পারবেন না।",
+      "deleteAccountError": "অ্যাকাউন্ট মোছার সময় অভ্যন্তরীণ ত্রুটি।"
+    },
+    "success": {
+      "accountCreated": "অ্যাকাউন্ট তৈরি হয়েছে এবং সফলভাবে লগইন করা হয়েছে।",
+      "login": "লগইন সফল।",
+      "logout": "লগআউট সফল।",
+      "skinUpdated": "উপস্থিতি সফলভাবে আপডেট করা হয়েছে।",
+      "accountDeleted": "আপনার অ্যাকাউন্ট সফলভাবে মুছে ফেলা হয়েছে।"
+    },
+    "admin": {
+      "adminStatusUpdated": "{{username}} এর জন্য অ্যাডমিন অবস্থা আপডেট করা হয়েছে।",
+      "suspendStatusUpdated": "{{username}} এর জন্য স্থগিতাদেশ অবস্থা আপডেট করা হয়েছে।",
+      "userDeleted": "অ্যাকাউন্ট {{username}} সফলভাবে মুছে ফেলা হয়েছে।",
+      "pruneNoUsers": "ছাঁটাই করার জন্য কোনো নিষ্ক্রিয় অ্যাকাউন্ট পাওয়া যায়নি।",
+      "pruneSuccess": "{{count}}টি নিষ্ক্রিয় অ্যাকাউন্ট ছাঁটাই করা হয়েছে।"
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "আপনার অ্যাকাউন্ট স্থগিত করা হয়েছে।",
+      "accountError": "অ্যাকাউন্ট ত্রুটি। অনুগ্রহ করে আবার লগইন করুন।",
+      "alreadyConnected": "এই অ্যাকাউন্টটি ইতিমধ্যে গেমের সাথে সংযুক্ত।",
+      "deletedByAdmin": "আপনার অ্যাকাউন্টটি একজন প্রশাসক দ্বারা মুছে ফেলা হয়েছে।",
+      "accountDeleted": "আপনার অ্যাকাউন্ট মুছে ফেলা হয়েছে।"
+    },
+    "kickReason": "{{admin}} দ্বারা বহিষ্কৃত",
+    "banReason": "{{admin}} দ্বারা নিষিদ্ধ",
+    "clearReason": "{{admin}} দ্বারা পরিষ্কার করা হয়েছে",
+    "adminFeedback": {
+      "unauthorized": "ক্রিয়াকলাপ অনুমোদিত নয়।",
+      "targetNotFound": "লক্ষ্য খেলোয়াড় পাওয়া যায়নি।",
+      "kickSuccess": "{{username}} কে বহিষ্কার করা হয়েছে।",
+      "kickOfflineSuccess": "{{username}} (ইতিমধ্যে সংযোগ বিচ্ছিন্ন) গেম থেকে সরানো হয়েছে।",
+      "kickError": "{{username}} এর জন্য সকেট বা অবস্থা খুঁজে পাওয়া যায়নি।",
+      "banSuccess": "{{username}} কে নিষিদ্ধ করা হয়েছে (অ্যাকাউন্ট স্থগিত এবং খেলোয়াড় বহিষ্কৃত)।",
+      "banAccountOnlySuccess": "অ্যাকাউন্ট {{username}} স্থগিত (খেলোয়াড় ইতিমধ্যে সংযোগ বিচ্ছিন্ন বা সরানো হয়েছে)।",
+      "banError": "{{username}} কে নিষিদ্ধ করা যাবে না (অস্থায়ী বা অস্তিত্বহীন অ্যাকাউন্ট)।",
+      "freezeSuccess": "{{username}} কে হিমায়িত করা হয়েছে।",
+      "unfreezeSuccess": "{{username}} কে আনফ্রিজ করা হয়েছে।",
+      "killSuccess": "{{username}} কে হত্যা করা হয়েছে।",
+      "clearSuccess": "{{username}} কে পরিষ্কার করা হয়েছে (খাবার না ফেলে সরানো হয়েছে)।",
+      "clearError": "{{username}} কে পরিষ্কার করা যায়নি (ইতিমধ্যে সরানো হয়েছে?)।",
+      "unknownAction": "অজানা ক্রিয়াকলাপ।"
+    },
+    "userConnected": "{{username}} গেমে যোগ দিয়েছে।",
+    "userDisconnected": "{{username}} গেম ছেড়ে দিয়েছে।",
+    "disconnectReason": "সংযোগ বিচ্ছিন্ন: {{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "অজানা সংঘর্ষ",
+      "boundary": "মানচিত্রের সীমানায় আঘাত।",
+      "teleport": "সংযোগ বিচ্ছিন্ন: সন্দেহজনক গতিবিধি।",
+      "selfCollision": "অ্যান্টি-চিট: স্ব-সংঘর্ষ।",
+      "inactivity": "নিষ্ক্রিয়তা।",
+      "killedByAdmin": "{{admin}} দ্বারা নিহত",
+      "botExpired": "বট মেয়াদ উত্তীর্ণ।",
+      "clientCollision": "শরীরের সংঘর্ষ (ক্লায়েন্ট)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "আকার: {{size}}",
+    "positionLabel": "অবস্থান: {{x}}x{{y}}",
+    "ghostMode": "ভূতের মোড",
+    "spectator": "দর্শক"
+  },
+  "ghostMode": {
+    "selected": "নির্বাচিত: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "অজানা",
+    "controlsSelected": "<kbd>K</kbd>: হত্যা | <kbd>C</kbd>: পরিষ্কার | <kbd>F</kbd>: ফ্রিজ/আনফ্রিজ | <kbd>Esc</kbd>: অনির্বাচিত করুন",
+    "controlsGeneral": "বাম ক্লিক: সত্তা নির্বাচন / প্যান করতে টেনে আনুন<br>চাকা: জুম | <kbd>Esc</kbd>: অনির্বাচিত করুন"
+  },
+  "mainPage": {
+    "title": "স্লিদার ক্লোন SIO"
+  },
+  "mainMenu": {
+    "title": "<span class=\"blink\">স্লিদার ক্লোন SIO</span> এ স্বাগতম",
+    "helpButtonTitle": "সাহায্য ও ক্রেডিট",
+    "adminLink": "অ্যাডমিন",
+    "exitGhostButton": "ভূতের মোড থেকে প্রস্থান করুন"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "অতিথি হিসেবে খেলুন",
+      "playAsUser": "{{username}} হিসেবে খেলুন",
+      "login": "লগইন",
+      "createAccount": "অ্যাকাউন্ট তৈরি করুন",
+      "customizeSkin": "উপস্থিতি কাস্টমাইজ করুন",
+      "customSounds": "কাস্টম শব্দ",
+      "showLeaderboard": "লিডারবোর্ড দেখান",
+      "ghostMode": "ভূতের মোড",
+      "deleteAccount": "আমার অ্যাকাউন্ট মুছুন",
+      "logout": "লগআউট"
+    },
+    "alerts": {
+      "colorTooDark": "নির্বাচিত রঙটি খুব গাঢ় এবং দেখতে কঠিন হতে পারে। একটি হালকা রঙ সুপারিশ করা হয়।",
+      "missingCredentials": "অনুগ্রহ করে একটি ব্যবহারকারীর নাম এবং পাসওয়ার্ড লিখুন।",
+      "usernameLength": "ব্যবহারকারীর নাম {{min}} এবং {{max}} অক্ষরের মধ্যে হতে হবে।",
+      "passwordLength": "পাসওয়ার্ড কমপক্ষে {{min}} অক্ষর দীর্ঘ হতে হবে।",
+      "maxPatternColors": "{{max}} প্যাটার্ন রঙের সর্বোচ্চ সীমা পৌঁছেছে।",
+      "canvasError": "গুরুতর ত্রুটি: টেক্সট ওভারলে ক্যানভাস উপাদান খুঁজে পাওয়া যায়নি!",
+      "gameModuleError": "গুরুতর ত্রুটি: গেম মডিউল শুরু করা যায়নি!",
+      "fetchAccountError": "অ্যাকাউন্ট ডেটা আনতে ত্রুটি।",
+      "loginError": "লগইন ত্রুটি: {{error}}",
+      "creationError": "তৈরির ত্রুটি: {{error}}",
+      "skinUpdateError": "উপস্থিতি আপডেট করার সময় নেটওয়ার্ক বা সার্ভার ত্রুটি: {{error}}",
+      "skinUpdatedTemp": "অস্থায়ী সেশনের জন্য উপস্থিতি আপডেট করা হয়েছে।",
+      "deleteAccountError": "অ্যাকাউন্ট মোছার সময় নেটওয়ার্ক ত্রুটি।"
+    },
+    "confirms": {
+      "enterGhostMode": "ভূতের মোডে (দর্শক) প্রবেশ করবেন?",
+      "deleteAccount": "আপনি কি আপনার \"{{username}}\" অ্যাকাউন্টটি স্থায়ীভাবে মুছে ফেলতে চান? এই ক্রিয়াটি অপরিবর্তনীয়।"
+    },
+    "welcomeMessage": "হ্যালো {{username}}!",
+    "welcomeMessage_admin": "হ্যালো {{username}} (অ্যাডমিন)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "ব্যবহারকারীর নাম:",
+      "passwordLabel": "পাসওয়ার্ড:",
+      "backButton": "ফিরে যান"
+    },
+    "guest": {
+      "title": "অতিথি হিসেবে খেলুন",
+      "note": "রঙ এবং স্কিন \"উপস্থিতি কাস্টমাইজ করুন\" এর মাধ্যমে সেট করা হবে।",
+      "submitButton": "গেম শুরু করুন"
+    },
+    "login": {
+      "title": "লগইন",
+      "submitButton": "লগইন"
+    },
+    "create": {
+      "title": "অ্যাকাউন্ট তৈরি করুন",
+      "initialHeadColorLabel": "প্রাথমিক মাথার রঙ:",
+      "initialBodyColorLabel": "প্রাথমিক শরীরের রঙ:",
+      "submitButton": "তৈরি করুন"
+    },
+    "skin": {
+      "title": "উপস্থিতি কাস্টমাইজ করুন",
+      "headColorLabel": "মাথার রঙ:",
+      "bodyTypeLabel": "শরীরের প্রকার",
+      "bodyTypeSingle": "একক রঙ",
+      "bodyTypePattern": "পুনরাবৃত্ত প্যাটার্ন",
+      "bodyColorLabel": "শরীরের রঙ:",
+      "patternColorsLabel": "প্যাটার্নের রঙ (সর্বোচ্চ ৮)",
+      "trailEffectLabel": "ট্রেইল প্রভাব",
+      "trailEffect": {
+        "none": "কিছু না",
+        "sparkle": "ঝলকানি",
+        "smoke": "সবুজ ধোঁয়া",
+        "fire": "আগুন",
+        "ice": "বরফের টুকরা",
+        "electric": "বৈদ্যুতিক স্পার্ক",
+        "rainbow": "রামধনু",
+        "bubbles": "বুদবুদ",
+        "glitch": "গ্লিচ",
+        "void": "শূন্যতা / ছায়া",
+        "confetti": "কনফেটি"
+      },
+      "submitButton": "উপস্থিতি সংরক্ষণ করুন"
+    },
+    "sound": {
+      "title": "কাস্টম শব্দ",
+      "info": "ইভেন্টের জন্য MP3 ফাইল (স্থানীয়ভাবে সংরক্ষিত) আপলোড করুন।",
+      "deathLabel": "মৃত্যুর শব্দ:",
+      "killLabel": "হত্যার শব্দ:",
+      "boostLabel": "বুস্টের শব্দ:",
+      "clearButton": "শব্দ মুছে ফেলুন"
+    }
+  },
+  "gameOver": {
+    "replayButton": "আবার খেলুন",
+    "backToMenuButton": "মেনুতে ফিরে যান",
+    "finalSizeLabel": "আপনার আকার ছিল: {{size}}"
+  },
+  "leaderboard": {
+    "title": "লিডারবোর্ড",
+    "header": {
+      "name": "নাম",
+      "status": "অবস্থা",
+      "size": "আকার",
+      "kills": "হত্যা",
+      "deaths": "মৃত্যু",
+      "kd": "K/D"
+    },
+    "noPlayers": "এখনও কোনো খেলোয়াড় র‌্যাঙ্ক করা হয়নি।",
+    "status": {
+      "ingame": "গেমে",
+      "online": "অনলাইন",
+      "offline": "অফলাইন",
+      "never": "কখনো না",
+      "na": "প্রযোজ্য নয়",
+      "ingameTitle": "বর্তমানে গেমে"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} সেকেন্ড আগে",
+      "secondsAgo_other": "{{count}} সেকেন্ড আগে",
+      "minutesAgo_one": "{{count}} মিনিট আগে",
+      "minutesAgo_other": "{{count}} মিনিট আগে",
+      "hoursAgo_one": "{{count}} ঘন্টা আগে",
+      "hoursAgo_other": "{{count}} ঘন্টা আগে",
+      "daysAgo_one": "{{count}} দিন আগে",
+      "daysAgo_other": "{{count}} দিন আগে",
+      "yesterday": "গতকাল"
+    },
+    "lastLoginTitle": "শেষ লগইন: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "কিবোর্ড শর্টকাট (মেনু)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: বোতাম নেভিগেট করুন",
+      "activate": "Enter: নির্বাচিত বোতাম সক্রিয় করুন",
+      "close": "Esc: এই প্যানেলটি বন্ধ করুন / ফিরে যান"
+    },
+    "gameKeysTitle": "কিবোর্ড শর্টকাট (গেম)",
+    "gameKeys": {
+      "mouse": "মাউস: সাপ চালান",
+      "boost": "বাম ক্লিক / Space: বুস্ট",
+      "adminCheat": "P: অ্যাডমিন চিট (যদি অ্যাডমিন হন)"
+    },
+    "ghostKeysTitle": "কিবোর্ড শর্টকাট (ভূত)",
+    "ghostKeys": {
+      "select": "বাম ক্লিক (খেলোয়াড়ের উপর): খেলোয়াড় নির্বাচন করুন",
+      "pan": "বাম ক্লিক + টেনে আনুন (খালি জায়গা): ক্যামেরা প্যান করুন",
+      "zoom": "মাউসের চাকা: জুম ইন/আউট",
+      "kill": "K (যদি খেলোয়াড় নির্বাচিত হয়): খেলোয়াড় হত্যা করুন",
+      "clear": "C (যদি খেলোয়াড় নির্বাচিত হয়): খেলোয়াড় পরিষ্কার করুন (খাবার ছাড়া)",
+      "freeze": "F (যদি খেলোয়াড় নির্বাচিত হয়): খেলোয়াড় ফ্রিজ/আনফ্রিজ করুন",
+      "deselect": "Esc: খেলোয়াড় অনির্বাচিত করুন"
+    },
+    "creditsTitle": "ক্রেডিট",
+    "creditsAuthor": "লেখক: বেনামী লেখক",
+    "creditsLicense": "লাইসেন্স: MIT",
+    "creditsGithub": "GitHub এ প্রকল্প"
+  },
+  "NEW_KEY_1": "প্রথম নতুন কী এর জন্য উৎস টেক্সট।",
+  "NEW_KEY_2": "দ্বিতীয় নতুন কী এর জন্য উৎস টেক্সট।"
+}
