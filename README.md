@@ -1,6 +1,10 @@
 # 🐍 Slither Clone SIO ✨ - A Full-Stack & Supercharged Slither.io Clone!
 
-![Gameplay Screenshot](placeholder-screenshot.png) <!-- TODO: Add a real screenshot! -->
+<p align="center">
+  <img src="images/gameplay-screenshot.png" alt="Gameplay Screenshot" width="32%"/>
+  <img src="images/menu-screenshot.png" alt="Main Menu Screenshot" width="32%"/>
+  <img src="images/gameover-screenshot.png" alt="Game Over Screen Screenshot" width="32%"/>
+</p>
 
 Welcome to **Slither Clone SIO**, a modern and feature-rich reinterpretation of the classic Slither.io game. Developed entirely in JavaScript with Node.js, Express, Socket.IO, and **WebGL** for ultra-performant client-side rendering, this project goes beyond a simple clone. It integrates a robust architecture, advanced customization features, a comprehensive admin system, internationalization support, and optimizations for a smooth and engaging gaming experience. 🚀
 
@@ -14,6 +18,7 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **Classic Movement:** Control your snake with the mouse.
 *   **Boost:** Accelerate to surprise your opponents (with size consumption and visual particles ✨).
 *   **Animated Food:** Food pellets that "breathe" and are attracted to players.
+    *   **Smart Spawn:** Players spawn in safer locations, evaluating multiple candidates to avoid immediate proximity to borders or large opponents (with fallback to random spawn). ✅
 *   **Precise Collision:** Optimized collision detection via `worker_threads` and point-segment algorithm.
 *   **Ghost Mode (Admin):** Mobile spectator with zoom, player selection, and moderation actions. 👻
 *   **WebGL Minimap:** Visualize the battlefield and nearby players.
@@ -147,7 +152,7 @@ This project is a solid foundation, but here are some potential improvements and
     *   [ ] Add optional power-ups (temporary invincibility, food magnet, etc.) configurable via the admin panel.
     *   [ ] Create a Battle Royale mode with a progressively shrinking zone.
 *   [ ] **Code Refactoring & Cleanup:**
-    *   [ ] Full code review to improve comments (in English), remove obsolete development comments ("FIN modification", "ajout ici", etc.).
+    *   [ ] Full code review to improve comments (in English), remove obsolete development comments.
     *   [ ] Ensure consistent JSDoc documentation for important functions.
     *   [ ] Standardize code style further if necessary.
 
@@ -158,6 +163,20 @@ This project is a personal adventure into web game development, largely achieved
 The code isn't perfect by the strictest professional standards, but it works and integrates an impressive number of features, including full internationalization. The main goal was to explore possibilities and have fun.
 
 **Contributions are welcome!** If you're an experienced developer (or even a motivated beginner!) and see areas for improvement, bugs to fix, or want to implement one of the roadmap ideas (like the Phaser migration!), feel free to open an *Issue* or a *Pull Request* on the GitHub repository. Your help would be greatly appreciated! 🙏
+
+---
+## 💖 Support the Project
+If you've found this project useful or fun, consider making a small donation. I've spent a lot of time developing this game, and your support helps keep projects like this going.
+
+I currently accept donations through:
+
+**Bitcoin**  
+`zpub6nL6JpeLNPiK44KpPbBxQc8emSar7ZsbvLf1vbQsYmUAaHNj289i9q2XtE4H5cYLiFCxWSpWP88HBf7F75n34998LDutyHkdzKBJYxyMDoQ`
+
+**Ethereum**  
+`0xe0b8007dca71940ab09a2e025f111216f0eb1c4e`
+
+If you have any questions about donations or encounter any issues, please feel free to open a GitHub issue.
 
 ---
 ## 🚀 Quick Start
