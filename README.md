@@ -1,4 +1,4 @@
-// --- README.md ---
+<!-- // --- README.md --- -->
 # 🐍 Slither Clone SIO ✨ - A Full-Stack & Supercharged Slither.io Clone!
 
 <p align="center">
