@@ -1,0 +1,722 @@
+/* --- public/style-admin.css --- */
+/**
+ * ==============================================================================
+ * FILE: style-admin.css
+ *
+ * DESCRIPTION:
+ * Cyberpunk Sysadmin theme for the administration panel (admin.html). Styles
+ * the main container, tab navigation, form elements, user management table,
+ * status indicators, feedback messages, and configuration display. Aims for a
+ * dark, functional, futuristic interface with sharp edges and neon accents.
+ * Includes subtle animations for neon elements.
+ *
+ * DEVELOPER GUIDELINES:
+ * - Keep comments concise, relevant, and in English.
+ * - Explain complex selectors or layout techniques.
+ * - Use descriptive class names.
+ * - Maintain and update existing comments when refactoring or modifying styles.
+ * - Ensure styles are organized logically.
+ * ==============================================================================
+ */
+
+/* --- Root Variables (Cyberpunk Theme) --- */
+:root {
+  /* Background Colors */
+  --admin-bg-dark: #0a050f; /* Very dark purple/black */
+  --admin-bg-medium: #1a101f; /* Dark purple */
+  --admin-bg-light: #2a1a2f; /* Lighter purple/grey */
+  --admin-bg-input: rgba(0, 0, 0, 0.3);
+  --admin-bg-info: rgba(10, 5, 20, 0.7);
+  --admin-bg-code: var(--admin-bg-light);
+  --admin-bg-hover: rgba(138, 43, 226, 0.1); /* Light purple */
+  --admin-bg-button-hover-cyan: rgba(0, 255, 255, 0.1);
+  --admin-bg-button-hover-magenta: rgba(255, 0, 255, 0.15);
+  --admin-bg-button-hover-info: rgba(79, 173, 237, 0.2);
+  --admin-bg-button-hover-warning: rgba(255, 165, 0, 0.2);
+  --admin-bg-button-hover-error: rgba(255, 30, 86, 0.2);
+  --admin-bg-feedback-success: rgba(57, 255, 20, 0.1);
+  --admin-bg-feedback-error: rgba(255, 30, 86, 0.1);
+  --admin-bg-feedback-info: rgba(79, 173, 237, 0.1);
+  --admin-bg-config-value: rgba(0, 255, 255, 0.05);
+
+  /* Border Colors */
+  --admin-border-color: #8a2be2; /* BlueViolet */
+  --admin-border-input-focus: #ff00ff; /* Magenta */
+  --admin-border-code: rgba(0, 255, 255, 0.2);
+  --admin-border-feedback-success: var(--admin-text-success);
+  --admin-border-feedback-error: var(--admin-text-error);
+  --admin-border-feedback-info: var(--admin-text-info);
+  --admin-border-config-value: rgba(0, 255, 255, 0.1);
+  --admin-border-table: rgba(138, 43, 226, 0.3); /* Subtle purple */
+
+  /* Text Colors */
+  --admin-text-primary: #e0e0e0;
+  --admin-text-secondary: #a0a0a0;
+  --admin-text-header: #00ffff; /* Cyan */
+  --admin-text-highlight: #ff00ff; /* Magenta */
+  --admin-text-success: #39ff14; /* Neon Green */
+  --admin-text-error: #ff1e56; /* Neon Red */
+  --admin-text-warning: #ffa500; /* Bright Orange */
+  --admin-text-info: #4faded; /* Light Blue/Cyan */
+  --admin-text-button-hover: #ffffff;
+
+  /* Glow Colors (for box-shadow, text-shadow) */
+  --admin-glow-color: rgba(138, 43, 226, 0.5); /* BlueViolet glow */
+  --admin-glow-color-strong: rgba(138, 43, 226, 0.8);
+  --admin-glow-header: rgba(0, 255, 255, 0.6);
+  --admin-glow-header-strong: rgba(0, 255, 255, 0.9);
+  --admin-glow-highlight: rgba(255, 0, 255, 0.5);
+  --admin-glow-highlight-strong: rgba(255, 0, 255, 0.8);
+  --admin-glow-success: rgba(57, 255, 20, 0.6);
+  --admin-glow-success-strong: rgba(57, 255, 20, 0.9);
+  --admin-glow-error: rgba(255, 30, 86, 0.6);
+  --admin-glow-error-strong: rgba(255, 30, 86, 0.9);
+  --admin-glow-warning: rgba(255, 165, 0, 0.6);
+  --admin-glow-warning-strong: rgba(255, 165, 0, 0.9);
+  --admin-glow-info: rgba(79, 173, 237, 0.6);
+  --admin-glow-info-strong: rgba(79, 173, 237, 0.9);
+
+  /* Font */
+  --admin-font-stack: "Courier New", Courier, monospace;
+}
+
+/* --- Keyframe Animations --- */
+/* Pulse animation for cyan text/elements */
+@keyframes pulse-glow-cyan {
+  0%, 100% { text-shadow: 0 0 7px var(--admin-text-header), 0 0 10px var(--admin-glow-header); }
+  50% { text-shadow: 0 0 10px var(--admin-text-header), 0 0 15px var(--admin-glow-header-strong); }
+}
+/* Pulse animation for magenta borders/shadows */
+@keyframes pulse-glow-magenta {
+  0%, 100% { box-shadow: 0 0 8px var(--admin-glow-highlight); border-color: var(--admin-text-highlight); }
+  50% { box-shadow: 0 0 12px var(--admin-glow-highlight-strong); border-color: var(--admin-text-highlight); }
+}
+/* Pulse animation for the main container border/shadow */
+@keyframes pulse-glow-violet {
+    0%, 100% { box-shadow: 0 0 15px var(--admin-glow-color), inset 0 0 10px rgba(0, 0, 0, 0.6); border-color: var(--admin-border-color); }
+    50% { box-shadow: 0 0 25px var(--admin-glow-color-strong), inset 0 0 10px rgba(0, 0, 0, 0.6); border-color: var(--admin-border-color); }
+}
+/* Pulse animation for cyan borders/shadows */
+@keyframes pulse-border-cyan {
+    0%, 100% { border-color: var(--admin-text-header); box-shadow: 0 0 8px var(--admin-glow-header); }
+    50% { border-color: var(--admin-text-header); box-shadow: 0 0 12px var(--admin-glow-header-strong); }
+}
+/* Pulse animation for status icons */
+@keyframes pulse-icon-success {
+    0%, 100% { background-color: var(--admin-text-success); box-shadow: 0 0 3px var(--admin-glow-success); }
+    50% { background-color: var(--admin-text-success); box-shadow: 0 0 6px var(--admin-glow-success-strong); }
+}
+@keyframes pulse-icon-warning {
+    0%, 100% { background-color: var(--admin-text-warning); box-shadow: 0 0 3px var(--admin-glow-warning); }
+    50% { background-color: var(--admin-text-warning); box-shadow: 0 0 6px var(--admin-glow-warning-strong); }
+}
+@keyframes pulse-icon-admin {
+    0%, 100% { background-color: var(--admin-text-header); box-shadow: 0 0 3px var(--admin-glow-header); }
+    50% { background-color: var(--admin-text-header); box-shadow: 0 0 6px var(--admin-glow-header-strong); }
+}
+/* Fade-in animation for tab content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Global Styles --- */
+body {
+  /* Background gradient and subtle grid overlay */
+  background: linear-gradient(
+      135deg,
+      var(--admin-bg-dark) 0%,
+      var(--admin-bg-medium) 100%
+    ),
+    linear-gradient(
+      rgba(0, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
+  background-size: cover, 40px 40px, 40px 40px;
+  color: var(--admin-text-primary);
+  font-family: var(--admin-font-stack);
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top for scrolling */
+  min-height: 100vh;
+  /* Reset */
+  margin: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* --- Main Container --- */
+.admin-container {
+  position: relative; /* For absolute positioning of children like back button */
+  background: rgba(10, 5, 20, 0.9); /* Dark, slightly transparent background */
+  padding: 35px 45px;
+  border-radius: 0px; /* Sharp edges */
+  box-shadow: 0 0 25px var(--admin-glow-color), /* Outer glow */
+    inset 0 0 10px rgba(0, 0, 0, 0.6); /* Inner shadow */
+  max-width: 1400px; /* Increased max width */
+  width: 100%;
+  border: 1px solid var(--admin-border-color);
+  margin-bottom: 40px; /* Space at the bottom */
+  backdrop-filter: blur(4px); /* Frosted glass effect */
+  /* Subtle pulsing glow animation */
+  animation: pulse-glow-violet 3s infinite alternate ease-in-out;
+}
+
+/* --- Back Button (Top Left) --- */
+.back-link-button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--admin-text-primary); /* Use primary text color for better contrast */
+  border: 1px solid var(--admin-border-color);
+  border-radius: 0px;
+  text-decoration: none;
+  font-size: 18px; /* Arrow size */
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 5px var(--admin-glow-color);
+}
+.back-link-button:hover {
+  background-color: rgba(138, 43, 226, 0.3); /* Violet hover */
+  color: var(--admin-text-highlight); /* Magenta text */
+  border-color: var(--admin-text-highlight);
+  box-shadow: 0 0 10px var(--admin-text-highlight);
+  transform: scale(1.05);
+}
+
+/* --- Tab Navigation --- */
+.admin-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--admin-border-color);
+  margin-bottom: 30px;
+  justify-content: center; /* Center the tabs */
+}
+.admin-tab-button {
+  padding: 12px 25px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--admin-text-secondary);
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 3px solid transparent; /* Underline effect */
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+  margin-bottom: -1px; /* Overlap container border */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.admin-tab-button:hover {
+  color: var(--admin-text-highlight); /* Magenta hover */
+  text-shadow: 0 0 5px var(--admin-text-highlight);
+}
+.admin-tab-button.active {
+  color: var(--admin-text-header); /* Cyan active */
+  border-bottom-color: var(--admin-text-header);
+  /* Pulsing text glow animation */
+  animation: pulse-glow-cyan 2s infinite alternate;
+}
+
+/* --- Tab Content Sections --- */
+.admin-tab-content {
+  display: none; /* Hide inactive tabs */
+}
+.admin-tab-content.active {
+  display: block; /* Show active tab */
+  animation: fadeInContent 0.5s ease-out; /* Fade-in animation */
+}
+
+/* --- Headings (H2, H3) --- */
+.admin-container h2,
+.admin-container h3 {
+  color: var(--admin-text-header); /* Cyan */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Pulsing text glow animation */
+  animation: pulse-glow-cyan 2.5s infinite alternate;
+}
+
+/* --- Forms --- */
+.form-grid {
+  display: grid;
+  /* Responsive grid: columns are at least 280px wide */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px 30px; /* Row and column gap */
+  margin-bottom: 30px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input */
+}
+.form-group label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* Styling for text, password, number inputs and select dropdowns */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select {
+  padding: 10px 14px;
+  border: 1px solid var(--admin-border-color);
+  background-color: var(--admin-bg-input);
+  color: var(--admin-text-primary);
+  border-radius: 0px; /* Sharp edges */
+  font-size: 15px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in width */
+  font-family: var(--admin-font-stack);
+}
+/* Custom arrow for select dropdown */
+.form-group select {
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238a2be2'%3E%3Cpath d='M6 9l-4-4h8z'/%3E%3C/svg%3E"); /* Violet arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px; /* Make space for the arrow */
+}
+/* Focus style for inputs and select */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--admin-text-highlight); /* Magenta focus border */
+  /* Pulsing glow animation on focus */
+  animation: pulse-glow-magenta 1.5s infinite alternate;
+}
+
+/* --- Specific Info/Code Blocks --- */
+/* Style for the password info block */
+.password-info {
+  background-color: var(--admin-bg-info);
+  border: 1px solid var(--admin-border-color);
+  color: var(--admin-text-secondary);
+  padding: 15px 20px;
+  border-radius: 0px;
+  font-size: 13px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+/* Style for inline code within the info block */
+.password-info code {
+  background-color: var(--admin-bg-code);
+  padding: 3px 6px;
+  border-radius: 0px;
+  font-family: var(--admin-font-stack);
+  color: var(--admin-text-header); /* Cyan code text */
+  border: 1px solid var(--admin-border-code);
+}
+
+/* --- Main Action Buttons (e.g., Update Settings) --- */
+.admin-actions {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  align-items: center;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid var(--admin-border-color);
+}
+.admin-actions button {
+  background: transparent;
+  color: var(--admin-text-header); /* Cyan text */
+  padding: 10px 28px;
+  border: 1px solid var(--admin-text-header);
+  border-radius: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px var(--admin-glow-header); /* Initial cyan glow */
+}
+.admin-actions button:hover {
+  background: var(--admin-bg-button-hover-cyan);
+  color: var(--admin-text-button-hover);
+  border-color: var(--admin-text-button-hover);
+  box-shadow: 0 0 15px var(--admin-glow-header-strong); /* Stronger cyan glow */
+  transform: translateY(-2px);
+  /* Pulsing border animation on hover */
+  animation: pulse-border-cyan 1.5s infinite alternate;
+}
+.admin-actions button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 5px var(--admin-glow-header);
+  animation: none; /* Stop animation on click */
+}
+
+/* --- Feedback Messages (Success/Error/Info) --- */
+#feedbackMessage,
+#userFeedback,
+#currentConfigFeedback {
+  margin-top: 20px;
+  padding: 12px 18px;
+  border-radius: 0px;
+  font-size: 14px;
+  text-align: center;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 20px;
+  border: 1px solid; /* Border color set by type */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px; /* Base shadow, color set by type */
+}
+#feedbackMessage.success,
+#userFeedback.success,
+#currentConfigFeedback.success {
+  background-color: var(--admin-bg-feedback-success);
+  border-color: var(--admin-border-feedback-success);
+  color: var(--admin-text-success);
+  text-shadow: 0 0 5px var(--admin-glow-success);
+}
+#feedbackMessage.error,
+#userFeedback.error,
+#currentConfigFeedback.error {
+  background-color: var(--admin-bg-feedback-error);
+  border-color: var(--admin-border-feedback-error);
+  color: var(--admin-text-error);
+  text-shadow: 0 0 5px var(--admin-glow-error);
+}
+#feedbackMessage.info,
+#userFeedback.info,
+#currentConfigFeedback.info {
+  background-color: var(--admin-bg-feedback-info);
+  border-color: var(--admin-border-feedback-info);
+  color: var(--admin-text-info);
+  text-shadow: 0 0 5px var(--admin-glow-info);
+}
+/* Style for lists within feedback messages (e.g., changes) */
+#feedbackMessage ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  text-align: left;
+  max-height: 100px; /* Limit height for long lists */
+  overflow-y: auto;
+  font-weight: normal; /* Normal weight for list items */
+}
+#feedbackMessage li {
+  margin-bottom: 4px;
+}
+#feedbackMessage code {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1px 4px;
+  border-radius: 0px;
+  color: var(--admin-text-primary);
+}
+
+/* --- User Management Table --- */
+#userManagement {
+  /* No extra margin needed */
+}
+#userTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  table-layout: fixed; /* Keep fixed layout for performance */
+  border: 1px solid var(--admin-border-color); /* Table border */
+}
+#userTable th,
+#userTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--admin-border-table);
+  font-size: 14px;
+  color: var(--admin-text-primary);
+  /* Prevent text overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle; /* Align cell content vertically */
+}
+#userTable th {
+  background-color: var(--admin-bg-light);
+  color: var(--admin-text-header); /* Cyan header text */
+  font-weight: bold;
+  position: sticky; /* Make header sticky */
+  top: 0; /* Stick to the top when scrolling */
+  z-index: 1; /* Ensure header stays above content */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Column Widths - Adjusted for better Actions column visibility */
+#userTable th:nth-child(1), #userTable td:nth-child(1) {
+  width: 22%; /* Username */
+  white-space: normal; /* Allow username to wrap */
+  word-break: break-word;
+}
+#userTable th:nth-child(2), #userTable td:nth-child(2) {
+  width: 13%; /* Status */
+}
+#userTable th:nth-child(3), #userTable td:nth-child(3) {
+  width: 21%; /* Last Login */
+}
+#userTable th:nth-child(4), #userTable td:nth-child(4) {
+  width: 14%; /* Created */
+}
+#userTable th:nth-child(5), #userTable td:nth-child(5) {
+  width: 30%; /* Actions */
+  /* IMPORTANT: Needs ample width to prevent action buttons from wrapping or being hidden */
+}
+
+/* Row hover effect */
+#userTable tr:hover td {
+  background-color: var(--admin-bg-hover);
+}
+
+/* Actions Column Specific Styles */
+#userTable td:last-child {
+  white-space: normal; /* Allow buttons to wrap if absolutely necessary */
+  text-align: right; /* Align buttons to the right */
+  /* Removed flexbox properties */
+  align-items: center; /* Keep vertical alignment */
+  padding-right: 15px; /* Maintain right padding */
+}
+
+/* Spacing for action buttons (replaces flex gap) */
+#userTable td:last-child .action-button {
+  margin-left: 8px; /* Add space to the left of each button */
+}
+/* Remove margin from the first button in the cell */
+#userTable td:last-child .action-button:first-child {
+  margin-left: 0;
+}
+
+/* General style for action buttons in the table */
+#userTable .action-button {
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 0px; /* Sharp edges */
+  border: 1px solid; /* Border color set by specific class */
+  color: white; /* Base text color */
+  font-weight: bold;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+  white-space: nowrap; /* Keep button text on one line */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent; /* Transparent background */
+  box-shadow: 0 0 5px; /* Base glow, color set by specific class */
+}
+#userTable .action-button:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  color: var(--admin-text-button-hover); /* White text on hover */
+  box-shadow: 0 0 10px; /* Stronger glow on hover, color set by specific class */
+}
+
+/* Specific Action Button Colors & Glows */
+.btn-admin-toggle.make-admin { /* Button to make someone admin */
+  border-color: var(--admin-text-info);
+  color: var(--admin-text-info);
+  box-shadow: 0 0 5px var(--admin-glow-info);
+}
+.btn-admin-toggle.make-admin:hover {
+  background-color: var(--admin-bg-button-hover-info);
+  box-shadow: 0 0 10px var(--admin-glow-info-strong);
+}
+.btn-admin-toggle.remove-admin { /* Button to remove admin status */
+  border-color: var(--admin-text-warning);
+  color: var(--admin-text-warning);
+  box-shadow: 0 0 5px var(--admin-glow-warning);
+}
+.btn-admin-toggle.remove-admin:hover {
+  background-color: var(--admin-bg-button-hover-warning);
+  box-shadow: 0 0 10px var(--admin-glow-warning-strong);
+}
+.btn-suspend-toggle { /* Button to suspend/unsuspend */
+  border-color: var(--admin-text-warning);
+  color: var(--admin-text-warning);
+  box-shadow: 0 0 5px var(--admin-glow-warning);
+}
+.btn-suspend-toggle:hover {
+  background-color: var(--admin-bg-button-hover-warning);
+  box-shadow: 0 0 10px var(--admin-glow-warning-strong);
+}
+.btn-delete { /* Button to delete user */
+  border-color: var(--admin-text-error);
+  color: var(--admin-text-error);
+  box-shadow: 0 0 5px var(--admin-glow-error);
+}
+.btn-delete:hover {
+  background-color: var(--admin-bg-button-hover-error);
+  box-shadow: 0 0 10px var(--admin-glow-error-strong);
+}
+
+/* Status Icons (Admin/Suspended/Normal) */
+.status-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 0px; /* Square icons */
+  margin-right: 8px;
+  vertical-align: middle;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Pulsing animation */
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+.status-admin { /* Cyan */
+  background-color: var(--admin-text-header);
+  animation-name: pulse-icon-admin;
+}
+.status-suspended { /* Orange */
+  background-color: var(--admin-text-warning);
+   animation-name: pulse-icon-warning;
+}
+.status-normal { /* Green */
+  background-color: var(--admin-text-success);
+   animation-name: pulse-icon-success;
+}
+
+/* Prune Button (Bottom Right) */
+.btn-prune {
+  background: transparent;
+  color: var(--admin-text-error); /* Red text */
+  border: 1px solid var(--admin-text-error);
+  padding: 8px 18px;
+  font-size: 14px;
+  margin-top: 20px; /* Space above the button */
+  float: right; /* Position to the right */
+  cursor: pointer;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px var(--admin-glow-error); /* Red glow */
+}
+.btn-prune:hover {
+  background-color: var(--admin-bg-button-hover-error);
+  color: var(--admin-text-button-hover);
+  border-color: var(--admin-text-button-hover);
+  box-shadow: 0 0 12px var(--admin-glow-error-strong);
+  transform: translateY(-1px);
+}
+.btn-prune:active {
+  transform: translateY(0);
+  box-shadow: 0 0 5px var(--admin-glow-error);
+}
+
+/* --- Current Config Tab Styles --- */
+#tab-current-config {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2); /* Dark transparent background */
+  border-radius: 0px;
+  border: 1px solid var(--admin-border-color);
+  margin-top: 10px;
+}
+.config-display-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 450px; /* Limit height */
+  overflow-y: auto; /* Enable scroll if needed */
+}
+.config-display-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--admin-border-table); /* Subtle border */
+  font-size: 14px;
+}
+.config-display-item:last-child {
+  border-bottom: none;
+}
+.config-key {
+  color: var(--admin-text-secondary);
+  font-weight: normal;
+  margin-right: 20px;
+  flex-shrink: 0; /* Prevent key from shrinking */
+  letter-spacing: 0.5px;
+}
+.config-value {
+  color: var(--admin-text-primary);
+  font-weight: bold;
+  text-align: right;
+  word-break: break-all; /* Break long values */
+  background-color: var(--admin-bg-config-value); /* Faint cyan background */
+  padding: 3px 6px;
+  border-radius: 0px;
+  border: 1px solid var(--admin-border-config-value);
+}
+.config-loading {
+  text-align: center;
+  color: var(--admin-text-secondary);
+  padding: 25px;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Scrollbar Styles --- */
+/* For body */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--admin-bg-dark);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--admin-border-color); /* Violet thumb */
+  border-radius: 0px;
+  border: 3px solid var(--admin-bg-dark); /* Creates padding around thumb */
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--admin-text-highlight); /* Magenta hover */
+}
+/* For scrollable lists/areas inside container */
+.config-display-list::-webkit-scrollbar,
+#feedbackMessage ul::-webkit-scrollbar,
+#userTableBody::-webkit-scrollbar { /* Added user table body scrollbar */
+  width: 8px;
+}
+.config-display-list::-webkit-scrollbar-track,
+#feedbackMessage ul::-webkit-scrollbar-track,
+#userTableBody::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+}
+.config-display-list::-webkit-scrollbar-thumb,
+#feedbackMessage ul::-webkit-scrollbar-thumb,
+#userTableBody::-webkit-scrollbar-thumb {
+  background-color: var(--admin-border-color); /* Violet thumb */
+  border-radius: 0px;
+}
+.config-display-list::-webkit-scrollbar-thumb:hover,
+#feedbackMessage ul::-webkit-scrollbar-thumb:hover,
+#userTableBody::-webkit-scrollbar-thumb:hover {
+  background-color: var(--admin-text-highlight); /* Magenta hover */
+}
+

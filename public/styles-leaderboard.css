@@ -1,0 +1,338 @@
+/* --- public/styles-leaderboard.css --- */
+/**
+ * ==============================================================================
+ * FILE: styles-leaderboard.css
+ *
+ * DESCRIPTION:
+ * Contains styles exclusively for the leaderboard panel. Defines the appearance,
+ * positioning, animations (glitch-in/out), table layout, text styling, status
+ * indicators (ingame, online, offline), scrollbar, and toggle button for the
+ * leaderboard UI component. Aims for a futuristic/glitchy aesthetic.
+ *
+ * DEVELOPER GUIDELINES:
+ * - Keep comments concise, relevant, and in English.
+ * - Explain complex selectors or animations.
+ * - Utilize CSS variables defined in this file or styles.css for theming.
+ * - Maintain and update existing comments when refactoring or modifying styles.
+ * - Ensure styles are organized logically.
+ * ==============================================================================
+ */
+
+@keyframes glitch-out {
+  0% {
+    transform: translateX(0) skewX(0);
+    opacity: 1;
+    filter: none;
+  }
+  20% {
+    transform: translateX(-10px) skewX(-5deg);
+    opacity: 0.8;
+    filter: hue-rotate(15deg) brightness(1.1);
+  }
+  40% {
+    transform: translateX(5px) skewX(3deg);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateX(-8px) skewX(-4deg);
+    opacity: 0.7;
+    filter: saturate(1.5) brightness(0.9);
+  }
+  80% {
+    transform: translateX(15px) skewX(6deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(calc(100% + 30px)) skewX(10deg);
+    opacity: 0;
+    filter: blur(3px) brightness(0.7);
+  }
+}
+
+@keyframes glitch-in {
+  0% {
+    transform: translateX(calc(100% + 30px)) skewX(10deg);
+    opacity: 0;
+    filter: blur(3px) brightness(0.7);
+  }
+  20% {
+    transform: translateX(15px) skewX(6deg);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translateX(-8px) skewX(-4deg);
+    opacity: 0.7;
+    filter: saturate(1.5) brightness(0.9);
+  }
+  60% {
+    transform: translateX(5px) skewX(3deg);
+    opacity: 0.9;
+  }
+  80% {
+    transform: translateX(-10px) skewX(-5deg);
+    opacity: 0.8;
+    filter: hue-rotate(15deg) brightness(1.1);
+  }
+  100% {
+    transform: translateX(0) skewX(0);
+    opacity: 1;
+    filter: none;
+  }
+}
+
+/* --- New Glitchy/Futuristic Leaderboard Styles --- */
+
+/* Variables for easy color changes */
+:root {
+  --leaderboard-bg: rgba(10, 5, 20, 0.9); /* Dark purple/blue */
+  --leaderboard-border: #8a2be2; /* BlueViolet */
+  --leaderboard-glow: rgba(138, 43, 226, 0.7); /* BlueViolet glow */
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-header: #00ffff; /* Cyan */
+  --text-highlight: #ff00ff; /* Magenta */
+  --status-ingame: #39ff14; /* Neon Green */
+  --status-online: #ffa500; /* Bright Orange */
+  --status-offline: #6a6a6a; /* Darker Grey */
+  --font-stack: "Courier New", Courier, monospace; /* Retro font */
+}
+
+.leaderboard-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--leaderboard-bg);
+  color: var(--text-primary);
+  padding: 15px 20px;
+  font-size: 14px;
+  width: 480px;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 5;
+  border-radius: 0px; /* Sharp edges */
+  border: 2px solid var(--leaderboard-border);
+  box-shadow: 0 0 15px var(--leaderboard-glow),
+    inset 0 0 8px rgba(0, 0, 0, 0.5); /* Outer glow + inner shadow */
+  backdrop-filter: blur(3px);
+  pointer-events: auto;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  animation-fill-mode: forwards;
+  font-family: var(--font-stack);
+}
+
+/* Styles for hidden/visible leaderboard using animations */
+.leaderboard-panel.hidden {
+  animation-name: glitch-out;
+  pointer-events: none;
+}
+.leaderboard-panel.visible {
+  animation-name: glitch-in;
+}
+
+.leaderboard-panel h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--text-header); /* Cyan header */
+  border-bottom: 1px solid var(--leaderboard-border);
+  padding-bottom: 10px;
+  font-size: 20px; /* Larger title */
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase title */
+  letter-spacing: 2px; /* Add spacing */
+  text-shadow: 0 0 5px var(--text-header), 0 0 10px rgba(0, 255, 255, 0.5); /* Cyan glow */
+}
+
+#leaderboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#leaderboardTable th,
+#leaderboardTable td {
+  padding: 8px 12px; /* Slightly more padding */
+  text-align: left;
+  border-bottom: 1px dashed rgba(138, 43, 226, 0.3); /* Dashed purple border */
+  font-size: 15px; /* Slightly larger font */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Darker text shadow */
+}
+#leaderboardTable th {
+  font-weight: bold;
+  color: var(--text-header); /* Cyan header text */
+  position: sticky;
+  top: -1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 5, 20, 1),
+    rgba(10, 5, 20, 0.8)
+  ); /* Match panel bg */
+  z-index: 1;
+  text-transform: uppercase; /* Uppercase headers */
+  letter-spacing: 1px;
+}
+/* Column Widths (Keep previous distribution) */
+#leaderboardTable th:nth-child(1),
+#leaderboardTable td:nth-child(1) {
+  width: 26%;
+} /* Nom */
+#leaderboardTable th:nth-child(2),
+#leaderboardTable td:nth-child(2) {
+  width: 16%;
+} /* Statut */
+#leaderboardTable th:nth-child(3),
+#leaderboardTable td:nth-child(3) {
+  width: 16%;
+  text-align: right;
+} /* Taille */
+#leaderboardTable th:nth-child(4),
+#leaderboardTable td:nth-child(4) {
+  width: 14%;
+  text-align: right;
+} /* Kills */
+#leaderboardTable th:nth-child(5),
+#leaderboardTable td:nth-child(5) {
+  width: 14%;
+  text-align: right;
+} /* Morts */
+#leaderboardTable th:nth-child(6),
+#leaderboardTable td:nth-child(6) {
+  width: 14%;
+  text-align: right;
+} /* K/D */
+
+#leaderboardTable td:nth-child(1) {
+  /* Username column */
+  font-weight: bold;
+  color: var(--text-highlight); /* Magenta highlight */
+}
+#leaderboardTable td:nth-child(2) {
+  /* Status column */
+  font-style: normal; /* Remove italic */
+  color: var(--text-secondary);
+}
+#leaderboardTable td:nth-child(3), /* Size */
+#leaderboardTable td:nth-child(4), /* Kills */
+#leaderboardTable td:nth-child(5) {
+  /* Deaths */
+  text-align: right;
+  color: var(--text-primary);
+}
+#leaderboardTable td:nth-child(6) {
+  /* K/D */
+  text-align: right;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+#leaderboardTable tbody tr:last-child td {
+  border-bottom: none;
+}
+#leaderboardTable tbody tr:hover {
+  background-color: rgba(138, 43, 226, 0.15); /* Light purple hover */
+  color: #fff; /* Brighter text on hover */
+}
+#leaderboardTable tbody tr:hover td {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.leaderboard-message {
+  text-align: center !important;
+  color: var(--text-secondary) !important;
+  font-style: italic;
+  padding: 15px 0 !important;
+  text-transform: lowercase; /* Lowercase message */
+}
+
+/* Leaderboard Status Styling */
+#leaderboardTable tr.status-ingame td:nth-child(1),
+#leaderboardTable tr.status-ingame td:nth-child(2) {
+  color: var(--status-ingame); /* Neon Green */
+  text-shadow: 0 0 4px var(--status-ingame);
+}
+#leaderboardTable tr.status-online td:nth-child(1),
+#leaderboardTable tr.status-online td:nth-child(2) {
+  color: var(--status-online); /* Bright Orange */
+  text-shadow: 0 0 4px var(--status-online);
+}
+#leaderboardTable tr.status-offline td:nth-child(1),
+#leaderboardTable tr.status-offline td:nth-child(2) {
+  color: var(--status-offline); /* Darker Grey */
+}
+#leaderboardTable tr.status-offline td {
+  opacity: 0.6; /* Fade out offline rows more */
+}
+
+/* Leaderboard Toggle Button (on panel, to HIDE) - Futuristic Style */
+.leaderboard-toggle-btn {
+  position: absolute;
+  top: 8px; /* Adjusted position */
+  right: 8px; /* Adjusted position */
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--leaderboard-border);
+  border-radius: 0px; /* Sharp edges */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  z-index: 6;
+  box-shadow: 0 0 5px var(--leaderboard-glow);
+}
+.leaderboard-toggle-btn:hover {
+  background-color: rgba(138, 43, 226, 0.4); /* Purple hover */
+  box-shadow: 0 0 10px var(--leaderboard-glow);
+}
+
+/* Arrow styles (X symbol for close) */
+.leaderboard-toggle-btn .arrow {
+  display: none; /* Hide the old arrow */
+}
+/* Add X symbol using pseudo-elements */
+.leaderboard-toggle-btn::before,
+.leaderboard-toggle-btn::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  background-color: var(--text-header); /* Cyan X */
+  transition: background-color 0.3s;
+}
+.leaderboard-toggle-btn:hover::before,
+.leaderboard-toggle-btn:hover::after {
+  background-color: var(--text-highlight); /* Magenta X on hover */
+}
+.leaderboard-toggle-btn::before {
+  transform: rotate(45deg);
+}
+.leaderboard-toggle-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* Style for the conditional "Show Leaderboard" button (in styles.css) */
+/* .show-leaderboard-btn { ... } */
+
+/* Scrollbar styling for leaderboard - Futuristic */
+.leaderboard-panel::-webkit-scrollbar {
+  width: 10px;
+}
+.leaderboard-panel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+}
+.leaderboard-panel::-webkit-scrollbar-thumb {
+  background-color: var(--leaderboard-border); /* Purple thumb */
+  border-radius: 0px; /* Sharp edges */
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.leaderboard-panel::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-highlight); /* Magenta hover */
+}

@@ -1,0 +1,525 @@
+{
+  "pageTitle": "Admin - Slither Clone",
+  "backButtonTitle": "Zurück zur Hauptseite",
+  "tabs": {
+    "settings": "Allgemeine Einstellungen",
+    "users": "Benutzerverwaltung",
+    "currentConfig": "Aktuelle Konfiguration"
+  },
+  "settingsForm": {
+    "title": "Allgemeine Einstellungen",
+    "passwordNote": "<strong>Hinweis:</strong> Um das Admin-Passwort festzulegen oder zurückzusetzen, stoppen Sie den Server und führen Sie ihn mit dem Befehl aus:<br/><code>node backend/server.js --set-new-password IHR_NEUES_PASSWORT</code><br/>Der Zugriff auf diese Seite erfordert eine aktive Admin-Sitzung (über Cookie).<br/>Einige Einstellungen (mit * markiert) erfordern einen Serverneustart, um angewendet zu werden.",
+    "mapWidth": {
+      "label": "Kartenbreite (px) *:",
+      "placeholder": "z.B. 4000"
+    },
+    "mapHeight": {
+      "label": "Kartenhöhe (px) *:",
+      "placeholder": "z.B. 4000"
+    },
+    "mapShape": {
+      "label": "Kartenform *:",
+      "rectangle": "Rechteck",
+      "circle": "Kreis"
+    },
+    "aoiRadius": {
+      "label": "Radius des Interessenbereichs (AoI) (px) *:",
+      "placeholder": "z.B. 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "Schlangengrößenlimit (Standard):",
+      "placeholder": "z.B. 1000"
+    },
+    "initialSize": {
+      "label": "Anfangsgröße Schlange:",
+      "placeholder": "z.B. 50"
+    },
+    "speed": {
+      "label": "Basisgeschwindigkeit:",
+      "placeholder": "z.B. 1"
+    },
+    "maxRotationRate": {
+      "label": "Max. Rotationsrate (rad/tick):",
+      "placeholder": "z.B. 0.08"
+    },
+    "minBoostSize": {
+      "label": "Min. Größe für Boost:",
+      "placeholder": "z.B. 50"
+    },
+    "boostConsumptionRate": {
+      "label": "Boost-Verbrauchsrate:",
+      "placeholder": "z.B. 1"
+    },
+    "foodSpawnInterval": {
+      "label": "Futter-Spawn-Intervall (ms):",
+      "placeholder": "z.B. 5000"
+    },
+    "fps": {
+      "label": "Server-FPS (loops/sek):",
+      "placeholder": "z.B. 45"
+    },
+    "foodAttractionStrength": {
+      "label": "Futter-Anziehungskraft:",
+      "placeholder": "z.B. 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "Futter-Snap-Distanz:",
+      "placeholder": "z.B. 5"
+    },
+    "defaultZoomLevel": {
+      "label": "Standard-Zoomstufe:",
+      "placeholder": "z.B. 1.0"
+    },
+    "securityMode": {
+      "label": "Sicherheitsmodus *:",
+      "high": "Hoch (Empfohlen)",
+      "low": "Niedrig (Client + Leicht)"
+    },
+    "teleportViolationThreshold": {
+      "label": "Teleport-Verstoß-Schwelle:",
+      "placeholder": "z.B. 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "Teleport-Toleranzfaktor:",
+      "placeholder": "z.B. 1.5"
+    },
+    "botsEnabled": {
+      "label": "Bots aktivieren:",
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "botMaxCount": {
+      "label": "Max. Bot-Anzahl:",
+      "placeholder": "z.B. 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "Bot-Spawn-Intervall (ms):",
+      "placeholder": "z.B. 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "Bot-Lebensdauer (ms):",
+      "placeholder": "z.B. 120000"
+    },
+    "botDifficulty": {
+      "label": "Bot-Schwierigkeit:",
+      "easy": "Leicht",
+      "medium": "Mittel",
+      "hard": "Schwer"
+    },
+    "adminMessageText": {
+      "label": "Admin-Nachricht (leer lassen zum Löschen):",
+      "placeholder": "Nachricht, die allen Spielern angezeigt wird"
+    },
+    "adminMessageDuration": {
+      "label": "Nachrichtendauer (Sekunden):",
+      "placeholder": "z.B. 10"
+    },
+    "updateButton": "Einstellungen aktualisieren"
+  },
+  "userManagement": {
+    "title": "Benutzerverwaltung",
+    "loading": "Laden...",
+    "noUsers": "Keine Benutzer gefunden.",
+    "table": {
+      "headerUser": "Benutzer",
+      "headerStatus": "Status",
+      "headerLastLogin": "Letzte Anm.",
+      "headerCreated": "Erstellt",
+      "headerActions": "Aktionen"
+    },
+    "status": {
+      "admin": "Admin",
+      "suspended": "Gesperrt",
+      "normal": "Normal",
+      "never": "Nie",
+      "unknown": "Unbekannt"
+    },
+    "actions": {
+      "removeAdmin": "Admin entfernen",
+      "makeAdmin": "Admin ernennen",
+      "unban": "Entsperren",
+      "suspend": "Sperren",
+      "delete": "Löschen"
+    },
+    "pruneButton": "Inaktive Konten bereinigen",
+    "confirmDelete": "Sind Sie sicher, dass Sie den Benutzer \"{{username}}\" dauerhaft löschen möchten? Diese Aktion ist unwiderruflich.",
+    "confirmPrune_one": "Sind Sie sicher, dass Sie {{count}} inaktives Konto löschen möchten (inaktiv >15 Tage UND sehr niedrige Statistiken)? Diese Aktion ist unwiderruflich.",
+    "confirmPrune_other": "Sind Sie sicher, dass Sie {{count}} inaktive Konten löschen möchten (inaktiv >15 Tage UND sehr niedrige Statistiken)? Diese Aktion ist unwiderruflich.",
+    "confirmPruneZero": "Keine inaktiven Konten gemäß den aktuellen Kriterien gefunden. Möchten Sie die Operation trotzdem ausführen (für alle Fälle)?",
+    "confirmPruneZeroConfirm": "Bereinigungsoperation bestätigen, auch wenn 0 Konten erkannt wurden?",
+    "pruneCancelled": "Bereinigungsoperation abgebrochen."
+  },
+  "currentConfig": {
+    "title": "Aktuelle Serverkonfiguration",
+    "loading": "Konfiguration wird geladen...",
+    "loadError": "Konfiguration konnte nicht geladen werden.",
+    "loadSuccess": "Aktuelle Konfiguration geladen.",
+    "keys": {
+      "MAP_WIDTH": "Kartenbreite (px)",
+      "MAP_HEIGHT": "Kartenhöhe (px)",
+      "MAP_SHAPE": "Kartenform",
+      "AOI_RADIUS": "Radius des Interessenbereichs (AoI) (px)",
+      "SECURITY_MODE": "Sicherheitsmodus",
+      "MAX_TRAIL_LENGTH_DEFAULT": "Schlangengrößenlimit (Standard)",
+      "INITIAL_SIZE": "Anfangsgröße Schlange",
+      "MIN_BOOST_SIZE": "Min. Größe für Boost",
+      "SPEED": "Basisgeschwindigkeit",
+      "MAX_ROTATION_RATE": "Max. Rotationsrate",
+      "BOOST_CONSUMPTION_RATE": "Boost-Verbrauch (Größe/Tick)",
+      "FPS": "Server-FPS",
+      "FOOD_SPAWN_INTERVAL": "Futter-Spawn-Intervall (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "Futter-Anziehungskraft",
+      "FOOD_SNAP_DISTANCE": "Futter-Snap-Distanz",
+      "DEFAULT_ZOOM_LEVEL": "Standard-Zoomstufe",
+      "TELEPORT_VIOLATION_THRESHOLD": "Teleport-Verstoß-Schwelle",
+      "TELEPORT_TOLERANCE_FACTOR": "Teleport-Toleranzfaktor",
+      "BOTS_ENABLED": "Bots aktiviert",
+      "BOT_MAX_COUNT": "Max. Bot-Anzahl",
+      "BOT_SPAWN_INTERVAL_MS": "Bot-Spawn-Intervall (ms)",
+      "BOT_EXPIRATION_TIME_MS": "Bot-Lebensdauer (ms)",
+      "BOT_DIFFICULTY": "Bot-Schwierigkeit"
+    },
+    "boolean": {
+      "yes": "Ja",
+      "no": "Nein"
+    }
+  },
+  "feedback": {
+    "accessDenied": "Zugriff verweigert. Weiterleitung...",
+    "settingsUpdated": "Einstellungen erfolgreich aktualisiert.",
+    "settingsUpdatedWithRestart": "Einstellungen aktualisiert. Serverneustart erforderlich für Karten-/Sicherheitsänderungen.",
+    "settingsUpdatedFpsRestart": "Einstellungen aktualisiert. Spielschleife für FPS neu gestartet.",
+    "settingsUpdateError": "Fehler beim Aktualisieren der Einstellungen.",
+    "loadSettingsError": "Fehler beim Laden der Einstellungen: {{error}}",
+    "loadUsersError": "Fehler beim Laden der Benutzer.",
+    "networkError": "Netzwerkfehler oder Server nicht verfügbar.",
+    "invalidResponse": "Ungültige Antwort vom Server (kein JSON)",
+    "changes": "Änderungen:",
+    "restartRequired": "Ein Serverneustart ist erforderlich, um die Änderungen anzuwenden (Kartengröße/-form, Sicherheitsmodus, AoI-Radius).",
+    "fpsRestart": "Die Spielschleife wurde neu gestartet, um die neuen FPS anzuwenden.",
+    "noChanges": "Es wurden keine Einstellungen geändert.",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "Fehler bei der Vorschau.",
+    "pruneError": "Fehler während der Bereinigungsoperation.",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "Bitte wählen Sie eine MP3-Datei aus.",
+      "loginRequired": "Sie müssen angemeldet sein, um benutzerdefinierte Sounds zu speichern.",
+      "saveError": "Fehler beim Speichern des Sounds. Der lokale Speicher ist möglicherweise voll.",
+      "readError": "Fehler beim Lesen der Sounddatei.",
+      "clearLoginRequired": "Sie müssen angemeldet sein, um Sounds zu löschen.",
+      "clearError": "Beim Löschen der Sounds ist ein Fehler aufgetreten."
+    },
+    "confirms": {
+      "clearAll": "Sind Sie sicher, dass Sie alle benutzerdefinierten Sounds für dieses Konto löschen möchten?"
+    },
+    "statusTitles": {
+      "saveError": "Speicherfehler",
+      "readError": "Lesefehler",
+      "saved": "Sound gespeichert",
+      "savedWithName": "Gespeichert: {{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "Server nicht verfügbar - Slither Clone SIO",
+    "logoAlt": "Server nicht verfügbar Logo",
+    "mainHeader": "Server nicht verfügbar",
+    "explanation": "Der <span class=\"game-name\">Slither Clone SIO</span> Server scheint vorübergehend offline oder nicht erreichbar zu sein. Wir versuchen, die Verbindung für Sie wiederherzustellen.",
+    "snakeTitle": "Spielen Sie in der Zwischenzeit Snake!",
+    "snakeScoreLabel": "Punkte: 0",
+    "snakeControls": "Pfeile / ZQSD / WASD: Bewegen | Enter: Start/Neustart",
+    "status": {
+      "label": "Status:",
+      "searching": "Suche...",
+      "checking": "Prüfe...",
+      "connected": "Verbunden!",
+      "nextAttemptLabel": "Nächster Versuch in",
+      "secondsSuffix": "Sek.",
+      "attemptsLabel": "Versuche:"
+    },
+    "refreshButton": "Jetzt prüfen",
+    "redirectInfo": "Sie werden automatisch weitergeleitet, sobald der Server wieder online ist."
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "Punkte: {{score}}"
+    },
+    "gameOver": {
+      "win": "GEWONNEN!",
+      "lose": "VERLOREN!",
+      "scoreLabel": "Punkte: {{score}}",
+      "promptLine1": "Enter drücken",
+      "promptLine2": "zum Neustarten"
+    },
+    "countdown": "START IN {{count}}",
+    "startScreen": {
+      "title": "SNAKE",
+      "promptLine1": "Enter drücken",
+      "promptLine2": "zum Spielen"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "Interner Serverfehler.",
+      "invalidAdminStatus": "Ungültiger 'isAdmin'-Status.",
+      "userNotFound": "Benutzer nicht gefunden.",
+      "invalidSuspendStatus": "Ungültiger 'isSuspended'-Status.",
+      "cannotDeleteSelf": "Sie können Ihr eigenes Admin-Konto hier nicht löschen.",
+      "prunePreviewError": "Fehler bei der Bereinigungsvorschau.",
+      "pruneError": "Fehler während der Bereinigungsoperation.",
+      "rateLimit": "Zu viele Kontoerstellungsversuche. Bitte versuchen Sie es in etwa {{minutes}} Minute(n) erneut.",
+      "missingCredentials": "Benutzername und Passwort erforderlich.",
+      "usernameTooLong": "Benutzername darf {{maxLength}} Zeichen nicht überschreiten.",
+      "usernameTooShort": "Benutzername muss mindestens {{minLength}} Zeichen lang sein.",
+      "passwordTooShort": "Passwort muss mindestens {{minLength}} Zeichen lang sein.",
+      "usernameTaken": "Dieser Benutzername ist bereits vergeben.",
+      "invalidCredentials": "Ungültiger Benutzername oder Passwort.",
+      "accountSuspended": "Dieses Konto ist derzeit gesperrt.",
+      "notAuthenticated": "Nicht authentifiziert.",
+      "invalidHeadColor": "Ungültige Kopffarbe.",
+      "missingSkinData": "Skin-Daten fehlen oder sind ungültig.",
+      "invalidBodyType": "Ungültiger Körpertyp.",
+      "invalidBodyColor": "Ungültige Körperfarbe in Skin-Daten.",
+      "invalidPatternColorsType": "Musterfarben müssen ein Array sein.",
+      "tooManyPatternColors": "Zu viele Musterfarben (max. {{max}}).",
+      "invalidPatternColorValue": "Ungültige Farbe im Muster gefunden.",
+      "invalidTrailEffect": "Ungültiger Spureffekt.",
+      "adminCannotDeleteSelf": "Administratoren können ihr eigenes Konto nicht über diese Schnittstelle löschen.",
+      "deleteAccountError": "Interner Fehler beim Löschen des Kontos."
+    },
+    "success": {
+      "accountCreated": "Konto erfolgreich erstellt und angemeldet.",
+      "login": "Anmeldung erfolgreich.",
+      "logout": "Abmeldung erfolgreich.",
+      "skinUpdated": "Aussehen erfolgreich aktualisiert.",
+      "accountDeleted": "Ihr Konto wurde erfolgreich gelöscht."
+    },
+    "admin": {
+      "adminStatusUpdated": "Admin-Status von {{username}} aktualisiert.",
+      "suspendStatusUpdated": "Sperrstatus von {{username}} aktualisiert.",
+      "userDeleted": "Konto {{username}} erfolgreich gelöscht.",
+      "pruneNoUsers": "Keine inaktiven Konten zum Bereinigen gefunden.",
+      "pruneSuccess": "{{count}} inaktive(s) Konto/Konten bereinigt."
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "Ihr Konto ist gesperrt.",
+      "accountError": "Kontofehler. Bitte erneut anmelden.",
+      "alreadyConnected": "Dieses Konto ist bereits im Spiel angemeldet.",
+      "deletedByAdmin": "Ihr Konto wurde von einem Administrator gelöscht.",
+      "accountDeleted": "Ihr Konto wurde gelöscht."
+    },
+    "kickReason": "Von {{admin}} rausgeworfen",
+    "banReason": "Von {{admin}} gebannt",
+    "clearReason": "Von {{admin}} bereinigt",
+    "adminFeedback": {
+      "unauthorized": "Aktion nicht autorisiert.",
+      "targetNotFound": "Zielspieler nicht gefunden.",
+      "kickSuccess": "{{username}} wurde rausgeworfen.",
+      "kickOfflineSuccess": "{{username}} (bereits getrennt) wurde aus dem Spiel entfernt.",
+      "kickError": "Konnte Socket oder Status von {{username}} nicht finden.",
+      "banSuccess": "{{username}} wurde gebannt (Konto gesperrt und Spieler rausgeworfen).",
+      "banAccountOnlySuccess": "Konto {{username}} gesperrt (Spieler bereits getrennt oder entfernt).",
+      "banError": "Konnte {{username}} nicht bannen (temporäres oder nicht existierendes Konto).",
+      "freezeSuccess": "{{username}} wurde eingefroren.",
+      "unfreezeSuccess": "{{username}} wurde aufgetaut.",
+      "killSuccess": "{{username}} wurde getötet.",
+      "clearSuccess": "{{username}} wurde bereinigt (ohne Futter entfernt).",
+      "clearError": "Konnte {{username}} nicht bereinigen (bereits entfernt?).",
+      "unknownAction": "Unbekannte Aktion."
+    },
+    "userConnected": "{{username}} hat das Spiel betreten.",
+    "userDisconnected": "{{username}} hat das Spiel verlassen."
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "Unbekannte Kollision",
+      "boundary": "Kartenrand getroffen.",
+      "teleport": "Getrennt: Verdächtige Bewegung.",
+      "selfCollision": "Anti-Cheat: Selbstkollision.",
+      "inactivity": "Inaktivität.",
+      "killedByAdmin": "Von {{admin}} getötet",
+      "botExpired": "Bot abgelaufen.",
+      "clientCollision": "Kollision Körper (Client)"
+    }
+  },
+  "hud": {
+    "sizeLabel": "Größe: {{size}}",
+    "positionLabel": "Position: {{x}}x{{y}}",
+    "ghostMode": "Geistmodus",
+    "spectator": "Zuschauer"
+  },
+  "ghostMode": {
+    "selected": "Ausgewählt: <span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "Unbekannt",
+    "controlsSelected": "<kbd>K</kbd>: Töten | <kbd>C</kbd>: Bereinigen | <kbd>F</kbd>: Einfrieren/Auftauen | <kbd>Esc</kbd>: Auswahl aufheben",
+    "controlsGeneral": "Linksklick: Entität auswählen / Ziehen zum Bewegen<br>Mausrad: Zoom | <kbd>Esc</kbd>: Auswahl aufheben"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "Willkommen bei <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "Hilfe & Credits",
+    "adminLink": "Admin",
+    "exitGhostButton": "Geistmodus verlassen"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "Als Gast spielen",
+      "playAsUser": "Spielen als {{username}}",
+      "login": "Anmelden",
+      "createAccount": "Konto erstellen",
+      "customizeSkin": "Aussehen anpassen",
+      "customSounds": "Benutzerdefinierte Sounds",
+      "showLeaderboard": "Bestenliste anzeigen",
+      "ghostMode": "Geistmodus",
+      "deleteAccount": "Mein Konto löschen",
+      "logout": "Abmelden"
+    },
+    "alerts": {
+      "colorTooDark": "Die gewählte Farbe ist sehr dunkel und könnte schlecht sichtbar sein. Eine hellere Farbe wird empfohlen.",
+      "missingCredentials": "Bitte geben Sie einen Benutzernamen und ein Passwort ein.",
+      "usernameLength": "Der Benutzername muss zwischen {{min}} und {{max}} Zeichen lang sein.",
+      "passwordLength": "Das Passwort muss mindestens {{min}} Zeichen lang sein.",
+      "maxPatternColors": "Maximal {{max}} Musterfarben erreicht.",
+      "canvasError": "Kritischer Fehler: Canvas-Element für Text konnte nicht gefunden werden!",
+      "gameModuleError": "Kritischer Fehler: Spielmodul konnte nicht initialisiert werden!",
+      "fetchAccountError": "Fehler beim Abrufen der Kontodaten.",
+      "loginError": "Anmeldefehler: {{error}}",
+      "creationError": "Fehler bei der Kontoerstellung: {{error}}",
+      "skinUpdateError": "Netzwerk- oder Serverfehler beim Aktualisieren des Aussehens: {{error}}",
+      "skinUpdatedTemp": "Aussehen für temporäre Sitzung aktualisiert.",
+      "deleteAccountError": "Netzwerkfehler beim Löschen des Kontos."
+    },
+    "confirms": {
+      "enterGhostMode": "In den Geistmodus (Zuschauer) wechseln?",
+      "deleteAccount": "Sind Sie sicher, dass Sie Ihr Konto \"{{username}}\" dauerhaft löschen möchten? Diese Aktion ist unwiderruflich."
+    },
+    "welcomeMessage": "Hallo {{username}}!",
+    "welcomeMessage_admin": "Hallo {{username}} (Admin)!"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "Benutzername:",
+      "passwordLabel": "Passwort:",
+      "backButton": "Zurück"
+    },
+    "guest": {
+      "title": "Als Gast spielen",
+      "note": "Farben und Skin werden über \"Aussehen anpassen\" festgelegt.",
+      "submitButton": "Spiel starten"
+    },
+    "login": {
+      "title": "Anmelden",
+      "submitButton": "Anmelden"
+    },
+    "create": {
+      "title": "Konto erstellen",
+      "initialHeadColorLabel": "Initiale Kopffarbe:",
+      "initialBodyColorLabel": "Initiale Körperfarbe:",
+      "submitButton": "Erstellen"
+    },
+    "skin": {
+      "title": "Aussehen anpassen",
+      "headColorLabel": "Kopffarbe:",
+      "bodyTypeLabel": "Körpertyp",
+      "bodyTypeSingle": "Einzelfarbe",
+      "bodyTypePattern": "Wiederholendes Muster",
+      "bodyColorLabel": "Körperfarbe:",
+      "patternColorsLabel": "Musterfarben (max. 8)",
+      "trailEffectLabel": "Spureffekt",
+      "trailEffect": {
+        "none": "Kein",
+        "sparkle": "Funkeln",
+        "smoke": "Grüner Rauch",
+        "fire": "Feuer",
+        "ice": "Eissplitter",
+        "electric": "Elektrische Funken",
+        "rainbow": "Regenbogen",
+        "bubbles": "Blasen",
+        "glitch": "Glitch",
+        "void": "Leere / Schatten",
+        "confetti": "Konfetti"
+      },
+      "submitButton": "Aussehen speichern"
+    },
+    "sound": {
+      "title": "Benutzerdefinierte Sounds",
+      "info": "Laden Sie MP3-Dateien (lokal gespeichert) für Ereignisse hoch.",
+      "deathLabel": "Tod-Sound:",
+      "killLabel": "Kill-Sound:",
+      "boostLabel": "Boost-Sound:",
+      "clearButton": "Sounds löschen"
+    }
+  },
+  "gameOver": {
+    "replayButton": "Erneut spielen",
+    "backToMenuButton": "Zurück zum Menü",
+    "finalSizeLabel": "Ihre Größe war: {{size}}"
+  },
+  "leaderboard": {
+    "title": "Bestenliste",
+    "header": {
+      "name": "Name",
+      "status": "Status",
+      "size": "Größe",
+      "kills": "Kills",
+      "deaths": "Tode",
+      "kd": "K/D"
+    },
+    "noPlayers": "Momentan keine Spieler in der Rangliste.",
+    "status": {
+      "ingame": "Im Spiel",
+      "online": "Online",
+      "offline": "Offline",
+      "never": "Nie",
+      "na": "N/V",
+      "ingameTitle": "Derzeit im Spiel"
+    },
+    "time": {
+      "secondsAgo_one": "Vor {{count}} Sek.",
+      "secondsAgo_other": "Vor {{count}} Sek.",
+      "minutesAgo_one": "Vor {{count}} Min.",
+      "minutesAgo_other": "Vor {{count}} Min.",
+      "hoursAgo_one": "Vor {{count}} Std.",
+      "hoursAgo_other": "Vor {{count}} Std.",
+      "daysAgo_one": "Vor {{count}} Tag",
+      "daysAgo_other": "Vor {{count}} Tagen",
+      "yesterday": "Gestern"
+    },
+    "lastLoginTitle": "Letzte Anmeldung: {{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "Tastaturkürzel (Menü)",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab: Navigieren",
+      "activate": "Enter: Ausgewählte Schaltfläche aktivieren",
+      "close": "Esc: Dieses Panel schließen / Zurück"
+    },
+    "gameKeysTitle": "Tastaturkürzel (Spiel)",
+    "gameKeys": {
+      "mouse": "Maus: Schlange steuern",
+      "boost": "Linksklick / Leertaste: Boost",
+      "adminCheat": "P: Admin-Cheat (wenn Admin)"
+    },
+    "ghostKeysTitle": "Tastaturkürzel (Geist)",
+    "ghostKeys": {
+      "select": "Linksklick (auf Spieler): Spieler auswählen",
+      "pan": "Linksklick + Ziehen (leerer Bereich): Kamera bewegen",
+      "zoom": "Mausrad: Zoomen",
+      "kill": "K (wenn Spieler ausgewählt): Spieler töten",
+      "clear": "C (wenn Spieler ausgewählt): Spieler bereinigen (kein Futter)",
+      "freeze": "F (wenn Spieler ausgewählt): Spieler einfrieren/auftauen",
+      "deselect": "Esc: Auswahl aufheben"
+    },
+    "creditsTitle": "Credits",
+    "creditsAuthor": "Autor: Anonymer Autor",
+    "creditsLicense": "Lizenz: MIT",
+    "creditsGithub": "Projekt auf GitHub"
+  }
+}

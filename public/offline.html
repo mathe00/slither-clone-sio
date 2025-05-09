@@ -1,0 +1,429 @@
+<!-- --- public/offline.html --- -->
+<!--
+ * ==============================================================================
+ * FILE: offline.html
+ *
+ * DESCRIPTION:
+ * Fallback page displayed when the main game server is unavailable. Informs the
+ * user about the connection issue, provides status updates on reconnection attempts,
+ * includes a manual refresh button, and features a simple offline Snake minigame
+ * (using Canvas 2D) for entertainment while waiting. Served by the Service Worker
+ * when network requests for navigation fail. Uses i18next for text content.
+ *
+ * DEVELOPER GUIDELINES:
+ * - Use semantic HTML5 elements where appropriate.
+ * - Keep the structure clean and well-indented.
+ * - Ensure accessibility attributes (alt text, ARIA roles if needed) are considered.
+ * - Maintain and update comments when significantly changing the structure.
+ * - Ensure necessary elements for the reconnection logic (status, countdown) have IDs.
+ * - Ensure i18next is loaded and initialized for this page to work correctly offline.
+ * ==============================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title will be set by i18next -->
+    <title data-i18n="offlinePage.title">Server Unavailable - Slither Clone SIO</title>
+    <link rel="icon" href="slither-logo.png" type="image/x-icon" />
+    <!-- Link to the main styles which now include offline page styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Removed inline styles -->
+    <style>
+      .retry-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between info block and button */
+        margin-top: 20px; /* Adjust overall top margin if needed */
+        margin-bottom: 20px; /* Adjust overall bottom margin */
+      }
+      .retry-container .refresh-button {
+          margin-top: 0; /* Remove default top margin from button */
+          margin-bottom: 0; /* Remove default bottom margin from button */
+      }
+      .retry-container .retry-info {
+          margin-top: 0; /* Remove default top margin from info block */
+          margin-bottom: 0; /* Remove default bottom margin from info block */
+      }
+    </style>
+    <!-- i18next libraries from CDN (Needed for offline page too) -->
+    <!-- Consider caching these via Service Worker -->
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+  </head>
+  <body>
+    <div class="error-container">
+      <!-- Specific Logo -->
+      <img
+        src="slither-logo-server-down.png"
+        alt="Logo Serveur Indisponible"
+        class="offline-logo"
+        data-i18n="[alt]offlinePage.logoAlt"
+      />
+
+      <!-- Error Message Title -->
+      <h1 data-i18n="offlinePage.mainHeader">Server Unavailable</h1>
+
+      <!-- Replaced hardcoded text with i18n key -->
+      <p id="offlineExplanationParagraph" data-i18n="[html]offlinePage.explanation">The <span class="game-name">Slither Clone SIO</span> server seems temporarily offline or unreachable. We are trying to re-establish the connection for you.</p>
+  <!-- ^ This content will be replaced by i18next -->
+
+      <!-- Snake Minigame -->
+      <div id="offline-snake-game-container">
+          <h4 data-i18n="offlinePage.snakeTitle">In the meantime, play Snake!</h4>
+          <canvas id="snakeGameCanvas" width="200" height="160"></canvas> <!-- Fixed size -->
+          <div id="snakeGameScore" data-i18n="offlinePage.snakeScoreLabel">Score: 0</div>
+          <div id="snakeGameControls" data-i18n="offlinePage.snakeControls">Arrows / ZQSD / WASD: Move | Enter: Start/Restart</div>
+      </div>
+
+      <div class="retry-container">
+          <!-- Reconnection Attempt Info Block -->
+          <div class="retry-info">
+            <div><span data-i18n="offlinePage.status.label">Status:</span> <span id="statusText" class="pulse" data-i18n="offlinePage.status.searching">Searching...</span></div>
+            <div>
+              <span data-i18n="offlinePage.status.nextAttemptLabel">Next attempt in</span>
+              <span id="countdown" class="countdown">--</span> <span data-i18n="offlinePage.status.secondsSuffix">sec</span>
+            </div>
+            <div><span data-i18n="offlinePage.status.attemptsLabel">Attempts:</span> <span id="attempts" class="attempts">0</span></div>
+          </div>
+
+          <!-- Manual Refresh Button -->
+          <button id="refreshButton" class="refresh-button" data-i18n="offlinePage.refreshButton">
+            Check Now
+          </button>
+      </div>
+
+      <!-- Status and Timing Information -->
+      <div class="status-info" data-i18n="offlinePage.redirectInfo">
+        You will be redirected automatically as soon as the server is back
+        online.
+      </div>
+    </div>
+
+    <!-- Include Snake Game Logic -->
+    <script src="offline-snake-game.js" defer></script>
+
+    <script>
+      // --- i18next Initialization for Offline Page ---
+      async function initializeOfflineI18n() {
+          if (!window.i18next || !window.i18nextHttpBackend || !window.i18nextBrowserLanguageDetector) {
+              console.error("i18next libraries not loaded for offline page!");
+              return false;
+          }
+
+          // Add listeners *before* init
+          i18next.on('failedLoading', (lng, ns, msg) => {
+             console.error(`[i18n Offline] FAILED LOADING: Lng='${lng}', NS='${ns}', Msg='${msg}'`);
+             const errorDiv = document.querySelector('.error-container p') || document.body;
+             errorDiv.innerHTML += `<br><strong style='color: red;'>Error loading translations (${lng}). Text might be missing.</strong>`;
+          });
+
+          i18next.on('languageChanged', (lng) => {
+             console.log(`[i18n Offline] Event 'languageChanged' received for ${lng}. Updating content.`);
+             updateOfflineContent();
+          });
+
+          try {
+              await i18next
+                  .use(i18nextHttpBackend)
+                  .use(i18nextBrowserLanguageDetector)
+                  .init({
+                      debug: true, // Enable debug logs for offline diagnosis
+                      fallbackLng: "en",
+                      supportedLngs: ['en', 'fr', 'es', 'de', 'zh'],
+                      load: 'languageOnly',
+                      nonExplicitSupportedLngs: true,
+                      ns: ["translation"],
+                      defaultNS: "translation",
+                      backend: {
+                          loadPath: "/locales/{{lng}}.json",
+                      },
+                      detection: {
+                          order: ["navigator", "htmlTag"],
+                          caches: [],
+                      }, // <-- Added missing comma here
+                  });
+
+              console.log('[i18n Offline] Init promise resolved.');
+
+              // Initial translation attempt right after init succeeds
+              updateOfflineContent();
+
+              // Check loaded resources and potentially force language change
+              let currentLng = i18next.language; // e.g., 'fr-FR'
+              const fallbackLng = i18next.options.fallbackLng;
+              console.log(`[i18n Offline] Initial Detected Lng: ${currentLng}, Fallback Lng: ${fallbackLng}`);
+
+              // --- Force language to base if regional variant not found but base is ---
+              if (currentLng && currentLng.includes('-')) {
+                  const baseLng = currentLng.split('-')[0]; // e.g., 'fr'
+                  const regionalBundleExists = i18next.hasResourceBundle(currentLng, 'translation');
+                  const baseBundleExists = i18next.hasResourceBundle(baseLng, 'translation');
+                  console.log(`[i18n Offline] Bundle exists for ${currentLng}? ${regionalBundleExists}. Bundle exists for ${baseLng}? ${baseBundleExists}.`);
+
+                  if (!regionalBundleExists && baseBundleExists) {
+                      console.warn(`[i18n Offline] Bundle for '${currentLng}' not found, but found for '${baseLng}'. Forcing language change.`);
+                      try {
+                          // No need to await here, the 'languageChanged' event will handle the update
+                          i18next.changeLanguage(baseLng);
+                          // currentLng = baseLng; // Update currentLng conceptually, but rely on event
+                          console.log(`[i18n Offline] Language change initiated to '${baseLng}'.`);
+                      } catch (changeLangError) {
+                          console.error(`[i18n Offline] Error initiating language change to '${baseLng}':`, changeLangError);
+                      }
+                  }
+              }
+
+              // Check if any bundles are loaded at all (for critical error logging)
+              const primaryLoaded = i18next.hasResourceBundle(currentLng, 'translation');
+              let fallbackLoaded = false;
+              if (typeof fallbackLng === 'string') {
+                   fallbackLoaded = i18next.hasResourceBundle(fallbackLng, 'translation');
+              } else if (Array.isArray(fallbackLng)) {
+                   fallbackLoaded = fallbackLng.some(lng => i18next.hasResourceBundle(lng, 'translation'));
+              }
+              if (!primaryLoaded && !fallbackLoaded) {
+                  console.error("[i18n Offline] CRITICAL: No language bundles loaded successfully (primary or fallback) after init!");
+              }
+
+              // Ensure one final update after all language checks/changes
+              updateOfflineContent();
+              return true;
+          } catch (error) {
+              console.error("[i18n Offline] Initialization failed:", error);
+              return false;
+          }
+      }
+
+      // Function to update static content
+      function updateOfflineContent() {
+          if (!window.i18next || !window.i18next.isInitialized) {
+              console.warn("[updateOfflineContent] i18next not ready.");
+              return;
+          }
+          const currentLng = i18next.language; // Get potentially changed language
+          console.log(`[updateOfflineContent] Attempting translation for language: ${currentLng}`);
+
+          if (!i18next.hasResourceBundle(currentLng, 'translation')) {
+               console.warn(`[updateOfflineContent] Resource bundle for '${currentLng}' not loaded. Translation might use fallbacks or keys.`);
+               const fallbackLng = i18next.options.fallbackLng;
+               let fallbackAvailable = false;
+               if (typeof fallbackLng === 'string') {
+                   fallbackAvailable = i18next.hasResourceBundle(fallbackLng, 'translation');
+               } else if (Array.isArray(fallbackLng)) {
+                   fallbackAvailable = fallbackLng.some(lng => i18next.hasResourceBundle(lng, 'translation'));
+               }
+               if (!fallbackAvailable) {
+                   console.error(`[updateOfflineContent] Critical: Neither primary ('${currentLng}') nor any fallback bundles loaded.`);
+               }
+          }
+
+          console.log("[updateOfflineContent] Translating static elements...");
+          document.querySelectorAll("[data-i18n]").forEach(el => {
+       }); // End of forEach loop
+
+       try {
+           const explanationEl = document.getElementById('offlineExplanationParagraph');
+           if (explanationEl) {
+               const explanationKey = 'offlinePage.explanation';
+               // Use defaultValue to avoid empty string if key fails initially, keep original HTML as fallback
+               const explanationTranslation = i18next.t(explanationKey, { defaultValue: explanationEl.innerHTML, interpolation: { escapeValue: false } });
+               console.log(`[Explicit Update] Targeting offlineExplanationParagraph. Current HTML length: ${explanationEl.innerHTML.length}`);
+               console.log(`[Explicit Update] Translation received for ${explanationKey} (length: ${explanationTranslation.length}):`, explanationTranslation.substring(0, 100) + '...'); // Log only beginning
+               if (explanationEl.innerHTML !== explanationTranslation && explanationTranslation !== explanationEl.innerHTML) { // Double check, avoid replacing with default if it's the same
+                   explanationEl.innerHTML = explanationTranslation;
+                   console.log(`[Explicit Update] Updated offlineExplanationParagraph.`);
+               } else {
+                   console.log(`[Explicit Update] offlineExplanationParagraph already up-to-date or translation failed/matched default.`);
+               }
+           } else {
+               console.warn("[Explicit Update] Could not find element with ID offlineExplanationParagraph.");
+           }
+       } catch (e) {
+           console.error("[Explicit Update] Error updating explanation paragraph:", e);
+       }
+       // --- End Explicit Update ---
+
+       // Re-add the original forEach loop start after the explicit update block
+       document.querySelectorAll("[data-i18n]").forEach(el => {
+              const key = el.getAttribute("data-i18n");
+              let options = {};
+              let translation = '';
+
+              try {
+                  if (key.startsWith("[")) {
+                      const match = key.match(/^\[(.*?)\](.*)$/);
+                      if (match) {
+                          const attr = match[1];
+                          const realKey = match[2];
+                          translation = i18next.t(realKey, { ...options, defaultValue: `[[${realKey}]]` });
+                          el.setAttribute(attr, translation);
+                      }
+                  } else if (key.startsWith("[html]")) {
+                      const realKey = key.substring(6);
+                      translation = i18next.t(realKey, { ...options, defaultValue: `[[html]${realKey}]`, interpolation: { escapeValue: false } });
+                      if (realKey === 'offlinePage.explanation') {
+                          console.log(`[Debug Explanation] Key: ${realKey}, Element Tag: ${el.tagName}, Current innerHTML:`, el.innerHTML);
+                          console.log(`[Debug Explanation] Translation received:`, translation);
+                      }
+                      // --- END DEBUGGING ---
+                      el.innerHTML = translation;
+                  } else {
+                      translation = i18next.t(key, { ...options, defaultValue: `[[${key}]]` });
+                      // Only update textContent if translation is not the key itself
+                      if (translation !== `[[${key}]]`) {
+                          el.textContent = translation;
+                      } else {
+                          console.warn(`[updateOfflineContent] No translation found for key: ${key}`);
+                      }
+                  }
+              } catch (e) {
+                  console.error(`[updateOfflineContent] Error translating key "${key}":`, e);
+              }
+          });
+          // Update title specifically
+          const titleElement = document.querySelector('title[data-i18n]');
+          if (titleElement) {
+              try {
+                  document.title = i18next.t(titleElement.getAttribute('data-i18n'), { defaultValue: 'Server Unavailable' });
+              } catch (e) {
+                  console.error(`[updateOfflineContent] Error translating title key:`, e);
+              }
+          }
+      }
+
+      // --- Server Connection Logic (Original - Remains the same) ---
+      let checkAttempts = 0;
+      let countdownIntervalId;
+      let checkIntervalId;
+      const CHECK_INTERVAL_MS = 5000; // 5 seconds
+      let isChecking = false;
+      let serverAvailable = false;
+
+      let countdownElement, attemptsElement, statusTextElement, refreshButton;
+
+      document.addEventListener('DOMContentLoaded', async () => {
+          // Initialize i18n first
+          await initializeOfflineI18n(); // Wait for i18n setup
+
+          // Select elements needed for server check logic
+          countdownElement = document.getElementById("countdown");
+          attemptsElement = document.getElementById("attempts");
+          statusTextElement = document.getElementById("statusText");
+          refreshButton = document.getElementById("refreshButton");
+
+          // Listener for manual refresh button
+          if (refreshButton) {
+            refreshButton.addEventListener("click", () => {
+              console.log("Manual check triggered.");
+              checkServerConnection(true); // Pass true for manual check
+            });
+          }
+
+          // Start first countdown on load
+          updateCountdown();
+
+          // Setup periodic check
+          checkIntervalId = setInterval(checkServerConnection, CHECK_INTERVAL_MS);
+
+          // Run initial check shortly after load
+          setTimeout(checkServerConnection, 1000);
+      });
+
+
+      /** Updates the visual countdown. */
+      function updateCountdown() {
+        let timeLeft = CHECK_INTERVAL_MS / 1000;
+        if (countdownIntervalId) clearInterval(countdownIntervalId);
+        if (countdownElement) countdownElement.textContent = timeLeft;
+
+        countdownIntervalId = setInterval(() => {
+          timeLeft--;
+          if (countdownElement)
+            countdownElement.textContent = timeLeft >= 0 ? timeLeft : "0";
+          if (timeLeft <= 0) {
+            clearInterval(countdownIntervalId);
+            if (statusTextElement) {
+                // Use i18next for dynamic status text
+                statusTextElement.textContent = i18next.t('offlinePage.status.checking', { defaultValue: 'Checking...' });
+                statusTextElement.classList.add("pulse");
+            }
+          }
+        }, 1000);
+      }
+
+      /** Checks server availability. */
+      function checkServerConnection(isManual = false) {
+        if (isChecking || serverAvailable) return;
+        isChecking = true;
+        checkAttempts++;
+
+        if (attemptsElement) attemptsElement.textContent = checkAttempts;
+        if (statusTextElement) {
+            statusTextElement.textContent = i18next.t('offlinePage.status.checking', { defaultValue: 'Checking...' });
+            statusTextElement.classList.add("pulse");
+        }
+        if (refreshButton) refreshButton.disabled = true;
+
+        if (isManual) {
+          if (checkIntervalId) clearInterval(checkIntervalId);
+          if (countdownIntervalId) clearInterval(countdownIntervalId);
+          if (countdownElement) countdownElement.textContent = "--";
+        } else {
+          updateCountdown();
+        }
+
+        console.log(`Attempt ${checkAttempts} to connect to server...`);
+
+        fetch("/")
+          .then((response) => {
+            if (!response.ok)
+              throw new Error(
+                `Server responded with status: ${response.status}`
+              );
+            serverAvailable = true;
+            console.log("Server detected as available. Redirecting...");
+            if (statusTextElement) {
+              statusTextElement.textContent = i18next.t('offlinePage.status.connected', { defaultValue: 'Connected!' });
+              statusTextElement.classList.remove("pulse");
+              statusTextElement.style.color = "#43b581";
+            }
+            if (refreshButton) refreshButton.disabled = true;
+            clearInterval(checkIntervalId);
+            clearInterval(countdownIntervalId);
+
+            // Stop the snake game if it's running
+            if (typeof window.stopOfflineSnakeGame === 'function') {
+                window.stopOfflineSnakeGame();
+            } else {
+                console.warn("stopOfflineSnakeGame function not found on window.");
+            }
+
+            setTimeout(() => {
+              window.location.href = "/index.html"; // Redirect to main page
+            }, 1000);
+          })
+          .catch((error) => {
+            console.log(`Attempt ${checkAttempts} failed: ${error.message}`);
+            isChecking = false;
+            if (statusTextElement) {
+                statusTextElement.textContent = i18next.t('offlinePage.status.searching', { defaultValue: 'Searching...' });
+                statusTextElement.classList.add("pulse");
+            }
+            if (refreshButton) refreshButton.disabled = false;
+
+            // If manual check failed, restart periodic checks
+            if (isManual) {
+              updateCountdown();
+              checkIntervalId = setInterval(checkServerConnection, CHECK_INTERVAL_MS);
+            }
+          });
+      }
+
+    </script>
+  </body>
+</html>

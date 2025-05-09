@@ -1,0 +1,526 @@
+{
+  "pageTitle": "管理员 - Slither Clone",
+  "backButtonTitle": "返回主页",
+  "tabs": {
+    "settings": "通用设置",
+    "users": "用户管理",
+    "currentConfig": "当前配置"
+  },
+  "settingsForm": {
+    "title": "通用设置",
+    "passwordNote": "<strong>注意：</strong>要设置或重置管理员密码，请停止服务器并使用以下命令运行它：<br/><code>node backend/server.js --set-new-password 您的新密码</code><br/>访问此页面需要有效的管理员会话（通过 cookie）。<br/>某些设置（标有 *）需要重新启动服务器才能应用。",
+    "mapWidth": {
+      "label": "地图宽度 (px) *:",
+      "placeholder": "例如 4000"
+    },
+    "mapHeight": {
+      "label": "地图高度 (px) *:",
+      "placeholder": "例如 4000"
+    },
+    "mapShape": {
+      "label": "地图形状 *:",
+      "rectangle": "矩形",
+      "circle": "圆形"
+    },
+    "aoiRadius": {
+      "label": "感兴趣区域 (AoI) 半径 (px) *:",
+      "placeholder": "例如 2000"
+    },
+    "maxTrailLengthDefault": {
+      "label": "蛇大小限制（默认）:",
+      "placeholder": "例如 1000"
+    },
+    "initialSize": {
+      "label": "初始蛇大小:",
+      "placeholder": "例如 50"
+    },
+    "speed": {
+      "label": "基础速度:",
+      "placeholder": "例如 1"
+    },
+    "maxRotationRate": {
+      "label": "最大旋转速率 (rad/tick):",
+      "placeholder": "例如 0.08"
+    },
+    "minBoostSize": {
+      "label": "加速最小尺寸:",
+      "placeholder": "例如 50"
+    },
+    "boostConsumptionRate": {
+      "label": "加速消耗率:",
+      "placeholder": "例如 1"
+    },
+    "foodSpawnInterval": {
+      "label": "食物生成间隔 (ms):",
+      "placeholder": "例如 5000"
+    },
+    "fps": {
+      "label": "服务器 FPS (循环/秒):",
+      "placeholder": "例如 45"
+    },
+    "foodAttractionStrength": {
+      "label": "食物吸引强度:",
+      "placeholder": "例如 0.1"
+    },
+    "foodSnapDistance": {
+      "label": "食物吸附距离:",
+      "placeholder": "例如 5"
+    },
+    "defaultZoomLevel": {
+      "label": "默认缩放级别:",
+      "placeholder": "例如 1.0"
+    },
+    "securityMode": {
+      "label": "安全模式 *:",
+      "high": "高（推荐）",
+      "low": "低（客户端 + 轻量）"
+    },
+    "teleportViolationThreshold": {
+      "label": "瞬移违规阈值:",
+      "placeholder": "例如 5"
+    },
+    "teleportToleranceFactor": {
+      "label": "瞬移容忍因子:",
+      "placeholder": "例如 1.5"
+    },
+    "botsEnabled": {
+      "label": "启用机器人:",
+      "yes": "是",
+      "no": "否"
+    },
+    "botMaxCount": {
+      "label": "最大机器人数量:",
+      "placeholder": "例如 10"
+    },
+    "botSpawnIntervalMs": {
+      "label": "机器人生成间隔 (ms):",
+      "placeholder": "例如 5000"
+    },
+    "botExpirationTimeMs": {
+      "label": "机器人生命周期 (ms):",
+      "placeholder": "例如 120000"
+    },
+    "botDifficulty": {
+      "label": "机器人难度:",
+      "easy": "简单",
+      "medium": "中等",
+      "hard": "困难"
+    },
+    "adminMessageText": {
+      "label": "管理员消息（留空清除）:",
+      "placeholder": "向所有玩家显示的消息"
+    },
+    "adminMessageDuration": {
+      "label": "消息持续时间（秒）:",
+      "placeholder": "例如 10"
+    },
+    "updateButton": "更新设置"
+  },
+  "userManagement": {
+    "title": "用户管理",
+    "loading": "加载中...",
+    "noUsers": "未找到用户。",
+    "table": {
+      "headerUser": "用户",
+      "headerStatus": "状态",
+      "headerLastLogin": "上次登录",
+      "headerCreated": "创建时间",
+      "headerActions": "操作"
+    },
+    "status": {
+      "admin": "管理员",
+      "suspended": "已暂停",
+      "normal": "正常",
+      "never": "从未",
+      "unknown": "未知"
+    },
+    "actions": {
+      "removeAdmin": "移除管理员",
+      "makeAdmin": "设为管理员",
+      "unban": "取消暂停",
+      "suspend": "暂停",
+      "delete": "删除"
+    },
+    "pruneButton": "清理不活跃账户",
+    "confirmDelete": "您确定要永久删除用户 \"{{username}}\" 吗？此操作不可逆。",
+    "confirmPrune_one": "您确定要删除 {{count}} 个不活跃账户（超过15天未登录且统计数据极低）吗？此操作不可逆。",
+    "confirmPrune_other": "您确定要删除 {{count}} 个不活跃账户（超过15天未登录且统计数据极低）吗？此操作不可逆。",
+    "confirmPruneZero": "根据当前标准，未找到不活跃账户。是否仍要运行该操作（以防万一）？",
+    "confirmPruneZeroConfirm": "即使检测到 0 个账户，也确认清理操作吗？",
+    "pruneCancelled": "清理操作已取消。"
+  },
+  "currentConfig": {
+    "title": "当前服务器配置",
+    "loading": "正在加载配置...",
+    "loadError": "无法加载配置。",
+    "loadSuccess": "当前配置已加载。",
+    "keys": {
+      "MAP_WIDTH": "地图宽度 (px)",
+      "MAP_HEIGHT": "地图高度 (px)",
+      "MAP_SHAPE": "地图形状",
+      "AOI_RADIUS": "感兴趣区域 (AoI) 半径 (px)",
+      "SECURITY_MODE": "安全模式",
+      "MAX_TRAIL_LENGTH_DEFAULT": "蛇大小限制（默认）",
+      "INITIAL_SIZE": "初始蛇大小",
+      "MIN_BOOST_SIZE": "加速最小尺寸",
+      "SPEED": "基础速度",
+      "MAX_ROTATION_RATE": "最大旋转速率",
+      "BOOST_CONSUMPTION_RATE": "加速消耗（大小/tick）",
+      "FPS": "服务器 FPS",
+      "FOOD_SPAWN_INTERVAL": "食物生成间隔 (ms)",
+      "FOOD_ATTRACTION_STRENGTH": "食物吸引强度",
+      "FOOD_SNAP_DISTANCE": "食物吸附距离",
+      "DEFAULT_ZOOM_LEVEL": "默认缩放级别",
+      "TELEPORT_VIOLATION_THRESHOLD": "瞬移违规阈值",
+      "TELEPORT_TOLERANCE_FACTOR": "瞬移容忍因子",
+      "BOTS_ENABLED": "机器人已启用",
+      "BOT_MAX_COUNT": "最大机器人数量",
+      "BOT_SPAWN_INTERVAL_MS": "机器人生成间隔 (ms)",
+      "BOT_EXPIRATION_TIME_MS": "机器人生命周期 (ms)",
+      "BOT_DIFFICULTY": "机器人难度"
+    },
+    "boolean": {
+      "yes": "是",
+      "no": "否"
+    }
+  },
+  "feedback": {
+    "accessDenied": "访问被拒绝。正在重定向...",
+    "settingsUpdated": "设置更新成功。",
+    "settingsUpdatedWithRestart": "设置已更新。需要重新启动服务器以应用地图/安全更改。",
+    "settingsUpdatedFpsRestart": "设置已更新。游戏循环已针对 FPS 重新启动。",
+    "settingsUpdateError": "更新设置时出错。",
+    "loadSettingsError": "加载设置时出错：{{error}}",
+    "loadUsersError": "加载用户时出错。",
+    "networkError": "网络错误或服务器不可用。",
+    "invalidResponse": "服务器响应无效（非 JSON）",
+    "changes": "更改：",
+    "restartRequired": "需要重新启动服务器才能应用更改（地图大小/形状、安全模式、AoI 半径）。",
+    "fpsRestart": "游戏循环已重新启动以应用新的 FPS。",
+    "noChanges": "未修改任何设置。",
+    "userActionSuccess": "{{message}}",
+    "userActionError": "{{message}}",
+    "prunePreviewError": "预览期间出错。",
+    "pruneError": "清理操作期间出错。",
+    "pruneSuccess": "{{message}}"
+  },
+  "soundManager": {
+    "alerts": {
+      "selectMp3": "请选择一个 MP3 文件。",
+      "loginRequired": "您必须登录才能保存自定义声音。",
+      "saveError": "保存声音时出错。本地存储可能已满。",
+      "readError": "读取声音文件时出错。",
+      "clearLoginRequired": "您必须登录才能清除声音。",
+      "clearError": "删除声音时发生错误。"
+    },
+    "confirms": {
+      "clearAll": "您确定要删除此帐户的所有自定义声音吗？"
+    },
+    "statusTitles": {
+      "saveError": "保存错误",
+      "readError": "读取错误",
+      "saved": "声音已保存",
+      "savedWithName": "已保存：{{filename}}"
+    }
+  },
+  "offlinePage": {
+    "title": "服务器不可用 - Slither Clone SIO",
+    "logoAlt": "服务器不可用徽标",
+    "mainHeader": "服务器不可用",
+    "explanation": "<span class=\"game-name\">Slither Clone SIO</span> 服务器似乎暂时离线或无法访问。我们正在尝试为您重新建立连接。",
+    "snakeTitle": "在此期间，玩贪吃蛇吧！",
+    "snakeScoreLabel": "分数：0",
+    "snakeControls": "方向键 / ZQSD / WASD：移动 | Enter：开始/重新开始",
+    "status": {
+      "label": "状态：",
+      "searching": "搜索中...",
+      "checking": "检查中...",
+      "connected": "已连接！",
+      "nextAttemptLabel": "下次尝试在",
+      "secondsSuffix": "秒",
+      "attemptsLabel": "尝试次数："
+    },
+    "refreshButton": "立即检查",
+    "redirectInfo": "服务器恢复在线后，您将自动重定向。"
+  },
+  "offlineSnake": {
+    "hud": {
+      "scoreLabel": "分数：{{score}}"
+    },
+    "gameOver": {
+      "win": "胜利！",
+      "lose": "失败！",
+      "scoreLabel": "分数：{{score}}",
+      "promptLine1": "按 Enter",
+      "promptLine2": "重新开始"
+    },
+    "countdown": "{{count}} 秒后开始",
+    "startScreen": {
+      "title": "贪吃蛇",
+      "promptLine1": "按 Enter",
+      "promptLine2": "开始游戏"
+    }
+  },
+  "api": {
+    "errors": {
+      "internalServerError": "内部服务器错误。",
+      "invalidAdminStatus": "无效的 'isAdmin' 状态。",
+      "userNotFound": "未找到用户。",
+      "invalidSuspendStatus": "无效的 'isSuspended' 状态。",
+      "cannotDeleteSelf": "您不能在此处删除自己的管理员帐户。",
+      "prunePreviewError": "清理预览期间出错。",
+      "pruneError": "清理操作期间出错。",
+      "rateLimit": "创建帐户尝试次数过多。请在大约 {{minutes}} 分钟后重试。",
+      "missingCredentials": "需要用户名和密码。",
+      "usernameTooLong": "用户名不能超过 {{maxLength}} 个字符。",
+      "usernameTooShort": "用户名必须至少包含 {{minLength}} 个字符。",
+      "passwordTooShort": "密码必须至少包含 {{minLength}} 个字符。",
+      "usernameTaken": "此用户名已被占用。",
+      "invalidCredentials": "用户名或密码无效。",
+      "accountSuspended": "此帐户当前已被暂停。",
+      "notAuthenticated": "未认证。",
+      "invalidHeadColor": "无效的头部颜色。",
+      "missingSkinData": "皮肤数据丢失或无效。",
+      "invalidBodyType": "无效的身体类型。",
+      "invalidBodyColor": "皮肤数据中的身体颜色无效。",
+      "invalidPatternColorsType": "图案颜色必须是一个数组。",
+      "tooManyPatternColors": "图案颜色过多（最多 {{max}}）。",
+      "invalidPatternColorValue": "在图案中发现无效颜色。",
+      "invalidTrailEffect": "无效的拖尾效果。",
+      "adminCannotDeleteSelf": "管理员无法通过此界面删除自己的帐户。",
+      "deleteAccountError": "帐户删除期间发生内部错误。"
+    },
+    "success": {
+      "accountCreated": "帐户创建成功并已登录。",
+      "login": "登录成功。",
+      "logout": "注销成功。",
+      "skinUpdated": "外观更新成功。",
+      "accountDeleted": "您的帐户已成功删除。"
+    },
+    "admin": {
+      "adminStatusUpdated": "{{username}} 的管理员状态已更新。",
+      "suspendStatusUpdated": "{{username}} 的暂停状态已更新。",
+      "userDeleted": "帐户 {{username}} 删除成功。",
+      "pruneNoUsers": "未找到要清理的不活跃帐户。",
+      "pruneSuccess": "已清理 {{count}} 个不活跃帐户。"
+    }
+  },
+  "socket": {
+    "loginFailed": {
+      "suspended": "您的帐户已被暂停。",
+      "accountError": "帐户错误。请重新登录。",
+      "alreadyConnected": "此帐户已连接到游戏。",
+      "deletedByAdmin": "您的帐户已被管理员删除。",
+      "accountDeleted": "您的帐户已被删除。"
+    },
+    "kickReason": "被 {{admin}} 踢出",
+    "banReason": "被 {{admin}} 封禁",
+    "clearReason": "被 {{admin}} 清理",
+    "adminFeedback": {
+      "unauthorized": "未授权的操作。",
+      "targetNotFound": "未找到目标玩家。",
+      "kickSuccess": "{{username}} 已被踢出。",
+      "kickOfflineSuccess": "{{username}}（已断开连接）已从游戏中移除。",
+      "kickError": "无法找到 {{username}} 的套接字或状态。",
+      "banSuccess": "{{username}} 已被封禁（帐户已暂停，玩家已被踢出）。",
+      "banAccountOnlySuccess": "帐户 {{username}} 已暂停（玩家已断开连接或移除）。",
+      "banError": "无法封禁 {{username}}（临时或不存在的帐户）。",
+      "freezeSuccess": "{{username}} 已被冻结。",
+      "unfreezeSuccess": "{{username}} 已被解冻。",
+      "killSuccess": "{{username}} 已被击杀。",
+      "clearSuccess": "{{username}} 已被清理（移除且不掉落食物）。",
+      "clearError": "无法清理 {{username}}（已被移除？）。",
+      "unknownAction": "未知操作。"
+    },
+    "userConnected": "{{username}} 加入了游戏。",
+    "userDisconnected": "{{username}} 离开了游戏。",
+    "disconnectReason": "已断开连接：{{reason}}"
+  },
+  "game": {
+    "deathReason": {
+      "unknown": "未知碰撞",
+      "boundary": "撞到了地图边界。",
+      "teleport": "已断开连接：可疑移动。",
+      "selfCollision": "反作弊：自我碰撞。",
+      "inactivity": "不活动。",
+      "killedByAdmin": "被 {{admin}} 击杀",
+      "botExpired": "机器人已过期。",
+      "clientCollision": "身体碰撞（客户端）"
+    }
+  },
+  "hud": {
+    "sizeLabel": "大小：{{size}}",
+    "positionLabel": "位置：{{x}}x{{y}}",
+    "ghostMode": "幽灵模式",
+    "spectator": "观察者"
+  },
+  "ghostMode": {
+    "selected": "已选择：<span class=\"selected-player-name\">{{name}}</span>",
+    "unknownPlayer": "未知",
+    "controlsSelected": "<kbd>K</kbd>：击杀 | <kbd>C</kbd>：清理 | <kbd>F</kbd>：冻结/解冻 | <kbd>Esc</kbd>：取消选择",
+    "controlsGeneral": "左键单击：选择实体 / 拖动平移<br>滚轮：缩放 | <kbd>Esc</kbd>：取消选择"
+  },
+  "mainPage": {
+    "title": "Slither Clone SIO"
+  },
+  "mainMenu": {
+    "title": "欢迎来到 <span class=\"blink\">Slither Clone SIO</span>",
+    "helpButtonTitle": "帮助与鸣谢",
+    "adminLink": "管理员",
+    "exitGhostButton": "退出幽灵模式"
+  },
+  "ui": {
+    "buttons": {
+      "playGuest": "以访客身份游戏",
+      "playAsUser": "以 {{username}} 身份玩",
+      "login": "登录",
+      "createAccount": "创建帐户",
+      "customizeSkin": "自定义外观",
+      "customSounds": "自定义声音",
+      "showLeaderboard": "显示排行榜",
+      "ghostMode": "幽灵模式",
+      "deleteAccount": "删除我的帐户",
+      "logout": "注销"
+    },
+    "alerts": {
+      "colorTooDark": "所选颜色太深，可能难以看清。建议使用较浅的颜色。",
+      "missingCredentials": "请输入用户名和密码。",
+      "usernameLength": "用户名必须介于 {{min}} 和 {{max}} 个字符之间。",
+      "passwordLength": "密码必须至少包含 {{min}} 个字符。",
+      "maxPatternColors": "已达到最多 {{max}} 种图案颜色。",
+      "canvasError": "严重错误：找不到文本覆盖画布元素！",
+      "gameModuleError": "严重错误：无法初始化游戏模块！",
+      "fetchAccountError": "获取帐户数据时出错。",
+      "loginError": "登录错误：{{error}}",
+      "creationError": "创建错误：{{error}}",
+      "skinUpdateError": "更新外观时出现网络或服务器错误：{{error}}",
+      "skinUpdatedTemp": "临时会话的外观已更新。",
+      "deleteAccountError": "帐户删除期间发生网络错误。"
+    },
+    "confirms": {
+      "enterGhostMode": "进入幽灵模式（观察者）？",
+      "deleteAccount": "您确定要永久删除您的帐户 \"{{username}}\" 吗？此操作不可逆。"
+    },
+    "welcomeMessage": "您好，{{username}}！",
+    "welcomeMessage_admin": "您好，{{username}}（管理员）！"
+  },
+  "forms": {
+    "common": {
+      "usernameLabel": "用户名：",
+      "passwordLabel": "密码：",
+      "backButton": "返回"
+    },
+    "guest": {
+      "title": "以访客身份游戏",
+      "note": "颜色和皮肤将通过“自定义外观”设置。",
+      "submitButton": "开始游戏"
+    },
+    "login": {
+      "title": "登录",
+      "submitButton": "登录"
+    },
+    "create": {
+      "title": "创建帐户",
+      "initialHeadColorLabel": "初始头部颜色：",
+      "initialBodyColorLabel": "初始身体颜色：",
+      "submitButton": "创建"
+    },
+    "skin": {
+      "title": "自定义外观",
+      "headColorLabel": "头部颜色：",
+      "bodyTypeLabel": "身体类型",
+      "bodyTypeSingle": "单色",
+      "bodyTypePattern": "重复图案",
+      "bodyColorLabel": "身体颜色：",
+      "patternColorsLabel": "图案颜色（最多 8 种）",
+      "trailEffectLabel": "拖尾效果",
+      "trailEffect": {
+        "none": "无",
+        "sparkle": "闪烁",
+        "smoke": "绿烟",
+        "fire": "火焰",
+        "ice": "冰晶",
+        "electric": "电火花",
+        "rainbow": "彩虹",
+        "bubbles": "气泡",
+        "glitch": "故障",
+        "void": "虚空/阴影",
+        "confetti": "彩屑"
+      },
+      "submitButton": "保存外观"
+    },
+    "sound": {
+      "title": "自定义声音",
+      "info": "为事件上传 MP3 文件（本地存储）。",
+      "deathLabel": "死亡声音：",
+      "killLabel": "击杀声音：",
+      "boostLabel": "加速声音：",
+      "clearButton": "清除声音"
+    }
+  },
+  "gameOver": {
+    "replayButton": "重新开始",
+    "backToMenuButton": "返回菜单",
+    "finalSizeLabel": "您的大小是：{{size}}"
+  },
+  "leaderboard": {
+    "title": "排行榜",
+    "header": {
+      "name": "名称",
+      "status": "状态",
+      "size": "大小",
+      "kills": "击杀",
+      "deaths": "死亡",
+      "kd": "K/D"
+    },
+    "noPlayers": "尚无玩家排名。",
+    "status": {
+      "ingame": "游戏中",
+      "online": "在线",
+      "offline": "离线",
+      "never": "从未",
+      "na": "N/A",
+      "ingameTitle": "当前在游戏中"
+    },
+    "time": {
+      "secondsAgo_one": "{{count}} 秒前",
+      "secondsAgo_other": "{{count}} 秒前",
+      "minutesAgo_one": "{{count}} 分钟前",
+      "minutesAgo_other": "{{count}} 分钟前",
+      "hoursAgo_one": "{{count}} 小时前",
+      "hoursAgo_other": "{{count}} 小时前",
+      "daysAgo_one": "{{count}} 天前",
+      "daysAgo_other": "{{count}} 天前",
+      "yesterday": "昨天"
+    },
+    "lastLoginTitle": "上次登录：{{date}}"
+  },
+  "helpPanel": {
+    "menuKeysTitle": "键盘快捷键（菜单）",
+    "menuKeys": {
+      "navigate": "↑ / ↓ / Tab：导航按钮",
+      "activate": "Enter：激活所选按钮",
+      "close": "Esc：关闭此面板/返回"
+    },
+    "gameKeysTitle": "键盘快捷键（游戏）",
+    "gameKeys": {
+      "mouse": "鼠标：控制蛇",
+      "boost": "左键单击/空格键：加速",
+      "adminCheat": "P：管理员作弊（如果是管理员）"
+    },
+    "ghostKeysTitle": "键盘快捷键（幽灵）",
+    "ghostKeys": {
+      "select": "左键单击（在玩家上）：选择玩家",
+      "pan": "左键单击 + 拖动（空白区域）：平移镜头",
+      "zoom": "鼠标滚轮：缩放",
+      "kill": "K（如果选择了玩家）：击杀玩家",
+      "clear": "C（如果选择了玩家）：清理玩家（无食物）",
+      "freeze": "F（如果选择了玩家）：冻结/解冻玩家",
+      "deselect": "Esc：取消选择"
+    },
+    "creditsTitle": "鸣谢",
+    "creditsAuthor": "作者：匿名作者",
+    "creditsLicense": "许可证：MIT",
+    "creditsGithub": "GitHub 上的项目"
+  }
+}

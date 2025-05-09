@@ -1,0 +1,66 @@
+{
+    "//Authentication": "Credentials and security settings",
+    "adminPasswordHash": "$2b$10$QV3Pqr3ShQAJhQhsOXLBXOMMBbnxaQNFmNaTVVCkZD7ZeJYqz2guC",
+    
+    "//VisualSettings": "Settings that control the visual appearance of the game",
+    "FPS": 120,
+    "GRID_CELL_SIZE": 100,
+    "AOI_RADIUS": 2000,
+    "DEFAULT_ZOOM_LEVEL": 3,
+    "FADE_OUT_DURATION": 5000,
+    
+    "//MapConfiguration": "Settings that define the game map dimensions and behavior",
+    "MAP_SHAPE": "rectangle",
+    "MAP_WIDTH": 500,
+    "MAP_HEIGHT": 6000,
+    "SPAWN_MARGIN": 40,
+    
+    "//DynamicMapSettings": "Controls for dynamically sizing the map based on player count",
+    "dynamicMapSizeEnabled": true,
+    "dynamicBaseMapSize": 300,
+    "dynamicMapSizePerPlayer": 300,
+    "dynamicMinMapSize": 300,
+    "dynamicMaxMapSize": 15000,
+    "dynamicMapSizeStepThreshold": 100,
+    
+    "//PlayerProperties": "Core settings for player movement and gameplay",
+    "INITIAL_SIZE": 50,
+    "SPEED": 1.5,
+    "MAX_ROTATION_RATE": 0.08,
+    "COLLISION_RADIUS": 5,
+    "SELF_COLLISION_ENABLED": false,
+    "SAFE_COUNT": 15,
+    "MAX_TRAIL_LENGTH_DEFAULT": 1000,
+    
+    "//GameMechanics": "Game rules and mechanics settings",
+    "GODMODE_DURATION": 5000,
+    "CONTROL_DELAY": 500,
+    
+    "//BoostSettings": "Settings for the boost mechanics",
+    "MIN_BOOST_SIZE": 50,
+    "BOOST_CONSUMPTION_RATE": 1,
+    "BOOST_CONSUMPTION_INTERVAL": 5,
+    
+    "//FoodSettings": "Configuration for food objects in the game",
+    "FOOD_SPAWN_INTERVAL": 100,
+    "FOOD_ATTRACTION_RADIUS": 50,
+    "FOOD_ATTRACTION_STRENGTH": 0.1,
+    "FOOD_SNAP_DISTANCE": 5,
+    "FOOD_CONSUMPTION_DELAY": 1000,
+    "FOOD_EXPIRATION_TIME": 10000,
+    "RANDOMIZATION_FOOD_EXPIRATION_TIME": 3000,
+    
+    "//BotSettings": "Configuration for AI-controlled bots",
+    "BOTS_ENABLED": false,
+    "BOT_MAX_COUNT": 10,
+    "BOT_SPAWN_INTERVAL_MS": 5000,
+    "BOT_EXPIRATION_TIME_MS": 120000,
+    "BOT_DIFFICULTY": "easy",
+    
+    "//SecuritySettings": "Anti-cheat and security configurations",
+    "SECURITY_MODE": "high",
+    "TELEPORT_VIOLATION_THRESHOLD": 5,
+    "TELEPORT_TOLERANCE_FACTOR": 1.5,
+    "CHEAT_DURATION": 5000
+ }
+ 

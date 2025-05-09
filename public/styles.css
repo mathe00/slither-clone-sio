@@ -1,0 +1,1037 @@
+/* --- public/styles.css --- */
+/**
+ * ==============================================================================
+ * FILE: styles.css
+ *
+ * DESCRIPTION:
+ * Base stylesheet for the Slither Clone SIO application. Includes global resets,
+ * body styling, main menu layout and appearance (buttons, forms, title),
+ * notification styles, offline page styling, credits/help panel styles,
+ * common UI elements (like buttons, inputs), focus visibility styles, and
+ * defines root CSS variables for theming across the application.
+ *
+ * DEVELOPER GUIDELINES:
+ * - Keep comments concise, relevant, and in English.
+ * - Explain complex selectors or layout techniques.
+ * - Define reusable CSS variables (--var-name) here for consistent theming.
+ * - Maintain and update existing comments when refactoring or modifying styles.
+ * - Ensure styles are organized logically (e.g., base, layout, components, theme).
+ * ==============================================================================
+ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  background-image: url("main-menu-background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --menu-bg: rgba(10, 5, 20, 0.85); /* Dark purple/blue */
+  --menu-border: #8a2be2; /* BlueViolet */
+  --menu-glow: rgba(138, 43, 226, 0.6); /* BlueViolet glow */
+  --button-bg: rgba(0, 0, 0, 0.4);
+  --button-border: #00ffff; /* Cyan */
+  --button-hover-bg: rgba(0, 255, 255, 0.15);
+  --button-hover-border: #ff00ff; /* Magenta */
+  --button-active-bg: rgba(255, 0, 255, 0.2);
+  --button-text: #00ffff; /* Cyan */
+  --button-text-shadow: 0 0 3px #00ffff, 0 0 5px rgba(0, 255, 255, 0.5);
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --input-border: rgba(138, 43, 226, 0.5); /* BlueViolet */
+  --input-focus-border: #ff00ff; /* Magenta */
+  --input-focus-glow: rgba(255, 0, 255, 0.5);
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-header: #00ffff; /* Cyan */
+  --text-highlight: #ff00ff; /* Magenta */
+  --text-success: #39ff14; /* Neon Green */
+  --text-error: #ff1e56; /* Neon Red */
+  --text-warning: #ffa500; /* Bright Orange */
+  --text-info: #4faded; /* Light Blue/Cyan */
+  --font-stack: "Courier New", Courier, monospace;
+}
+
+/* --- Admin Link Style --- */
+#adminLink {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  z-index: 6;
+  font-size: 14px; /* Slightly larger */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 0px; /* Sharp edges */
+  border: 1px solid rgba(138, 43, 226, 0.4); /* Subtle purple border */
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s,
+    text-shadow 0.3s;
+  opacity: 1;
+  font-family: var(--font-stack);
+  letter-spacing: 1px;
+}
+#adminLink:hover {
+  color: var(--text-highlight); /* Magenta */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: var(--text-highlight);
+  text-shadow: 0 0 3px var(--text-highlight);
+}
+
+/* --- Start Menu --- */
+#startMenuOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  backdrop-filter: blur(4px);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  z-index: 4;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#menu-inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 550px; /* Slightly wider */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* --- Welcome Message Style --- */
+.welcome-message {
+  display: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 20px; /* More space */
+  padding: 8px 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0px; /* Sharp edges */
+  border: 1px solid var(--input-border);
+  text-align: center;
+  font-family: var(--font-stack);
+  letter-spacing: 1px;
+}
+
+/* --- Main Title Style --- */
+#startMenuOverlay h2.main-title {
+  margin-bottom: 35px; /* More space */
+  white-space: nowrap;
+  font-size: 26px; /* Slightly smaller base */
+  color: var(--text-secondary); /* Grey base */
+  text-align: center;
+  font-family: var(--font-stack);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.blink {
+  animation: blink 1.5s infinite steps(1, end); /* Stepped animation */
+  font-size: 52px; /* Larger */
+  font-weight: bold;
+  display: inline-block; /* Needed for transform */
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    color: var(--text-header); /* Cyan */
+    text-shadow: 0 0 5px var(--text-header), 0 0 10px var(--text-header),
+      0 0 15px rgba(0, 255, 255, 0.7);
+    transform: skewX(-5deg) scale(1);
+  }
+  50% {
+    color: var(--text-highlight); /* Magenta */
+    text-shadow: 0 0 5px var(--text-highlight), 0 0 10px var(--text-highlight),
+      0 0 15px rgba(255, 0, 255, 0.7);
+    transform: skewX(5deg) scale(1.02);
+  }
+}
+
+/* Mode Selector Buttons */
+.modeSelector {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 350px; /* Wider buttons */
+  gap: 18px; /* More gap */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.modeSelector.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+.modeSelector button {
+  margin-top: 0;
+}
+
+/* --- General Button Style --- */
+button,
+.button-like /* Apply to elements styled like buttons */ {
+  padding: 12px 25px; /* More padding */
+  font-size: 16px; /* Smaller font */
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 2px solid var(--button-border);
+  border-radius: 0px; /* Sharp edges */
+  transition: background 0.2s ease-out, border-color 0.2s ease-out,
+    color 0.2s ease-out, text-shadow 0.2s ease-out, box-shadow 0.2s ease-out,
+    transform 0.1s ease-out;
+  margin-top: 10px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5); /* Cyan glow + inner shadow */
+  text-shadow: var(--button-text-shadow);
+  font-family: var(--font-stack);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  /* Ensure consistent display for focus */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none; /* For link fallbacks */
+}
+
+button:hover,
+.button-like:hover {
+  transform: translateY(-1px) scale(1.02); /* Slight lift and scale */
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border); /* Magenta border */
+  color: var(--button-hover-border); /* Magenta text */
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.5),
+    /* Magenta glow */ inset 0 0 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 3px #ff00ff, 0 0 5px rgba(255, 0, 255, 0.7); /* Magenta text glow */
+}
+button:active,
+.button-like:active {
+  transform: translateY(0px) scale(1); /* Press down */
+  background: var(--button-active-bg);
+  border-color: var(--button-hover-border);
+  color: var(--button-hover-border);
+  box-shadow: 0 0 5px rgba(255, 0, 255, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0 2px #ff00ff;
+}
+
+/* --- Specific Button Colors (using theme colors) --- */
+.logout-btn,
+.delete-account-btn,
+#clearSoundsButton {
+  --button-border: var(--text-error); /* Neon Red */
+  --button-text: var(--text-error);
+  --button-text-shadow: 0 0 3px var(--text-error),
+    0 0 5px rgba(255, 30, 86, 0.5);
+  --button-hover-border: #ff6b9c; /* Lighter red */
+  --button-hover-bg: rgba(255, 30, 86, 0.15);
+  --button-active-bg: rgba(255, 30, 86, 0.2);
+  box-shadow: 0 0 8px rgba(255, 30, 86, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.delete-account-btn {
+  font-size: 14px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.custom-sounds-btn {
+  --button-border: #8a2be2; /* BlueViolet */
+  --button-text: #8a2be2;
+  --button-text-shadow: 0 0 3px #8a2be2, 0 0 5px rgba(138, 43, 226, 0.5);
+  --button-hover-border: #a040ff; /* Lighter purple */
+  --button-hover-bg: rgba(138, 43, 226, 0.15);
+  --button-active-bg: rgba(138, 43, 226, 0.2);
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.appearance-btn,
+.skin-btn /* Style skin button like appearance */ {
+  --button-border: var(--text-warning); /* Bright Orange */
+  --button-text: var(--text-warning);
+  --button-text-shadow: 0 0 3px var(--text-warning),
+    0 0 5px rgba(255, 165, 0, 0.5);
+  --button-hover-border: #ffc966; /* Lighter orange */
+  --button-hover-bg: rgba(255, 165, 0, 0.15);
+  --button-active-bg: rgba(255, 165, 0, 0.2);
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.ghost-mode-btn,
+.back-button {
+  --button-border: var(--text-secondary); /* Grey */
+  --button-text: var(--text-secondary);
+  --button-text-shadow: 0 0 3px var(--text-secondary),
+    0 0 5px rgba(160, 160, 160, 0.5);
+  --button-hover-border: #c0c0c0; /* Lighter grey */
+  --button-hover-bg: rgba(160, 160, 160, 0.15);
+  --button-active-bg: rgba(160, 160, 160, 0.2);
+  box-shadow: 0 0 8px rgba(160, 160, 160, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.show-leaderboard-btn {
+  --button-border: var(--text-info); /* Light Blue */
+  --button-text: var(--text-info);
+  --button-text-shadow: 0 0 3px var(--text-info),
+    0 0 5px rgba(79, 173, 237, 0.5);
+  --button-hover-border: #7ccfff; /* Lighter blue */
+  --button-hover-bg: rgba(79, 173, 237, 0.15);
+  --button-active-bg: rgba(79, 173, 237, 0.2);
+  box-shadow: 0 0 8px rgba(79, 173, 237, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Forms Style --- */
+.modeForm {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 450px; /* Wider forms */
+  background: var(--menu-bg);
+  padding: 30px 35px; /* More padding */
+  border-radius: 0px; /* Sharp edges */
+  border: 2px solid var(--menu-border);
+  box-shadow: 0 0 15px var(--menu-glow), inset 0 0 10px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.modeForm.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+.modeForm h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--text-header); /* Default Cyan */
+  text-align: center;
+  font-size: 20px; /* Smaller */
+  border-bottom: 1px solid var(--menu-border);
+  padding-bottom: 12px;
+  font-family: var(--font-stack);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 4px var(--text-header);
+}
+/* Specific title colors */
+#loginForm h3 {
+  color: var(--text-highlight); /* Magenta */
+  text-shadow: 0 0 4px var(--text-highlight);
+}
+#createForm h3 {
+  color: var(--text-success); /* Neon Green */
+  text-shadow: 0 0 4px var(--text-success);
+}
+#appearanceForm h3 {
+  color: var(--text-warning); /* Orange */
+  text-shadow: 0 0 4px var(--text-warning);
+}
+#soundForm h3 {
+  color: #8a2be2; /* BlueViolet */
+  text-shadow: 0 0 4px #8a2be2;
+}
+/* --- Skin Form Title --- */
+#skinForm h3 {
+  color: var(--text-warning); /* Orange like appearance */
+  text-shadow: 0 0 4px var(--text-warning);
+}
+
+.modeForm label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px; /* More space */
+  font-size: 15px; /* Smaller */
+  color: var(--text-secondary);
+  font-family: var(--font-stack);
+  letter-spacing: 1px;
+}
+
+.modeForm input[type="text"],
+.modeForm input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 0px; /* Sharp edges */
+  flex-basis: 65%;
+  margin-left: 10px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: var(--font-stack);
+}
+.modeForm input[type="text"]:focus,
+.modeForm input[type="password"]:focus {
+  outline: none;
+  border-color: var(--input-focus-border); /* Magenta */
+  box-shadow: 0 0 8px var(--input-focus-glow); /* Magenta glow */
+}
+
+input[type="color"] {
+  padding: 0;
+  border: 1px solid var(--input-border);
+  width: 45px;
+  height: 28px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 10px;
+  border-radius: 0px; /* Sharp edges */
+  background-color: var(--input-bg);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+input[type="color"]:hover {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 5px var(--input-focus-glow);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px; /* More space */
+  gap: 20px; /* More gap */
+}
+.form-buttons button {
+  flex-grow: 1;
+  margin-top: 0;
+}
+/* Back button style inherited from general button + specific color override */
+
+/* --- Custom Sounds Form Style --- */
+#soundForm h3 {
+  color: #8a2be2; /* BlueViolet */
+  text-shadow: 0 0 4px #8a2be2;
+}
+.sound-info {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  font-family: var(--font-stack);
+  letter-spacing: 0.5px;
+}
+.sound-upload-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  border: 1px solid var(--input-border);
+}
+.sound-upload-group label {
+  margin-bottom: 0;
+  flex-basis: 30%;
+  font-size: 14px;
+}
+.sound-upload-group input[type="file"] {
+  flex-basis: 55%;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-family: var(--font-stack);
+}
+.sound-upload-group input[type="file"]::file-selector-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #8a2be2; /* Purple text */
+  border: 1px solid #8a2be2;
+  border-radius: 0px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  font-family: var(--font-stack);
+  text-transform: uppercase;
+}
+.sound-upload-group input[type="file"]::file-selector-button:hover {
+  background-color: rgba(138, 43, 226, 0.2);
+  color: #a040ff;
+  box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+.sound-status {
+  flex-basis: 10%;
+  text-align: center;
+  font-size: 20px;
+  cursor: default;
+  color: var(--text-success); /* Neon Green check */
+  text-shadow: 0 0 3px var(--text-success);
+}
+/* Clear sounds button color set with other red buttons */
+
+/* --- Skin Form Styles --- */
+.skin-section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed var(--input-border);
+}
+.skin-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0; /* Remove margin for last section before buttons */
+}
+.skin-section h4 {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+.radio-group label {
+  margin-bottom: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+/* Custom radio button */
+.radio-group input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--button-border); /* Cyan border */
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.radio-group input[type="radio"]:checked {
+  border-color: var(--text-highlight); /* Magenta */
+  background-color: var(--button-hover-bg); /* Magentaish bg */
+}
+.radio-group input[type="radio"]:checked::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-highlight); /* Magenta */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.radio-group input[type="radio"]:focus-visible {
+  outline: 2px solid var(--input-focus-border);
+  outline-offset: 2px;
+}
+
+#patternColorPickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+#patternColorPickers input[type="color"] {
+  margin-left: 0; /* Override default margin */
+  width: 35px; /* Smaller pickers */
+  height: 24px;
+}
+
+.small-btn {
+  padding: 4px 10px !important;
+  font-size: 14px !important;
+  min-width: 30px;
+  margin-top: 0;
+  margin-right: 10px;
+  /* Use grey button colors */
+  --button-border: var(--text-secondary);
+  --button-text: var(--text-secondary);
+  --button-text-shadow: none;
+  --button-hover-border: #c0c0c0;
+  --button-hover-bg: rgba(160, 160, 160, 0.15);
+  --button-active-bg: rgba(160, 160, 160, 0.2);
+  box-shadow: 0 0 5px rgba(160, 160, 160, 0.3),
+    inset 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+#trailEffectSelect {
+  padding: 8px 10px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 0px;
+  font-size: 14px;
+  font-family: var(--font-stack);
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+#trailEffectSelect:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 8px var(--input-focus-glow);
+}
+
+/* --- Notification Styles --- */
+#notificationContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px; /* More gap */
+}
+
+.notification {
+  background-color: rgba(10, 5, 20, 0.9); /* Dark bg */
+  color: var(--text-primary);
+  padding: 12px 18px; /* More padding */
+  border-radius: 0px; /* Sharp edges */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  border-left: 4px solid var(--text-info); /* Default info color */
+  max-width: 320px;
+  word-wrap: break-word;
+  font-family: var(--font-stack);
+  letter-spacing: 0.5px;
+  border-right: 1px solid var(--text-info); /* Add border right */
+  border-top: 1px solid var(--text-info);
+  border-bottom: 1px solid var(--text-info);
+}
+
+.notification-success {
+  border-color: var(--text-success); /* Neon Green */
+  background-color: rgba(57, 255, 20, 0.1); /* Greenish bg */
+  color: var(--text-success);
+  text-shadow: 0 0 3px var(--text-success);
+}
+
+.notification-error {
+  border-color: var(--text-error); /* Neon Red */
+  background-color: rgba(255, 30, 86, 0.1); /* Reddish bg */
+  color: var(--text-error);
+  text-shadow: 0 0 3px var(--text-error);
+}
+
+/* --- Offline Page Styles --- */
+.error-container {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 0, 10, 0.95),
+    rgba(20, 5, 30, 0.98)
+  ); /* Darker purple */
+  backdrop-filter: blur(6px);
+  border-radius: 0px; /* Sharp edges */
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.4),
+    /* Purple glow */ inset 0 0 15px rgba(0, 0, 0, 0.7);
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 700px; /* Wider */
+  animation: fadeIn 0.6s ease-out;
+  border: 2px solid var(--menu-border); /* Purple border */
+  color: var(--text-primary);
+  text-align: center;
+  font-family: var(--font-stack);
+}
+
+.offline-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 30px;
+  animation: subtleBob 3s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px var(--text-error)); /* Red glow */
+}
+
+.error-container h1 {
+  color: var(--text-error); /* Neon Red */
+  font-size: 32px; /* Larger */
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--text-error), 0 0 8px rgba(255, 30, 86, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.error-container p {
+  font-size: 16px; /* Smaller */
+  line-height: 1.8;
+  margin-bottom: 35px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+.error-container p .game-name {
+  font-weight: bold;
+  color: var(--text-highlight); /* Magenta */
+  text-shadow: 0 0 3px var(--text-highlight);
+}
+
+.retry-info {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: var(--text-secondary);
+  border: 1px solid rgba(138, 43, 226, 0.4); /* Purple border */
+  padding: 20px 30px;
+  border-radius: 0px; /* Sharp edges */
+  font-size: 15px;
+  margin-top: 15px;
+  display: inline-block;
+  min-width: 300px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+.retry-info div {
+  margin-bottom: 12px;
+}
+.retry-info div:last-child {
+  margin-bottom: 0;
+}
+
+.countdown {
+  font-weight: bold;
+  color: var(--text-info); /* Cyan */
+  min-width: 45px;
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: rgba(79, 173, 237, 0.1);
+  border-radius: 0px;
+  border: 1px solid rgba(79, 173, 237, 0.3);
+}
+
+.attempts {
+  font-weight: bold;
+  color: var(--text-warning); /* Orange */
+  padding: 2px 6px;
+  background-color: rgba(255, 165, 0, 0.1);
+  border-radius: 0px;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+/* Refresh Button inherits general button style + grey color override */
+.refresh-button {
+  margin-top: 0;
+  padding: 10px 22px;
+  font-size: 15px;
+  margin-bottom: 30px;
+  /* Use grey button colors */
+  --button-border: var(--text-secondary);
+  --button-text: var(--text-secondary);
+  --button-text-shadow: 0 0 3px var(--text-secondary);
+  --button-hover-border: #c0c0c0;
+  --button-hover-bg: rgba(160, 160, 160, 0.15);
+  --button-active-bg: rgba(160, 160, 160, 0.2);
+  box-shadow: 0 0 8px rgba(160, 160, 160, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.refresh-button:disabled {
+  background: rgba(50, 50, 50, 0.5);
+  border-color: #444;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7);
+  text-shadow: none;
+}
+
+.status-info {
+  margin-top: 35px; /* More space */
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.pulse {
+  animation: pulseStatus 1.5s infinite ease-in-out;
+  display: inline-block;
+  color: var(--text-warning);
+  font-weight: bold;
+  text-shadow: 0 0 3px var(--text-warning);
+}
+/* Keep pulseStatus animation */
+@keyframes pulseStatus {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Offline Snake Game Styles inherit font */
+#offline-snake-game-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid rgba(138, 43, 226, 0.3); /* Purple border */
+  border-radius: 0px; /* Sharp edges */
+  background-color: rgba(0, 0, 0, 0.3);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#offline-snake-game-container h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#snakeGameCanvas {
+  background-color: #050208; /* Very dark base */
+  background-image: linear-gradient(
+      to right,
+      rgba(138, 43, 226, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(138, 43, 226, 0.1) 1px,
+      transparent 1px
+    ); /* Fainter purple grid */
+  background-size: 20px 20px;
+  border: 1px solid rgba(138, 43, 226, 0.5); /* Brighter purple border */
+  margin-bottom: 12px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow */
+}
+#snakeGameScore {
+  font-family: var(--font-stack);
+  font-size: 18px; /* Larger */
+  color: var(--text-success); /* Neon Green */
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-shadow: 0 0 4px var(--text-success), 0 0 6px rgba(57, 255, 20, 0.6); /* Brighter glow */
+  letter-spacing: 1px;
+}
+#snakeGameControls {
+  font-family: var(--font-stack);
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+/* --- Keyboard Focus Style --- */
+/* Apply to buttons and relevant inputs */
+button:focus-visible,
+input[type="color"]:focus-visible,
+input[type="radio"]:focus-visible,
+input[type="file"]:focus-visible,
+select:focus-visible,
+.button-like:focus-visible {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px var(--menu-bg), 0 0 0 4px var(--text-highlight),
+    /* Magenta outer glow */ 0 0 15px var(--text-highlight); /* Magenta softer glow */
+  /* Ensure high contrast for visibility */
+  border-color: var(--text-highlight) !important; /* Force border color */
+}
+
+/* Specific style for the JS-managed focus class */
+.focused {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--menu-bg), 0 0 0 4px var(--text-highlight),
+    0 0 15px var(--text-highlight);
+  border-color: var(--text-highlight) !important;
+  /* Optional: Add a subtle animation */
+  animation: focusPulse 1s infinite alternate;
+}
+
+@keyframes focusPulse {
+  from {
+    box-shadow: 0 0 0 2px var(--menu-bg), 0 0 0 4px var(--text-highlight),
+      0 0 15px var(--text-highlight);
+  }
+  to {
+    box-shadow: 0 0 0 2px var(--menu-bg), 0 0 0 5px var(--text-highlight),
+      0 0 20px rgba(255, 0, 255, 0.7); /* Brighter glow */
+  }
+}
+
+/* --- Credits/Help Panel Styles --- */
+.credits-help-btn {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%; /* Circle */
+  z-index: 10;
+  margin: 0;
+  /* Use grey button colors */
+  --button-border: var(--text-secondary);
+  --button-text: var(--text-secondary);
+  --button-text-shadow: none;
+  --button-hover-border: #c0c0c0;
+  --button-hover-bg: rgba(160, 160, 160, 0.15);
+  --button-active-bg: rgba(160, 160, 160, 0.2);
+  box-shadow: 0 0 8px rgba(160, 160, 160, 0.3),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.credits-help-panel {
+  position: fixed;
+  bottom: 60px; /* Position above the button */
+  right: 15px;
+  width: 90%;
+  max-width: 450px;
+  background: var(--menu-bg);
+  border: 2px solid var(--menu-border);
+  box-shadow: 0 0 20px var(--menu-glow);
+  border-radius: 0px;
+  padding: 25px;
+  z-index: 9;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-family: var(--font-stack);
+  max-height: calc(100vh - 100px); /* Limit height */
+  overflow-y: auto;
+}
+.credits-help-panel.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.close-credits-help-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 1;
+  margin: 0;
+  /* Use red button colors */
+  --button-border: var(--text-error);
+  --button-text: var(--text-error);
+  --button-text-shadow: none;
+  --button-hover-border: #ff6b9c;
+  --button-hover-bg: rgba(255, 30, 86, 0.15);
+  --button-active-bg: rgba(255, 30, 86, 0.2);
+  box-shadow: 0 0 5px rgba(255, 30, 86, 0.3),
+    inset 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.credits-help-panel h4 {
+  color: var(--text-header); /* Cyan */
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.credits-help-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+.credits-help-panel li {
+  margin-bottom: 5px;
+}
+.credits-help-panel kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: var(--font-stack);
+  font-size: 13px;
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--input-border);
+  border-radius: 0px;
+  margin: 0 2px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+}
+.credits-help-panel hr {
+  border: none;
+  border-top: 1px dashed var(--input-border);
+  margin: 20px 0;
+}
+.credits-help-panel p {
+  margin: 5px 0;
+  font-size: 13px;
+}
+.credits-help-panel a {
+  color: var(--text-highlight); /* Magenta */
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.credits-help-panel a:hover {
+  color: #ff69b4; /* Lighter Magenta */
+  text-decoration: underline;
+  text-shadow: 0 0 3px var(--text-highlight);
+}
+/* Scrollbar for credits panel */
+.credits-help-panel::-webkit-scrollbar { width: 6px; }
+.credits-help-panel::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+.credits-help-panel::-webkit-scrollbar-thumb { background-color: var(--input-border); }
+.credits-help-panel::-webkit-scrollbar-thumb:hover { background-color: var(--menu-border); }
+
+/* --- Zero Gravity Styles --- */
+#menu-inner-container.zero-gravity {
+  /* Make container take up more space if needed, or rely on overlay size */
+  /* position: absolute; top: 0; left: 0; width: 100%; height: 100%; */
+}
+#menu-inner-container.zero-gravity .modeSelector,
+#menu-inner-container.zero-gravity .modeForm {
+  position: absolute; /* Allow absolute positioning */
+  /* transition for smooth movement */
+  transition: top 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    left 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Ensure they are above the background but below overlays */
+  z-index: 5;
+}
+/* Hide non-essential elements during zero-g */
+#menu-inner-container.zero-gravity .welcome-message,
+#menu-inner-container.zero-gravity h2.main-title {
+  display: none;
+}
+
+/* --- Add this CSS for the note --- */
+.form-note {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  padding: 8px;
+  background-color: rgba(0,0,0,0.2);
+  border: 1px dashed var(--input-border);
+  border-radius: 0px;
+  text-align: center;
+}

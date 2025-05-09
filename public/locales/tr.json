@@ -1,0 +1,527 @@
+{
+    "pageTitle": "Yönetici - Slither Clone",
+    "backButtonTitle": "Ana sayfaya geri dön",
+    "tabs": {
+      "settings": "Genel Ayarlar",
+      "users": "Kullanıcı Yönetimi",
+      "currentConfig": "Mevcut Yapılandırma"
+    },
+    "settingsForm": {
+      "title": "Genel Ayarlar",
+      "passwordNote": "<strong>Not:</strong> Yönetici parolasını ayarlamak veya sıfırlamak için sunucuyu durdurun ve şu komutla çalıştırın:<br/><code>node backend/server.js --set-new-password YENİ_PAROLANIZ</code><br/>Bu sayfaya erişim, aktif bir yönetici oturumu (çerez aracılığıyla) gerektirir.<br/>Bazı ayarların (* ile işaretli) uygulanması için sunucunun yeniden başlatılması gerekir.",
+      "mapWidth": {
+        "label": "Harita Genişliği (px) *:",
+        "placeholder": "örn. 4000"
+      },
+      "mapHeight": {
+        "label": "Harita Yüksekliği (px) *:",
+        "placeholder": "örn. 4000"
+      },
+      "mapShape": {
+        "label": "Harita Şekli *:",
+        "rectangle": "Dikdörtgen",
+        "circle": "Daire"
+      },
+      "aoiRadius": {
+        "label": "İlgi Alanı (AoI) Yarıçapı (px) *:",
+        "placeholder": "örn. 2000"
+      },
+      "maxTrailLengthDefault": {
+        "label": "Yılan Boyut Sınırı (Varsayılan):",
+        "placeholder": "örn. 1000"
+      },
+      "initialSize": {
+        "label": "Başlangıç Yılan Boyutu:",
+        "placeholder": "örn. 50"
+      },
+      "speed": {
+        "label": "Temel Hız:",
+        "placeholder": "örn. 1"
+      },
+      "maxRotationRate": {
+        "label": "Maks. Dönüş Hızı (rad/tick):",
+        "placeholder": "örn. 0.08"
+      },
+      "minBoostSize": {
+        "label": "Hızlanma Min. Boyutu:",
+        "placeholder": "örn. 50"
+      },
+      "boostConsumptionRate": {
+        "label": "Hızlanma Tüketim Oranı:",
+        "placeholder": "örn. 1"
+      },
+      "foodSpawnInterval": {
+        "label": "Yem Oluşma Aralığı (ms):",
+        "placeholder": "örn. 5000"
+      },
+      "fps": {
+        "label": "Sunucu FPS (döngü/sn):",
+        "placeholder": "örn. 45"
+      },
+      "foodAttractionStrength": {
+        "label": "Yem Çekim Gücü:",
+        "placeholder": "örn. 0.1"
+      },
+      "foodSnapDistance": {
+        "label": "Yem Yakalama Mesafesi:",
+        "placeholder": "örn. 5"
+      },
+      "defaultZoomLevel": {
+        "label": "Varsayılan Yakınlaştırma Seviyesi:",
+        "placeholder": "örn. 1.0"
+      },
+      "securityMode": {
+        "label": "Güvenlik Modu *:",
+        "high": "Yüksek (Önerilen)",
+        "low": "Düşük (İstemci + Hafif)"
+      },
+      "teleportViolationThreshold": {
+        "label": "Işınlanma İhlal Eşiği:",
+        "placeholder": "örn. 5"
+      },
+      "teleportToleranceFactor": {
+        "label": "Işınlanma Tolerans Faktörü:",
+        "placeholder": "örn. 1.5"
+      },
+      "botsEnabled": {
+        "label": "Botları Etkinleştir:",
+        "yes": "Evet",
+        "no": "Hayır"
+      },
+      "botMaxCount": {
+        "label": "Maks. Bot Sayısı:",
+        "placeholder": "örn. 10"
+      },
+      "botSpawnIntervalMs": {
+        "label": "Bot Oluşma Aralığı (ms):",
+        "placeholder": "örn. 5000"
+      },
+      "botExpirationTimeMs": {
+        "label": "Bot Ömrü (ms):",
+        "placeholder": "örn. 120000"
+      },
+      "botDifficulty": {
+        "label": "Bot Zorluğu:",
+        "easy": "Kolay",
+        "medium": "Orta",
+        "hard": "Zor"
+      },
+      "adminMessageText": {
+        "label": "Yönetici Mesajı (temizlemek için boş bırakın):",
+        "placeholder": "Tüm oyunculara gösterilecek mesaj"
+      },
+      "adminMessageDuration": {
+        "label": "Mesaj Süresi (saniye):",
+        "placeholder": "örn. 10"
+      },
+      "updateButton": "Ayarları Güncelle"
+    },
+    "userManagement": {
+      "title": "Kullanıcı Yönetimi",
+      "loading": "Yükleniyor...",
+      "noUsers": "Kullanıcı bulunamadı.",
+      "table": {
+        "headerUser": "Kullanıcı",
+        "headerStatus": "Durum",
+        "headerLastLogin": "Son Giriş",
+        "headerCreated": "Oluşturulma",
+        "headerActions": "Eylemler"
+      },
+      "status": {
+        "admin": "Yönetici",
+        "suspended": "Askıya Alındı",
+        "normal": "Normal",
+        "never": "Hiçbir zaman",
+        "unknown": "Bilinmiyor"
+      },
+      "actions": {
+        "removeAdmin": "Yöneticiyi Kaldır",
+        "makeAdmin": "Yönetici Yap",
+        "unban": "Askıdan Çıkar",
+        "suspend": "Askıya Al",
+        "delete": "Sil"
+      },
+      "pruneButton": "Etkin Olmayan Hesapları Temizle",
+      "confirmDelete": "\"{{username}}\" kullanıcısını kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "confirmPrune_one": "{{count}} etkin olmayan hesabı (15 günden uzun süredir etkin olmayan VE çok düşük istatistiklere sahip) silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "confirmPrune_other": "{{count}} etkin olmayan hesabı (15 günden uzun süredir etkin olmayan VE çok düşük istatistiklere sahip) silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "confirmPruneZero": "Mevcut kriterlere göre etkin olmayan hesap bulunamadı. Yine de işlemi çalıştırmak istiyor musunuz (her ihtimale karşı)?",
+      "confirmPruneZeroConfirm": "0 hesap algılansa bile temizleme işlemini onaylıyor musunuz?",
+      "pruneCancelled": "Temizleme işlemi iptal edildi."
+    },
+    "currentConfig": {
+      "title": "Mevcut Sunucu Yapılandırması",
+      "loading": "Yapılandırma yükleniyor...",
+      "loadError": "Yapılandırma yüklenemedi.",
+      "loadSuccess": "Mevcut yapılandırma yüklendi.",
+      "keys": {
+        "MAP_WIDTH": "Harita Genişliği (px)",
+        "MAP_HEIGHT": "Harita Yüksekliği (px)",
+        "MAP_SHAPE": "Harita Şekli",
+        "AOI_RADIUS": "İlgi Alanı (AoI) Yarıçapı (px)",
+        "SECURITY_MODE": "Güvenlik Modu",
+        "MAX_TRAIL_LENGTH_DEFAULT": "Yılan Boyut Sınırı (Varsayılan)",
+        "INITIAL_SIZE": "Başlangıç Yılan Boyutu",
+        "MIN_BOOST_SIZE": "Hızlanma Min. Boyutu",
+        "SPEED": "Temel Hız",
+        "MAX_ROTATION_RATE": "Maks. Dönüş Hızı",
+        "BOOST_CONSUMPTION_RATE": "Hızlanma Tüketimi (Boyut/tick)",
+        "FPS": "Sunucu FPS",
+        "FOOD_SPAWN_INTERVAL": "Yem Oluşma Aralığı (ms)",
+        "FOOD_ATTRACTION_STRENGTH": "Yem Çekim Gücü",
+        "FOOD_SNAP_DISTANCE": "Yem Yakalama Mesafesi",
+        "DEFAULT_ZOOM_LEVEL": "Varsayılan Yakınlaştırma Seviyesi",
+        "TELEPORT_VIOLATION_THRESHOLD": "Işınlanma İhlal Eşiği",
+        "TELEPORT_TOLERANCE_FACTOR": "Işınlanma Tolerans Faktörü",
+        "BOTS_ENABLED": "Botlar Etkin",
+        "BOT_MAX_COUNT": "Maks. Bot Sayısı",
+        "BOT_SPAWN_INTERVAL_MS": "Bot Oluşma Aralığı (ms)",
+        "BOT_EXPIRATION_TIME_MS": "Bot Ömrü (ms)",
+        "BOT_DIFFICULTY": "Bot Zorluğu"
+      },
+      "boolean": {
+        "yes": "Evet",
+        "no": "Hayır"
+      }
+    },
+    "feedback": {
+      "accessDenied": "Erişim reddedildi. Yönlendiriliyor...",
+      "settingsUpdated": "Ayarlar başarıyla güncellendi.",
+      "settingsUpdatedWithRestart": "Ayarlar güncellendi. Harita/güvenlik değişiklikleri için sunucunun yeniden başlatılması gerekiyor.",
+      "settingsUpdatedFpsRestart": "Ayarlar güncellendi. FPS için oyun döngüsü yeniden başlatıldı.",
+      "settingsUpdateError": "Ayarlar güncellenirken hata oluştu.",
+      "loadSettingsError": "Ayarlar yüklenirken hata oluştu: {{error}}",
+      "loadUsersError": "Kullanıcılar yüklenirken hata oluştu.",
+      "networkError": "Ağ hatası veya sunucu kullanılamıyor.",
+      "invalidResponse": "Sunucudan geçersiz yanıt (JSON değil)",
+      "changes": "Değişiklikler:",
+      "restartRequired": "Değişiklikleri uygulamak için sunucunun yeniden başlatılması gerekiyor (Harita Boyutu/Şekli, Güvenlik Modu, AoI Yarıçapı).",
+      "fpsRestart": "Yeni FPS'yi uygulamak için oyun döngüsü yeniden başlatıldı.",
+      "noChanges": "Hiçbir ayar değiştirilmedi.",
+      "userActionSuccess": "{{message}}",
+      "userActionError": "{{message}}",
+      "prunePreviewError": "Önizleme sırasında hata.",
+      "pruneError": "Temizleme işlemi sırasında hata.",
+      "pruneSuccess": "{{message}}"
+    },
+    "soundManager": {
+      "alerts": {
+        "selectMp3": "Lütfen bir MP3 dosyası seçin.",
+        "loginRequired": "Özel sesleri kaydetmek için giriş yapmalısınız.",
+        "saveError": "Ses kaydedilirken hata oluştu. Yerel depolama alanı dolu olabilir.",
+        "readError": "Ses dosyası okunurken hata oluştu.",
+        "clearLoginRequired": "Sesleri temizlemek için giriş yapmalısınız.",
+        "clearError": "Sesler silinirken bir hata oluştu."
+      },
+      "confirms": {
+        "clearAll": "Bu hesap için tüm özel sesleri silmek istediğinizden emin misiniz?"
+      },
+      "statusTitles": {
+        "saveError": "Kaydetme Hatası",
+        "readError": "Okuma Hatası",
+        "saved": "Ses kaydedildi",
+        "savedWithName": "Kaydedildi: {{filename}}"
+      }
+    },
+    "offlinePage": {
+      "title": "Sunucu Kullanılamıyor - Slither Clone SIO",
+      "logoAlt": "Sunucu Kullanılamıyor Logosu",
+      "mainHeader": "Sunucu Kullanılamıyor",
+      "explanation": "<span class=\"game-name\">Slither Clone SIO</span> sunucusu geçici olarak çevrimdışı veya ulaşılamaz görünüyor. Sizin için bağlantıyı yeniden kurmaya çalışıyoruz.",
+      "snakeTitle": "Bu arada, Yılan Oyna!",
+      "snakeScoreLabel": "Skor: 0",
+      "snakeControls": "Oklar / ZQSD / WASD: Hareket | Enter: Başlat/Yeniden Başlat",
+      "status": {
+        "label": "Durum:",
+        "searching": "Aranıyor...",
+        "checking": "Kontrol ediliyor...",
+        "connected": "Bağlandı!",
+        "nextAttemptLabel": "Sonraki deneme",
+        "secondsSuffix": "sn içinde",
+        "attemptsLabel": "Denemeler:"
+      },
+      "refreshButton": "Şimdi Kontrol Et",
+      "redirectInfo": "Sunucu tekrar çevrimiçi olduğunda otomatik olarak yönlendirileceksiniz."
+    },
+    "offlineSnake": {
+      "hud": {
+        "scoreLabel": "Skor: {{score}}"
+      },
+      "gameOver": {
+        "win": "KAZANDIN!",
+        "lose": "KAYBETTİN!",
+        "scoreLabel": "Skor: {{score}}",
+        "promptLine1": "Enter'a Bas",
+        "promptLine2": "Tekrar Oynamak İçin"
+      },
+      "countdown": "{{count}} SANİYEDE BAŞLIYOR",
+      "startScreen": {
+        "title": "YILAN",
+        "promptLine1": "Enter'a Bas",
+        "promptLine2": "Oynamak İçin"
+      }
+    },
+    "api": {
+      "errors": {
+        "internalServerError": "Dahili sunucu hatası.",
+        "invalidAdminStatus": "Geçersiz 'isAdmin' durumu.",
+        "userNotFound": "Kullanıcı bulunamadı.",
+        "invalidSuspendStatus": "Geçersiz 'isSuspended' durumu.",
+        "cannotDeleteSelf": "Kendi yönetici hesabınızı buradan silemezsiniz.",
+        "prunePreviewError": "Temizleme önizlemesi sırasında hata.",
+        "pruneError": "Temizleme işlemi sırasında hata.",
+        "rateLimit": "Çok fazla hesap oluşturma denemesi. Lütfen yaklaşık {{minutes}} dakika içinde tekrar deneyin.",
+        "missingCredentials": "Kullanıcı adı ve parola gerekli.",
+        "usernameTooLong": "Kullanıcı adı {{maxLength}} karakteri aşamaz.",
+        "usernameTooShort": "Kullanıcı adı en az {{minLength}} karakter uzunluğunda olmalıdır.",
+        "passwordTooShort": "Parola en az {{minLength}} karakter uzunluğunda olmalıdır.",
+        "usernameTaken": "Bu kullanıcı adı zaten alınmış.",
+        "invalidCredentials": "Geçersiz kullanıcı adı veya parola.",
+        "accountSuspended": "Bu hesap şu anda askıya alınmış.",
+        "notAuthenticated": "Kimlik doğrulanmadı.",
+        "invalidHeadColor": "Geçersiz kafa rengi.",
+        "missingSkinData": "Dış görünüm verileri eksik veya geçersiz.",
+        "invalidBodyType": "Geçersiz vücut tipi.",
+        "invalidBodyColor": "Dış görünüm verilerinde geçersiz vücut rengi.",
+        "invalidPatternColorsType": "Desen renkleri bir dizi olmalıdır.",
+        "tooManyPatternColors": "Çok fazla desen rengi (maks. {{max}}).",
+        "invalidPatternColorValue": "Desende geçersiz renk bulundu.",
+        "invalidTrailEffect": "Geçersiz iz efekti.",
+        "adminCannotDeleteSelf": "Yöneticiler bu arayüz üzerinden kendi hesaplarını silemezler.",
+        "deleteAccountError": "Hesap silme sırasında dahili hata."
+      },
+      "success": {
+        "accountCreated": "Hesap oluşturuldu ve başarıyla giriş yapıldı.",
+        "login": "Giriş başarılı.",
+        "logout": "Çıkış başarılı.",
+        "skinUpdated": "Görünüm başarıyla güncellendi.",
+        "accountDeleted": "Hesabınız başarıyla silindi."
+      },
+      "admin": {
+        "adminStatusUpdated": "{{username}} için yönetici durumu güncellendi.",
+        "suspendStatusUpdated": "{{username}} için askıya alma durumu güncellendi.",
+        "userDeleted": "{{username}} hesabı başarıyla silindi.",
+        "pruneNoUsers": "Temizlenecek etkin olmayan hesap bulunamadı.",
+        "pruneSuccess": "{{count}} etkin olmayan hesap temizlendi."
+      }
+    },
+    "socket": {
+      "loginFailed": {
+        "suspended": "Hesabınız askıya alındı.",
+        "accountError": "Hesap hatası. Lütfen tekrar giriş yapın.",
+        "alreadyConnected": "Bu hesap zaten oyuna bağlı.",
+        "deletedByAdmin": "Hesabınız bir yönetici tarafından silindi.",
+        "accountDeleted": "Hesabınız silindi."
+      },
+      "kickReason": "{{admin}} tarafından atıldınız",
+      "banReason": "{{admin}} tarafından yasaklandınız",
+      "clearReason": "{{admin}} tarafından temizlendiniz",
+      "adminFeedback": {
+        "unauthorized": "Yetkisiz işlem.",
+        "targetNotFound": "Hedef oyuncu bulunamadı.",
+        "kickSuccess": "{{username}} atıldı.",
+        "kickOfflineSuccess": "{{username}} (zaten bağlantısı kesilmiş) oyundan kaldırıldı.",
+        "kickError": "{{username}} için soket veya durum bulunamadı.",
+        "banSuccess": "{{username}} yasaklandı (hesap askıya alındı ve oyuncu atıldı).",
+        "banAccountOnlySuccess": "{{username}} hesabı askıya alındı (oyuncu zaten bağlantısı kesilmiş veya kaldırılmış).",
+        "banError": "{{username}} yasaklanamıyor (geçici veya mevcut olmayan hesap).",
+        "freezeSuccess": "{{username}} donduruldu.",
+        "unfreezeSuccess": "{{username}} çözüldü.",
+        "killSuccess": "{{username}} öldürüldü.",
+        "clearSuccess": "{{username}} temizlendi (yem düşürmeden kaldırıldı).",
+        "clearError": "{{username}} temizlenemedi (zaten kaldırılmış?).",
+        "unknownAction": "Bilinmeyen işlem."
+      },
+      "userConnected": "{{username}} oyuna katıldı.",
+      "userDisconnected": "{{username}} oyundan ayrıldı.",
+      "disconnectReason": "Bağlantı kesildi: {{reason}}"
+    },
+    "game": {
+      "deathReason": {
+        "unknown": "Bilinmeyen çarpışma",
+        "boundary": "Harita sınırına çarptınız.",
+        "teleport": "Bağlantı kesildi: Şüpheli hareket.",
+        "selfCollision": "Hile önleme: Kendi kendine çarpışma.",
+        "inactivity": "Hareketsizlik.",
+        "killedByAdmin": "{{admin}} tarafından öldürüldünüz",
+        "botExpired": "Bot süresi doldu.",
+        "clientCollision": "Vücut çarpışması (istemci)"
+      }
+    },
+    "hud": {
+      "sizeLabel": "Boyut: {{size}}",
+      "positionLabel": "Konum: {{x}}x{{y}}",
+      "ghostMode": "Hayalet Modu",
+      "spectator": "İzleyici"
+    },
+    "ghostMode": {
+      "selected": "Seçili: <span class=\"selected-player-name\">{{name}}</span>",
+      "unknownPlayer": "Bilinmiyor",
+      "controlsSelected": "<kbd>K</kbd>: Öldür | <kbd>C</kbd>: Temizle | <kbd>F</kbd>: Dondur/Çöz | <kbd>Esc</kbd>: Seçimi Kaldır",
+      "controlsGeneral": "Sol Tık: Varlık Seç / Kaydırmak İçin Sürükle<br>Tekerlek: Yakınlaştır/Uzaklaştır | <kbd>Esc</kbd>: Seçimi Kaldır"
+    },
+    "mainPage": {
+      "title": "Slither Clone SIO"
+    },
+    "mainMenu": {
+      "title": "<span class=\"blink\">Slither Clone SIO</span>'ya Hoş Geldiniz",
+      "helpButtonTitle": "Yardım ve Katkıda Bulunanlar",
+      "adminLink": "Yönetici",
+      "exitGhostButton": "Hayalet Modundan Çık"
+    },
+    "ui": {
+      "buttons": {
+        "playGuest": "Misafir Olarak Oyna",
+        "playAsUser": "{{username}} olarak oyna",
+        "login": "Giriş Yap",
+        "createAccount": "Hesap Oluştur",
+        "customizeSkin": "Görünümü Özelleştir",
+        "customSounds": "Özel Sesler",
+        "showLeaderboard": "Skor Tablosunu Göster",
+        "ghostMode": "Hayalet Modu",
+        "deleteAccount": "Hesabımı Sil",
+        "logout": "Çıkış Yap"
+      },
+      "alerts": {
+        "colorTooDark": "Seçilen renk çok koyu ve görülmesi zor olabilir. Daha açık bir renk önerilir.",
+        "missingCredentials": "Lütfen bir kullanıcı adı ve parola girin.",
+        "usernameLength": "Kullanıcı adı {{min}} ile {{max}} karakter arasında olmalıdır.",
+        "passwordLength": "Parola en az {{min}} karakter uzunluğunda olmalıdır.",
+        "maxPatternColors": "Maksimum {{max}} desen rengine ulaşıldı.",
+        "canvasError": "Kritik Hata: Metin katmanı için tuval öğesi bulunamadı!",
+        "gameModuleError": "Kritik Hata: Oyun modülü başlatılamadı!",
+        "fetchAccountError": "Hesap verileri alınırken hata oluştu.",
+        "loginError": "Giriş Hatası: {{error}}",
+        "creationError": "Oluşturma Hatası: {{error}}",
+        "skinUpdateError": "Görünüm güncellenirken ağ veya sunucu hatası: {{error}}",
+        "skinUpdatedTemp": "Geçici oturum için görünüm güncellendi.",
+        "deleteAccountError": "Hesap silme sırasında ağ hatası."
+      },
+      "confirms": {
+        "enterGhostMode": "Hayalet Moduna (izleyici) girilsin mi?",
+        "deleteAccount": "\"{{username}}\" hesabınızı kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+      },
+      "welcomeMessage": "Merhaba {{username}}!",
+      "welcomeMessage_admin": "Merhaba {{username}} (Yönetici)!"
+    },
+    "forms": {
+      "common": {
+        "usernameLabel": "Kullanıcı Adı:",
+        "passwordLabel": "Parola:",
+        "backButton": "Geri"
+      },
+      "guest": {
+        "title": "Misafir Olarak Oyna",
+        "note": "Renkler ve dış görünüm \"Görünümü Özelleştir\" aracılığıyla ayarlanacaktır.",
+        "submitButton": "Oyunu Başlat"
+      },
+      "login": {
+        "title": "Giriş Yap",
+        "submitButton": "Giriş Yap"
+      },
+      "create": {
+        "title": "Hesap Oluştur",
+        "initialHeadColorLabel": "Başlangıç Kafa Rengi:",
+        "initialBodyColorLabel": "Başlangıç Vücut Rengi:",
+        "submitButton": "Oluştur"
+      },
+      "skin": {
+        "title": "Görünümü Özelleştir",
+        "headColorLabel": "Kafa Rengi:",
+        "bodyTypeLabel": "Vücut Tipi",
+        "bodyTypeSingle": "Tek Renk",
+        "bodyTypePattern": "Tekrarlayan Desen",
+        "bodyColorLabel": "Vücut Rengi:",
+        "patternColorsLabel": "Desen Renkleri (maks 8)",
+        "trailEffectLabel": "İz Efekti",
+        "trailEffect": {
+          "none": "Yok",
+          "sparkle": "Parıltı",
+          "smoke": "Yeşil Duman",
+          "fire": "Ateş",
+          "ice": "Buz Kırıkları",
+          "electric": "Elektrik Kıvılcımları",
+          "rainbow": "Gökkuşağı",
+          "bubbles": "Baloncuklar",
+          "glitch": "Glitch",
+          "void": "Boşluk / Gölge",
+          "confetti": "Konfeti"
+        },
+        "submitButton": "Görünümü Kaydet"
+      },
+      "sound": {
+        "title": "Özel Sesler",
+        "info": "Etkinlikler için MP3 dosyaları (yerel olarak saklanır) yükleyin.",
+        "deathLabel": "Ölüm Sesi:",
+        "killLabel": "Öldürme Sesi:",
+        "boostLabel": "Hızlanma Sesi:",
+        "clearButton": "Sesleri Temizle"
+      }
+    },
+    "gameOver": {
+      "replayButton": "Tekrar Oyna",
+      "backToMenuButton": "Menüye Dön",
+      "finalSizeLabel": "Boyutunuz: {{size}} idi"
+    },
+    "leaderboard": {
+      "title": "Skor Tablosu",
+      "header": {
+        "name": "Ad",
+        "status": "Durum",
+        "size": "Boyut",
+        "kills": "Öldürme",
+        "deaths": "Ölüm",
+        "kd": "K/D"
+      },
+      "noPlayers": "Henüz sıralamada oyuncu yok.",
+      "status": {
+        "ingame": "Oyunda",
+        "online": "Çevrimiçi",
+        "offline": "Çevrimdışı",
+        "never": "Hiçbir zaman",
+        "na": "N/A",
+        "ingameTitle": "Şu anda oyunda"
+      },
+      "time": {
+        "secondsAgo_one": "{{count}} sn önce",
+        "secondsAgo_other": "{{count}} sn önce",
+        "minutesAgo_one": "{{count}} dk önce",
+        "minutesAgo_other": "{{count}} dk önce",
+        "hoursAgo_one": "{{count}} sa önce",
+        "hoursAgo_other": "{{count}} sa önce",
+        "daysAgo_one": "{{count}} gün önce",
+        "daysAgo_other": "{{count}} gün önce",
+        "yesterday": "Dün"
+      },
+      "lastLoginTitle": "Son giriş: {{date}}"
+    },
+    "helpPanel": {
+      "menuKeysTitle": "Klavye Kısayolları (Menü)",
+      "menuKeys": {
+        "navigate": "↑ / ↓ / Tab: Düğmelerde gezin",
+        "activate": "Enter: Seçili düğmeyi etkinleştir",
+        "close": "Esc: Bu paneli kapat / Geri"
+      },
+      "gameKeysTitle": "Klavye Kısayolları (Oyun)",
+      "gameKeys": {
+        "mouse": "Fare: Yılanı yönlendir",
+        "boost": "Sol Tık / Boşluk: Hızlan",
+        "adminCheat": "P: Yönetici Hilesi (yönetici ise)"
+      },
+      "ghostKeysTitle": "Klavye Kısayolları (Hayalet)",
+      "ghostKeys": {
+        "select": "Sol Tık (oyuncu üzerinde): Oyuncu Seç",
+        "pan": "Sol Tık + Sürükle (boş alan): Kamerayı Kaydır",
+        "zoom": "Fare Tekerleği: Yakınlaştır/Uzaklaştır",
+        "kill": "K (oyuncu seçiliyse): Oyuncuyu Öldür",
+        "clear": "C (oyuncu seçiliyse): Oyuncuyu Temizle (yem yok)",
+        "freeze": "F (oyuncu seçiliyse): Oyuncuyu Dondur/Çöz",
+        "deselect": "Esc: Oyuncu Seçimini Kaldır"
+      },
+      "creditsTitle": "Katkıda Bulunanlar",
+      "creditsAuthor": "Yazar: Anonim Yazar",
+      "creditsLicense": "Lisans: MIT",
+      "creditsGithub": "GitHub'daki Proje"
+    }
+  }
+  
