@@ -9,7 +9,6 @@
 
 Welcome to **Slither Clone SIO**, a modern and feature-rich reinterpretation of the classic Slither.io game. Developed entirely in JavaScript with Node.js, Express, Socket.IO, and **WebGL** for ultra-performant client-side rendering, this project goes beyond a simple clone. It integrates a robust architecture, advanced customization features, a comprehensive admin system, internationalization support, and optimizations for a smooth and engaging gaming experience. 🚀
 
----
 ## 🌟 Key Features (Features Packed!)
 This project isn't just a snake eating dots. Discover everything it has under the hood:
 
@@ -106,7 +105,6 @@ This project isn't just a snake eating dots. Discover everything it has under th
 *   **Internationalization:** `i18next` library with JSON files in `/public/locales/`.
 *   **Progressive Web App (PWA):** Service Worker (`service-worker.js`) caches core assets, **including locale files and i18next libraries**, for offline functionality (localized offline page).
 
----
 ## ⚙️ Technical Deep Dive
 Some key mechanisms explained:
 
@@ -185,7 +183,6 @@ The code isn't perfect by the strictest professional standards, but it works and
 
 **Contributions are welcome!** If you're an experienced developer (or even a motivated beginner!) and see areas for improvement, bugs to fix, or want to implement one of the roadmap ideas (like the Phaser migration!), feel free to open an *Issue* or a *Pull Request* on the GitHub repository. Your help would be greatly appreciated! 🙏
 
----
 ## 💖 Support the Project
 If you've found this project useful or fun, consider making a small donation. I've spent a lot of time developing this game, and your support helps keep projects like this going.
 
@@ -199,7 +196,6 @@ I currently accept donations through:
 
 If you have any questions about donations or encounter any issues, please feel free to open a GitHub issue.
 
----
 ## 🚀 Quick Start
 1.  **Prerequisites:** Ensure you have [Node.js](https://nodejs.org/) (version 18.x or higher recommended) and npm installed.
 2.  **Clone the Repository:**
@@ -225,7 +221,6 @@ If you have any questions about donations or encounter any issues, please feel f
     ```
 6.  **Play!** Open your browser and navigate to `http://localhost:3000` (or the configured port). Your browser's language should be automatically detected for the UI text.
 
----
 ## 📜 License
 This project is distributed under the **MIT License**. See the `LICENSE` file or [choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/) for more details.
 
