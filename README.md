@@ -222,15 +222,15 @@ If you have any questions about donations or encounter any issues, please feel f
     ```
 4.  **Configuration (Optional but Recommended):**
     *   The `backend/config.json` file will be created with default values on the first run if it doesn't exist.
-    *   **Admin Password:** To set the admin password for the first time or reset it, stop the server and run:
+    *   **Admin Account Setup:** To set or reset the password for the default administrator account (username: "admin"), stop the server and run:
         ```bash
-        node backend/server.js --set-new-password YOUR_SECRET_PASSWORD
+        node backend/server.js --set-new-password YOUR_ADMIN_PASSWORD
         ```
-    *   Adjust other settings in `backend/config.json` as needed (map size, FPS, etc.).
+    *   This command will create an "admin" account if it doesn't exist, or update its password. This account will have administrative privileges.
+    *   Adjust other game settings in `backend/config.json` as needed (map size, FPS, etc.).
 5.  **Start the Server:**
     ```bash
-    npm start
-    # Or: node backend/server.js
+    node backend/server.js
     ```
 6.  **Play!** Open your browser and navigate to `http://localhost:3000` (or the configured port). Your browser's language should be automatically detected for the UI text.
 
