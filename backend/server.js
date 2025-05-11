@@ -517,6 +517,24 @@ ServerLifecycle.init(dependencies);
 const apiRouter = createApiRouter(dependencies); // Create router instance with dependencies
 app.use("/", apiRouter); // Mount the router at the root path
 
+// --- Admin Account Check on Startup ---
+if (!accounts["admin"]) {
+  console.warn("\n************************************************************************************");
+  console.warn("WARNING: No 'admin' account found.");
+  console.warn("It is highly recommended to create an administrator account by running:");
+  console.warn("  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD");
+  console.warn("Without an admin account, you will not be able to access the admin panel.");
+  console.warn("The server will start, but admin functionalities will be unavailable.");
+  console.warn("************************************************************************************\n");
+} else if (accounts["admin"] && !accounts["admin"].password) {
+  // This case should ideally not happen with the new setup, but as a safeguard:
+  console.warn("\n************************************************************************************");
+  console.warn("WARNING: The 'admin' account exists but seems to have no password set.");
+  console.warn("Please ensure you have run the --set-new-password command correctly:");
+  console.warn("  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD");
+  console.warn("************************************************************************************\n");
+}
+
 // --- Start Server ---
 ServerLifecycle.start(); // Start the server using the lifecycle module
 
