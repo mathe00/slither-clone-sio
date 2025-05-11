@@ -131,16 +131,11 @@ function loadConfig() {
     }
     config.AOI_RADIUS = parseInt(config.AOI_RADIUS) || 2000;
 
-    if (config.adminPasswordHash === undefined) {
-      config.adminPasswordHash = "";
-      console.log("Missing 'adminPasswordHash' key, added. Use --set-new-password.");
-      saveConfig();
-    }
-     if (config.GODMODE_ON_SPAWN_ENABLED === undefined) {
+    if (config.GODMODE_ON_SPAWN_ENABLED === undefined) {
        config.GODMODE_ON_SPAWN_ENABLED = true; // Default to true if missing
-       console.log("Missing 'GODMODE_ON_SPAWN_ENABLED' key, added with value true.");
+      console.log("Missing 'GODMODE_ON_SPAWN_ENABLED' key, added with value true.");
        saveConfig(); // Save immediately if this key was added
-     }
+    }
     console.log(`Initial map dimensions: ${initialMapWidth}x${initialMapHeight} (Shape: ${config.MAP_SHAPE})`);
 
   } catch (err) {
@@ -171,19 +166,59 @@ function saveConfig() {
 function handleAdminPasswordArg() {
   const args = process.argv.slice(2);
   const passwordArgIndex = args.indexOf("--set-new-password");
+
   if (passwordArgIndex !== -1 && args.length > passwordArgIndex + 1) {
     const newPassword = args[passwordArgIndex + 1];
     if (newPassword) {
       try {
-        loadConfig(); // Load existing config first
-        const hash = bcrypt.hashSync(newPassword, BCRYPT_SALT_ROUNDS);
-        config.adminPasswordHash = hash;
-        saveConfig();
-        console.log("New admin password hashed and saved.");
+        // Load accounts or initialize if not exists
+        let currentAccounts = {};
+        if (fs.existsSync(ACCOUNTS_PATH)) {
+          currentAccounts = JSON.parse(fs.readFileSync(ACCOUNTS_PATH, "utf8"));
+        }
+
+        const adminUsername = "admin"; // Default admin username
+        const hashedPassword = bcrypt.hashSync(newPassword, BCRYPT_SALT_ROUNDS);
+
+        if (currentAccounts[adminUsername]) {
+          // Update existing admin account
+          currentAccounts[adminUsername].password = hashedPassword;
+          currentAccounts[adminUsername].isAdmin = true; // Ensure isAdmin is true
+          console.log(`Password for admin account "${adminUsername}" has been updated.`);
+        } else {
+          // Create new admin account
+          currentAccounts[adminUsername] = {
+            password: hashedPassword,
+            headColor: "#d400ff", // Default admin head color
+            bodyColor: "#00f2ff", // Default admin body color
+            skinData: {
+              bodyType: "pattern",
+              bodyColor: "#00f2ff",
+              patternColors: ["#d400ff", "#00f2ff", "#f0f0f0"],
+              trailEffect: "electric"
+            },
+            created: Date.now(),
+            lastLogin: null,
+            totalSize: 0,
+            totalKills: 0,
+            totalDeaths: 0,
+            isTemporary: false,
+            isAdmin: true,
+            isSuspended: false,
+          };
+          console.log(`Admin account "${adminUsername}" created with the new password.`);
+        }
+
+        // Save updated accounts
+        fs.writeFileSync(ACCOUNTS_PATH, JSON.stringify(currentAccounts, null, 2), "utf8");
+        console.log("Admin account configured and accounts.json saved.");
+
       } catch (error) {
-        console.error("Error hashing/saving admin password:", error);
+        console.error("Error configuring admin account:", error);
       }
-    } else console.error("Please provide a password after --set-new-password.");
+    } else {
+      console.error("Please provide a password after --set-new-password.");
+    }
     process.exit(0); // Exit after setting password
   }
 }

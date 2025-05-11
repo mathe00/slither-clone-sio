@@ -1,7 +1,4 @@
-{
-    "//Authentication": "Credentials and security settings",
-    "adminPasswordHash": "$2b$10$QV3Pqr3ShQAJhQhsOXLBXOMMBbnxaQNFmNaTVVCkZD7ZeJYqz2guC",
-    
+{    
     "//VisualSettings": "Settings that control the visual appearance of the game",
     "FPS": 120,
     "GRID_CELL_SIZE": 100,
