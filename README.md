@@ -167,6 +167,15 @@ This project is a solid foundation, but here are some potential improvements and
     *   [ ] **Boost Particle Consistency:** Particles generated during boost should have the same appearance/type as standard food or be a distinct but visually consistent type.
 *   **Internationalization (i18n):**
     *   [ ] **Expand Language Support:** Add translations for over 15 new languages to reach a broader global audience. ([Issue #9](https://github.com/mathe00/slither-clone-sio/issues/9))
+    *   [ ] **Implement Full Right-to-Left (RTL) Layout Support:** Adapt HTML and CSS for languages like Arabic, Persian, Urdu. ([Issue #10](https://github.com/mathe00/slither-clone-sio/issues/10))
+*   **Visual Enhancements:**
+    *   [ ] **Improved Godmode Shield Effect:** Enhance the visual feedback for the temporary godmode/shield active at spawn with a dynamic pulsing effect. ([Issue #11](https://github.com/mathe00/slither-clone-sio/issues/11))
+*   **Server-Side Robustness & Security:**
+    *   [ ] **Implement Robust Server-Side Input Validation and Sanitization:** Rigorously validate all data received from clients via Socket.IO and HTTP APIs. ([Issue #12](https://github.com/mathe00/slither-clone-sio/issues/12))
+    *   [ ] **Enhance Error Handling in Server Game Loop:** Implement more comprehensive `try...catch` blocks in `gameLogic.js` to prevent crashes from isolated entity errors. ([Issue #13](https://github.com/mathe00/slither-clone-sio/issues/13))
+    *   [ ] **Implement Atomic File Saving Strategy:** Ensure `accounts.json`, `sessions.json`, and `config.json` are saved atomically to prevent data corruption. ([Issue #14](https://github.com/mathe00/slither-clone-sio/issues/14))
+    *   [ ] **Implement Structured Server Logging with Levels:** Transition from `console.log` to a structured logging library (e.g., Winston, Pino) for better debugging and monitoring. ([Issue #15](https://github.com/mathe00/slither-clone-sio/issues/15))
+
 
 ### ⏳ Future Improvements (Lower Priority)
 *   [ ] **Rendering Engine Migration:**
@@ -179,8 +188,6 @@ This project is a solid foundation, but here are some potential improvements and
     *   [ ] Full code review to improve comments (in English), remove obsolete development comments. ([Issue #8](https://github.com/mathe00/slither-clone-sio/issues/8))
     *   [ ] Ensure consistent JSDoc documentation for important functions.
     *   [ ] Standardize code style further if necessary.
-*   [ ] **Visual Enhancements:**
-    *   [ ] **Improved Godmode Shield Effect:** Enhance the visual feedback for the temporary godmode/shield active at spawn. Instead of a static overlay that disappears abruptly, implement a pulsing shield effect. The pulse could start slower (e.g., once per second) and gradually increase in frequency as the godmode duration nears its end, culminating in a more distinct "fade-out" or "shatter" effect. This would provide clearer and more dynamic feedback to the player about their invulnerability status and its remaining time. ([Issue #11])
 
 ## 🤔 Creator's Note & Contributions
 This project is a personal adventure into web game development, largely achieved with the help of AI (Google's Gemini 2.5 Pro and its impressive ability to handle large code contexts!). I'm not a professional developer, just an enthusiast tinkering and learning by doing. 😅
