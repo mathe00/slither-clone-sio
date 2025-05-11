@@ -237,5 +237,27 @@ If you have any questions about donations or encounter any issues, please feel f
 ## 📜 License
 This project is distributed under the **MIT License**. See the `LICENSE` file or [choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/) for more details.
 
+## 🤔 Creator's Note & Contributions
+
+This project is a personal adventure into web game development, largely achieved with the help of AI (Google's Gemini 2.5 Pro and its impressive ability to handle large code contexts!). I'm not a professional developer, just an enthusiast tinkering and learning by doing. 😅
+
+**Why "Slither Clone SIO"?**  
+Well, because! 😉 Let's just say the reason is a well-kept secret.
+
+**Future Maintenance?**  
+Honestly, I'm not sure. I don't have specific plans to maintain it actively. If I get a bit bored and inspiration strikes, maybe! But for now, consider it a snapshot of a fun experiment.
+
+**The "Why" Behind This Project:**  
+It all started because I was bored and wanted to play Slither with friends. Trying to meet up for 1v1s on public servers for these kinds of games is a hassle. So, I thought, "Why not self-host?" I looked around for existing clones, but what I found was often old, a bit clunky, lacked features, and most importantly, didn't have multiplayer.
+
+So, I decided to build this one, heavily leveraging AI because, as you might guess from my other GitHub repos, I'm not a traditional developer. I use AI extensively to bring these projects to life, and hey, it works! That's what counts, right? 😉 I know this approach sometimes raises eyebrows among "purist" developers who aren't fans of non-devs like me building things this way, but the journey and the result are what matter to me.
+
+**Current State & Thoughts on Public Release:**  
+Right now, I don't think the project is ready for a large-scale public deployment. It's fantastic for having fun with friends in a self-hosted environment. I've poured dozens of hours into it, and if you feel like contributing to make it better, or even supporting me a little financially to help offset some of the AI API/token costs I've incurred, that would be amazing (see the Support section below!).
+
+For a truly public-ready version, it would need a more polished codebase – perhaps migrating to TypeScript for better maintainability. More critically, I believe the reliance on Socket.IO, while great for smaller groups, wouldn't be performant enough to handle a massive number of concurrent players. Even though I've tried to optimize and introduce security modes that shift some load/trust to the client, a different networking approach would likely be necessary for large-scale play.
+
+**Contributions are welcome!** If you're an experienced developer (or even a motivated beginner!) and see areas for improvement, bugs to fix, or want to implement one of the roadmap ideas (like the Phaser migration or a networking overhaul!), feel free to open an *Issue* or a *Pull Request* on the GitHub repository. Your help would be greatly appreciated! 🙏
+
 ---
 Have fun growing your snake! 🐍🎉
