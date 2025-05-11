@@ -519,20 +519,20 @@ app.use("/", apiRouter); // Mount the router at the root path
 
 // --- Admin Account Check on Startup ---
 if (!accounts["admin"]) {
-  console.warn("\n************************************************************************************");
-  console.warn("WARNING: No 'admin' account found.");
-  console.warn("It is highly recommended to create an administrator account by running:");
-  console.warn("  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD");
-  console.warn("Without an admin account, you will not be able to access the admin panel.");
-  console.warn("The server will start, but admin functionalities will be unavailable.");
-  console.warn("************************************************************************************\n");
+console.warn("\n\x1b[33m************************************************************************************\x1b[0m"); // Jaune
+  console.warn("\x1b[33mWARNING: No 'admin' account found.\x1b[0m");
+  console.warn("\x1b[33mIt is highly recommended to create an administrator account by running:\x1b[0m");
+  console.warn("\x1b[33m  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD\x1b[0m");
+  console.warn("\x1b[33mWithout an admin account, you will not be able to access the admin panel.\x1b[0m");
+  console.warn("\x1b[33mThe server will start, but admin functionalities will be unavailable.\x1b[0m");
+  console.warn("\x1b[33m************************************************************************************\x1b[0m\n");
 } else if (accounts["admin"] && !accounts["admin"].password) {
   // This case should ideally not happen with the new setup, but as a safeguard:
-  console.warn("\n************************************************************************************");
-  console.warn("WARNING: The 'admin' account exists but seems to have no password set.");
-  console.warn("Please ensure you have run the --set-new-password command correctly:");
-  console.warn("  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD");
-  console.warn("************************************************************************************\n");
+console.warn("\n\x1b[33m************************************************************************************\x1b[0m"); // Jaune
+  console.warn("\x1b[33mWARNING: The 'admin' account exists but seems to have no password set.\x1b[0m");
+  console.warn("\x1b[33mPlease ensure you have run the --set-new-password command correctly:\x1b[0m");
+  console.warn("\x1b[33m  node backend/server.js --set-new-password YOUR_CHOSEN_PASSWORD\x1b[0m");
+  console.warn("\x1b[33m************************************************************************************\x1b[0m\n");
 }
 
 // --- Start Server ---
