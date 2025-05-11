@@ -731,43 +731,11 @@ function setupEventListeners() {
       )
       .then((data) => {
         if (data.success) {
-          fetch("/check-auth")
-            .then((res) => res.json())
-            .then((authData) => {
-              if (authData.loggedIn && authData.username === username) {
-                accountData = {
-                  username: authData.username,
-                  headColor: authData.headColor || "#ff0000",
-                  bodyColor: authData.bodyColor || "#ffff00",
-                  skinData: authData.skinData,
-                };
-                loggedInUsername = authData.username;
-                isAdmin = authData.isAdmin;
-                wasLoggedInBeforeDisconnect = true;
-                currentSkinData = accountData.skinData || {
-                  bodyType: "single",
-                  headColor: accountData.headColor,
-                  bodyColor: accountData.bodyColor,
-                  patternColors: [],
-                  trailEffect: "none",
-                };
-                updateLoginStateUI();
-                if (typeof SoundManager !== 'undefined') SoundManager.updateStatus();
-
-                startMenuOverlay.style.display = "none";
-                adminLink.style.display = "none";
-                gameHasStarted = false;
-                initSocket({ mode: "account", username: accountData.username });
-              } else {
-                // Use translated alert
-                alert(t('ui.alerts.fetchAccountError'));
-              }
-            })
-            .catch((err) => {
-              console.error("Error fetching auth data after login:", err);
-              // Use translated alert
-              alert(t('ui.alerts.fetchAccountError'));
-            });
+          // Login successful, now update UI but stay on menu
+          showNotification(t(data.messageKey)); // Show success message from server
+          checkAuthentication(); // This will fetch user data and update UI state
+          showForm(null); // Go back to the main mode selector view
+          // DO NOT CALL initSocket() or startGame here
         } else {
           // Alert with translated message from server
           alert(t(data.messageKey, data.messageOptions || {}));
@@ -816,6 +784,10 @@ function setupEventListeners() {
           wasLoggedInBeforeDisconnect = true;
           currentSkinData = accountData.skinData;
           checkAuthentication();
+          startMenuOverlay.style.display = "flex"; // Ensure menu is visible
+          // adminLink visibility will be handled by updateLoginStateUI called within checkAuthentication
+          showForm(null); // Show main mode selector
+          gameHasStarted = false; // Ensure game state is reset
           startMenuOverlay.style.display = "flex";
           adminLink.style.display = isAdmin ? "block" : "none";
           showForm(null);
