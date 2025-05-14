@@ -18,5 +18,8 @@
     "i18next-http-backend": "^3.0.2",
     "socket.io": "^4.8.1"
   },
-  "description": ""
+  "description": "",
+  "engines": {
+    "node": "16.x"
+  }
 }
