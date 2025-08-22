@@ -1,0 +1,641 @@
+{
+  "categories": {
+    "Map Settings": {
+      "title": "Map Settings",
+      "description": "Game map settings",
+      "parameters": [
+        {
+          "key": "MAP_WIDTH",
+          "i18nKey": "settingsForm.mapWidth.label",
+          "type": "number",
+          "default": 4000,
+          "min": 100,
+          "max": 20000,
+          "description": "Map width in pixels",
+          "category": "Map Settings",
+          "requiresRestart": true
+        },
+        {
+          "key": "MAP_HEIGHT",
+          "i18nKey": "settingsForm.mapHeight.label",
+          "type": "number",
+          "default": 4000,
+          "min": 100,
+          "max": 20000,
+          "description": "Map height in pixels",
+          "category": "Map Settings",
+          "requiresRestart": true
+        },
+        {
+          "key": "MAP_SHAPE",
+          "i18nKey": "settingsForm.mapShape.label",
+          "type": "enum",
+          "default": "rectangle",
+          "enumValues": ["rectangle", "circle"],
+          "description": "Map shape",
+          "category": "Map Settings",
+          "requiresRestart": true
+        },
+        {
+          "key": "AOI_RADIUS",
+          "i18nKey": "settingsForm.aoiRadius.label",
+          "type": "number",
+          "default": 2000,
+          "min": 100,
+          "max": 5000,
+          "description": "Area of Interest radius in pixels",
+          "category": "Map Settings",
+          "requiresRestart": true
+        },
+        {
+          "key": "SPAWN_MARGIN",
+          "i18nKey": "settingsForm.spawnMargin.label",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 500,
+          "description": "Player spawn margin from map edges",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicMapSizeEnabled",
+          "i18nKey": "settingsForm.dynamicMapSizeEnabled.label",
+          "type": "boolean",
+          "default": true,
+          "description": "Enables dynamic map resizing based on player count",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicBaseMapSize",
+          "i18nKey": "settingsForm.dynamicBaseMapSize.label",
+          "type": "number",
+          "default": 300,
+          "min": 100,
+          "max": 5000,
+          "description": "Dynamic map base size",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicMapSizePerPlayer",
+          "i18nKey": "settingsForm.dynamicMapSizePerPlayer.label",
+          "type": "number",
+          "default": 300,
+          "min": 50,
+          "max": 1000,
+          "description": "Additional map size per player",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicMinMapSize",
+          "i18nKey": "settingsForm.dynamicMinMapSize.label",
+          "type": "number",
+          "default": 300,
+          "min": 100,
+          "max": 5000,
+          "description": "Minimum dynamic map size",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicMaxMapSize",
+          "i18nKey": "settingsForm.dynamicMaxMapSize.label",
+          "type": "number",
+          "default": 15000,
+          "min": 1000,
+          "max": 20000,
+          "description": "Maximum dynamic map size",
+          "category": "Map Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "dynamicMapSizeStepThreshold",
+          "i18nKey": "settingsForm.dynamicMapSizeStepThreshold.label",
+          "type": "number",
+          "default": 100,
+          "min": 10,
+          "max": 1000,
+          "description": "Step threshold for dynamic map resizing",
+          "category": "Map Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Player Properties": {
+      "title": "Player Properties",
+      "description": "Player behavior settings",
+      "parameters": [
+        {
+          "key": "INITIAL_SIZE",
+          "i18nKey": "settingsForm.initialSize.label",
+          "type": "number",
+          "default": 50,
+          "min": 1,
+          "max": 500,
+          "description": "Initial snake size",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "SPEED",
+          "i18nKey": "settingsForm.speed.label",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.1,
+          "description": "Base snake speed",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "MAX_ROTATION_RATE",
+          "i18nKey": "settingsForm.maxRotationRate.label",
+          "type": "number",
+          "default": 0.08,
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01,
+          "description": "Maximum rotation rate (radians per tick)",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "COLLISION_RADIUS",
+          "i18nKey": "settingsForm.collisionRadius.label",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 50,
+          "description": "Snake collision radius",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "SELF_COLLISION_ENABLED",
+          "i18nKey": "settingsForm.selfCollisionEnabled.label",
+          "type": "boolean",
+          "default": false,
+          "description": "Enables self-collision",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "SAFE_COUNT",
+          "i18nKey": "settingsForm.safeCount.label",
+          "type": "number",
+          "default": 15,
+          "min": 1,
+          "max": 100,
+          "description": "Number of protected segments at spawn",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "MAX_TRAIL_LENGTH_DEFAULT",
+          "i18nKey": "settingsForm.maxTrailLengthDefault.label",
+          "type": "number",
+          "default": 1000,
+          "min": 10,
+          "max": 10000,
+          "description": "Default maximum snake size",
+          "category": "Player Properties",
+          "requiresRestart": false
+        },
+        {
+          "key": "MIN_BOOST_SIZE",
+          "i18nKey": "settingsForm.minBoostSize.label",
+          "type": "number",
+          "default": 50,
+          "min": 1,
+          "max": 500,
+          "description": "Minimum size required to activate boost",
+          "category": "Player Properties",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Game Mechanics": {
+      "title": "Game Mechanics",
+      "description": "General game settings",
+      "parameters": [
+        {
+          "key": "GODMODE_DURATION",
+          "i18nKey": "settingsForm.godmodeDuration.label",
+          "type": "number",
+          "default": 5000,
+          "min": 1000,
+          "max": 30000,
+          "description": "Invincibility duration after spawn (ms)",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        },
+        {
+          "key": "CONTROL_DELAY",
+          "i18nKey": "settingsForm.controlDelay.label",
+          "type": "number",
+          "default": 500,
+          "min": 0,
+          "max": 5000,
+          "description": "Delay before controls become active (ms)",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        },
+        {
+          "key": "FPS",
+          "i18nKey": "settingsForm.fps.label",
+          "type": "number",
+          "default": 120,
+          "min": 10,
+          "max": 120,
+          "description": "Server frames per second",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        },
+        {
+          "key": "DEFAULT_ZOOM_LEVEL",
+          "i18nKey": "settingsForm.defaultZoomLevel.label",
+          "type": "number",
+          "default": 3,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.1,
+          "description": "Default zoom level",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        },
+        {
+          "key": "FADE_OUT_DURATION",
+          "i18nKey": "settingsForm.fadeOutDuration.label",
+          "type": "number",
+          "default": 5000,
+          "min": 1000,
+          "max": 30000,
+          "description": "Fade duration on death (ms)",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        },
+        {
+          "key": "GRID_CELL_SIZE",
+          "i18nKey": "settingsForm.gridCellSize.label",
+          "type": "number",
+          "default": 100,
+          "min": 10,
+          "max": 1000,
+          "description": "Collision grid cell size",
+          "category": "Game Mechanics",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Boost Settings": {
+      "title": "Boost Settings",
+      "description": "Boost-related settings",
+      "parameters": [
+        {
+          "key": "BOOST_CONSUMPTION_RATE",
+          "i18nKey": "settingsForm.boostConsumptionRate.label",
+          "type": "number",
+          "default": 1,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.1,
+          "description": "Boost consumption rate (size per tick)",
+          "category": "Boost Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "BOOST_CONSUMPTION_INTERVAL",
+          "i18nKey": "settingsForm.boostConsumptionInterval.label",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 100,
+          "description": "Boost consumption interval (ms)",
+          "category": "Boost Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Food Settings": {
+      "title": "Food Settings",
+      "description": "Food-related settings",
+      "parameters": [
+        {
+          "key": "FOOD_SPAWN_INTERVAL",
+          "i18nKey": "settingsForm.foodSpawnInterval.label",
+          "type": "number",
+          "default": 100,
+          "min": 10,
+          "max": 10000,
+          "description": "Food spawn interval (ms)",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "FOOD_ATTRACTION_RADIUS",
+          "i18nKey": "settingsForm.foodAttractionRadius.label",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 500,
+          "description": "Food attraction radius",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "FOOD_ATTRACTION_STRENGTH",
+          "i18nKey": "settingsForm.foodAttractionStrength.label",
+          "type": "number",
+          "default": 0.1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "description": "Food attraction strength",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "FOOD_SNAP_DISTANCE",
+          "i18nKey": "settingsForm.foodSnapDistance.label",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 10,
+          "description": "Food capture distance",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "FOOD_CONSUMPTION_DELAY",
+          "i18nKey": "settingsForm.foodConsumptionDelay.label",
+          "type": "number",
+          "default": 1000,
+          "min": 100,
+          "max": 10000,
+          "description": "Food consumption delay (ms)",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "FOOD_EXPIRATION_TIME",
+          "i18nKey": "settingsForm.foodExpirationTime.label",
+          "type": "number",
+          "default": 10000,
+          "min": 1000,
+          "max": 60000,
+          "description": "Food lifespan (ms)",
+          "category": "Food Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "RANDOMIZATION_FOOD_EXPIRATION_TIME",
+          "i18nKey": "settingsForm.randomizationFoodExpirationTime.label",
+          "type": "number",
+          "default": 3000,
+          "min": 0,
+          "max": 30000,
+          "description": "Random variation of food lifespan (ms)",
+          "category": "Food Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Bot Settings": {
+      "title": "Bot Settings",
+      "description": "Bot-related settings",
+      "parameters": [
+        {
+          "key": "BOTS_ENABLED",
+          "i18nKey": "settingsForm.botsEnabled.label",
+          "type": "boolean",
+          "default": false,
+          "description": "Enables bots",
+          "category": "Bot Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "BOT_MAX_COUNT",
+          "i18nKey": "settingsForm.botMaxCount.label",
+          "type": "number",
+          "default": 10,
+          "min": 0,
+          "max": 100,
+          "description": "Maximum number of bots",
+          "category": "Bot Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "BOT_SPAWN_INTERVAL_MS",
+          "i18nKey": "settingsForm.botSpawnIntervalMs.label",
+          "type": "number",
+          "default": 5000,
+          "min": 100,
+          "max": 60000,
+          "description": "Bot spawn interval (ms)",
+          "category": "Bot Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "BOT_EXPIRATION_TIME_MS",
+          "i18nKey": "settingsForm.botExpirationTimeMs.label",
+          "type": "number",
+          "default": 1200,
+          "min": 100,
+          "max": 6000,
+          "description": "Bot lifespan (ms)",
+          "category": "Bot Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "BOT_DIFFICULTY",
+          "i18nKey": "settingsForm.botDifficulty.label",
+          "type": "enum",
+          "default": "easy",
+          "enumValues": ["easy", "medium", "hard"],
+          "description": "Bot difficulty",
+          "category": "Bot Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Security Settings": {
+      "title": "Security Settings",
+      "description": "Security and anti-cheat settings",
+      "parameters": [
+        {
+          "key": "SECURITY_MODE",
+          "i18nKey": "settingsForm.securityMode.label",
+          "type": "enum",
+          "default": "high",
+          "enumValues": ["high", "medium", "low"],
+          "description": "Security mode",
+          "category": "Security Settings",
+          "requiresRestart": true
+        },
+        {
+          "key": "TELEPORT_VIOLATION_THRESHOLD",
+          "i18nKey": "settingsForm.teleportViolationThreshold.label",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "description": "Teleportation violation threshold",
+          "category": "Security Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "TELEPORT_TOLERANCE_FACTOR",
+          "i18nKey": "settingsForm.teleportToleranceFactor.label",
+          "type": "number",
+          "default": 1.5,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "description": "Teleportation tolerance factor",
+          "category": "Security Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "CHEAT_DURATION",
+          "i18nKey": "settingsForm.cheatDuration.label",
+          "type": "number",
+          "default": 5000,
+          "min": 1000,
+          "max": 30000,
+          "description": "Cheat detection duration (ms)",
+          "category": "Security Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Performance Settings": {
+      "title": "Performance Settings",
+      "description": "Performance-related settings",
+      "parameters": [
+        {
+          "key": "ADAPTIVE_THROTTLING_ENABLED",
+          "i18nKey": "settingsForm.adaptiveThrottlingEnabled.label",
+          "type": "boolean",
+          "default": true,
+          "description": "Enables adaptive throttling",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "MIN_FPS",
+          "i18nKey": "settingsForm.minFps.label",
+          "type": "number",
+          "default": 10,
+          "min": 1,
+          "max": 60,
+          "description": "Minimum allowed FPS",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "MAX_FPS",
+          "i18nKey": "settingsForm.maxFps.label",
+          "type": "number",
+          "default": 120,
+          "min": 30,
+          "max": 240,
+          "description": "Maximum allowed FPS",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "PERFORMANCE_CHECK_INTERVAL",
+          "i18nKey": "settingsForm.performanceCheckInterval.label",
+          "type": "number",
+          "default": 5000,
+          "min": 1000,
+          "max": 30000,
+          "description": "Performance check interval (ms)",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "HIGH_LOAD_THRESHOLD",
+          "i18nKey": "settingsForm.highLoadThreshold.label",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 100,
+          "description": "High load threshold (%)",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "HIGH_LOAD_FPS_REDUCTION",
+          "i18nKey": "settingsForm.highLoadFpsReduction.label",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.1,
+          "description": "FPS reduction factor under high load",
+          "category": "Performance Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Leaderboard Settings": {
+      "title": "Leaderboard Settings",
+      "description": "Leaderboard-related settings",
+      "parameters": [
+        {
+          "key": "LEADERBOARD_UPDATE_INTERVAL",
+          "i18nKey": "settingsForm.leaderboardUpdateInterval.label",
+          "type": "number",
+          "default": 500,
+          "min": 100,
+          "max": 10000,
+          "description": "Leaderboard update interval (ms)",
+          "category": "Leaderboard Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "LEADERBOARD_CACHE_DURATION",
+          "i18nKey": "settingsForm.leaderboardCacheDuration.label",
+          "type": "number",
+          "default": 200,
+          "min": 100,
+          "max": 5000,
+          "description": "Leaderboard cache duration (ms)",
+          "category": "Leaderboard Settings",
+          "requiresRestart": false
+        }
+      ]
+    },
+    "Admin Message Settings": {
+      "title": "Admin Message Settings",
+      "description": "Administration message settings",
+      "parameters": [
+        {
+          "key": "adminMessageText",
+          "i18nKey": "settingsForm.adminMessageText.label",
+          "type": "string",
+          "default": "",
+          "description": "Admin message text",
+          "category": "Admin Message Settings",
+          "requiresRestart": false
+        },
+        {
+          "key": "adminMessageDuration",
+          "i18nKey": "settingsForm.adminMessageDuration.label",
+          "type": "number",
+          "default": 10,
+          "min": 1,
+          "max": 300,
+          "description": "Message display duration (seconds)",
+          "category": "Admin Message Settings",
+          "requiresRestart": false
+        }
+      ]
+    }
+  }
+}

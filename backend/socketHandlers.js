@@ -188,20 +188,20 @@ function setupSocketListeners() {
 
       // --- Send Initial Data to Client ---
       const mapRadius = config.MAP_SHAPE === "circle" ? Math.min(initialMapWidth, initialMapHeight) / 2 : 0;
-      socket.emit("mapSizeUpdate", {
+      socket.compress(true).emit("mapSizeUpdate", {
         collisionRadius: config.COLLISION_RADIUS, width: initialMapWidth, height: initialMapHeight,
         shape: config.MAP_SHAPE, radius: mapRadius, mode: gameMode, zoom: config.DEFAULT_ZOOM_LEVEL,
         isGhost: joinAsGhost,
       });
-      socket.emit("leaderboard", getLeaderboard()); // Send initial leaderboard
+      socket.compress(true).emit("leaderboard", getLeaderboard()); // Send initial leaderboard
 
       // --- Notify Other Players ---
       const now = Date.now();
       if (!isTemporary && !joinAsGhost && (!lastNotificationTimes[playerUsername] || now - lastNotificationTimes[playerUsername] > notificationCooldown)) {
-        socket.broadcast.emit("userConnected", { messageKey: "socket.userConnected", messageOptions: { username: playerUsername } });
+        socket.broadcast.compress(true).emit("userConnected", { messageKey: "socket.userConnected", messageOptions: { username: playerUsername } });
         lastNotificationTimes[playerUsername] = now;
       }
-      if (!joinAsGhost) io.emit("leaderboard", getLeaderboard()); // Update leaderboard for everyone
+      if (!joinAsGhost) io.compress(true).emit("leaderboard", getLeaderboard()); // Update leaderboard for everyone
 
       // --- Ensure Food Spawning is Active ---
       if (typeof checkFoodSpawning === "function") checkFoodSpawning();
@@ -349,7 +349,7 @@ function setupSocketListeners() {
         if (p && !p.isGhost && p.type === 'player') {
             p.isFrozen = !p.isFrozen;
             console.log(`Admin ${p.name} (${socket.id}) ${p.isFrozen ? 'froze' : 'unfroze'} themselves.`);
-            socket.emit("freezeStateUpdate", { isFrozen: p.isFrozen }); // Notify client of their freeze state
+            socket.compress(true).emit("freezeStateUpdate", { isFrozen: p.isFrozen }); // Notify client of their freeze state
         } else console.warn(`Admin ${socket.username || socket.id} tried to self-freeze but player state invalid.`);
     });
 
@@ -367,7 +367,7 @@ function setupSocketListeners() {
       if (!wasGhost && disconnectedUsername && accounts[disconnectedUsername] && !accounts[disconnectedUsername].isTemporary) {
         const now = Date.now();
         if (!lastNotificationTimes[disconnectedUsername] || now - lastNotificationTimes[disconnectedUsername] > notificationCooldown) { // Throttle disconnect notifications
-          io.emit("userDisconnected", { messageKey: "socket.userDisconnected", messageOptions: { username: disconnectedUsername } });
+          io.compress(true).emit("userDisconnected", { messageKey: "socket.userDisconnected", messageOptions: { username: disconnectedUsername } });
           lastNotificationTimes[disconnectedUsername] = now;
         }
       }

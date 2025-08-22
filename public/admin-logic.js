@@ -82,6 +82,7 @@ function updateContent() {
      if (!i18next.hasResourceBundle(baseLng, 'translation')) console.error(`[updateContent] CRITICAL: Neither ${currentLng} nor base language ${baseLng} bundle found.`);
   }
   const elements = document.querySelectorAll("[data-i18n]");
+  console.log(`[updateContent] Found ${elements.length} elements with data-i18n attribute.`);
   elements.forEach((el) => {
     const key = el.getAttribute("data-i18n");
     let options = {};
@@ -92,14 +93,17 @@ function updateContent() {
             const attr = match[1];
             const realKey = match[2];
             const translation = i18next.t(realKey, { ...options, defaultValue: `[[${realKey}]]` });
+            console.log(`[updateContent] Translating attribute ${attr} of element with key ${realKey}: ${translation}`);
             el.setAttribute(attr, translation);
           }
         } else if (key.startsWith("[html]")) {
           const realKey = key.substring(6);
           const translation = i18next.t(realKey, { ...options, defaultValue: `[[html]${realKey}]`, interpolation: { escapeValue: false } });
+          console.log(`[updateContent] Translating HTML content of element with key ${realKey}: ${translation}`);
           if (el.innerHTML !== translation) el.innerHTML = translation;
         } else {
           const translation = i18next.t(key, { ...options, defaultValue: `[[${key}]]` });
+          console.log(`[updateContent] Translating text content of element with key ${key}: ${translation}`);
           if (el.textContent !== translation) el.textContent = translation;
         }
     } catch (e) {
@@ -113,6 +117,7 @@ function updateContent() {
        console.error(`[updateContent] Error translating title key "pageTitle":`, e);
        document.title = "Admin - Slither Clone";
   }
+  console.log(`[updateContent] Finished updating content.`);
 }
 
 // --- Function to trigger initial data load ---
@@ -134,6 +139,190 @@ function triggerInitialTabLoad() {
     console.error("[triggerInitialTabLoad] Error during initial fetch:", err);
     showFeedback(feedbackMessage, 'feedback.loadSettingsError', 'error', 5000, { error: err.message });
   });
+}
+
+// --- Function to generate dynamic form from schema ---
+/**
+ * Generates a dynamic form based on the configuration schema.
+ * This function fetches the schema from the server, creates category tabs,
+ * and generates form elements for each parameter in the schema.
+ *
+ * @returns {Promise<void>} A promise that resolves when the form is generated.
+ */
+async function generateDynamicForm() {
+  console.log("[generateDynamicForm] Starting...");
+  const dynamicFormContainer = document.getElementById("dynamic-form-container");
+  if (!dynamicFormContainer) {
+    console.error("[generateDynamicForm] Container #dynamic-form-container not found!");
+    return;
+  }
+
+  try {
+    // Load the configuration schema
+    const schemaResponse = await fetch("/config-schema.json");
+    if (!schemaResponse.ok) {
+      throw new Error(`Failed to load schema: ${schemaResponse.status} ${schemaResponse.statusText}`);
+    }
+    const schema = await schemaResponse.json();
+    console.log("[generateDynamicForm] Schema loaded:", schema);
+
+    // Create category tabs
+    const categoryTabsContainer = document.createElement("div");
+    categoryTabsContainer.className = "category-tabs";
+    dynamicFormContainer.appendChild(categoryTabsContainer);
+
+    // Create form grid container
+    const formGridContainer = document.createElement("div");
+    formGridContainer.className = "form-grid";
+    dynamicFormContainer.appendChild(formGridContainer);
+
+    let isFirstCategory = true;
+    for (const [categoryKey, categoryData] of Object.entries(schema.categories)) {
+      // Create category tab button
+      const tabButton = document.createElement("button");
+      tabButton.className = "category-tab-button";
+      if (isFirstCategory) {
+        tabButton.classList.add("active");
+      }
+      tabButton.textContent = categoryData.title;
+      tabButton.setAttribute("data-category", categoryKey);
+      categoryTabsContainer.appendChild(tabButton);
+
+      // Create category content div
+      const categoryContent = document.createElement("div");
+      categoryContent.className = "category-content";
+      if (isFirstCategory) {
+        categoryContent.classList.add("active");
+      }
+      categoryContent.setAttribute("data-category", categoryKey);
+      formGridContainer.appendChild(categoryContent);
+
+      // Generate form elements for each parameter in the category
+      categoryData.parameters.forEach(parameter => {
+        const formGroup = document.createElement("div");
+        formGroup.className = "form-group";
+
+        const label = document.createElement("label");
+        label.setAttribute("for", parameter.key);
+        label.setAttribute("data-i18n", parameter.i18nKey);
+        console.log(`[generateDynamicForm] Created label for ${parameter.key} with i18n key: ${parameter.i18nKey}`);
+        // Set a default text content which will be replaced by i18next
+        label.textContent = parameter.key;
+        formGroup.appendChild(label);
+
+        let inputElement;
+        if (parameter.type === "boolean") {
+          // For boolean types, use a select dropdown
+          inputElement = document.createElement("select");
+          inputElement.id = parameter.key;
+          inputElement.name = parameter.key;
+
+          const trueOption = document.createElement("option");
+          trueOption.value = "true";
+          trueOption.setAttribute("data-i18n", "currentConfig.boolean.yes");
+          console.log(`[generateDynamicForm] Created boolean true option with i18n key: currentConfig.boolean.yes`);
+          trueOption.textContent = "Yes";
+          inputElement.appendChild(trueOption);
+
+          const falseOption = document.createElement("option");
+          falseOption.value = "false";
+          falseOption.setAttribute("data-i18n", "currentConfig.boolean.no");
+          console.log(`[generateDynamicForm] Created boolean false option with i18n key: currentConfig.boolean.no`);
+          falseOption.textContent = "No";
+          inputElement.appendChild(falseOption);
+        } else if (parameter.type === "enum" && parameter.enumValues) {
+          // For enum types, use a select dropdown with enum values
+          inputElement = document.createElement("select");
+          inputElement.id = parameter.key;
+          inputElement.name = parameter.key;
+
+          parameter.enumValues.forEach(value => {
+            const option = document.createElement("option");
+            option.value = value;
+            // Use i18n key if available, otherwise use the value itself
+            // Extract the base key name from parameter.i18nKey (e.g., "settingsForm.mapShape.label" -> "mapShape")
+            const baseKey = parameter.i18nKey.replace(/\.label$/, '');
+            const i18nOptionKey = `${baseKey}.${value}`;
+            option.setAttribute("data-i18n", i18nOptionKey);
+            console.log(`[generateDynamicForm] Created enum option for ${parameter.key} with value ${value} and i18n key: ${i18nOptionKey}`);
+            option.textContent = value; // Default text, will be replaced by i18next
+            inputElement.appendChild(option);
+          });
+        } else {
+          // For other types, use an input field
+          inputElement = document.createElement("input");
+          inputElement.id = parameter.key;
+          inputElement.name = parameter.key;
+          inputElement.type = parameter.type === "number" ? "number" : "text";
+
+          // Set min, max, and step attributes for number inputs
+          if (parameter.type === "number") {
+            if (parameter.min !== undefined) {
+              inputElement.min = parameter.min;
+            }
+            if (parameter.max !== undefined) {
+              inputElement.max = parameter.max;
+            }
+            if (parameter.step !== undefined) {
+              inputElement.step = parameter.step;
+            } else if (Number.isInteger(parameter.default)) {
+              inputElement.step = "1";
+            } else {
+              inputElement.step = "0.01"; // Default for decimal numbers
+            }
+          }
+
+          // Set placeholder using i18n if available
+          const placeholderKey = `${parameter.i18nKey}.placeholder`;
+          inputElement.setAttribute("data-i18n", `[placeholder]${placeholderKey}`);
+        }
+
+        // Set default value
+        if (parameter.default !== undefined) {
+          if (parameter.type === "boolean") {
+            inputElement.value = parameter.default ? "true" : "false";
+          } else {
+            inputElement.value = parameter.default;
+          }
+        }
+
+        formGroup.appendChild(inputElement);
+        categoryContent.appendChild(formGroup);
+      });
+
+      isFirstCategory = false;
+    }
+
+    // Add event listeners for category tabs
+    const categoryTabButtons = categoryTabsContainer.querySelectorAll(".category-tab-button");
+    categoryTabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Remove active class from all buttons and contents
+        categoryTabButtons.forEach(btn => btn.classList.remove("active"));
+        const categoryContents = formGridContainer.querySelectorAll(".category-content");
+        categoryContents.forEach(content => content.classList.remove("active"));
+
+        // Add active class to clicked button
+        button.classList.add("active");
+
+        // Show corresponding content
+        const categoryKey = button.getAttribute("data-category");
+        const contentToShow = formGridContainer.querySelector(`.category-content[data-category="${categoryKey}"]`);
+        if (contentToShow) {
+          contentToShow.classList.add("active");
+        }
+      });
+    });
+
+    console.log("[generateDynamicForm] Form generated successfully.");
+    // Update content to translate the newly generated form elements
+    console.log("[generateDynamicForm] Calling updateContent to translate form elements.");
+    updateContent();
+    console.log("[generateDynamicForm] updateContent called.");
+  } catch (error) {
+    console.error("[generateDynamicForm] Error:", error);
+    dynamicFormContainer.innerHTML = `<div class="error">Failed to load configuration schema: ${error.message}</div>`;
+  }
 }
 
 // --- DOMContentLoaded Listener (Revised with delay) ---
@@ -162,15 +351,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (activeTabButton) {
         const initialTab = activeTabButton.getAttribute("data-tab");
         console.log("[triggerInitialTabLoad] Triggering initial load for tab:", initialTab);
-        initialFetchPromise = initialTab === "settings" ? fetchCurrentSettingsForForm()
-                            : initialTab === "users" ? fetchUsers()
-                            : initialTab === "current-config" ? fetchCurrentSettingsForDisplay()
-                            : Promise.resolve();
+        if (initialTab === "settings") {
+          // For settings tab, first generate the form, then fetch current settings
+          initialFetchPromise = generateDynamicForm().then(() => fetchCurrentSettingsForForm());
+        } else {
+          initialFetchPromise = initialTab === "users" ? fetchUsers()
+                              : initialTab === "current-config" ? fetchCurrentSettingsForDisplay()
+                              : Promise.resolve();
+        }
       } else {
         // If no tab is active by default (which shouldn't happen if the HTML is correct),
-        // load the settings form data by default.
-        console.log("[triggerInitialTabLoad] No active tab found by selector, defaulting to fetch settings form data.");
-        initialFetchPromise = fetchCurrentSettingsForForm();
+        // generate the form and load the settings form data by default.
+        console.log("[triggerInitialTabLoad] No active tab found by selector, defaulting to generate form and fetch settings form data.");
+        initialFetchPromise = generateDynamicForm().then(() => fetchCurrentSettingsForForm());
       }
       initialFetchPromise.catch((err) => {
         console.error("[triggerInitialTabLoad] Error during initial fetch:", err);
@@ -270,32 +463,33 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("[fetchCurrentSettingsForForm] Success, populating form.");
         console.log("Received BOTS_ENABLED from server:", settings.config.BOTS_ENABLED, typeof settings.config.BOTS_ENABLED);
         console.log("Received GODMODE_ON_SPAWN_ENABLED from server:", settings.config.GODMODE_ON_SPAWN_ENABLED, typeof settings.config.GODMODE_ON_SPAWN_ENABLED);
-        // Populate form fields
-        document.getElementById("mapWidth").value = settings.config.MAP_WIDTH || "";
-        document.getElementById("mapHeight").value = settings.config.MAP_HEIGHT || "";
-        document.getElementById("mapShape").value = settings.config.MAP_SHAPE || "rectangle";
-        document.getElementById("aoiRadius").value = settings.config.AOI_RADIUS || "";
-        document.getElementById("maxTrailLengthDefault").value = settings.config.MAX_TRAIL_LENGTH_DEFAULT || "";
-        document.getElementById("initialSize").value = settings.config.INITIAL_SIZE || "";
-        document.getElementById("minBoostSize").value = settings.config.MIN_BOOST_SIZE || "";
-        document.getElementById("speed").value = settings.config.SPEED || "";
-        document.getElementById("maxRotationRate").value = settings.config.MAX_ROTATION_RATE || "";
-        document.getElementById("boostConsumptionRate").value = settings.config.BOOST_CONSUMPTION_RATE || "";
-        document.getElementById("foodSpawnInterval").value = settings.config.FOOD_SPAWN_INTERVAL || "";
-        document.getElementById("fps").value = settings.config.FPS || "";
-        document.getElementById("foodAttractionStrength").value = settings.config.FOOD_ATTRACTION_STRENGTH || "";
-        document.getElementById("foodSnapDistance").value = settings.config.FOOD_SNAP_DISTANCE || "";
-        document.getElementById("teleportViolationThreshold").value = settings.config.TELEPORT_VIOLATION_THRESHOLD || "";
-        document.getElementById("teleportToleranceFactor").value = settings.config.TELEPORT_TOLERANCE_FACTOR || "";
-        document.getElementById("defaultZoomLevel").value = settings.config.DEFAULT_ZOOM_LEVEL || "";
-        document.getElementById("securityMode").value = settings.config.SECURITY_MODE || "high";
-        document.getElementById("botsEnabled").value = settings.config.BOTS_ENABLED ? "true" : "false";
-        document.getElementById("botMaxCount").value = settings.config.BOT_MAX_COUNT || "";
-        document.getElementById("botSpawnIntervalMs").value = settings.config.BOT_SPAWN_INTERVAL_MS || "";
-        document.getElementById("botExpirationTimeMs").value = settings.config.BOT_EXPIRATION_TIME_MS || "";
-        document.getElementById("botDifficulty").value = settings.config.BOT_DIFFICULTY || "easy";
-       // Populate God Mode setting
-       document.getElementById("godmodeOnSpawnEnabled").value = settings.config.GODMODE_ON_SPAWN_ENABLED ? "true" : "false";
+        // Populate form fields dynamically
+        const dynamicFormContainer = document.getElementById("dynamic-form-container");
+        if (dynamicFormContainer) {
+          const inputElements = dynamicFormContainer.querySelectorAll("input, select, textarea");
+          inputElements.forEach(element => {
+            const key = element.id;
+            if (settings.config.hasOwnProperty(key)) {
+              // Handle different input types
+              if (element.type === "checkbox") {
+                element.checked = settings.config[key];
+              } else if (element.type === "radio") {
+                // For radio buttons, check the one that matches the value
+                if (element.value === String(settings.config[key])) {
+                  element.checked = true;
+                }
+              } else {
+                // For select elements with boolean values, we need to convert the boolean to string
+                if (element.tagName === "SELECT" && typeof settings.config[key] === "boolean") {
+                  element.value = settings.config[key] ? "true" : "false";
+                } else {
+                  // For all other input types (text, number, etc.)
+                  element.value = settings.config[key];
+                }
+              }
+            }
+          });
+        }
         // Do not reset admin message fields here
         if (adminForm) {
           adminForm.style.opacity = "1";
@@ -389,15 +583,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     adminForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       console.log("[Admin Form] Submitting...");
-      const formData = new FormData(adminForm);
+      // Collect data from dynamic form
+      const dynamicFormContainer = document.getElementById("dynamic-form-container");
       const data = {};
-      formData.forEach((value, key) => data[key] = value); // Include fields even if they are empty
-      const botsEnabledElement = document.getElementById("botsEnabled");
-      if (botsEnabledElement) {
-         // Add God Mode setting
-         const godmodeElement = document.getElementById("godmodeOnSpawnEnabled");
-         if (godmodeElement) data.godmodeOnSpawnEnabled = godmodeElement.value === "true";
-         data.botsEnabled = botsEnabledElement.value === "true";
+      if (dynamicFormContainer) {
+        const inputElements = dynamicFormContainer.querySelectorAll("input, select, textarea");
+        inputElements.forEach(element => {
+          // Handle different input types
+          if (element.type === "checkbox") {
+            data[element.id] = element.checked;
+          } else if (element.type === "radio") {
+            // For radio buttons, only include the value of the checked one
+            if (element.checked) {
+              // Try to convert to appropriate type
+              if (element.value === "true") {
+                data[element.id] = true;
+              } else if (element.value === "false") {
+                data[element.id] = false;
+              } else if (!isNaN(element.value) && element.value.trim() !== "") {
+                // Check if it's a number
+                const numValue = Number(element.value);
+                data[element.id] = Number.isInteger(numValue) ? parseInt(element.value, 10) : parseFloat(element.value);
+              } else {
+                data[element.id] = element.value;
+              }
+            }
+          } else if (element.tagName === "SELECT" && (element.value === "true" || element.value === "false")) {
+            // Convert string "true"/"false" back to boolean
+            data[element.id] = element.value === "true";
+          } else {
+            // For all other input types (text, number, etc.)
+            // Try to convert to appropriate type
+            if (element.value === "true") {
+              data[element.id] = true;
+            } else if (element.value === "false") {
+              data[element.id] = false;
+            } else if (!isNaN(element.value) && element.value.trim() !== "") {
+              // Check if it's a number
+              const numValue = Number(element.value);
+              data[element.id] = Number.isInteger(numValue) ? parseInt(element.value, 10) : parseFloat(element.value);
+            } else {
+              data[element.id] = element.value;
+            }
+          }
+        });
       }
       try {
         const response = await fetch("/admin/update", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
