@@ -26,6 +26,35 @@
       "label": "Area of Interest (AoI) Radius (px) *:",
       "placeholder": "e.g. 2000"
     },
+    "spawnMargin": {
+      "label": "Player Spawn Margin (px):",
+      "placeholder": "e.g. 40"
+    },
+    "dynamicMapSizeEnabled": {
+      "label": "Enable Dynamic Map Size:",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "dynamicBaseMapSize": {
+      "label": "Dynamic Map Base Size (px):",
+      "placeholder": "e.g. 300"
+    },
+    "dynamicMapSizePerPlayer": {
+      "label": "Dynamic Map Size Per Player (px):",
+      "placeholder": "e.g. 300"
+    },
+    "dynamicMinMapSize": {
+      "label": "Dynamic Map Minimum Size (px):",
+      "placeholder": "e.g. 300"
+    },
+    "dynamicMaxMapSize": {
+      "label": "Dynamic Map Maximum Size (px):",
+      "placeholder": "e.g. 15000"
+    },
+    "dynamicMapSizeStepThreshold": {
+      "label": "Dynamic Map Size Step Threshold:",
+      "placeholder": "e.g. 100"
+    },
     "maxTrailLengthDefault": {
       "label": "Snake Size Limit (Default):",
       "placeholder": "e.g. 1000"
@@ -42,6 +71,19 @@
       "label": "Max Rotation Rate (rad/tick):",
       "placeholder": "e.g. 0.08"
     },
+    "collisionRadius": {
+      "label": "Snake Collision Radius (px):",
+      "placeholder": "e.g. 5"
+    },
+    "selfCollisionEnabled": {
+      "label": "Enable Self-Collision:",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "safeCount": {
+      "label": "Protected Segments at Spawn:",
+      "placeholder": "e.g. 15"
+    },
     "minBoostSize": {
       "label": "Min. Size for Boost:",
       "placeholder": "e.g. 50"
@@ -50,25 +92,61 @@
       "label": "Boost Consumption Rate:",
       "placeholder": "e.g. 1"
     },
-    "foodSpawnInterval": {
-      "label": "Food Spawn Interval (ms):",
+    "boostConsumptionInterval": {
+      "label": "Boost Consumption Interval (ms):",
+      "placeholder": "e.g. 5"
+    },
+    "godmodeDuration": {
+      "label": "God Mode Duration (ms):",
       "placeholder": "e.g. 5000"
+    },
+    "controlDelay": {
+      "label": "Control Delay (ms):",
+      "placeholder": "e.g. 500"
     },
     "fps": {
       "label": "Server FPS (loops/sec):",
       "placeholder": "e.g. 45"
+    },
+    "defaultZoomLevel": {
+      "label": "Default Zoom Level:",
+      "placeholder": "e.g. 1.0"
+    },
+    "fadeOutDuration": {
+      "label": "Fade Out Duration (ms):",
+      "placeholder": "e.g. 5000"
+    },
+    "gridCellSize": {
+      "label": "Collision Grid Cell Size (px):",
+      "placeholder": "e.g. 100"
+    },
+    "foodSpawnInterval": {
+      "label": "Food Spawn Interval (ms):",
+      "placeholder": "e.g. 5000"
+    },
+    "foodAttractionRadius": {
+      "label": "Food Attraction Radius (px):",
+      "placeholder": "e.g. 50"
     },
     "foodAttractionStrength": {
       "label": "Food Attraction Strength:",
       "placeholder": "e.g. 0.1"
     },
     "foodSnapDistance": {
-      "label": "Food Snap Distance:",
+      "label": "Food Snap Distance (px):",
       "placeholder": "e.g. 5"
     },
-    "defaultZoomLevel": {
-      "label": "Default Zoom Level:",
-      "placeholder": "e.g. 1.0"
+    "foodConsumptionDelay": {
+      "label": "Food Consumption Delay (ms):",
+      "placeholder": "e.g. 1000"
+    },
+    "foodExpirationTime": {
+      "label": "Food Expiration Time (ms):",
+      "placeholder": "e.g. 10000"
+    },
+    "randomizationFoodExpirationTime": {
+      "label": "Randomization of Food Expiration Time (ms):",
+      "placeholder": "e.g. 3000"
     },
     "securityMode": {
       "label": "Security Mode *:",
@@ -84,10 +162,42 @@
       "label": "Teleport Tolerance Factor:",
       "placeholder": "e.g. 1.5"
     },
-    "godmodeOnSpawnEnabled": {
-      "label": "Enable God Mode on Spawn:",
+    "cheatDuration": {
+      "label": "Cheat Detection Duration (ms):",
+      "placeholder": "e.g. 5000"
+    },
+    "adaptiveThrottlingEnabled": {
+      "label": "Enable Adaptive Throttling:",
       "yes": "Yes",
       "no": "No"
+    },
+    "minFps": {
+      "label": "Minimum FPS:",
+      "placeholder": "e.g. 10"
+    },
+    "maxFps": {
+      "label": "Maximum FPS:",
+      "placeholder": "e.g. 120"
+    },
+    "performanceCheckInterval": {
+      "label": "Performance Check Interval (ms):",
+      "placeholder": "e.g. 5000"
+    },
+    "highLoadThreshold": {
+      "label": "High Load Threshold (%):",
+      "placeholder": "e.g. 50"
+    },
+    "highLoadFpsReduction": {
+      "label": "FPS Reduction Under High Load:",
+      "placeholder": "e.g. 0.5"
+    },
+    "leaderboardUpdateInterval": {
+      "label": "Leaderboard Update Interval (ms):",
+      "placeholder": "e.g. 500"
+    },
+    "leaderboardCacheDuration": {
+      "label": "Leaderboard Cache Duration (ms):",
+      "placeholder": "e.g. 200"
     },
     "botsEnabled": {
       "label": "Enable Bots:",
@@ -154,7 +264,7 @@
     "confirmPruneZero": "No inactive accounts found based on current criteria. Do you still want to run the operation (just in case)?",
     "confirmPruneZeroConfirm": "Confirm prune operation even if 0 accounts were detected?",
     "pruneCancelled": "Prune operation cancelled."
-  },
+ },
   "currentConfig": {
     "title": "Current Server Configuration",
     "loading": "Loading configuration...",
