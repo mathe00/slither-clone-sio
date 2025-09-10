@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Public Methods ---
-    function initializeAndStart(socketInstance, clientId, overlayCanvasElement) {
+    async function initializeAndStart(socketInstance, clientId, overlayCanvasElement) {
       console.log('Initializing Main Game with socket:', socketInstance.id, 'My ID:', clientId);
       localSocket = socketInstance;
       localMyId = clientId;
@@ -577,8 +577,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (!WebGLUtils.initialize(canvas)) {
-        return;
+      // Try WebGPU first, then fall back to WebGL
+      if (typeof WebGPUUtils !== 'undefined') {
+        console.log('Attempting WebGPU initialization...');
+        if (await WebGPUUtils.initialize(canvas)) {
+          console.log('WebGPU initialized successfully');
+          if (typeof WebGPUGameRenderer !== 'undefined') {
+            await WebGPUGameRenderer.initialize(canvas);
+            console.log('WebGPU Game Renderer initialized successfully');
+          }
+        } else {
+          console.log('WebGPU failed, falling back to WebGL');
+          if (!WebGLUtils.initialize(canvas)) {
+            console.error('WebGL initialization also failed');
+            return;
+          }
+        }
+      } else {
+        console.log('WebGPU not available, using WebGL');
+        if (!WebGLUtils.initialize(canvas)) {
+          console.error('WebGL initialization failed');
+          return;
+        }
       }
 
       textOverlayCtx = textOverlayCanvas.getContext('2d');

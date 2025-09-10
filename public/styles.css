@@ -19,22 +19,8 @@
  * ==============================================================================
  */
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  font-family: 'Courier New', Courier, monospace;
-  background-image: url('main-menu-background.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* --- Root CSS Variables --- */
+:root {
   --menu-bg: rgba(10, 5, 20, 0.85); /* Dark purple/blue */
   --menu-border: #8a2be2; /* BlueViolet */
   --menu-glow: rgba(138, 43, 226, 0.6); /* BlueViolet glow */
@@ -58,6 +44,24 @@ body {
   --text-warning: #ffa500; /* Bright Orange */
   --text-info: #4faded; /* Light Blue/Cyan */
   --font-stack: 'Courier New', Courier, monospace;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  background-image: url('main-menu-background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- Admin Link Style --- */

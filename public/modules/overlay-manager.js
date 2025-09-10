@@ -23,7 +23,9 @@ export function closeCreditsHelpPanel() {
 
 // --- Game Over Overlay Function ---
 export function showGameOverOverlay(reasonKey, reasonOptions, kill, finalSize) {
-  const { gameOverOverlay, gameOverText, exitGhostButton, ghostShortcutGuide, snakePositionDisplay, snakeSizeDisplay } = uiElements;
+  // Vérifier si les éléments UI sont initialisés, sinon les chercher directement
+  let gameOverOverlay = uiElements.gameOverOverlay || document.getElementById('gameOverOverlay');
+  let gameOverText = uiElements.gameOverText || document.getElementById('gameOverText');
 
   if (!gameOverOverlay || !gameOverText) {
     console.error('Cannot show Game Over overlay, required elements missing.');
@@ -52,7 +54,7 @@ export function showGameOverOverlay(reasonKey, reasonOptions, kill, finalSize) {
 
 // --- Admin Message Functions ---
 export function showAdminMessage(text) {
-  const { adminMessageOverlay } = uiElements;
+  let adminMessageOverlay = uiElements.adminMessageOverlay || document.getElementById('adminMessageOverlay');
   if (!adminMessageOverlay) return;
   
   if (!text) {
