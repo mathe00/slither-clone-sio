@@ -108,3 +108,7 @@ backend/server.lock
 # Configuration file - Often contains secrets or environment-specific settings.
 # Consider committing a config.example.json instead.
 backend/config.json
+
+# AI agents
+.kilocode/
+.claude/
