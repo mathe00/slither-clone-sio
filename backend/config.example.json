@@ -62,7 +62,7 @@
   "MAX_FPS": 120,
   "PERFORMANCE_CHECK_INTERVAL": 5000,
   "HIGH_LOAD_THRESHOLD": 50,
- "HIGH_LOAD_FPS_REDUCTION": 0.5,
+  "HIGH_LOAD_FPS_REDUCTION": 0.5,
 
   "__Leaderboard Settings__": "Leaderboard-related settings",
   "LEADERBOARD_UPDATE_INTERVAL": 500,

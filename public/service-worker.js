@@ -23,64 +23,64 @@
  */
 
 // Increment cache version when assets change
-const CACHE_NAME = "slither-clone-offline-v5";
-const OFFLINE_URL = "/offline.html"; // Page to serve on network failure
+const CACHE_NAME = 'slither-clone-offline-v5';
+const OFFLINE_URL = '/offline.html'; // Page to serve on network failure
 
 // --- Core Assets to Cache ---
 // Includes assets for the main app AND the offline page/game
 const CORE_ASSETS = [
   // Offline Page & Dependencies
   OFFLINE_URL,
-  "/offline-snake-game.js", // Script for the offline snake game
+  '/offline-snake-game.js', // Script for the offline snake game
 
   // All Locale Files
-  "/locales/en.json",
-  "/locales/fr.json",
-  "/locales/es.json",
-  "/locales/de.json",
-  "/locales/zh.json", // Chinese (Simplified)
-  "/locales/ar.json",
-  "/locales/pt.json",
-  "/locales/ru.json",
-  "/locales/ja.json",
-  "/locales/hi.json",
-  "/locales/ko.json",
-  "/locales/it.json",
-  "/locales/tr.json",
-  "/locales/id.json",
-  "/locales/pl.json",
-  "/locales/bn.json", // Bengali
-  "/locales/ur.json", // Urdu
-  "/locales/vi.json", // Vietnamese
-  "/locales/th.json", // Thai
-  "/locales/fil.json", // Filipino
-  "/locales/fa.json", // Persian (Farsi)
-  "/locales/ms.json", // Malay
-  "/locales/nl.json", // Dutch
-  "/locales/uk.json", // Ukrainian
-  "/locales/el.json", // Greek
-  "/locales/sv.json", // Swedish
-  "/locales/fi.json", // Finnish
-  "/locales/hu.json", // Hungarian
-  "/locales/ro.json", // Romanian
-  "/locales/cs.json", // Czech
-  "/locales/sw.json", // Swahili
-  "/locales/ha.json", // Hausa
-  "/locales/yo.json", // Yoruba
-  "/locales/ig.json", // Igbo
-  "/locales/zht.json", // Chinese (Traditional)
+  '/locales/en.json',
+  '/locales/fr.json',
+  '/locales/es.json',
+  '/locales/de.json',
+  '/locales/zh.json', // Chinese (Simplified)
+  '/locales/ar.json',
+  '/locales/pt.json',
+  '/locales/ru.json',
+  '/locales/ja.json',
+  '/locales/hi.json',
+  '/locales/ko.json',
+  '/locales/it.json',
+  '/locales/tr.json',
+  '/locales/id.json',
+  '/locales/pl.json',
+  '/locales/bn.json', // Bengali
+  '/locales/ur.json', // Urdu
+  '/locales/vi.json', // Vietnamese
+  '/locales/th.json', // Thai
+  '/locales/fil.json', // Filipino
+  '/locales/fa.json', // Persian (Farsi)
+  '/locales/ms.json', // Malay
+  '/locales/nl.json', // Dutch
+  '/locales/uk.json', // Ukrainian
+  '/locales/el.json', // Greek
+  '/locales/sv.json', // Swedish
+  '/locales/fi.json', // Finnish
+  '/locales/hu.json', // Hungarian
+  '/locales/ro.json', // Romanian
+  '/locales/cs.json', // Czech
+  '/locales/sw.json', // Swahili
+  '/locales/ha.json', // Hausa
+  '/locales/yo.json', // Yoruba
+  '/locales/ig.json', // Igbo
+  '/locales/zht.json', // Chinese (Traditional)
 
   // i18next CDN scripts
-  "https://unpkg.com/i18next/i18next.min.js",
-  "https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js",
-  "https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
+  'https://unpkg.com/i18next/i18next.min.js',
+  'https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js',
+  'https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js',
 
   // Core App Assets (already present)
-  "/styles.css", // Base styles (used by offline too)
-  "/main-menu-background.png", // Background image (might be used elsewhere)
-  "/slither-logo-server-down.png", // Offline logo
-  "/slither-logo.png", // Favicon
-  "/admin-logic.js", // Admin panel logic (might not be needed offline, but keep for now)
+  '/styles.css', // Base styles (used by offline too)
+  '/main-menu-background.png', // Background image (might be used elsewhere)
+  '/slither-logo-server-down.png', // Offline logo
+  '/slither-logo.png', // Favicon
+  '/admin-logic.js', // Admin panel logic (might not be needed offline, but keep for now)
   // Add other essential core assets if any (e.g., other CSS, main JS modules if needed offline?)
   // "/ui-logic.js", // Example: Add if parts are needed offline
 ];
@@ -88,42 +88,38 @@ const CORE_ASSETS = [
 /**
  * Service Worker Installation: Cache essential resources.
  */
-self.addEventListener("install", (event) => {
-  console.log("[Service Worker] Installation...");
+self.addEventListener('install', event => {
+  console.log('[Service Worker] Installation...');
   event.waitUntil(
     (async () => {
       try {
         const cache = await caches.open(CACHE_NAME);
-        console.log(
-          "[Service Worker] Caching core assets:",
-          CORE_ASSETS
-        );
+        console.log('[Service Worker] Caching core assets:', CORE_ASSETS);
         // Use addAll with Request objects for CDN URLs to handle potential CORS issues during caching
         const requests = CORE_ASSETS.map(url => {
-            if (url.startsWith('http')) {
-                // Create a Request object for external URLs, mode 'cors' is generally preferred if allowed.
-                return new Request(url, { mode: 'cors' });
-            }
-            return url; // Local URLs can be added directly
+          if (url.startsWith('http')) {
+            // Create a Request object for external URLs, mode 'cors' is generally preferred if allowed.
+            return new Request(url, { mode: 'cors' });
+          }
+          return url; // Local URLs can be added directly
         });
         await cache.addAll(requests);
-        console.log("[Service Worker] Core assets cached successfully.");
+        console.log('[Service Worker] Core assets cached successfully.');
       } catch (error) {
-        console.error(
-          "[Service Worker] Initial caching failed: ",
-          error
-        );
+        console.error('[Service Worker] Initial caching failed: ', error);
         // Log which asset might have failed during addAll
-        console.error("Failed assets might include:", CORE_ASSETS);
+        console.error('Failed assets might include:', CORE_ASSETS);
         // Attempt to cache individually to pinpoint the issue (optional debug)
-        CORE_ASSETS.forEach(async (assetUrl) => {
-            try {
-                const cache = await caches.open(CACHE_NAME);
-                const request = assetUrl.startsWith('http') ? new Request(assetUrl, { mode: 'cors' }) : assetUrl;
-                await cache.add(request);
-            } catch (err) {
-                console.error(`[Service Worker] Failed to cache individually: ${assetUrl}`, err);
-            }
+        CORE_ASSETS.forEach(async assetUrl => {
+          try {
+            const cache = await caches.open(CACHE_NAME);
+            const request = assetUrl.startsWith('http')
+              ? new Request(assetUrl, { mode: 'cors' })
+              : assetUrl;
+            await cache.add(request);
+          } catch (err) {
+            console.error(`[Service Worker] Failed to cache individually: ${assetUrl}`, err);
+          }
         });
       }
     })()
@@ -135,26 +131,26 @@ self.addEventListener("install", (event) => {
 /**
  * Service Worker Activation: Clean up old caches.
  */
-self.addEventListener("activate", (event) => {
-  console.log("[Service Worker] Activation...");
+self.addEventListener('activate', event => {
+  console.log('[Service Worker] Activation...');
   event.waitUntil(
     (async () => {
       // Take immediate control of uncontrolled clients
       if (self.clients && clients.claim) {
         await clients.claim();
-        console.log("[Service Worker] Client control claimed.");
+        console.log('[Service Worker] Client control claimed.');
       }
       // Delete old caches that don't match CACHE_NAME
       const cacheNames = await caches.keys();
       await Promise.all(
         cacheNames
-          .filter((name) => name !== CACHE_NAME) // Keep only the new cache
-          .map((name) => {
-            console.log("[Service Worker] Deleting old cache:", name);
+          .filter(name => name !== CACHE_NAME) // Keep only the new cache
+          .map(name => {
+            console.log('[Service Worker] Deleting old cache:', name);
             return caches.delete(name);
           })
       );
-      console.log("[Service Worker] Old cache cleanup complete.");
+      console.log('[Service Worker] Old cache cleanup complete.');
     })()
   );
 });
@@ -164,20 +160,17 @@ self.addEventListener("activate", (event) => {
  * - Navigation: Network falling back to Offline Page cache.
  * - Other Assets: Cache falling back to Network.
  */
-self.addEventListener("fetch", (event) => {
+self.addEventListener('fetch', event => {
   const request = event.request;
 
   // Ignore non-GET requests or requests to Chrome extensions
-  if (
-    request.method !== "GET" ||
-    request.url.startsWith("chrome-extension://")
-  ) {
+  if (request.method !== 'GET' || request.url.startsWith('chrome-extension://')) {
     // console.log("[Service Worker] Ignoring non-GET or chrome-extension request:", request.url);
     return;
   }
 
   // Strategy for Navigation Requests (HTML)
-  if (request.mode === "navigate") {
+  if (request.mode === 'navigate') {
     // console.log("[Service Worker] Handling navigate request:", request.url);
     event.respondWith(
       (async () => {
@@ -186,34 +179,31 @@ self.addEventListener("fetch", (event) => {
           const networkResponse = await fetch(request);
           // console.log("[Service Worker] Navigate request served from network:", request.url);
           return networkResponse;
-        } catch (error) {
+        } catch {
           // If network fails, serve the offline page from cache
           console.log(
-            "[Service Worker] Network failed for navigation, attempting to serve offline page from cache."
+            '[Service Worker] Network failed for navigation, attempting to serve offline page from cache.'
           );
           try {
             const cache = await caches.open(CACHE_NAME);
             const cachedResponse = await cache.match(OFFLINE_URL);
             if (cachedResponse) {
-              console.log("[Service Worker] Offline page served from cache.");
+              console.log('[Service Worker] Offline page served from cache.');
               return cachedResponse;
             }
             // If even the offline page isn't cached (shouldn't happen after install)
-            console.error("[Service Worker] Offline page not found in cache.");
-            return new Response("Offline service unavailable.", {
+            console.error('[Service Worker] Offline page not found in cache.');
+            return new Response('Offline service unavailable.', {
               status: 503,
-              statusText: "Service Unavailable",
-              headers: { "Content-Type": "text/plain" },
+              statusText: 'Service Unavailable',
+              headers: { 'Content-Type': 'text/plain' },
             });
           } catch (cacheError) {
-            console.error(
-              "[Service Worker] Error accessing cache for offline page:",
-              cacheError
-            );
-            return new Response("Offline cache error.", {
+            console.error('[Service Worker] Error accessing cache for offline page:', cacheError);
+            return new Response('Offline cache error.', {
               status: 500,
-              statusText: "Internal Server Error",
-              headers: { "Content-Type": "text/plain" },
+              statusText: 'Internal Server Error',
+              headers: { 'Content-Type': 'text/plain' },
             });
           }
         }
@@ -242,11 +232,7 @@ self.addEventListener("fetch", (event) => {
           // Since essential offline assets are in CORE_ASSETS, cache.match should succeed offline.
           return await fetch(request);
         } catch (error) {
-          console.error(
-            "[Service Worker] Error handling asset request:",
-            request.url,
-            error
-          );
+          console.error('[Service Worker] Error handling asset request:', request.url, error);
           // Optional: Return a generic error response for the missing asset
           // Avoid doing this for essential assets that *should* be cached.
           // This might hide caching issues during development.

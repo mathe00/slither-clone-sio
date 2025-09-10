@@ -77,42 +77,97 @@
   --admin-glow-info-strong: rgba(79, 173, 237, 0.9);
 
   /* Font */
-  --admin-font-stack: "Courier New", Courier, monospace;
+  --admin-font-stack: 'Courier New', Courier, monospace;
 }
 
 /* --- Keyframe Animations --- */
 /* Pulse animation for cyan text/elements */
 @keyframes pulse-glow-cyan {
-  0%, 100% { text-shadow: 0 0 7px var(--admin-text-header), 0 0 10px var(--admin-glow-header); }
-  50% { text-shadow: 0 0 10px var(--admin-text-header), 0 0 15px var(--admin-glow-header-strong); }
+  0%,
+  100% {
+    text-shadow:
+      0 0 7px var(--admin-text-header),
+      0 0 10px var(--admin-glow-header);
+  }
+  50% {
+    text-shadow:
+      0 0 10px var(--admin-text-header),
+      0 0 15px var(--admin-glow-header-strong);
+  }
 }
 /* Pulse animation for magenta borders/shadows */
 @keyframes pulse-glow-magenta {
-  0%, 100% { box-shadow: 0 0 8px var(--admin-glow-highlight); border-color: var(--admin-text-highlight); }
-  50% { box-shadow: 0 0 12px var(--admin-glow-highlight-strong); border-color: var(--admin-text-highlight); }
+  0%,
+  100% {
+    box-shadow: 0 0 8px var(--admin-glow-highlight);
+    border-color: var(--admin-text-highlight);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--admin-glow-highlight-strong);
+    border-color: var(--admin-text-highlight);
+  }
 }
 /* Pulse animation for the main container border/shadow */
 @keyframes pulse-glow-violet {
-    0%, 100% { box-shadow: 0 0 15px var(--admin-glow-color), inset 0 0 10px rgba(0, 0, 0, 0.6); border-color: var(--admin-border-color); }
-    50% { box-shadow: 0 0 25px var(--admin-glow-color-strong), inset 0 0 10px rgba(0, 0, 0, 0.6); border-color: var(--admin-border-color); }
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px var(--admin-glow-color),
+      inset 0 0 10px rgba(0, 0, 0, 0.6);
+    border-color: var(--admin-border-color);
+  }
+  50% {
+    box-shadow:
+      0 0 25px var(--admin-glow-color-strong),
+      inset 0 0 10px rgba(0, 0, 0, 0.6);
+    border-color: var(--admin-border-color);
+  }
 }
 /* Pulse animation for cyan borders/shadows */
 @keyframes pulse-border-cyan {
-    0%, 100% { border-color: var(--admin-text-header); box-shadow: 0 0 8px var(--admin-glow-header); }
-    50% { border-color: var(--admin-text-header); box-shadow: 0 0 12px var(--admin-glow-header-strong); }
+  0%,
+  100% {
+    border-color: var(--admin-text-header);
+    box-shadow: 0 0 8px var(--admin-glow-header);
+  }
+  50% {
+    border-color: var(--admin-text-header);
+    box-shadow: 0 0 12px var(--admin-glow-header-strong);
+  }
 }
 /* Pulse animation for status icons */
 @keyframes pulse-icon-success {
-    0%, 100% { background-color: var(--admin-text-success); box-shadow: 0 0 3px var(--admin-glow-success); }
-    50% { background-color: var(--admin-text-success); box-shadow: 0 0 6px var(--admin-glow-success-strong); }
+  0%,
+  100% {
+    background-color: var(--admin-text-success);
+    box-shadow: 0 0 3px var(--admin-glow-success);
+  }
+  50% {
+    background-color: var(--admin-text-success);
+    box-shadow: 0 0 6px var(--admin-glow-success-strong);
+  }
 }
 @keyframes pulse-icon-warning {
-    0%, 100% { background-color: var(--admin-text-warning); box-shadow: 0 0 3px var(--admin-glow-warning); }
-    50% { background-color: var(--admin-text-warning); box-shadow: 0 0 6px var(--admin-glow-warning-strong); }
+  0%,
+  100% {
+    background-color: var(--admin-text-warning);
+    box-shadow: 0 0 3px var(--admin-glow-warning);
+  }
+  50% {
+    background-color: var(--admin-text-warning);
+    box-shadow: 0 0 6px var(--admin-glow-warning-strong);
+  }
 }
 @keyframes pulse-icon-admin {
-    0%, 100% { background-color: var(--admin-text-header); box-shadow: 0 0 3px var(--admin-glow-header); }
-    50% { background-color: var(--admin-text-header); box-shadow: 0 0 6px var(--admin-glow-header-strong); }
+  0%,
+  100% {
+    background-color: var(--admin-text-header);
+    box-shadow: 0 0 3px var(--admin-glow-header);
+  }
+  50% {
+    background-color: var(--admin-text-header);
+    box-shadow: 0 0 6px var(--admin-glow-header-strong);
+  }
 }
 /* Fade-in animation for tab content */
 @keyframes fadeInContent {
@@ -129,21 +184,14 @@
 /* --- Global Styles --- */
 body {
   /* Background gradient and subtle grid overlay */
-  background: linear-gradient(
-      135deg,
-      var(--admin-bg-dark) 0%,
-      var(--admin-bg-medium) 100%
-    ),
-    linear-gradient(
-      rgba(0, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 255, 255, 0.03) 1px,
-      transparent 1px
-    );
-  background-size: cover, 40px 40px, 40px 40px;
+  background:
+    linear-gradient(135deg, var(--admin-bg-dark) 0%, var(--admin-bg-medium) 100%),
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size:
+    cover,
+    40px 40px,
+    40px 40px;
   color: var(--admin-text-primary);
   font-family: var(--admin-font-stack);
   /* Layout */
@@ -163,8 +211,9 @@ body {
   background: rgba(10, 5, 20, 0.9); /* Dark, slightly transparent background */
   padding: 35px 45px;
   border-radius: 0px; /* Sharp edges */
-  box-shadow: 0 0 25px var(--admin-glow-color), /* Outer glow */
-    inset 0 0 10px rgba(0, 0, 0, 0.6); /* Inner shadow */
+  box-shadow:
+    0 0 25px var(--admin-glow-color),
+    /* Outer glow */ inset 0 0 10px rgba(0, 0, 0, 0.6); /* Inner shadow */
   max-width: 1400px; /* Increased max width */
   width: 100%;
   border: 1px solid var(--admin-border-color);
@@ -216,7 +265,10 @@ body {
   font-size: 16px;
   font-weight: bold;
   border-bottom: 3px solid transparent; /* Underline effect */
-  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    text-shadow 0.2s ease;
   margin-bottom: -1px; /* Overlap container border */
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -278,9 +330,9 @@ body {
   letter-spacing: 0.5px;
 }
 /* Styling for text, password, number inputs and select dropdowns */
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type="number"],
+.form-group input[type='text'],
+.form-group input[type='password'],
+.form-group input[type='number'],
 .form-group select {
   padding: 10px 14px;
   border: 1px solid var(--admin-border-color);
@@ -288,7 +340,9 @@ body {
   color: var(--admin-text-primary);
   border-radius: 0px; /* Sharp edges */
   font-size: 15px;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   outline: none;
   width: 100%;
   box-sizing: border-box; /* Include padding and border in width */
@@ -469,21 +523,26 @@ body {
 }
 
 /* Column Widths - Adjusted for better Actions column visibility */
-#userTable th:nth-child(1), #userTable td:nth-child(1) {
+#userTable th:nth-child(1),
+#userTable td:nth-child(1) {
   width: 22%; /* Username */
   white-space: normal; /* Allow username to wrap */
   word-break: break-word;
 }
-#userTable th:nth-child(2), #userTable td:nth-child(2) {
+#userTable th:nth-child(2),
+#userTable td:nth-child(2) {
   width: 13%; /* Status */
 }
-#userTable th:nth-child(3), #userTable td:nth-child(3) {
+#userTable th:nth-child(3),
+#userTable td:nth-child(3) {
   width: 21%; /* Last Login */
 }
-#userTable th:nth-child(4), #userTable td:nth-child(4) {
+#userTable th:nth-child(4),
+#userTable td:nth-child(4) {
   width: 14%; /* Created */
 }
-#userTable th:nth-child(5), #userTable td:nth-child(5) {
+#userTable th:nth-child(5),
+#userTable td:nth-child(5) {
   width: 30%; /* Actions */
   /* IMPORTANT: Needs ample width to prevent action buttons from wrapping or being hidden */
 }
@@ -535,7 +594,8 @@ body {
 }
 
 /* Specific Action Button Colors & Glows */
-.btn-admin-toggle.make-admin { /* Button to make someone admin */
+.btn-admin-toggle.make-admin {
+  /* Button to make someone admin */
   border-color: var(--admin-text-info);
   color: var(--admin-text-info);
   box-shadow: 0 0 5px var(--admin-glow-info);
@@ -544,7 +604,8 @@ body {
   background-color: var(--admin-bg-button-hover-info);
   box-shadow: 0 0 10px var(--admin-glow-info-strong);
 }
-.btn-admin-toggle.remove-admin { /* Button to remove admin status */
+.btn-admin-toggle.remove-admin {
+  /* Button to remove admin status */
   border-color: var(--admin-text-warning);
   color: var(--admin-text-warning);
   box-shadow: 0 0 5px var(--admin-glow-warning);
@@ -553,7 +614,8 @@ body {
   background-color: var(--admin-bg-button-hover-warning);
   box-shadow: 0 0 10px var(--admin-glow-warning-strong);
 }
-.btn-suspend-toggle { /* Button to suspend/unsuspend */
+.btn-suspend-toggle {
+  /* Button to suspend/unsuspend */
   border-color: var(--admin-text-warning);
   color: var(--admin-text-warning);
   box-shadow: 0 0 5px var(--admin-glow-warning);
@@ -562,7 +624,8 @@ body {
   background-color: var(--admin-bg-button-hover-warning);
   box-shadow: 0 0 10px var(--admin-glow-warning-strong);
 }
-.btn-delete { /* Button to delete user */
+.btn-delete {
+  /* Button to delete user */
   border-color: var(--admin-text-error);
   color: var(--admin-text-error);
   box-shadow: 0 0 5px var(--admin-glow-error);
@@ -587,17 +650,20 @@ body {
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
 }
-.status-admin { /* Cyan */
+.status-admin {
+  /* Cyan */
   background-color: var(--admin-text-header);
   animation-name: pulse-icon-admin;
 }
-.status-suspended { /* Orange */
+.status-suspended {
+  /* Orange */
   background-color: var(--admin-text-warning);
-   animation-name: pulse-icon-warning;
+  animation-name: pulse-icon-warning;
 }
-.status-normal { /* Green */
+.status-normal {
+  /* Green */
   background-color: var(--admin-text-success);
-   animation-name: pulse-icon-success;
+  animation-name: pulse-icon-success;
 }
 
 /* Prune Button (Bottom Right) */
@@ -700,7 +766,8 @@ body::-webkit-scrollbar-thumb:hover {
 /* For scrollable lists/areas inside container */
 .config-display-list::-webkit-scrollbar,
 #feedbackMessage ul::-webkit-scrollbar,
-#userTableBody::-webkit-scrollbar { /* Added user table body scrollbar */
+#userTableBody::-webkit-scrollbar {
+  /* Added user table body scrollbar */
   width: 8px;
 }
 .config-display-list::-webkit-scrollbar-track,
@@ -720,4 +787,3 @@ body::-webkit-scrollbar-thumb:hover {
 #userTableBody::-webkit-scrollbar-thumb:hover {
   background-color: var(--admin-text-highlight); /* Magenta hover */
 }
-

@@ -264,7 +264,7 @@
     "confirmPruneZero": "No inactive accounts found based on current criteria. Do you still want to run the operation (just in case)?",
     "confirmPruneZeroConfirm": "Confirm prune operation even if 0 accounts were detected?",
     "pruneCancelled": "Prune operation cancelled."
- },
+  },
   "currentConfig": {
     "title": "Current Server Configuration",
     "loading": "Loading configuration...",

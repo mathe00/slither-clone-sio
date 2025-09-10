@@ -67,36 +67,40 @@
 
 /* Container for Game Over Buttons */
 .game-over-buttons {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center;
-    gap: 15px; /* Space between buttons */
-    margin-top: 25px;
-    position: relative; /* Ensure buttons are above background */
-    z-index: 1;
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center;
+  gap: 15px; /* Space between buttons */
+  margin-top: 25px;
+  position: relative; /* Ensure buttons are above background */
+  z-index: 1;
 }
 
-#gameOverOverlay button { /* General style for buttons in overlay */
-    padding: 12px 25px;
-    font-size: 22px;
-    /* Use general button styles from styles.css if possible, or redefine here */
-    cursor: pointer;
-    background: linear-gradient(180deg, #2fad4e, #218838);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+#gameOverOverlay button {
+  /* General style for buttons in overlay */
+  padding: 12px 25px;
+  font-size: 22px;
+  /* Use general button styles from styles.css if possible, or redefine here */
+  cursor: pointer;
+  background: linear-gradient(180deg, #2fad4e, #218838);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out,
+    background 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 #gameOverOverlay button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(180deg, #32c058, #28a745);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(180deg, #32c058, #28a745);
 }
 #gameOverOverlay button:active {
-    transform: translateY(0px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transform: translateY(0px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 #gameOverOverlay button#replayButton {
@@ -104,15 +108,15 @@
 }
 
 #gameOverOverlay button#backToMenuButton {
-    font-size: 18px; /* Smaller font size */
-    padding: 8px 20px; /* Smaller padding */
-    background: linear-gradient(180deg, #888, #666); /* Grey gradient */
+  font-size: 18px; /* Smaller font size */
+  padding: 8px 20px; /* Smaller padding */
+  background: linear-gradient(180deg, #888, #666); /* Grey gradient */
 }
 #gameOverOverlay button#backToMenuButton:hover {
-    background: linear-gradient(180deg, #999, #777);
+  background: linear-gradient(180deg, #999, #777);
 }
 #gameOverOverlay button#backToMenuButton:active {
-    background: linear-gradient(180deg, #777, #555);
+  background: linear-gradient(180deg, #777, #555);
 }
 
 /* Replay Button Bounce Animation */
@@ -214,12 +218,12 @@
 #adminMessageOverlay.visible::before,
 #adminMessageOverlay.visible::after {
   /* Variables controlled by animation */
-  --top: 0;        /* offset from top [0 - 10] */
-  --left: 0;       /* offset from left [~ -0.08 to 0.08] */
+  --top: 0; /* offset from top [0 - 10] */
+  --left: 0; /* offset from left [~ -0.08 to 0.08] */
   --v-height: 30%; /* visible part [%] */
 
   /* Calculations */
-  --n-tenth: calc(var(--f-size) * .1 * var(--top));
+  --n-tenth: calc(var(--f-size) * 0.1 * var(--top));
   --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
   --b-cut: calc(var(--t-cut) + var(--v-height));
 
@@ -235,8 +239,9 @@
   /* Apply glitch effects */
   transform: translateX(calc(var(--left) * 100%));
   filter: drop-shadow(0 0 transparent); /* Helps with pixelization */
-  text-shadow: calc(var(--left) * -3em) 0 .02em lime,
-               calc(var(--left) * -6em) 0 .02em #ff00e1;
+  text-shadow:
+    calc(var(--left) * -3em) 0 0.02em lime,
+    calc(var(--left) * -6em) 0 0.02em #ff00e1;
 
   /* Background for clipping effect (now transparent) */
   background-color: var(--bg);
@@ -256,77 +261,95 @@
 
 /* Glitch Keyframes */
 @keyframes glitch-p {
-  17% { --scale: .87; } /* This scales the main element slightly */
-  31% { --scale: 1.1; }
-  37% { --scale: 1.3; }
-  47% { --scale: .91; }
-  87% { --scale: 1; }
+  17% {
+    --scale: 0.87;
+  } /* This scales the main element slightly */
+  31% {
+    --scale: 1.1;
+  }
+  37% {
+    --scale: 1.3;
+  }
+  47% {
+    --scale: 0.91;
+  }
+  87% {
+    --scale: 1;
+  }
 }
 
 @keyframes glitch-a {
-  10%,30%,50%,70%,90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     --top: 0;
     --left: 0;
     --v-height: 30%; /* Reset height */
   }
   0% {
-   --v-height: 15%;
+    --v-height: 15%;
   }
   20% {
-    --left: .005;
+    --left: 0.005;
   }
   40% {
-    --left: .01;
+    --left: 0.01;
     --v-height: 20%;
     --top: 3;
   }
   60% {
-    --left: .03;
+    --left: 0.03;
     --v-height: 25%;
     --top: 6;
   }
   80% {
-    --left: .07;
+    --left: 0.07;
     --v-height: 5%;
     --top: 8;
   }
   100% {
-    --left: .083;
+    --left: 0.083;
     --v-height: 30%;
     --top: 1;
   }
 }
 
 @keyframes glitch-b {
-    10%,30%,50%,70%,90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     --top: 0;
     --left: 0;
     --v-height: 30%; /* Reset height */
   }
   0% {
-   --v-height: 15%;
-   --top: 10;
+    --v-height: 15%;
+    --top: 10;
   }
   20% {
-    --left: -.005;
+    --left: -0.005;
   }
   40% {
-    --left: -.01;
+    --left: -0.01;
     --v-height: 17%;
     --top: 3;
   }
   60% {
-    --left: -.03;
+    --left: -0.03;
     --v-height: 35%;
     --top: 6;
   }
   80% {
-    --left: -.07;
+    --left: -0.07;
     --v-height: 5%;
     --top: 8;
   }
   100% {
-    --left: -.083;
+    --left: -0.083;
     --v-height: 30%;
     --top: 1;
   }
@@ -369,130 +392,134 @@
 
 /* --- Exit Ghost Button Styles --- */
 .exit-ghost-btn {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    padding: 8px 15px;
-    font-size: 14px;
-    background: linear-gradient(180deg, #6c757d, #5a6268); /* Grey */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 6; /* Above minimap, below admin menu? */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s, transform 0.15s ease-out;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background: linear-gradient(180deg, #6c757d, #5a6268); /* Grey */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 6; /* Above minimap, below admin menu? */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition:
+    background 0.3s,
+    transform 0.15s ease-out;
 }
 .exit-ghost-btn:hover {
-    background: linear-gradient(180deg, #7a8288, #646b71);
-    transform: translateY(-1px);
+  background: linear-gradient(180deg, #7a8288, #646b71);
+  transform: translateY(-1px);
 }
 .exit-ghost-btn:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 /* --- Admin Context Menu Styles (Deprecated) --- */
 /* Keep styles for now in case it's reused, but it's hidden by default */
 .admin-context-menu {
-    position: absolute; /* Positioned by JS */
-    background-color: rgba(40, 40, 40, 0.95);
-    border: 1px solid #666;
-    border-radius: 5px;
-    padding: 10px;
-    z-index: 100; /* Above most game elements */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    display: none; /* Hidden by default now */
-    flex-direction: column;
-    gap: 8px;
-    min-width: 150px;
-    backdrop-filter: blur(3px);
+  position: absolute; /* Positioned by JS */
+  background-color: rgba(40, 40, 40, 0.95);
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 100; /* Above most game elements */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  display: none; /* Hidden by default now */
+  flex-direction: column;
+  gap: 8px;
+  min-width: 150px;
+  backdrop-filter: blur(3px);
 }
 .admin-context-menu #adminContextMenuPlayerName {
-    color: #eee;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 8px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #555;
-    font-size: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: #eee;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #555;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .admin-context-menu button {
-    /* Inherit general button styles or redefine */
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 0; /* Override default margin */
-    text-align: left;
-    background: #555;
-    color: #eee;
-    border: none;
-    border-radius: 3px;
-    transition: background-color 0.2s, color 0.2s;
+  /* Inherit general button styles or redefine */
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0; /* Override default margin */
+  text-align: left;
+  background: #555;
+  color: #eee;
+  border: none;
+  border-radius: 3px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 .admin-context-menu button:hover {
-    background-color: #777;
-    color: #fff;
-    transform: none; /* Override general button hover */
-    box-shadow: none; /* Override general button hover */
+  background-color: #777;
+  color: #fff;
+  transform: none; /* Override general button hover */
+  box-shadow: none; /* Override general button hover */
 }
-.admin-context-menu button[data-action="ban"] {
-    background-color: #c82333; /* Red */
+.admin-context-menu button[data-action='ban'] {
+  background-color: #c82333; /* Red */
 }
-.admin-context-menu button[data-action="ban"]:hover {
-    background-color: #e24453;
+.admin-context-menu button[data-action='ban']:hover {
+  background-color: #e24453;
 }
-.admin-context-menu button[data-action="freeze"] {
-    background-color: #007bff; /* Blue */
+.admin-context-menu button[data-action='freeze'] {
+  background-color: #007bff; /* Blue */
 }
-.admin-context-menu button[data-action="freeze"]:hover {
-    background-color: #2693ff;
+.admin-context-menu button[data-action='freeze']:hover {
+  background-color: #2693ff;
 }
-.admin-context-menu button[data-action="close"] {
-    background-color: #888;
+.admin-context-menu button[data-action='close'] {
+  background-color: #888;
 }
-.admin-context-menu button[data-action="close"]:hover {
-    background-color: #999;
+.admin-context-menu button[data-action='close']:hover {
+  background-color: #999;
 }
 
 /* --- Ghost Shortcut Guide Styles --- */
 #ghostShortcutGuide {
-    position: fixed;
-    top: 65px;  /* Adjust if necessary (15px (top button) + ~35px (button height) + 5px (margin)) */
-    left: 15px; /* Aligned with the button */
-    background-color: rgba(10, 5, 20, 0.8); /* Dark purple */
-    color: #ccc;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
-    z-index: 6; /* Above minimap */
-    border: 1px solid #8a2be2; /* BlueViolet */
-    box-shadow: 0 0 8px rgba(138, 43, 226, 0.4);
-    max-width: 350px;
-    line-height: 1.5;
-    pointer-events: none; /* Don't block clicks */
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease-out;
+  position: fixed;
+  top: 65px; /* Adjust if necessary (15px (top button) + ~35px (button height) + 5px (margin)) */
+  left: 15px; /* Aligned with the button */
+  background-color: rgba(10, 5, 20, 0.8); /* Dark purple */
+  color: #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  z-index: 6; /* Above minimap */
+  border: 1px solid #8a2be2; /* BlueViolet */
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.4);
+  max-width: 350px;
+  line-height: 1.5;
+  pointer-events: none; /* Don't block clicks */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease-out;
 }
 #ghostShortcutGuide.visible {
-    opacity: 1;
+  opacity: 1;
 }
 #ghostShortcutGuide kbd {
-    display: inline-block;
-    padding: 1px 5px;
-    font-family: inherit;
-    font-size: 12px;
-    color: #eee;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid #555;
-    border-radius: 3px;
-    margin: 0 2px;
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 1px 5px;
+  font-family: inherit;
+  font-size: 12px;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #555;
+  border-radius: 3px;
+  margin: 0 2px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
 }
 #ghostShortcutGuide .selected-player-name {
-    font-weight: bold;
-    color: #00ffff; /* Cyan */
+  font-weight: bold;
+  color: #00ffff; /* Cyan */
 }

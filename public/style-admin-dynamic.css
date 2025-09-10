@@ -17,7 +17,9 @@
   border-radius: 3px;
   padding: 8px 12px;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   font-size: 14px;
 }
 

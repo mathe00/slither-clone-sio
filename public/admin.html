@@ -1,6 +1,7 @@
 <!-- --- public/admin.html --- -->
-<!DOCTYPE html>
-<html lang="en"> <!-- Default lang attribute -->
+<!doctype html>
+<html lang="en">
+  <!-- Default lang attribute -->
   <head>
     <meta charset="UTF-8" />
     <!-- Title will be set by i18next -->
@@ -18,7 +19,11 @@
   <body>
     <div class="admin-container">
       <!-- Back Button -->
-      <a href="/" class="back-link-button" data-i18n="[title]backButtonTitle" title="Back to main page"
+      <a
+        href="/"
+        class="back-link-button"
+        data-i18n="[title]backButtonTitle"
+        title="Back to main page"
         >←</a
       >
 
@@ -74,7 +79,11 @@
           <tbody id="userTableBody">
             <!-- User rows will be populated here -->
             <tr>
-              <td colspan="5" style="text-align: center; color: #8e9297" data-i18n="userManagement.loading">
+              <td
+                colspan="5"
+                style="text-align: center; color: #8e9297"
+                data-i18n="userManagement.loading"
+              >
                 Loading...
               </td>
             </tr>
@@ -90,12 +99,14 @@
         <h3 data-i18n="currentConfig.title">Current Server Configuration</h3>
         <div id="currentConfigFeedback" style="margin-bottom: 15px"></div>
         <div id="currentConfigDisplay">
-          <div class="config-loading" data-i18n="currentConfig.loading">Loading configuration...</div>
+          <div class="config-loading" data-i18n="currentConfig.loading">
+            Loading configuration...
+          </div>
         </div>
       </div>
 
-    <!-- Load the external script -->
-    <script src="admin-logic.js" defer></script>
+      <!-- Load the external script -->
+      <script src="admin-logic.js" defer></script>
     </div>
-    </body>
+  </body>
 </html>

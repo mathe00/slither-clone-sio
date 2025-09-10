@@ -21,11 +21,11 @@
 
 // Assumes global 'i18next' instance is available and initialized from offline.html.
 
-console.log("offline-snake-game.js executing");
+console.log('offline-snake-game.js executing');
 
 const snakeGame = (() => {
-  const canvas = document.getElementById("snakeGameCanvas");
-  const scoreDisplay = document.getElementById("snakeGameScore");
+  const canvas = document.getElementById('snakeGameCanvas');
+  const scoreDisplay = document.getElementById('snakeGameScore');
 
   // Helper to safely get translations
   function t(key, options = {}) {
@@ -33,49 +33,42 @@ const snakeGame = (() => {
       return window.i18next.t(key, options);
     }
     console.warn(`i18next not ready, using fallback for key: ${key}`);
-    const fallback = key.split(".").pop(); // Get last part of the key
+    const fallback = key.split('.').pop(); // Get last part of the key
     return options.defaultValue || fallback || key;
   }
 
   if (!canvas || !scoreDisplay) {
-    console.error(
-      "Snake game canvas or score display not found. Game cannot initialize."
-    );
+    console.error('Snake game canvas or score display not found. Game cannot initialize.');
     return {
-      stop: () =>
-        console.warn(
-          "Cannot stop Snake: Canvas or Score element missing."
-        ),
+      stop: () => console.warn('Cannot stop Snake: Canvas or Score element missing.'),
     };
   }
-  console.log("Snake canvas and score display found.");
+  console.log('Snake canvas and score display found.');
 
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext('2d');
   if (!ctx) {
-    console.error(
-      "Failed to get 2D context from canvas. Game cannot initialize."
-    );
+    console.error('Failed to get 2D context from canvas. Game cannot initialize.');
     return {
-      stop: () => console.warn("Cannot stop Snake: Failed to get context."),
+      stop: () => console.warn('Cannot stop Snake: Failed to get context.'),
     };
   }
-  console.log("Canvas 2D context obtained.");
+  console.log('Canvas 2D context obtained.');
 
   const GRID_SIZE = 20;
   const GRID_WIDTH = canvas.width / GRID_SIZE;
   const GRID_HEIGHT = canvas.height / GRID_SIZE;
 
   const GameState = {
-    IDLE: "idle",
-    PLAYING: "playing",
-    GAME_OVER: "game_over",
+    IDLE: 'idle',
+    PLAYING: 'playing',
+    GAME_OVER: 'game_over',
   };
   let currentState = GameState.IDLE;
 
   let snake, food, dx, dy, score, gameLoopTimeoutId, changingDirection;
 
   function initGameVariables() {
-    console.log("Initializing game variables...");
+    console.log('Initializing game variables...');
     snake = [
       { x: Math.floor(GRID_WIDTH / 2), y: Math.floor(GRID_HEIGHT / 2) },
       { x: Math.floor(GRID_WIDTH / 2) - 1, y: Math.floor(GRID_HEIGHT / 2) },
@@ -86,12 +79,12 @@ const snakeGame = (() => {
     changingDirection = false;
     // Use translation for score label
     if (scoreDisplay)
-      scoreDisplay.textContent = t("offlineSnake.hud.scoreLabel", {
+      scoreDisplay.textContent = t('offlineSnake.hud.scoreLabel', {
         score: score,
         defaultValue: `Score: ${score}`,
       });
     spawnFood();
-    console.log("Game variables initialized.");
+    console.log('Game variables initialized.');
   }
 
   function spawnFood() {
@@ -119,24 +112,12 @@ const snakeGame = (() => {
     try {
       ctx.fillStyle = color;
       ctx.fillRect(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE);
-      ctx.fillStyle = isHead ?
-        "rgba(255, 255, 255, 0.3)" :
-        "rgba(255, 255, 255, 0.15)";
-      ctx.fillRect(
-        x * GRID_SIZE + 1,
-        y * GRID_SIZE + 1,
-        GRID_SIZE - 2,
-        GRID_SIZE - 2
-      );
-      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-      ctx.fillRect(
-        x * GRID_SIZE + 2,
-        y * GRID_SIZE + 2,
-        GRID_SIZE - 4,
-        GRID_SIZE - 4
-      );
+      ctx.fillStyle = isHead ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.15)';
+      ctx.fillRect(x * GRID_SIZE + 1, y * GRID_SIZE + 1, GRID_SIZE - 2, GRID_SIZE - 2);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+      ctx.fillRect(x * GRID_SIZE + 2, y * GRID_SIZE + 2, GRID_SIZE - 4, GRID_SIZE - 4);
       if (isHead) {
-        ctx.fillStyle = "#FFF";
+        ctx.fillStyle = '#FFF';
         const eyeSize = GRID_SIZE / 6;
         let eyeX = x * GRID_SIZE + GRID_SIZE / 2;
         let eyeY = y * GRID_SIZE + GRID_SIZE / 2;
@@ -144,29 +125,24 @@ const snakeGame = (() => {
         else if (dx === -1) eyeX -= eyeSize;
         if (dy === 1) eyeY += eyeSize;
         else if (dy === -1) eyeY -= eyeSize;
-        ctx.fillRect(
-          eyeX - eyeSize / 2,
-          eyeY - eyeSize / 2,
-          eyeSize,
-          eyeSize
-        );
+        ctx.fillRect(eyeX - eyeSize / 2, eyeY - eyeSize / 2, eyeSize, eyeSize);
       }
     } catch (e) {
-      console.error("Error during drawRect:", e);
+      console.error('Error during drawRect:', e);
     }
   }
 
   function drawSnake() {
     if (!snake) return;
     snake.forEach((segment, index) => {
-      const color = index === 0 ? "#00cc00" : "#00aa00";
+      const color = index === 0 ? '#00cc00' : '#00aa00';
       drawRect(segment.x, segment.y, color, index === 0);
     });
   }
 
   function drawFood() {
     if (!food) return;
-    drawRect(food.x, food.y, "#ff4444");
+    drawRect(food.x, food.y, '#ff4444');
   }
 
   function moveSnake() {
@@ -177,7 +153,7 @@ const snakeGame = (() => {
       score++;
       // Use translation for score label
       if (scoreDisplay)
-        scoreDisplay.textContent = t("offlineSnake.hud.scoreLabel", {
+        scoreDisplay.textContent = t('offlineSnake.hud.scoreLabel', {
           score: score,
           defaultValue: `Score: ${score}`,
         });
@@ -194,12 +170,7 @@ const snakeGame = (() => {
   function checkCollision() {
     if (!snake || snake.length === 0) return false;
     const head = snake[0];
-    if (
-      head.x < 0 ||
-      head.x >= GRID_WIDTH ||
-      head.y < 0 ||
-      head.y >= GRID_HEIGHT
-    ) {
+    if (head.x < 0 || head.x >= GRID_WIDTH || head.y < 0 || head.y >= GRID_HEIGHT) {
       return true;
     }
     for (let i = 1; i < snake.length; i++) {
@@ -212,10 +183,10 @@ const snakeGame = (() => {
 
   function clearCanvas() {
     try {
-      ctx.fillStyle = "#100a14";
+      ctx.fillStyle = '#100a14';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     } catch (e) {
-      console.error("Error clearing canvas:", e);
+      console.error('Error clearing canvas:', e);
     }
   }
 
@@ -245,32 +216,30 @@ const snakeGame = (() => {
     const goingLeft = dx === -1;
     let directionChanged = false;
     if (
-      (keyPressed === "ArrowLeft" ||
-        keyPressed === "KeyA" ||
-        keyPressed === "KeyQ") &&
+      (keyPressed === 'ArrowLeft' || keyPressed === 'KeyA' || keyPressed === 'KeyQ') &&
       !goingRight
     ) {
-      dx = -1; dy = 0; directionChanged = true;
+      dx = -1;
+      dy = 0;
+      directionChanged = true;
     }
     if (
-      (keyPressed === "ArrowUp" ||
-        keyPressed === "KeyW" ||
-        keyPressed === "KeyZ") &&
+      (keyPressed === 'ArrowUp' || keyPressed === 'KeyW' || keyPressed === 'KeyZ') &&
       !goingDown
     ) {
-      dx = 0; dy = -1; directionChanged = true;
+      dx = 0;
+      dy = -1;
+      directionChanged = true;
     }
-    if (
-      (keyPressed === "ArrowRight" || keyPressed === "KeyD") &&
-      !goingLeft
-    ) {
-      dx = 1; dy = 0; directionChanged = true;
+    if ((keyPressed === 'ArrowRight' || keyPressed === 'KeyD') && !goingLeft) {
+      dx = 1;
+      dy = 0;
+      directionChanged = true;
     }
-    if (
-      (keyPressed === "ArrowDown" || keyPressed === "KeyS") &&
-      !goingUp
-    ) {
-      dx = 0; dy = 1; directionChanged = true;
+    if ((keyPressed === 'ArrowDown' || keyPressed === 'KeyS') && !goingUp) {
+      dx = 0;
+      dy = 1;
+      directionChanged = true;
     }
     if (directionChanged) {
       changingDirection = true;
@@ -278,31 +247,31 @@ const snakeGame = (() => {
   }
 
   function gameOver(win) {
-    console.log("Game Over. Win:", win);
+    console.log('Game Over. Win:', win);
     if (gameLoopTimeoutId) clearTimeout(gameLoopTimeoutId);
     gameLoopTimeoutId = null;
     currentState = GameState.GAME_OVER;
     try {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = "bold 24px 'Courier New', monospace";
-      ctx.fillStyle = win ? "#0f0" : "#f00";
-      ctx.textAlign = "center";
-      ctx.shadowColor = win ? "#0f0" : "#f00";
+      ctx.fillStyle = win ? '#0f0' : '#f00';
+      ctx.textAlign = 'center';
+      ctx.shadowColor = win ? '#0f0' : '#f00';
       ctx.shadowBlur = 5;
       // Use translations for game over text
       ctx.fillText(
-        win ?
-          t("offlineSnake.gameOver.win", { defaultValue: "WIN!" }) :
-          t("offlineSnake.gameOver.lose", { defaultValue: "LOSE!" }),
+        win
+          ? t('offlineSnake.gameOver.win', { defaultValue: 'WIN!' })
+          : t('offlineSnake.gameOver.lose', { defaultValue: 'LOSE!' }),
         canvas.width / 2,
         canvas.height / 2 - 20
       );
       ctx.shadowBlur = 0;
       ctx.font = "16px 'Courier New', monospace";
-      ctx.fillStyle = "#fff";
+      ctx.fillStyle = '#fff';
       ctx.fillText(
-        t("offlineSnake.gameOver.scoreLabel", {
+        t('offlineSnake.gameOver.scoreLabel', {
           score: score,
           defaultValue: `Score: ${score}`,
         }),
@@ -310,32 +279,32 @@ const snakeGame = (() => {
         canvas.height / 2 + 10
       );
       ctx.font = "12px 'Courier New', monospace";
-      ctx.fillStyle = "#ccc";
+      ctx.fillStyle = '#ccc';
       ctx.fillText(
-        t("offlineSnake.gameOver.promptLine1", {
-          defaultValue: "Press Enter",
+        t('offlineSnake.gameOver.promptLine1', {
+          defaultValue: 'Press Enter',
         }),
         canvas.width / 2,
         canvas.height / 2 + 35
       );
       ctx.fillText(
-        t("offlineSnake.gameOver.promptLine2", {
-          defaultValue: "to Play Again",
+        t('offlineSnake.gameOver.promptLine2', {
+          defaultValue: 'to Play Again',
         }),
         canvas.width / 2,
         canvas.height / 2 + 50
       );
     } catch (e) {
-      console.error("Error drawing game over screen:", e);
+      console.error('Error drawing game over screen:', e);
     }
   }
 
   function start() {
     if (currentState === GameState.PLAYING) {
-      console.log("Game already playing, ignoring start command.");
+      console.log('Game already playing, ignoring start command.');
       return;
     }
-    console.log("Starting offline snake game...");
+    console.log('Starting offline snake game...');
     initGameVariables();
     currentState = GameState.PLAYING;
 
@@ -343,11 +312,11 @@ const snakeGame = (() => {
     const countdownInterval = setInterval(() => {
       clearCanvas();
       ctx.font = "bold 24px 'Courier New', monospace";
-      ctx.fillStyle = "#fff";
-      ctx.textAlign = "center";
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'center';
       // Use translation for countdown
       ctx.fillText(
-        t("offlineSnake.countdown", {
+        t('offlineSnake.countdown', {
           count: countdown,
           defaultValue: `STARTING IN ${countdown}`,
         }),
@@ -364,61 +333,58 @@ const snakeGame = (() => {
   }
 
   function stop() {
-    console.log("Stopping offline snake game...");
+    console.log('Stopping offline snake game...');
     if (gameLoopTimeoutId) {
       clearTimeout(gameLoopTimeoutId);
       gameLoopTimeoutId = null;
     }
     currentState = GameState.IDLE;
-    if (typeof handleKeyPress === "function") {
-      document.removeEventListener("keydown", handleKeyPress);
-      console.log("Keydown listener removed.");
+    if (typeof handleKeyPress === 'function') {
+      document.removeEventListener('keydown', handleKeyPress);
+      console.log('Keydown listener removed.');
     }
     showStartScreen();
   }
 
   function showStartScreen() {
-    console.log("Showing start screen...");
+    console.log('Showing start screen...');
     clearCanvas();
     try {
       ctx.font = "bold 18px 'Courier New', monospace";
-      ctx.fillStyle = "#eee";
-      ctx.textAlign = "center";
+      ctx.fillStyle = '#eee';
+      ctx.textAlign = 'center';
       // Use translations for start screen text
       ctx.fillText(
-        t("offlineSnake.startScreen.title", { defaultValue: "SNAKE" }),
+        t('offlineSnake.startScreen.title', { defaultValue: 'SNAKE' }),
         canvas.width / 2,
         canvas.height / 2 - 20
       );
       ctx.font = "14px 'Courier New', monospace";
-      ctx.fillStyle = "#ccc";
+      ctx.fillStyle = '#ccc';
       ctx.fillText(
-        t("offlineSnake.startScreen.promptLine1", {
-          defaultValue: "Press Enter",
+        t('offlineSnake.startScreen.promptLine1', {
+          defaultValue: 'Press Enter',
         }),
         canvas.width / 2,
         canvas.height / 2 + 10
       );
       ctx.fillText(
-        t("offlineSnake.startScreen.promptLine2", {
-          defaultValue: "to Play",
+        t('offlineSnake.startScreen.promptLine2', {
+          defaultValue: 'to Play',
         }),
         canvas.width / 2,
         canvas.height / 2 + 30
       );
-      console.log("Start screen drawn.");
+      console.log('Start screen drawn.');
     } catch (e) {
-      console.error("Error drawing start screen:", e);
+      console.error('Error drawing start screen:', e);
     }
   }
 
   function handleKeyPress(event) {
-    const ENTER_KEY_CODE = "Enter";
+    const ENTER_KEY_CODE = 'Enter';
     if (event.code === ENTER_KEY_CODE) {
-      if (
-        currentState === GameState.IDLE ||
-        currentState === GameState.GAME_OVER
-      ) {
+      if (currentState === GameState.IDLE || currentState === GameState.GAME_OVER) {
         start();
       }
     } else {
@@ -430,30 +396,27 @@ const snakeGame = (() => {
 
   function initialize() {
     if (!canvas || !ctx) {
-      console.error(
-        "Snake game canvas or context not found during initialization."
-      );
+      console.error('Snake game canvas or context not found during initialization.');
       return;
     }
-    console.log("Initializing offline snake game UI...");
-    document.addEventListener("keydown", handleKeyPress);
-    console.log("Keydown listener added.");
+    console.log('Initializing offline snake game UI...');
+    document.addEventListener('keydown', handleKeyPress);
+    console.log('Keydown listener added.');
     showStartScreen();
     currentState = GameState.IDLE;
-    console.log("Snake game UI initialized, state:", currentState);
+    console.log('Snake game UI initialized, state:', currentState);
   }
 
   // Initialize only after i18next is ready (or immediately if already ready)
   if (window.i18next && window.i18next.isInitialized) {
-      initialize();
+    initialize();
   } else if (window.i18next) {
-      window.i18next.on('initialized', initialize);
+    window.i18next.on('initialized', initialize);
   } else {
-      // Fallback if i18next isn't even loaded on the page
-      console.warn("i18next not found, initializing Snake game immediately with fallback text.");
-      document.addEventListener('DOMContentLoaded', initialize);
+    // Fallback if i18next isn't even loaded on the page
+    console.warn('i18next not found, initializing Snake game immediately with fallback text.');
+    document.addEventListener('DOMContentLoaded', initialize);
   }
-
 
   return {
     stop: stop,

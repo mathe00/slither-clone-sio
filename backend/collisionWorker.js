@@ -20,7 +20,7 @@
 
 // Runs in a separate Node.js worker thread context.
 
-const { parentPort, threadId } = require("worker_threads");
+const { parentPort, threadId } = require('worker_threads');
 
 // --- Helper Functions for Vector Math ---
 
@@ -38,7 +38,7 @@ function dotProduct(v1, v2) {
 
 /** Subtracts vector v2 from v1. */
 function subtractVectors(v1, v2) {
-    return { x: v1.x - v2.x, y: v1.y - v2.y };
+  return { x: v1.x - v2.x, y: v1.y - v2.y };
 }
 
 /**
@@ -70,7 +70,6 @@ function pointSegmentDistanceSquared(p, a, b) {
   // Return the squared distance between the point and the closest point on the segment
   return distanceSquared(p, closestPoint);
 }
-
 
 /**
  * Checks for collision between a player's head and opponent trails using point-segment logic.
@@ -107,11 +106,17 @@ function checkPlayerCollisions(data) {
 
       // Validate segment points
       if (
-        !p1 || typeof p1.x !== 'number' || typeof p1.y !== 'number' ||
-        !p2 || typeof p2.x !== 'number' || typeof p2.y !== 'number'
+        !p1 ||
+        typeof p1.x !== 'number' ||
+        typeof p1.y !== 'number' ||
+        !p2 ||
+        typeof p2.x !== 'number' ||
+        typeof p2.y !== 'number'
       ) {
-         console.warn(`[Worker ${threadId}] Invalid segment data at indices ${i}, ${i+1} for opponent ${opponent.id}.`);
-         continue;
+        console.warn(
+          `[Worker ${threadId}] Invalid segment data at indices ${i}, ${i + 1} for opponent ${opponent.id}.`
+        );
+        continue;
       }
 
       // Calculate squared distance from player's head to the current trail segment
@@ -121,7 +126,9 @@ function checkPlayerCollisions(data) {
 
       // Check for collision
       if (distSq < collisionRadiusSq) {
-        console.log(`[Worker ${threadId}] COLLISION DETECTED! Player ${playerId} hit trail segment ${i}-${i+1} of ${opponent.id}. DistSq: ${distSq.toFixed(1)} < RadiusSq: ${collisionRadiusSq.toFixed(1)}`);
+        console.log(
+          `[Worker ${threadId}] COLLISION DETECTED! Player ${playerId} hit trail segment ${i}-${i + 1} of ${opponent.id}. DistSq: ${distSq.toFixed(1)} < RadiusSq: ${collisionRadiusSq.toFixed(1)}`
+        );
         return {
           playerId: playerId,
           collision: {
@@ -143,8 +150,7 @@ function checkPlayerCollisions(data) {
   };
 }
 
-
-parentPort.on("message", (taskData) => {
+parentPort.on('message', taskData => {
   try {
     const result = checkPlayerCollisions(taskData);
     parentPort.postMessage(result);

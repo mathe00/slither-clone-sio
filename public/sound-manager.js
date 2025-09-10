@@ -33,7 +33,7 @@ const SoundManager = (() => {
     }
     console.warn(`i18next not ready, using fallback for key: ${key}`);
     // Provide basic fallback text
-    const fallback = key.split(".").pop(); // Get last part of the key
+    const fallback = key.split('.').pop(); // Get last part of the key
     return options.defaultValue || fallback || key;
   }
 
@@ -42,20 +42,20 @@ const SoundManager = (() => {
    * Should be called once after the DOM is ready.
    */
   function init() {
-    console.log("Initializing SoundManager...");
+    console.log('Initializing SoundManager...');
     soundInputs = {
-      death: document.getElementById("deathSoundInput"),
-      kill: document.getElementById("killSoundInput"),
-      boost: document.getElementById("boostSoundInput"),
+      death: document.getElementById('deathSoundInput'),
+      kill: document.getElementById('killSoundInput'),
+      boost: document.getElementById('boostSoundInput'),
       // Add other sound event inputs here if needed in the future
     };
     soundStatusSpans = {
-      death: document.getElementById("deathSoundStatus"),
-      kill: document.getElementById("killSoundStatus"),
-      boost: document.getElementById("boostSoundStatus"),
+      death: document.getElementById('deathSoundStatus'),
+      kill: document.getElementById('killSoundStatus'),
+      boost: document.getElementById('boostSoundStatus'),
       // Add other sound event status spans here
     };
-    clearSoundsButton = document.getElementById("clearSoundsButton");
+    clearSoundsButton = document.getElementById('clearSoundsButton');
 
     attachListeners();
     updateStatus(); // Initial status update based on current login state
@@ -68,7 +68,7 @@ const SoundManager = (() => {
   function attachListeners() {
     for (const eventType in soundInputs) {
       if (soundInputs[eventType]) {
-        soundInputs[eventType].addEventListener("change", (e) => {
+        soundInputs[eventType].addEventListener('change', e => {
           // Use `eventType` from the loop's scope
           handleSoundInputChange(eventType, e);
         });
@@ -78,9 +78,9 @@ const SoundManager = (() => {
     }
 
     if (clearSoundsButton) {
-      clearSoundsButton.addEventListener("click", clearAllSounds);
+      clearSoundsButton.addEventListener('click', clearAllSounds);
     } else {
-      console.warn("Clear sounds button not found.");
+      console.warn('Clear sounds button not found.');
     }
   }
 
@@ -92,11 +92,11 @@ const SoundManager = (() => {
    */
   function handleSoundInputChange(eventType, e) {
     const file = e.target.files[0];
-    if (file && file.type === "audio/mpeg") {
+    if (file && file.type === 'audio/mpeg') {
       saveSound(eventType, file);
     } else if (file) {
-      alert(t("soundManager.alerts.selectMp3"));
-      e.target.value = ""; // Clear the input
+      alert(t('soundManager.alerts.selectMp3'));
+      e.target.value = ''; // Clear the input
     }
   }
 
@@ -109,7 +109,7 @@ const SoundManager = (() => {
    */
   function getSoundStorageKey(eventType) {
     // IMPORTANT: Assumes `loggedInUsername` is a global variable accessible here
-    if (typeof loggedInUsername === "undefined" || !loggedInUsername) {
+    if (typeof loggedInUsername === 'undefined' || !loggedInUsername) {
       // console.warn("getSoundStorageKey: loggedInUsername not available.");
       return null;
     }
@@ -125,46 +125,38 @@ const SoundManager = (() => {
   function saveSound(eventType, file) {
     const key = getSoundStorageKey(eventType);
     if (!key) {
-      alert(t("soundManager.alerts.loginRequired"));
+      alert(t('soundManager.alerts.loginRequired'));
       // Clear the input if save fails due to not being logged in
-      if (soundInputs[eventType]) soundInputs[eventType].value = "";
+      if (soundInputs[eventType]) soundInputs[eventType].value = '';
       return;
     }
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = e => {
       try {
         localStorage.setItem(key, e.target.result);
         if (soundStatusSpans[eventType]) {
-          soundStatusSpans[eventType].textContent = "✅";
-          soundStatusSpans[eventType].title = t(
-            "soundManager.statusTitles.savedWithName",
-            { filename: file.name }
-          );
+          soundStatusSpans[eventType].textContent = '✅';
+          soundStatusSpans[eventType].title = t('soundManager.statusTitles.savedWithName', {
+            filename: file.name,
+          });
         }
         console.log(`SoundManager: Sound for '${eventType}' saved.`);
       } catch (error) {
-        console.error(
-          "SoundManager: Error saving sound (localStorage full?)",
-          error
-        );
-        alert(t("soundManager.alerts.saveError"));
+        console.error('SoundManager: Error saving sound (localStorage full?)', error);
+        alert(t('soundManager.alerts.saveError'));
         if (soundStatusSpans[eventType]) {
-          soundStatusSpans[eventType].textContent = "❌";
-          soundStatusSpans[eventType].title = t(
-            "soundManager.statusTitles.saveError"
-          );
+          soundStatusSpans[eventType].textContent = '❌';
+          soundStatusSpans[eventType].title = t('soundManager.statusTitles.saveError');
         }
       }
     };
-    reader.onerror = (e) => {
-      console.error("SoundManager: Error reading sound file:", e);
-      alert(t("soundManager.alerts.readError"));
+    reader.onerror = e => {
+      console.error('SoundManager: Error reading sound file:', e);
+      alert(t('soundManager.alerts.readError'));
       if (soundStatusSpans[eventType]) {
-        soundStatusSpans[eventType].textContent = "❌";
-        soundStatusSpans[eventType].title = t(
-          "soundManager.statusTitles.readError"
-        );
+        soundStatusSpans[eventType].textContent = '❌';
+        soundStatusSpans[eventType].title = t('soundManager.statusTitles.readError');
       }
     };
     reader.readAsDataURL(file);
@@ -176,8 +168,7 @@ const SoundManager = (() => {
    */
   function updateStatus() {
     // console.log("SoundManager: Updating status indicators..."); // Debug log
-    const userIsLoggedIn =
-      typeof loggedInUsername !== "undefined" && loggedInUsername;
+    const userIsLoggedIn = typeof loggedInUsername !== 'undefined' && loggedInUsername;
 
     for (const eventType in soundInputs) {
       const key = getSoundStorageKey(eventType); // Will be null if not logged in
@@ -186,29 +177,24 @@ const SoundManager = (() => {
         try {
           storedSound = localStorage.getItem(key);
         } catch (e) {
-          console.error(
-            `SoundManager: Error reading localStorage for key ${key}`,
-            e
-          );
+          console.error(`SoundManager: Error reading localStorage for key ${key}`, e);
         }
       }
 
       // Update status span
       if (soundStatusSpans[eventType]) {
         if (userIsLoggedIn && storedSound) {
-          soundStatusSpans[eventType].textContent = "✅";
-          soundStatusSpans[eventType].title = t(
-            "soundManager.statusTitles.saved"
-          );
+          soundStatusSpans[eventType].textContent = '✅';
+          soundStatusSpans[eventType].title = t('soundManager.statusTitles.saved');
         } else {
-          soundStatusSpans[eventType].textContent = "";
-          soundStatusSpans[eventType].title = "";
+          soundStatusSpans[eventType].textContent = '';
+          soundStatusSpans[eventType].title = '';
         }
       }
 
       // Clear file input value
       if (soundInputs[eventType]) {
-        soundInputs[eventType].value = "";
+        soundInputs[eventType].value = '';
       }
     }
   }
@@ -218,13 +204,13 @@ const SoundManager = (() => {
    * @private
    */
   function clearAllSounds() {
-    const keyPrefix = getSoundStorageKey(""); // Gets 'sound_username_'
+    const keyPrefix = getSoundStorageKey(''); // Gets 'sound_username_'
     if (!keyPrefix) {
-      alert(t("soundManager.alerts.clearLoginRequired"));
+      alert(t('soundManager.alerts.clearLoginRequired'));
       return;
     }
 
-    if (confirm(t("soundManager.confirms.clearAll"))) {
+    if (confirm(t('soundManager.confirms.clearAll'))) {
       let clearedCount = 0;
       try {
         for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -235,17 +221,15 @@ const SoundManager = (() => {
           }
         }
       } catch (e) {
-        console.error("SoundManager: Error clearing sounds from localStorage", e);
-        alert(t("soundManager.alerts.clearError"));
+        console.error('SoundManager: Error clearing sounds from localStorage', e);
+        alert(t('soundManager.alerts.clearError'));
         return; // Stop if error occurs
       }
 
       if (clearedCount > 0) {
-        console.log(
-          `SoundManager: ${clearedCount} custom sound(s) cleared.`
-        );
+        console.log(`SoundManager: ${clearedCount} custom sound(s) cleared.`);
       } else {
-        console.log("SoundManager: No custom sounds to clear.");
+        console.log('SoundManager: No custom sounds to clear.');
       }
       updateStatus(); // Update UI after clearing
     }
@@ -263,10 +247,7 @@ const SoundManager = (() => {
     try {
       dataUrl = localStorage.getItem(key);
     } catch (e) {
-      console.error(
-        `SoundManager: Error reading sound from localStorage for ${eventType}`,
-        e
-      );
+      console.error(`SoundManager: Error reading sound from localStorage for ${eventType}`, e);
       return;
     }
 
@@ -277,17 +258,11 @@ const SoundManager = (() => {
         // audio.volume = 0.8; // Example
         audio
           .play()
-          .catch((e) =>
-            console.warn(
-              `SoundManager: Unable to play sound for ${eventType}:`,
-              e.message
-            )
+          .catch(e =>
+            console.warn(`SoundManager: Unable to play sound for ${eventType}:`, e.message)
           );
       } catch (e) {
-        console.error(
-          `SoundManager: Error creating/playing sound for ${eventType}:`,
-          e
-        );
+        console.error(`SoundManager: Error creating/playing sound for ${eventType}:`, e);
       }
     } else {
       // console.log(`SoundManager: No custom sound found for event: ${eventType}`); // Optional debug log
@@ -301,3 +276,6 @@ const SoundManager = (() => {
     playSound: playSound,
   };
 })();
+
+// Make SoundManager globally available
+window.SoundManager = SoundManager;

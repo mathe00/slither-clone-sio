@@ -26,7 +26,7 @@
 // Assumes global 'i18next' instance is available and initialized.
 
 // Wrap entire game logic in DOMContentLoaded to ensure elements exist
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Encapsulate game logic in a namespace/IIFE
   const Game = (() => {
     // --- Game Variables ---
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let boosting = false;
     let worldWidth = 4000;
     let worldHeight = 4000;
-    let mapShape = "rectangle";
+    let mapShape = 'rectangle';
     let mapRadius = 0;
     let zoomLevel = 1.0;
     let animationFrameId = null;
@@ -74,21 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return window.i18next.t(key, options);
       }
       console.warn(`i18next not ready, using fallback for key: ${key}`);
-      const fallback = key.split(".").pop();
+      const fallback = key.split('.').pop();
       return options.defaultValue || fallback || key;
     }
 
     // --- Helper Functions ---
-    function calculateHashCode(str) {
-      var hash = 0, i, chr;
-      if (!str || str.length === 0) return hash;
-      for (i = 0; i < str.length; i++) {
-        chr = str.charCodeAt(i);
-        hash = (hash << 5) - hash + chr;
-        hash |= 0; // Convert to 32bit integer
-      }
-      return Math.abs(hash);
-    }
 
     // --- Canvas Resizing ---
     function resizeCanvas() {
@@ -103,17 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.width = displayWidth;
         canvas.height = displayHeight;
         gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-        console.log("WebGL Canvas resized to:", displayWidth, displayHeight);
+        console.log('WebGL Canvas resized to:', displayWidth, displayHeight);
       }
 
       if (textOverlayCanvas) {
         textOverlayCanvas.width = displayWidth;
         textOverlayCanvas.height = displayHeight;
-        console.log(
-          "Text Overlay Canvas resized to:",
-          displayWidth,
-          displayHeight
-        );
+        console.log('Text Overlay Canvas resized to:', displayWidth, displayHeight);
       }
 
       if (minimapCanvas) {
@@ -121,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         minimapCanvas.height = minimapCanvas.offsetHeight;
       }
     }
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
 
     // --- Game Loop Functions ---
     function startGameLoop() {
@@ -130,21 +116,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (snakeSizeDisplay) {
           // Use translation key
           snakeSizeDisplay.textContent = t('hud.sizeLabel', { size: 0 });
-          snakeSizeDisplay.style.opacity = "1";
+          snakeSizeDisplay.style.opacity = '1';
         }
         if (snakePositionDisplay) {
           // Use translation key
           snakePositionDisplay.textContent = t('hud.positionLabel', { x: 0, y: 0 });
-          snakePositionDisplay.style.opacity = "1";
+          snakePositionDisplay.style.opacity = '1';
         }
         if (ghostShortcutGuide) {
-          ghostShortcutGuide.style.display = isGhostMode ? "block" : "none";
-          ghostShortcutGuide.classList.toggle("visible", isGhostMode);
+          ghostShortcutGuide.style.display = isGhostMode ? 'block' : 'none';
+          ghostShortcutGuide.classList.toggle('visible', isGhostMode);
           updateShortcutGuide(); // Translate guide text
         }
         lastRenderTime = performance.now();
         animationFrameId = requestAnimationFrame(gameLoop);
-        console.log("WebGL Game loop started.");
+        console.log('WebGL Game loop started.');
       }
     }
 
@@ -152,13 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
-        if (snakeSizeDisplay) snakeSizeDisplay.style.opacity = "0";
-        if (snakePositionDisplay) snakePositionDisplay.style.opacity = "0";
+        if (snakeSizeDisplay) snakeSizeDisplay.style.opacity = '0';
+        if (snakePositionDisplay) snakePositionDisplay.style.opacity = '0';
         if (ghostShortcutGuide) {
-          ghostShortcutGuide.style.display = "none";
-          ghostShortcutGuide.classList.remove("visible");
+          ghostShortcutGuide.style.display = 'none';
+          ghostShortcutGuide.classList.remove('visible');
         }
-        console.log("WebGL Game loop stopped.");
+        console.log('WebGL Game loop stopped.');
       }
     }
 
@@ -227,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for (const id in gameState.players) {
         const p = gameState.players[id];
         if (!p || !p.particles) continue;
-        p.particles = p.particles.filter((particle) => {
+        p.particles = p.particles.filter(particle => {
           const age = currentTime - particle.spawnTime;
           if (age >= particle.life) return false;
           particle.x += particle.vx * (deltaTime / 1000);
@@ -247,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (
         !player ||
         !player.skinData ||
-        player.skinData.trailEffect === "none" ||
+        player.skinData.trailEffect === 'none' ||
         !player.particles
       ) {
         return;
@@ -274,47 +260,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let hasLocallyCollided = false;
     function checkClientSideCollisions() {
-        if (!localSocket || !localSocket.connected || !localMyId || hasLocallyCollided) return;
-        const myPlayer = gameState.players[localMyId];
-        if (!myPlayer || myPlayer.isGhost || myPlayer.godmode || myPlayer.hasCollided) {
-            if (hasLocallyCollided && (!myPlayer || !myPlayer.hasCollided)) {
-                hasLocallyCollided = false;
-            }
-            return;
+      if (!localSocket || !localSocket.connected || !localMyId || hasLocallyCollided) return;
+      const myPlayer = gameState.players[localMyId];
+      if (!myPlayer || myPlayer.isGhost || myPlayer.godmode || myPlayer.hasCollided) {
+        if (hasLocallyCollided && (!myPlayer || !myPlayer.hasCollided)) {
+          hasLocallyCollided = false;
         }
-        const headX = myPlayer.x;
-        const headY = myPlayer.y;
-        const radiusSq = clientCollisionRadius * clientCollisionRadius;
+        return;
+      }
+      const headX = myPlayer.x;
+      const headY = myPlayer.y;
+      const radiusSq = clientCollisionRadius * clientCollisionRadius;
 
-        for (const opponentId in gameState.players) {
-            if (opponentId === localMyId) continue;
-            const opponent = gameState.players[opponentId];
-            if (!opponent || opponent.isGhost || opponent.isFrozen || !opponent.trail || opponent.trail.length < 1) continue;
-            const checkLimit = opponent.trail.length;
-            for (let i = 0; i < checkLimit; i++) {
-                const seg = opponent.trail[i];
-                if (!seg) continue;
-                const dx = headX - seg.x;
-                const dy = headY - seg.y;
-                if ((dx * dx + dy * dy) < radiusSq) {
-                    console.log(`Client collision detected: My head (${localMyId}) vs trail of ${opponentId} at segment ${i}`);
-                    // Send key for reason
-                    localSocket.emit('clientCollisionDetected', { reasonKey: "game.deathReason.clientCollision", killerId: opponentId });
-                    hasLocallyCollided = true;
-                    return;
-                }
-            }
+      for (const opponentId in gameState.players) {
+        if (opponentId === localMyId) continue;
+        const opponent = gameState.players[opponentId];
+        if (
+          !opponent ||
+          opponent.isGhost ||
+          opponent.isFrozen ||
+          !opponent.trail ||
+          opponent.trail.length < 1
+        )
+          continue;
+        const checkLimit = opponent.trail.length;
+        for (let i = 0; i < checkLimit; i++) {
+          const seg = opponent.trail[i];
+          if (!seg) continue;
+          const dx = headX - seg.x;
+          const dy = headY - seg.y;
+          if (dx * dx + dy * dy < radiusSq) {
+            console.log(
+              `Client collision detected: My head (${localMyId}) vs trail of ${opponentId} at segment ${i}`
+            );
+            // Send key for reason
+            localSocket.emit('clientCollisionDetected', {
+              reasonKey: 'game.deathReason.clientCollision',
+              killerId: opponentId,
+            });
+            hasLocallyCollided = true;
+            return;
+          }
         }
+      }
     }
 
     // --- UI Text Update ---
     function updateUIText() {
-      if (
-        localMyId &&
-        gameState.players[localMyId] &&
-        !isGhostMode &&
-        snakeSizeDisplay
-      ) {
+      if (localMyId && gameState.players[localMyId] && !isGhostMode && snakeSizeDisplay) {
         let currentSize = gameState.players[localMyId].maxTrailLength || 0;
         // Use translation key
         snakeSizeDisplay.textContent = t('hud.sizeLabel', { size: currentSize });
@@ -323,24 +316,19 @@ document.addEventListener("DOMContentLoaded", () => {
         snakeSizeDisplay.textContent = isGhostMode ? t('hud.ghostMode') : t('hud.spectator');
       }
 
-      if (
-        localMyId &&
-        gameState.players[localMyId] &&
-        !isGhostMode &&
-        snakePositionDisplay
-      ) {
+      if (localMyId && gameState.players[localMyId] && !isGhostMode && snakePositionDisplay) {
         const player = gameState.players[localMyId];
         const posX = Math.round(player.x);
         const posY = Math.round(player.y);
         // Use translation key
         snakePositionDisplay.textContent = t('hud.positionLabel', { x: posX, y: posY });
       } else if (animationFrameId && snakePositionDisplay) {
-        snakePositionDisplay.textContent = "";
+        snakePositionDisplay.textContent = '';
       }
     }
 
     // --- Input Handling ---
-    const handleMouseMove = (e) => {
+    const handleMouseMove = e => {
       if (!canvas || !localSocket || !localSocket.connected) return;
       const rect = canvas.getBoundingClientRect();
       const mouseCanvasX = e.clientX - rect.left;
@@ -358,11 +346,11 @@ document.addEventListener("DOMContentLoaded", () => {
           cameraY = Math.max(0, Math.min(worldHeight, cameraY));
         }
       } else {
-        localSocket.emit("mouse_move", { x: worldX, y: worldY });
+        localSocket.emit('mouse_move', { x: worldX, y: worldY });
       }
     };
 
-    const handleMouseDown = (e) => {
+    const handleMouseDown = e => {
       if (!canvas || !localSocket || !localSocket.connected) return;
       if (isGhostMode) {
         if (e.button === 0) {
@@ -390,10 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (clickedPlayerId) {
             selectedPlayerId = clickedPlayerId;
-            selectedPlayerName = gameState.players[clickedPlayerId]?.name || t('ghostMode.unknownPlayer'); // Translate fallback
+            selectedPlayerName =
+              gameState.players[clickedPlayerId]?.name || t('ghostMode.unknownPlayer'); // Translate fallback
             updateShortcutGuide(); // Translate guide
             isPanning = false;
-            canvas.style.cursor = "crosshair";
+            canvas.style.cursor = 'crosshair';
           } else {
             selectedPlayerId = null;
             selectedPlayerName = null;
@@ -403,100 +392,99 @@ document.addEventListener("DOMContentLoaded", () => {
             panStartY = clickCanvasY;
             panStartCameraX = cameraX;
             panStartCameraY = cameraY;
-            localSocket.emit("startPan", { x: clickWorldX, y: clickWorldY });
-            canvas.style.cursor = "grabbing";
+            localSocket.emit('startPan', { x: clickWorldX, y: clickWorldY });
+            canvas.style.cursor = 'grabbing';
           }
         }
       } else {
         if (e.button === 0 && !boosting) {
-          localSocket.emit("boost", { boost: true });
+          localSocket.emit('boost', { boost: true });
           boosting = true;
         }
       }
     };
 
-    const handleMouseUp = (e) => {
+    const handleMouseUp = e => {
       if (!canvas || !localSocket || !localSocket.connected) return;
       if (isGhostMode) {
         if (e.button === 0 && isPanning) {
           isPanning = false;
-          localSocket.emit("endPan");
-          canvas.style.cursor = selectedPlayerId ? "crosshair" : "grab";
+          localSocket.emit('endPan');
+          canvas.style.cursor = selectedPlayerId ? 'crosshair' : 'grab';
         }
       } else {
         if (e.button === 0 && boosting) {
-          localSocket.emit("boost", { boost: false });
+          localSocket.emit('boost', { boost: false });
           boosting = false;
         }
       }
     };
 
-    const handleContextMenu = (e) => {
+    const handleContextMenu = e => {
       e.preventDefault();
     };
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = e => {
       if (
         document.activeElement &&
-        ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)
       )
         return;
       if (isGhostMode) {
         if (selectedPlayerId && localSocket && localSocket.connected) {
           let action = null;
-          if (e.code === "KeyK") action = "kill";
-          else if (e.code === "KeyC") action = "clear";
-          else if (e.code === "KeyF") action = "freeze";
+          if (e.code === 'KeyK') action = 'kill';
+          else if (e.code === 'KeyC') action = 'clear';
+          else if (e.code === 'KeyF') action = 'freeze';
           if (action) {
             e.preventDefault();
-            localSocket.emit("adminAction", {
+            localSocket.emit('adminAction', {
               targetPlayerId: selectedPlayerId,
               action,
             });
           }
         }
-        if (e.code === "Escape" && selectedPlayerId) {
+        if (e.code === 'Escape' && selectedPlayerId) {
           e.preventDefault();
           selectedPlayerId = null;
           selectedPlayerName = null;
           updateShortcutGuide(); // Translate guide
-          if (canvas) canvas.style.cursor = "grab";
+          if (canvas) canvas.style.cursor = 'grab';
         }
       } else {
-        if (e.code === "Space" && !boosting) {
+        if (e.code === 'Space' && !boosting) {
           if (localSocket && localSocket.connected) {
-            localSocket.emit("boost", { boost: true });
+            localSocket.emit('boost', { boost: true });
             boosting = true;
           }
-        } else if (e.code === "KeyP") {
-          if (localSocket && localSocket.connected) localSocket.emit("secretGrow");
+        } else if (e.code === 'KeyP') {
+          if (localSocket && localSocket.connected) localSocket.emit('secretGrow');
         }
       }
       if (e.code === 'KeyF' && !isGhostMode) {
-          e.preventDefault();
-          if (localSocket && localSocket.connected) localSocket.emit("toggleSelfFreeze");
+        e.preventDefault();
+        if (localSocket && localSocket.connected) localSocket.emit('toggleSelfFreeze');
       }
     };
 
-    const handleKeyUp = (e) => {
+    const handleKeyUp = e => {
       if (
         document.activeElement &&
-        ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)
       )
         return;
       if (!isGhostMode) {
-        if (e.code === "Space" && boosting) {
+        if (e.code === 'Space' && boosting) {
           if (localSocket && localSocket.connected) {
-            localSocket.emit("boost", { boost: false });
+            localSocket.emit('boost', { boost: false });
             boosting = false;
           }
         }
       }
     };
 
-    const handleMouseWheel = (e) => {
-      if (!canvas || !localSocket || !localSocket.connected || !isGhostMode)
-        return;
+    const handleMouseWheel = e => {
+      if (!canvas || !localSocket || !localSocket.connected || !isGhostMode) return;
       e.preventDefault();
       const rect = canvas.getBoundingClientRect();
       const mouseCanvasX = e.clientX - rect.left;
@@ -530,32 +518,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function addInputListeners() {
       if (inputListenersAttached || !canvas) return;
-      canvas.addEventListener("mousemove", inputHandlers.mousemove);
-      canvas.addEventListener("mousedown", inputHandlers.mousedown);
-      canvas.addEventListener("mouseup", inputHandlers.mouseup);
-      canvas.addEventListener("contextmenu", inputHandlers.contextmenu);
-      window.addEventListener("keydown", inputHandlers.keydown);
-      window.addEventListener("keyup", inputHandlers.keyup);
-      canvas.addEventListener("wheel", inputHandlers.wheel, { passive: false });
+      canvas.addEventListener('mousemove', inputHandlers.mousemove);
+      canvas.addEventListener('mousedown', inputHandlers.mousedown);
+      canvas.addEventListener('mouseup', inputHandlers.mouseup);
+      canvas.addEventListener('contextmenu', inputHandlers.contextmenu);
+      window.addEventListener('keydown', inputHandlers.keydown);
+      window.addEventListener('keyup', inputHandlers.keyup);
+      canvas.addEventListener('wheel', inputHandlers.wheel, { passive: false });
       inputListenersAttached = true;
-      canvas.style.cursor = isGhostMode
-        ? selectedPlayerId
-          ? "crosshair"
-          : "grab"
-        : "default";
+      canvas.style.cursor = isGhostMode ? (selectedPlayerId ? 'crosshair' : 'grab') : 'default';
     }
 
     function removeInputListeners() {
       if (!inputListenersAttached || !canvas) return;
-      canvas.removeEventListener("mousemove", inputHandlers.mousemove);
-      canvas.removeEventListener("mousedown", inputHandlers.mousedown);
-      canvas.removeEventListener("mouseup", inputHandlers.mouseup);
-      canvas.removeEventListener("contextmenu", inputHandlers.contextmenu);
-      window.removeEventListener("keydown", inputHandlers.keydown);
-      window.removeEventListener("keyup", inputHandlers.keyup);
-      canvas.removeEventListener("wheel", inputHandlers.wheel);
+      canvas.removeEventListener('mousemove', inputHandlers.mousemove);
+      canvas.removeEventListener('mousedown', inputHandlers.mousedown);
+      canvas.removeEventListener('mouseup', inputHandlers.mouseup);
+      canvas.removeEventListener('contextmenu', inputHandlers.contextmenu);
+      window.removeEventListener('keydown', inputHandlers.keydown);
+      window.removeEventListener('keyup', inputHandlers.keyup);
+      canvas.removeEventListener('wheel', inputHandlers.wheel);
       inputListenersAttached = false;
-      canvas.style.cursor = "default";
+      canvas.style.cursor = 'default';
     }
 
     // Update Shortcut Guide with translations
@@ -563,10 +547,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!ghostShortcutGuide || !isGhostMode) return;
       if (selectedPlayerId && selectedPlayerName) {
         // Use translation keys, allow HTML for span
-        ghostShortcutGuide.innerHTML = t('ghostMode.selected', {
+        ghostShortcutGuide.innerHTML =
+          t('ghostMode.selected', {
             name: selectedPlayerName,
-            interpolation: { escapeValue: false } // Allow span tag
-        }) + '<br>' + t('ghostMode.controlsSelected');
+            interpolation: { escapeValue: false }, // Allow span tag
+          }) +
+          '<br>' +
+          t('ghostMode.controlsSelected');
       } else {
         // Use translation keys
         ghostShortcutGuide.innerHTML = t('ghostMode.controlsGeneral');
@@ -575,23 +562,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Public Methods ---
     function initializeAndStart(socketInstance, clientId, overlayCanvasElement) {
-      console.log(
-        "Initializing Main Game with socket:",
-        socketInstance.id,
-        "My ID:",
-        clientId
-      );
+      console.log('Initializing Main Game with socket:', socketInstance.id, 'My ID:', clientId);
       localSocket = socketInstance;
       localMyId = clientId;
-      canvas = document.getElementById("gameCanvas");
+      canvas = document.getElementById('gameCanvas');
       textOverlayCanvas = overlayCanvasElement;
 
       if (!canvas) {
-        console.error("Main canvas not found!");
+        console.error('Main canvas not found!');
         return;
       }
       if (!textOverlayCanvas) {
-        console.error("Text overlay canvas not found!");
+        console.error('Text overlay canvas not found!');
         return;
       }
 
@@ -599,16 +581,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      textOverlayCtx = textOverlayCanvas.getContext("2d");
+      textOverlayCtx = textOverlayCanvas.getContext('2d');
       if (!textOverlayCtx) {
-        console.error("Failed to get 2D context for text overlay!");
+        console.error('Failed to get 2D context for text overlay!');
         return;
       }
 
-      snakeSizeDisplay = document.getElementById("snakeSizeDisplay");
-      snakePositionDisplay = document.getElementById("snakePositionDisplay");
-      ghostShortcutGuide = document.getElementById("ghostShortcutGuide");
-      minimapCanvas = document.getElementById("minimapCanvas");
+      snakeSizeDisplay = document.getElementById('snakeSizeDisplay');
+      snakePositionDisplay = document.getElementById('snakePositionDisplay');
+      ghostShortcutGuide = document.getElementById('ghostShortcutGuide');
+      minimapCanvas = document.getElementById('minimapCanvas');
 
       gameState = { players: {}, food: [] };
       boosting = false;
@@ -617,29 +599,29 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedPlayerId = null;
       selectedPlayerName = null;
       zoomLevel = 1.0;
-      mapShape = "rectangle";
+      mapShape = 'rectangle';
       mapRadius = 0;
       cameraX = worldWidth / 2;
       cameraY = worldHeight / 2;
       hasLocallyCollided = false;
-      if (snakePositionDisplay) snakePositionDisplay.textContent = "";
+      if (snakePositionDisplay) snakePositionDisplay.textContent = '';
 
       if (localSocket) {
-        localSocket.off("state");
-        localSocket.off("gameOver");
-        localSocket.off("mapSizeUpdate");
-        localSocket.off("configUpdate");
-        localSocket.off("killConfirmed");
-        localSocket.off("adminActionFeedback");
-        localSocket.off("kicked");
-        localSocket.off("banned");
+        localSocket.off('state');
+        localSocket.off('gameOver');
+        localSocket.off('mapSizeUpdate');
+        localSocket.off('configUpdate');
+        localSocket.off('killConfirmed');
+        localSocket.off('adminActionFeedback');
+        localSocket.off('kicked');
+        localSocket.off('banned');
         localSocket.off('clientCollisionDetected');
       } else {
-        console.error("Socket instance is null during initialization!");
+        console.error('Socket instance is null during initialization!');
         return;
       }
 
-      localSocket.on("state", (state) => {
+      localSocket.on('state', state => {
         for (const id in state.players) {
           if (gameState.players[id] && state.players[id]) {
             state.players[id].particles = gameState.players[id].particles || [];
@@ -651,42 +633,38 @@ document.addEventListener("DOMContentLoaded", () => {
           selectedPlayerId = null;
           selectedPlayerName = null;
           updateShortcutGuide(); // Translate guide
-          if (canvas) canvas.style.cursor = "grab";
+          if (canvas) canvas.style.cursor = 'grab';
         }
         gameState = state;
       });
 
       // Handle gameOver with reasonKey and reasonOptions
-      localSocket.on("gameOver", (data) => {
-        if (typeof showGameOverOverlay === "function") {
+      localSocket.on('gameOver', data => {
+        if (typeof showGameOverOverlay === 'function') {
           // Pass key and options to the UI function
           showGameOverOverlay(data.reasonKey, data.reasonOptions, data.kill, data.finalSize);
         } else {
           // Fallback alert (will show key if ui-logic not ready)
-          alert(t(data.reasonKey, data.reasonOptions) + " - Game Over");
+          alert(t(data.reasonKey, data.reasonOptions) + ' - Game Over');
         }
         stopGame();
       });
 
-      localSocket.on("mapSizeUpdate", (data) => {
-        console.log("Map size update received:", data);
+      localSocket.on('mapSizeUpdate', data => {
+        console.log('Map size update received:', data);
         clientCollisionRadius = data.collisionRadius || 12;
         worldWidth = data.width;
         worldHeight = data.height;
-        mapShape = data.shape || "rectangle";
+        mapShape = data.shape || 'rectangle';
         mapRadius = data.radius || 0;
         zoomLevel = data.zoom || 1.0;
         isGhostMode = data.isGhost || false;
         resizeCanvas();
         if (canvas)
-          canvas.style.cursor = isGhostMode
-            ? selectedPlayerId
-              ? "crosshair"
-              : "grab"
-            : "default";
+          canvas.style.cursor = isGhostMode ? (selectedPlayerId ? 'crosshair' : 'grab') : 'default';
         if (ghostShortcutGuide) {
-          ghostShortcutGuide.style.display = isGhostMode ? "block" : "none";
-          ghostShortcutGuide.classList.toggle("visible", isGhostMode);
+          ghostShortcutGuide.style.display = isGhostMode ? 'block' : 'none';
+          ghostShortcutGuide.classList.toggle('visible', isGhostMode);
           updateShortcutGuide(); // Translate guide
         }
         if (isGhostMode && gameState.players && gameState.players[localMyId]) {
@@ -698,34 +676,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      localSocket.on("configUpdate", (data) => {
+      localSocket.on('configUpdate', data => {
         if (data.zoomLevel !== undefined) {
           zoomLevel = data.zoomLevel;
         }
         if (data.collisionRadius !== undefined) {
-            clientCollisionRadius = data.collisionRadius;
+          clientCollisionRadius = data.collisionRadius;
         }
       });
 
-      localSocket.on("killConfirmed", () => {
-        if (!isGhostMode && typeof playSoundForEvent === "function")
-          playSoundForEvent("kill");
+      localSocket.on('killConfirmed', () => {
+        if (!isGhostMode && typeof playSoundForEvent === 'function') playSoundForEvent('kill');
       });
 
       // Handle feedback with keys and options
-      localSocket.on("adminActionFeedback", (data) => {
-        if (typeof showNotification === "function")
+      localSocket.on('adminActionFeedback', data => {
+        if (typeof showNotification === 'function')
           // Translate the message using the key and options
-          showNotification(t(data.messageKey, data.messageOptions), data.success ? "success" : "error");
-        else console.log("Admin Feedback:", data);
+          showNotification(
+            t(data.messageKey, data.messageOptions),
+            data.success ? 'success' : 'error'
+          );
+        else console.log('Admin Feedback:', data);
       });
 
       // Handle kick/ban with keys and options
-      localSocket.on("kicked", (data) => {
+      localSocket.on('kicked', data => {
         alert(t(data.reasonKey, data.reasonOptions || {})); // Translate reason
         if (localSocket) localSocket.disconnect();
       });
-      localSocket.on("banned", (data) => {
+      localSocket.on('banned', data => {
         alert(t(data.reasonKey, data.reasonOptions || {})); // Translate reason
         if (localSocket) localSocket.disconnect();
       });
@@ -748,16 +728,11 @@ document.addEventListener("DOMContentLoaded", () => {
       WebGLUtils.cleanup();
 
       if (textOverlayCtx) {
-        textOverlayCtx.clearRect(
-          0,
-          0,
-          textOverlayCanvas.width,
-          textOverlayCanvas.height
-        );
+        textOverlayCtx.clearRect(0, 0, textOverlayCanvas.width, textOverlayCanvas.height);
       }
-      if (snakePositionDisplay) snakePositionDisplay.textContent = "";
+      if (snakePositionDisplay) snakePositionDisplay.textContent = '';
 
-      console.log("Main Game stopped and cleaned up.");
+      console.log('Main Game stopped and cleaned up.');
     }
 
     function updateConfig(data) {
@@ -765,7 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
         zoomLevel = data.zoomLevel;
       }
       if (data.collisionRadius !== undefined) {
-          clientCollisionRadius = data.collisionRadius;
+        clientCollisionRadius = data.collisionRadius;
       }
     }
 
