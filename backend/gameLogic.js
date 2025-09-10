@@ -39,11 +39,121 @@ let initialMapHeight;
 let gameLoopIntervalId = null;
 let lastRenderTime = 0; // Added for delta time calculation
 let lastLeaderboardEmit = 0;
+let cachedLeaderboard = null; // Cache for leaderboard data
+let lastLeaderboardUpdate = 0; // Timestamp of last leaderboard update
 let foodSpawnIntervalId = null; // Interval ID for food spawning
 let botSpawnIntervalId = null; // Interval ID for bot spawning
 
+// Variables for adaptive throttling
+let lastStateEmitTime = 0;
+let currentStateEmitInterval = 1000 / 45; // Default to 45 FPS
+let lastPerformanceCheck = 0;
+let performanceCheckInterval = 5000; // Check performance every 5 seconds
+let playerCount = 0;
+let avgProcessingTime = 0;
+let processingTimeSamples = [];
+const maxProcessingTimeSamples = 10;
+
+// Object to track static data changes for each player
+let playerStaticDataCache = {};
+
 const ABSOLUTE_MAX_TRAIL_POINTS = 5000; // Safety limit for trail array size
 const MOUSE_ACTIVITY_THRESHOLD = 200; // ms - Stop rotating if mouse hasn't moved for this long
+
+/**
+ * Checks if player's static data has changed and updates the cache.
+ * @param {string} playerId - The ID of the player.
+ * @param {object} playerData - The current player data.
+ * @returns {boolean} True if static data has changed, false otherwise.
+ */
+function hasPlayerStaticDataChanged(playerId, playerData) {
+  // If no cache entry exists, it's a new player (just connected)
+  if (!playerStaticDataCache[playerId]) {
+    playerStaticDataCache[playerId] = {
+      name: playerData.name,
+      headColor: playerData.headColor,
+      bodyColor: playerData.bodyColor,
+      skinData: JSON.stringify(playerData.skinData) // Stringify for deep comparison
+    };
+    return true; // New player, send all static data
+  }
+
+  // Check for changes in static data
+  const cached = playerStaticDataCache[playerId];
+  const currentSkinData = JSON.stringify(playerData.skinData);
+  const hasChanged =
+    cached.name !== playerData.name ||
+    cached.headColor !== playerData.headColor ||
+    cached.bodyColor !== playerData.bodyColor ||
+    cached.skinData !== currentSkinData;
+
+  // Update cache if changed
+  if (hasChanged) {
+    playerStaticDataCache[playerId] = {
+      name: playerData.name,
+      headColor: playerData.headColor,
+      bodyColor: playerData.bodyColor,
+      skinData: currentSkinData
+    };
+  }
+
+  return hasChanged;
+}
+
+/**
+ * Updates the state emit interval based on server performance and player count.
+ * @param {number} processingTime - Time taken to process the last game loop iteration.
+ * @param {number} now - Current timestamp.
+ */
+function updateStateEmitInterval(processingTime, now) {
+  // If adaptive throttling is disabled, use fixed FPS from config
+  if (!config.ADAPTIVE_THROTTLING_ENABLED) {
+    const targetFPS = Math.max(config.MIN_FPS || 10, Math.min(config.MAX_FPS || 120, config.FPS || 45));
+    currentStateEmitInterval = 1000 / targetFPS;
+    return;
+  }
+
+  // Add processing time to samples
+  processingTimeSamples.push(processingTime);
+  if (processingTimeSamples.length > maxProcessingTimeSamples) {
+    processingTimeSamples.shift();
+  }
+
+  // Calculate average processing time
+  avgProcessingTime = processingTimeSamples.reduce((sum, time) => sum + time, 0) / processingTimeSamples.length;
+
+  // Update player count
+  playerCount = Object.keys(players).filter(id => players[id].type === "player" && !players[id].isGhost).length;
+
+  // Check performance periodically
+  if (now - lastPerformanceCheck > (config.PERFORMANCE_CHECK_INTERVAL || 5000)) {
+    lastPerformanceCheck = now;
+
+    // Adjust interval based on performance and player count
+    const targetFPS = Math.max(config.MIN_FPS || 10, Math.min(config.MAX_FPS || 120, config.FPS || 45));
+    let newInterval = 1000 / targetFPS;
+
+    // If processing time is high, reduce FPS
+    if (avgProcessingTime > 10) {
+      const reductionFactor = Math.max(0.5, 1 - (avgProcessingTime - 10) / 50);
+      newInterval = Math.min(1000 / (config.MIN_FPS || 10), newInterval / reductionFactor);
+    }
+
+    // If there are many players, reduce FPS slightly
+    const highLoadThreshold = config.HIGH_LOAD_THRESHOLD || 50;
+    if (playerCount > highLoadThreshold) {
+      const playerFactor = Math.max(0.7, 1 - (playerCount - highLoadThreshold) / 100);
+      const minFPS = Math.max(config.MIN_FPS || 10, targetFPS * (config.HIGH_LOAD_FPS_REDUCTION || 0.5));
+      newInterval = Math.min(1000 / minFPS, newInterval / playerFactor);
+    }
+
+    // Update interval if it changed significantly
+    if (Math.abs(newInterval - currentStateEmitInterval) > 1) {
+      currentStateEmitInterval = newInterval;
+      console.log(`Adaptive throttling: Updated state emit interval to ${currentStateEmitInterval.toFixed(2)}ms (FPS: ${(1000 / currentStateEmitInterval).toFixed(1)})`);
+    }
+  }
+}
 
 // --- Smart Spawn Constants ---
 const NUM_SPAWN_CANDIDATES = 15; // How many random points to evaluate
@@ -331,6 +441,10 @@ function handlePlayerDeath(playerId, reason, isKill, killerId = null, deathConte
   }
 
   // Remove player/bot from game state
+  // Clean up static data cache
+  if (playerStaticDataCache[playerId]) {
+    delete playerStaticDataCache[playerId];
+  }
   delete players[playerId];
 
   // Check if food/bot spawning needs adjustment
@@ -530,7 +644,8 @@ function updateBot(p, now, deltaTime) {
 
 /** Main game loop. */
 function gameLoop() {
-  const now = Date.now();
+  const loopStartTime = Date.now();
+  const now = loopStartTime;
   const deltaTime = now - (lastRenderTime || now);
   lastRenderTime = now;
   let playersToRemove = [];
@@ -905,56 +1020,87 @@ function gameLoop() {
   }
 
   playersToRemove.forEach((id) => {
+    // Clean up static data cache
+    if (playerStaticDataCache[id]) {
+      delete playerStaticDataCache[id];
+    }
     delete players[id];
     pendingCollisions.delete(id);
   });
 
   // --- Send State (Area of Interest Implementation) ---
-  const allFoodData = food.map((f) => ({
-    id: f.id, x: f.x, y: f.y, size: f.size, color: f.color, opacity: f.opacity, type: f.type,
-  }));
+  // Throttled state emission based on adaptive interval
+  if (now - lastStateEmitTime >= currentStateEmitInterval) {
+    lastStateEmitTime = now;
 
-  for (const playerId in players) {
-    const p = players[playerId];
-    if (!p || p.type !== "player") continue; // Send state only to human players
+    const allFoodData = food.map((f) => ({
+      id: f.id, x: f.x, y: f.y, size: f.size, color: f.color, opacity: f.opacity, type: f.type,
+    }));
 
-    const stateForPlayer = { players: {}, food: [] };
-    const aoiRadiusSq = config.AOI_RADIUS * config.AOI_RADIUS;
+    for (const playerId in players) {
+      const p = players[playerId];
+      if (!p || p.type !== "player") continue; // Send state only to human players
 
-    // Include self always
-    stateForPlayer.players[playerId] = {
-      x: p.x, y: p.y, name: p.name, headColor: p.headColor, bodyColor: p.bodyColor,
-      skinData: p.skinData, trail: p.trail, boost: p.boost, godmode: p.godmode,
-      godmodeStartTime: p.godmodeStartTime, isGhost: p.isGhost, isFrozen: p.isFrozen,
-      maxTrailLength: p.maxTrailLength, type: p.type, angle: p.angle // Include angle
-    };
+      const stateForPlayer = { players: {}, food: [] };
+      const aoiRadiusSq = config.AOI_RADIUS * config.AOI_RADIUS;
 
-    // Include nearby players/bots
-    const nearbyEntities = spatialGrid.queryNearbyRadius(p.x, p.y, config.AOI_RADIUS);
-    nearbyEntities.forEach((entity) => {
-      if (entity.id === playerId) return; // Already included self
-      if (entity.type === "player" || entity.type === "bot") {
-        const nearbyP = players[entity.id];
-        if (nearbyP) {
-          stateForPlayer.players[entity.id] = {
-            x: nearbyP.x, y: nearbyP.y, name: nearbyP.name, headColor: nearbyP.headColor,
-            bodyColor: nearbyP.bodyColor, skinData: nearbyP.skinData, trail: nearbyP.trail,
-            boost: nearbyP.boost, godmode: nearbyP.godmode, godmodeStartTime: nearbyP.godmodeStartTime,
-            isGhost: nearbyP.isGhost, isFrozen: nearbyP.isFrozen, maxTrailLength: nearbyP.maxTrailLength,
-            type: nearbyP.type, angle: nearbyP.angle // Include angle
-          };
-        }
+      // Include self always
+      // Check if static data has changed
+      const staticDataChanged = hasPlayerStaticDataChanged(playerId, p);
+      
+      // Always include dynamic data, but only include static data if it changed or it's a new player
+      stateForPlayer.players[playerId] = {
+        x: p.x, y: p.y, trail: p.trail, boost: p.boost, godmode: p.godmode,
+        godmodeStartTime: p.godmodeStartTime, isGhost: p.isGhost, isFrozen: p.isFrozen,
+        maxTrailLength: p.maxTrailLength, type: p.type, angle: p.angle // Include angle
+      };
+      
+      // Add static data only if it changed or it's a new player
+      if (staticDataChanged) {
+        stateForPlayer.players[playerId].name = p.name;
+        stateForPlayer.players[playerId].headColor = p.headColor;
+        stateForPlayer.players[playerId].bodyColor = p.bodyColor;
+        stateForPlayer.players[playerId].skinData = p.skinData;
       }
-    });
 
-    // Include nearby food
-    stateForPlayer.food = allFoodData.filter((f) => {
-      const dx = f.x - p.x;
-      const dy = f.y - p.y;
-      return dx * dx + dy * dy <= aoiRadiusSq;
-    });
+      // Include nearby players/bots
+      const nearbyEntities = spatialGrid.queryNearbyRadius(p.x, p.y, config.AOI_RADIUS);
+      nearbyEntities.forEach((entity) => {
+        if (entity.id === playerId) return; // Already included self
+        if (entity.type === "player" || entity.type === "bot") {
+          const nearbyP = players[entity.id];
+          if (nearbyP) {
+            // Check if static data has changed for this nearby player
+            const nearbyStaticDataChanged = hasPlayerStaticDataChanged(entity.id, nearbyP);
+            
+            // Always include dynamic data, but only include static data if it changed or it's a new player
+            stateForPlayer.players[entity.id] = {
+              x: nearbyP.x, y: nearbyP.y, trail: nearbyP.trail,
+              boost: nearbyP.boost, godmode: nearbyP.godmode, godmodeStartTime: nearbyP.godmodeStartTime,
+              isGhost: nearbyP.isGhost, isFrozen: nearbyP.isFrozen, maxTrailLength: nearbyP.maxTrailLength,
+              type: nearbyP.type, angle: nearbyP.angle // Include angle
+            };
+            
+            // Add static data only if it changed or it's a new player
+            if (nearbyStaticDataChanged) {
+              stateForPlayer.players[entity.id].name = nearbyP.name;
+              stateForPlayer.players[entity.id].headColor = nearbyP.headColor;
+              stateForPlayer.players[entity.id].bodyColor = nearbyP.bodyColor;
+              stateForPlayer.players[entity.id].skinData = nearbyP.skinData;
+            }
+          }
+        }
+      });
 
-    io.to(playerId).emit("state", stateForPlayer);
+      // Include nearby food
+      stateForPlayer.food = allFoodData.filter((f) => {
+        const dx = f.x - p.x;
+        const dy = f.y - p.y;
+        return dx * dx + dy * dy <= aoiRadiusSq;
+      });
+
+      io.to(playerId).emit("state", stateForPlayer);
+    }
   }
 
   // Admin Message
@@ -962,11 +1108,22 @@ function gameLoop() {
     adminMessage.text = "";
 
   // Leaderboard (Throttled)
-  const LEADERBOARD_INTERVAL = 500;
+  const LEADERBOARD_INTERVAL = config.LEADERBOARD_UPDATE_INTERVAL || 500;
   if (now - lastLeaderboardEmit > LEADERBOARD_INTERVAL) {
-    io.emit("leaderboard", getLeaderboard());
+    // Update leaderboard cache if needed
+    const LEADERBOARD_CACHE_DURATION = config.LEADERBOARD_CACHE_DURATION || 200;
+    if (!cachedLeaderboard || (now - lastLeaderboardUpdate) > LEADERBOARD_CACHE_DURATION) {
+      cachedLeaderboard = getLeaderboard();
+      lastLeaderboardUpdate = now;
+    }
+    io.emit("leaderboard", cachedLeaderboard);
     lastLeaderboardEmit = now;
   }
+
+  // Update state emit interval based on performance
+  const loopEndTime = Date.now();
+  const processingTime = loopEndTime - loopStartTime;
+  updateStateEmitInterval(processingTime, now);
 }
 
 // --- Function to start/stop food spawning interval ---

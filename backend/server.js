@@ -42,7 +42,13 @@ const createApiRouter = require("./apiRoutes"); // Import the router factory
 // --- Express and Socket.IO Initialization ---
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  transports: ["websocket"],
+  pingInterval: 25000, // 25 seconds
+  pingTimeout: 5000,  // 5 seconds
+  maxHttpBufferSize: 1e6, // 1MB
+  compress: true
+});
 
 // --- Constants and Configuration ---
 const CONFIG_PATH = path.join(__dirname, "config.json");

@@ -267,6 +267,7 @@ body {
 .form-group {
   display: flex;
   flex-direction: column; /* Stack label and input */
+  margin-bottom: 20px; /* Add spacing between form groups */
 }
 .form-group label {
   margin-bottom: 10px;
